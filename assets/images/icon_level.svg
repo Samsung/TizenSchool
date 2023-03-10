@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="176" height="112" viewBox="0 0 176 112">
+    <defs>
+        <style>
+            .b{fill:#5f6268;}
+            .c{fill:#efefef;}
+        </style>
+    </defs>
+    <g transform="translate(13 13)">
+        <rect class="b" width="21" height="84" transform="translate(0 0)"/>
+        <rect class="b" width="21" height="84" transform="translate(32 0)"/>
+        <rect class="b" width="21" height="84" transform="translate(64 0)"/>
+        <rect class="c" width="21" height="84" transform="translate(96 0)"/>
+        <rect class="c" width="21" height="84" transform="translate(128 0)"/>
+    </g>
+</svg>

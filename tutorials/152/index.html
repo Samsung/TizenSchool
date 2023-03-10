@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+    <title>[Kor] How to use Analog Sensor on Tizen IoT [SPI]</title>
+  <link rel="stylesheet" href="/assets/aboutus.1b0f65e4.css" />
+<link rel="stylesheet" href="/assets/10.cb2c83b6.css" />
+<link rel="stylesheet" href="/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="13NfkC" component-url="/Header.14d8e174.js" component-export="default" renderer-url="/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      [Kor] How to use Analog Sensor on Tizen IoT [SPI]
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">본 강좌는 2019 서울 하드웨어 해커톤의 사전 워크샵 강의를 위하여 작성되었습니다. Analog Sensor 사용법에 관한 자료입니다</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/assets/images/iot-active.png">
+        <img src="/assets/images/wearable-dimmed.png">
+        <img src="/assets/images/mobile-dimmed.png">
+        <img src="/assets/images/smart-tv-dimmed.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2019/07/19</span>
+            Modified
+            <span class="font-bold">2019/07/26</span>
+    </div>
+  </div><astro-island uid="Z1p14U4" component-url="/TextContent.c7f4d9de.js" component-export="default" renderer-url="/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,9],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;준비물\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Analog sound sensor\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Analog to Digital Converter (MCP3008)\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;SPI (Serial Peripheral Interface)\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;SPI API on Tizen\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;MCP3008 초기화\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;MCP3008 데이터 송수신\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;회로 연결하기\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Sample application 작성\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/9</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="준비물">준비물</h2>
+<p>HW Component</p>
+<p>Software OSs, apps and tools</p>
+<p>Source code</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="analog-sound-sensor">Analog sound sensor</h2>
+<ul>
+<li>
+<p>KY-037/038</p>
+</li>
+<li>
+<p>Operating voltage:5V</p>
+</li>
+<li>
+<p>Interface:&nbsp; <strong>Analog</strong> &nbsp;and Digital</p>
+</li>
+</ul>
+<img src="https://tizen-prod-craftroom.s3.amazonaws.com/uploads/2019/08/sensor.jpg" style="height:299px; width:800px">
+<p>본 강좌에서는 센서의 인터페이스 중 아날로그 인터페이스를 사용하려고 합니다.<br>하지만 아날로그 출력을 입력으로 받을 수 있는 부분이 Raspberry 3/3+ 보드에 없으므로 센서를 보드에 직접 연결하여 사용할 수는 없습니다.</p>
+<img src="/assets/images/tutorials/152/question.png" style="height:550px; width:1000px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="analog-to-digital-converter-mcp3008">Analog to Digital Converter (MCP3008)</h2>
+<p>이번 강좌에서는 MCP3008이라는 ADC를 이용해 아날로그 센서와 디지털 신호를 받는 보드 사이를 연결해보도록 하겠습니다.</p>
+<p><a href="https://cdn-shop.adafruit.com/datasheets/MCP3008.pdf">MCP3008 제조사 Datasheet</a></p>
+<img src="https://cdn-learn.adafruit.com/assets/assets/000/030/456/original/sensors_raspberry_pi_mcp3008pin.gif?1455010861" style="height:300px; width:400px">
+<p>아날로그 - 디지털 컨버터는 아래 그림처럼 특정 주기마다 아날로그 신호 값를 디지털 신호값으로 변환하여 주는 장치입니다.</p>
+<p>(수학적으로 적분하는 동작을 통해 그래프의 특정 구간 크기를 구합니다.)</p>
+<img src="https://tizen-prod-craftroom.s3.amazonaws.com/uploads/2018/08/Screenshot-from-2018-08-13-19-06-49.png" style="height:133px; width:1000px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="spi-serial-peripheral-interface">SPI (Serial Peripheral Interface)</h2>
+<p>MCP3008은 SPI 인터페이스를 지원하는 모듈입니다.</p>
+<p>SPI 인테페이스를 사용하기에 앞서 SPI가 어떤 것인지 알아보겠습니다.</p>
+<img src="https://developer.tizen.org/sites/default/files/images/peri_api_spi_diagram.png" style="undefined">
+<p>SPI는 위 그림처럼 Master Device와 Slave Device가 4개의 선으로 연결되어 통신하는 인터페이스입니다.&nbsp;각각의 Pin 이름에 대한 설명은 아래와 같습니다.</p>
+<p>위 그림에서 SPI Master가 Raspberry Pi&nbsp;보드쪽, SPI Slave가 MCP3008쪽입니다.</p>
+<p>그림의 화살표 방향으로 실제 데이터가 전송됩니다. 마스터 장치의 CS pin 갯수에 따라 연결가능한 슬래이브 갯수가 정해지는데,</p>
+<p>Raspberry Pi 3는 2개의 CS&nbsp;pin이 있습니다.</p>
+<p>예를 들어,Raspberry Pi 3와 MCP3008은 아래와 같은 핀들을 사용하여 연결 할 수 있습니다.</p>
+<img src="/assets/images/tutorials/152/connect1-1.png" style="height:384px; width:800px">
+<br>&nbsp;
+<p>SPI 인터페이스는 일반적으로 아래 그림과 같이 2개의 register를 이용한 circular 형태로 통신을 하고 있어 매우 빠른 속도의 양방향 통신을 지원합니다.</p>
+<p>(이런 구조에서는 한 클럭에 1bit를 서로 주고 받을 수 있으므로 동기화 클럭에 따라 속도가 달라집니다.)</p>
+<br>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/SPI_8-bit_circular_transfer.svg/1024px-SPI_8-bit_circular_transfer.svg.png" style="height:320px; width:800px">
+<p><a href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface">위키피디아</a>의 SPI 부분을 참조하시면 더 자세한 내용을 확인하실 수 있습니다.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="spi-api-on-tizen">SPI API on Tizen</h2>
+<p>Tizen은 주변장치 연결을 위한 Peripheral IO API를 제공하고 있고, 그 중 SPI 인테페이스를 위한 API는 아래와 같습니다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">/*</span><span style="color: #708090"> Open &amp; Close interface </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_spi_open</span><span style="color: #999">(</span><span style="color: #07A">int</span><span style="color: #000"> bus</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #07A">int</span><span style="color: #000"> cs</span><span style="color: #999">,</span><span style="color: #000"> peripheral_spi_h </span><span style="color: #A67F59">*</span><span style="color: #000">spi</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_spi_close</span><span style="color: #999">(</span><span style="color: #000">peripheral_spi_h spi</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">/*</span><span style="color: #708090"> Setup interface </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_spi_set_mode</span><span style="color: #999">(</span><span style="color: #000">peripheral_spi_h spi</span><span style="color: #999">,</span><span style="color: #000"> peripheral_spi_mode_e mode</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_spi_set_bit_order</span><span style="color: #999">(</span><span style="color: #000">peripheral_spi_h spi</span><span style="color: #999">,</span><span style="color: #000"> peripheral_spi_bit_order_e bit_order</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_spi_set_bits_per_word</span><span style="color: #999">(</span><span style="color: #000">peripheral_spi_h spi</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #07A">uint8_t</span><span style="color: #000"> bits</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_spi_set_frequency</span><span style="color: #999">(</span><span style="color: #000">peripheral_spi_h spi</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #07A">uint32_t</span><span style="color: #000"> freq_hz</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">/*</span><span style="color: #708090"> Transfer data </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_spi_read</span><span style="color: #999">(</span><span style="color: #000">peripheral_spi_h spi</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #07A">uint8_t</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">data</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #07A">uint32_t</span><span style="color: #000"> length</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_spi_write</span><span style="color: #999">(</span><span style="color: #000">peripheral_spi_h spi</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #07A">uint8_t</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">data</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #07A">uint32_t</span><span style="color: #000"> length</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_spi_transfer</span><span style="color: #999">(</span><span style="color: #000">peripheral_spi_h spi</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #07A">uint8_t</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">txdata</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #07A">uint8_t</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">rxdata</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #07A">uint32_t</span><span style="color: #000"> length</span><span style="color: #999">);</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>각각의 API에 대한 자세한 설명은&nbsp;<a href="https://docs.tizen.org/iot/guides/peripheral-io-api-spi">API Guide</a>와&nbsp;<a href="https://developer.tizen.org/dev-guide/tizen-iot-headless/latest/group__CAPI__SYSTEM__PERIPHERAL__IO__SPI__MODULE.html">API Reference</a>&nbsp;에서 확인하실 수 있습니다.</p>
+<p>위 API를 이용해서 보드와 MCP3008간에 어떻게 데이터 송수신을 할 수 있는 지 알아보겠습니다.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="mcp3008-초기화">MCP3008 초기화</h2>
+<p>먼저&nbsp; <em><code>peripheral_spi_open()</code></em> 의 첫번째와 두번째 파라미터인&nbsp;
+<code>bus</code>
+와&nbsp;
+<code>cs</code>
+&nbsp;값을 알기 위해서는 보드의 설정 정보가 필요합니다.</p>
+<p><br>Raspberry Pi 3의&nbsp;<a href="https://developer.tizen.org/development/iot-extension-sdk/api-guides/tizen-peripheral-io-native-api/spi">설정 정보</a>는 아래와 같습니다.</p>
+<img src="https://tizen-prod-craftroom.s3.amazonaws.com/uploads/2019/08/rpi3_bus_cs.png" style="undefined">
+<p>다음으로 인터페이스를 설정하기 위한 아래 4개의 API는 Slave 장치의 정보가 필요합니다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_spi_set_mode</span><span style="color: #999">(</span><span style="color: #000">peripheral_spi_h spi</span><span style="color: #999">,</span><span style="color: #000"> peripheral_spi_mode_e mode</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_spi_set_bit_order</span><span style="color: #999">(</span><span style="color: #000">peripheral_spi_h spi</span><span style="color: #999">,</span><span style="color: #000"> peripheral_spi_bit_order_e bit_order</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_spi_set_bits_per_word</span><span style="color: #999">(</span><span style="color: #000">peripheral_spi_h spi</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #07A">uint8_t</span><span style="color: #000"> bits</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_spi_set_frequency</span><span style="color: #999">(</span><span style="color: #000">peripheral_spi_h spi</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #07A">uint32_t</span><span style="color: #000"> freq_hz</span><span style="color: #999">);</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>저희가 사용 중인 MCP3008의 정보는 datasheet에서 필요한 정보를 찾아야 합니다.</p>
+<br>
+<img src="https://tizen-prod-craftroom.s3.amazonaws.com/uploads/2018/08/mcp3008-6-1.png" style="undefined">
+<p>위와 같이 datasheet에서 설정 정보를 찾을 수 있습니다.</p>
+<p>위의 정보를 바탕으로 아래와 같이 MCP3008을 초기화 하는 함수를 만들 수 있습니다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000"> </span><span style="color: #DD4A68">SPI_BUS</span><span style="color: #000"> </span><span style="color: #905">0</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000"> </span><span style="color: #DD4A68">SPI_CS</span><span style="color: #000"> </span><span style="color: #905">0</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000">	</span><span style="color: #DD4A68">MCP3008_SPEED</span><span style="color: #000"> </span><span style="color: #905">3600000</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000"> </span><span style="color: #DD4A68">MCP3008_BPW</span><span style="color: #000"> </span><span style="color: #905">8</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">static</span><span style="color: #000"> peripheral_spi_h MCP3008_H </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">static</span><span style="color: #000"> </span><span style="color: #07A">unsigned</span><span style="color: #000"> </span><span style="color: #07A">int</span><span style="color: #000"> ref_count </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">adc_mcp3008_init</span><span style="color: #999">(</span><span style="color: #07A">void</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">int</span><span style="color: #000"> ret </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	ret </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_spi_open</span><span style="color: #999">(</span><span style="color: #000">SPI_BUS</span><span style="color: #999">,</span><span style="color: #000"> SPI_CS</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #A67F59">&amp;</span><span style="color: #000">MCP3008_H</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">PERIPHERAL_ERROR_NONE </span><span style="color: #A67F59">!=</span><span style="color: #000"> ret</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #DD4A68">_E</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">spi open failed :%s </span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #DD4A68">get_error_message</span><span style="color: #999">(</span><span style="color: #000">ret</span><span style="color: #999">));</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">return</span><span style="color: #000"> </span><span style="color: #A67F59">-</span><span style="color: #905">1</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	ret </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_spi_set_mode</span><span style="color: #999">(</span><span style="color: #000">MCP3008_H</span><span style="color: #999">,</span><span style="color: #000"> PERIPHERAL_SPI_MODE_0</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">PERIPHERAL_ERROR_NONE </span><span style="color: #A67F59">!=</span><span style="color: #000"> ret</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #DD4A68">_E</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">peripheral_spi_set_mode failed :%s </span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #DD4A68">get_error_message</span><span style="color: #999">(</span><span style="color: #000">ret</span><span style="color: #999">));</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">goto</span><span style="color: #000"> ERROR_AFTER_OPEN</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #000">	ret </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_spi_set_bit_order</span><span style="color: #999">(</span><span style="color: #000">MCP3008_H</span><span style="color: #999">,</span><span style="color: #000"> PERIPHERAL_SPI_BIT_ORDER_MSB</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">PERIPHERAL_ERROR_NONE </span><span style="color: #A67F59">!=</span><span style="color: #000"> ret</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #DD4A68">_E</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">peripheral_spi_set_bit_order failed :%s </span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #DD4A68">get_error_message</span><span style="color: #999">(</span><span style="color: #000">ret</span><span style="color: #999">));</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">goto</span><span style="color: #000"> ERROR_AFTER_OPEN</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	ret </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_spi_set_bits_per_word</span><span style="color: #999">(</span><span style="color: #000">MCP3008_H</span><span style="color: #999">,</span><span style="color: #000"> MCP3008_BPW</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">PERIPHERAL_ERROR_NONE </span><span style="color: #A67F59">!=</span><span style="color: #000"> ret</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #DD4A68">_E</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">peripheral_spi_set_bits_per_word failed :%s </span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #DD4A68">get_error_message</span><span style="color: #999">(</span><span style="color: #000">ret</span><span style="color: #999">));</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">goto</span><span style="color: #000"> ERROR_AFTER_OPEN</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	ret </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_spi_set_frequency</span><span style="color: #999">(</span><span style="color: #000">MCP3008_H</span><span style="color: #999">,</span><span style="color: #000"> MCP3008_SPEED</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">PERIPHERAL_ERROR_NONE </span><span style="color: #A67F59">!=</span><span style="color: #000"> ret</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #DD4A68">_E</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">peripheral_spi_set_frequency failed :%s </span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #DD4A68">get_error_message</span><span style="color: #999">(</span><span style="color: #000">ret</span><span style="color: #999">));</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">goto</span><span style="color: #000"> ERROR_AFTER_OPEN</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	ref_count</span><span style="color: #A67F59">++</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">return</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">ERROR_AFTER_OPEN:</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">peripheral_spi_close</span><span style="color: #999">(</span><span style="color: #000">MCP3008_H</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">	MCP3008_H </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">return</span><span style="color: #000"> </span><span style="color: #A67F59">-</span><span style="color: #905">1</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="mcp3008-데이터-송수신">MCP3008 데이터 송수신</h2>
+<p>SPI인터페이스를 이용하여 MCP3008을 초기화 하였으니, 데이터를 송/수신하는 방법에 대해 알아 보겠습니다.</p>
+<p>SPI 인터페이스는 송/수신이 동시에 가능하므로,&nbsp; <em><code>peripheral_spi_read()</code>
+&nbsp;,&nbsp;
+<code>peripheral_spi_write()</code></em> &nbsp;함수 보다는&nbsp; <em><code>peripheral_spi_transfer()</code></em> 함수를 주로 사용합니다.</p>
+<p>MCP3008에게 보드가 전달할 첫 번째 데이터는 MCP3008의 8개 입력 채널 중 어떤 채널의 값을 전달 받을 지 선택하는 입력 데이터 입니다.</p>
+<img src="https://tizen-prod-craftroom.s3.amazonaws.com/uploads/2018/08/mcp3008-6-1.png" style="undefined">
+<p>위 그림의 trasmitted data 부분에 start bit 1 이후의 4 bit 데이터가 그 선택 입력 데이터 입니다.</p>
+<p>아래 datasheet 내용과 같이 4bit 데이터를 각 채널에 따라 선택하면 됩니다.</p>
+<br>
+<img src="https://tizen-prod-craftroom.s3.amazonaws.com/uploads/2018/08/ch-select.png" style="undefined">
+<p>8bit word에서 상위 4bit 데이터의 값이므로 아래와 같은 값을 사용하면 됩니다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000">	</span><span style="color: #DD4A68">MCP3008_TX_CH0</span><span style="color: #000"> </span><span style="color: #07A">0x</span><span style="color: #905">80</span><span style="color: #708090">	</span><span style="color: #999">/*</span><span style="color: #708090"> 0b10000000 </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000">	</span><span style="color: #DD4A68">MCP3008_TX_CH1</span><span style="color: #000"> </span><span style="color: #07A">0x</span><span style="color: #905">90</span><span style="color: #708090">	</span><span style="color: #999">/*</span><span style="color: #708090"> 0b10010000 </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000">	</span><span style="color: #DD4A68">MCP3008_TX_CH2</span><span style="color: #000"> </span><span style="color: #07A">0x</span><span style="color: #905">A0</span><span style="color: #708090">	</span><span style="color: #999">/*</span><span style="color: #708090"> 0b10100000 </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000">	</span><span style="color: #DD4A68">MCP3008_TX_CH3</span><span style="color: #000"> </span><span style="color: #07A">0x</span><span style="color: #905">B0</span><span style="color: #708090">	</span><span style="color: #999">/*</span><span style="color: #708090"> 0b10110000 </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000">	</span><span style="color: #DD4A68">MCP3008_TX_CH4</span><span style="color: #000"> </span><span style="color: #07A">0x</span><span style="color: #905">C0</span><span style="color: #708090">	</span><span style="color: #999">/*</span><span style="color: #708090"> 0b11000000 </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000">	</span><span style="color: #DD4A68">MCP3008_TX_CH5</span><span style="color: #000"> </span><span style="color: #07A">0x</span><span style="color: #905">D0</span><span style="color: #708090">	</span><span style="color: #999">/*</span><span style="color: #708090"> 0b11010000 </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000">	</span><span style="color: #DD4A68">MCP3008_TX_CH6</span><span style="color: #000"> </span><span style="color: #07A">0x</span><span style="color: #905">E0</span><span style="color: #708090">	</span><span style="color: #999">/*</span><span style="color: #708090"> 0b11100000 </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000">	</span><span style="color: #DD4A68">MCP3008_TX_CH7</span><span style="color: #000"> </span><span style="color: #07A">0x</span><span style="color: #905">F0</span><span style="color: #708090">	</span><span style="color: #999">/*</span><span style="color: #708090"> 0b11110000 </span><span style="color: #999">*/</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>MCP3008에서부터 데이터를 받는 부분은 조금 복잡합니다.</p>
+<p>먼저 datasheet에서 수신 데이터의 형식을 살펴보면 아래 그림과 같습니다.</p>
+<img src="https://tizen-prod-craftroom.s3.amazonaws.com/uploads/2018/08/Screenshot-from-2018-08-14-20-32-54.png" style="height:135px; width:1100px">
+<p>총 3개의 word가 있고,</p>
+<p>첫번째 word는 무시할 수 있는 값들입니다.</p>
+<p>두번째 word는 끝에서 3번째 bit에 NULL(0)로 데이터 시작을 알리는 bit가 있고, 10bit 데이터 중 상위 2bit 데이터가 포함되어 있습니다.</p>
+<p>세번째 word는 10bit 데이터 중 하위 8bit 데이터가 포함되어 있습니다.</p>
+<p>이 정보를 바탕으로 MCP3008의 특정 채널 입력데이터를 얻는 코드를 아래와 같이 작성 할 수 있습니다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000">	</span><span style="color: #DD4A68">MCP3008_TX_WORD1</span><span style="color: #000"> </span><span style="color: #07A">0x</span><span style="color: #905">01</span><span style="color: #708090">	</span><span style="color: #999">/*</span><span style="color: #708090"> 0b00000001 </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000">	</span><span style="color: #DD4A68">MCP3008_TX_CH0</span><span style="color: #000"> </span><span style="color: #07A">0x</span><span style="color: #905">80</span><span style="color: #708090">	</span><span style="color: #999">/*</span><span style="color: #708090"> 0b10000000 </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000">	</span><span style="color: #DD4A68">MCP3008_TX_CH1</span><span style="color: #000"> </span><span style="color: #07A">0x</span><span style="color: #905">90</span><span style="color: #708090">	</span><span style="color: #999">/*</span><span style="color: #708090"> 0b10010000 </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000">	</span><span style="color: #DD4A68">MCP3008_TX_CH2</span><span style="color: #000"> </span><span style="color: #07A">0x</span><span style="color: #905">A0</span><span style="color: #708090">	</span><span style="color: #999">/*</span><span style="color: #708090"> 0b10100000 </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000">	</span><span style="color: #DD4A68">MCP3008_TX_CH3</span><span style="color: #000"> </span><span style="color: #07A">0x</span><span style="color: #905">B0</span><span style="color: #708090">	</span><span style="color: #999">/*</span><span style="color: #708090"> 0b10110000 </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000">	</span><span style="color: #DD4A68">MCP3008_TX_CH4</span><span style="color: #000"> </span><span style="color: #07A">0x</span><span style="color: #905">C0</span><span style="color: #708090">	</span><span style="color: #999">/*</span><span style="color: #708090"> 0b11000000 </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000">	</span><span style="color: #DD4A68">MCP3008_TX_CH5</span><span style="color: #000"> </span><span style="color: #07A">0x</span><span style="color: #905">D0</span><span style="color: #708090">	</span><span style="color: #999">/*</span><span style="color: #708090"> 0b11010000 </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000">	</span><span style="color: #DD4A68">MCP3008_TX_CH6</span><span style="color: #000"> </span><span style="color: #07A">0x</span><span style="color: #905">E0</span><span style="color: #708090">	</span><span style="color: #999">/*</span><span style="color: #708090"> 0b11100000 </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000">	</span><span style="color: #DD4A68">MCP3008_TX_CH7</span><span style="color: #000"> </span><span style="color: #07A">0x</span><span style="color: #905">F0</span><span style="color: #708090">	</span><span style="color: #999">/*</span><span style="color: #708090"> 0b11110000 </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000">	</span><span style="color: #DD4A68">MCP3008_TX_WORD3</span><span style="color: #000"> </span><span style="color: #07A">0x</span><span style="color: #905">00</span><span style="color: #708090">	</span><span style="color: #999">/*</span><span style="color: #708090"> 0b00000000 </span><span style="color: #999">*/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000"> </span><span style="color: #DD4A68">MCP3008_RX_WORD1_MASK</span><span style="color: #000"> </span><span style="color: #07A">0x</span><span style="color: #905">00</span><span style="color: #708090">	</span><span style="color: #999">/*</span><span style="color: #708090"> 0b00000000 </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000"> </span><span style="color: #DD4A68">MCP3008_RX_WORD2_NULL_BIT_MASK</span><span style="color: #000"> </span><span style="color: #07A">0x</span><span style="color: #905">04</span><span style="color: #708090">	</span><span style="color: #999">/*</span><span style="color: #708090"> 0b00000100 </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000"> </span><span style="color: #DD4A68">MCP3008_RX_WORD2_MASK</span><span style="color: #000"> </span><span style="color: #07A">0x</span><span style="color: #905">03</span><span style="color: #708090">	</span><span style="color: #999">/*</span><span style="color: #708090"> 0b00000011 </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000"> </span><span style="color: #DD4A68">MCP3008_RX_WORD3_MASK</span><span style="color: #000"> </span><span style="color: #07A">0x</span><span style="color: #905">FF</span><span style="color: #708090">	</span><span style="color: #999">/*</span><span style="color: #708090"> 0b11111111 </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000"> </span><span style="color: #DD4A68">UINT10_VALIDATION_MASK</span><span style="color: #000"> </span><span style="color: #07A">0x</span><span style="color: #905">3FF</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">adc_mcp3008_read</span><span style="color: #999">(</span><span style="color: #07A">int</span><span style="color: #000"> ch_num</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #07A">unsigned</span><span style="color: #000"> </span><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">out_value</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">unsigned</span><span style="color: #000"> </span><span style="color: #07A">char</span><span style="color: #000"> rx</span><span style="color: #999">[</span><span style="color: #905">3</span><span style="color: #999">]</span><span style="color: #000"> </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #999">{</span><span style="color: #905">0</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #999">};</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">unsigned</span><span style="color: #000"> </span><span style="color: #07A">char</span><span style="color: #000"> tx</span><span style="color: #999">[</span><span style="color: #905">3</span><span style="color: #999">]</span><span style="color: #000"> </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #999">{</span><span style="color: #905">0</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #999">};</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">unsigned</span><span style="color: #000"> </span><span style="color: #07A">char</span><span style="color: #000"> rx_w1 </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">unsigned</span><span style="color: #000"> </span><span style="color: #07A">char</span><span style="color: #000"> rx_w2 </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">unsigned</span><span style="color: #000"> </span><span style="color: #07A">char</span><span style="color: #000"> rx_w2_nb </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">unsigned</span><span style="color: #000"> </span><span style="color: #07A">char</span><span style="color: #000"> rx_w3 </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">unsigned</span><span style="color: #000"> </span><span style="color: #07A">short</span><span style="color: #000"> </span><span style="color: #07A">int</span><span style="color: #000"> result </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">out_value </span><span style="color: #A67F59">==</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">return</span><span style="color: #000"> </span><span style="color: #A67F59">-</span><span style="color: #905">1</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">ch_num </span><span style="color: #A67F59">&lt;</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #000"> </span><span style="color: #A67F59">||</span><span style="color: #000"> ch_num </span><span style="color: #A67F59">&gt;</span><span style="color: #000"> </span><span style="color: #905">7</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">return</span><span style="color: #000"> </span><span style="color: #A67F59">-</span><span style="color: #905">1</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	tx</span><span style="color: #999">[</span><span style="color: #905">0</span><span style="color: #999">]</span><span style="color: #000"> </span><span style="color: #A67F59">=</span><span style="color: #000"> MCP3008_TX_WORD1</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">switch</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">ch_num</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">case</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">:</span></span>
+<span class="line"><span style="color: #000">		tx</span><span style="color: #999">[</span><span style="color: #905">1</span><span style="color: #999">]</span><span style="color: #000"> </span><span style="color: #A67F59">=</span><span style="color: #000"> MCP3008_TX_CH0</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">break</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">case</span><span style="color: #000"> </span><span style="color: #905">1</span><span style="color: #999">:</span></span>
+<span class="line"><span style="color: #000">		tx</span><span style="color: #999">[</span><span style="color: #905">1</span><span style="color: #999">]</span><span style="color: #000"> </span><span style="color: #A67F59">=</span><span style="color: #000"> MCP3008_TX_CH1</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">break</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">case</span><span style="color: #000"> </span><span style="color: #905">2</span><span style="color: #999">:</span></span>
+<span class="line"><span style="color: #000">		tx</span><span style="color: #999">[</span><span style="color: #905">1</span><span style="color: #999">]</span><span style="color: #000"> </span><span style="color: #A67F59">=</span><span style="color: #000"> MCP3008_TX_CH2</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">break</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">case</span><span style="color: #000"> </span><span style="color: #905">3</span><span style="color: #999">:</span></span>
+<span class="line"><span style="color: #000">		tx</span><span style="color: #999">[</span><span style="color: #905">1</span><span style="color: #999">]</span><span style="color: #000"> </span><span style="color: #A67F59">=</span><span style="color: #000"> MCP3008_TX_CH3</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">break</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">case</span><span style="color: #000"> </span><span style="color: #905">4</span><span style="color: #999">:</span></span>
+<span class="line"><span style="color: #000">		tx</span><span style="color: #999">[</span><span style="color: #905">1</span><span style="color: #999">]</span><span style="color: #000"> </span><span style="color: #A67F59">=</span><span style="color: #000"> MCP3008_TX_CH4</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">break</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">case</span><span style="color: #000"> </span><span style="color: #905">5</span><span style="color: #999">:</span></span>
+<span class="line"><span style="color: #000">		tx</span><span style="color: #999">[</span><span style="color: #905">1</span><span style="color: #999">]</span><span style="color: #000"> </span><span style="color: #A67F59">=</span><span style="color: #000"> MCP3008_TX_CH5</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">break</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">case</span><span style="color: #000"> </span><span style="color: #905">6</span><span style="color: #999">:</span></span>
+<span class="line"><span style="color: #000">		tx</span><span style="color: #999">[</span><span style="color: #905">1</span><span style="color: #999">]</span><span style="color: #000"> </span><span style="color: #A67F59">=</span><span style="color: #000"> MCP3008_TX_CH6</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">break</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">case</span><span style="color: #000"> </span><span style="color: #905">7</span><span style="color: #999">:</span></span>
+<span class="line"><span style="color: #000">		tx</span><span style="color: #999">[</span><span style="color: #905">1</span><span style="color: #999">]</span><span style="color: #000"> </span><span style="color: #A67F59">=</span><span style="color: #000"> MCP3008_TX_CH7</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">break</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">default</span><span style="color: #999">:</span></span>
+<span class="line"><span style="color: #000">		tx</span><span style="color: #999">[</span><span style="color: #905">1</span><span style="color: #999">]</span><span style="color: #000"> </span><span style="color: #A67F59">=</span><span style="color: #000"> MCP3008_TX_CH0</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">break</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	tx</span><span style="color: #999">[</span><span style="color: #905">2</span><span style="color: #999">]</span><span style="color: #000"> </span><span style="color: #A67F59">=</span><span style="color: #000"> MCP3008_TX_WORD3</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">peripheral_spi_transfer</span><span style="color: #999">(</span><span style="color: #000">MCP3008_H</span><span style="color: #999">,</span><span style="color: #000"> tx</span><span style="color: #999">,</span><span style="color: #000"> rx</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #905">3</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	rx_w1 </span><span style="color: #A67F59">=</span><span style="color: #000"> rx</span><span style="color: #999">[</span><span style="color: #905">0</span><span style="color: #999">]</span><span style="color: #000"> </span><span style="color: #A67F59">&amp;</span><span style="color: #000"> MCP3008_RX_WORD1_MASK</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">rx_w1 </span><span style="color: #A67F59">!=</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">return</span><span style="color: #000"> </span><span style="color: #A67F59">-</span><span style="color: #905">1</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	rx_w2_nb </span><span style="color: #A67F59">=</span><span style="color: #000"> rx</span><span style="color: #999">[</span><span style="color: #905">1</span><span style="color: #999">]</span><span style="color: #000"> </span><span style="color: #A67F59">&amp;</span><span style="color: #000"> MCP3008_RX_WORD2_NULL_BIT_MASK</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">rx_w2_nb </span><span style="color: #A67F59">!=</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">return</span><span style="color: #000"> </span><span style="color: #A67F59">-</span><span style="color: #905">1</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	rx_w2 </span><span style="color: #A67F59">=</span><span style="color: #000"> rx</span><span style="color: #999">[</span><span style="color: #905">1</span><span style="color: #999">]</span><span style="color: #000"> </span><span style="color: #A67F59">&amp;</span><span style="color: #000"> MCP3008_RX_WORD2_MASK</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	rx_w3 </span><span style="color: #A67F59">=</span><span style="color: #000"> rx</span><span style="color: #999">[</span><span style="color: #905">2</span><span style="color: #999">]</span><span style="color: #000"> </span><span style="color: #A67F59">&amp;</span><span style="color: #000"> MCP3008_RX_WORD3_MASK</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	result </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #999">((</span><span style="color: #000">rx_w2 </span><span style="color: #A67F59">&lt;&lt;</span><span style="color: #000"> </span><span style="color: #905">8</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #A67F59">|</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">rx_w3</span><span style="color: #999">))</span><span style="color: #000"> </span><span style="color: #A67F59">&amp;</span><span style="color: #000"> UINT10_VALIDATION_MASK</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #A67F59">*</span><span style="color: #000">out_value </span><span style="color: #A67F59">=</span><span style="color: #000"> result</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">return</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>조금 복잡해 보이지만&nbsp;
+<code>switch</code>
+문에서 채널을 선택하여&nbsp; <strong><code>tx</code></strong> &nbsp;버퍼를 완성하고,<br> <em><code>peripheral_spi_transfer()</code></em> 를 통해&nbsp; <strong><code>tx</code></strong> 버퍼와&nbsp; <strong><code>rx</code></strong> 버퍼를 입력하면, 선택된 채널의 데이터가&nbsp; <strong><code>rx</code></strong> 버퍼에 담겨 리턴됩니다.</p>
+<p>앞에서 설명한 것과 같이 3개의 word로 구성된&nbsp;
+<code>rx</code>
+버퍼에서 필요한 bit만 선택하여 데이터를 추출하면 됩니다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #000">rx_w2_nb </span><span style="color: #A67F59">=</span><span style="color: #000"> rx</span><span style="color: #999">[</span><span style="color: #905">1</span><span style="color: #999">]</span><span style="color: #000"> </span><span style="color: #A67F59">&amp;</span><span style="color: #000"> MCP3008_RX_WORD2_NULL_BIT_MASK</span><span style="color: #999">;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>이 부분에서 두번째 word의 6번째 bit가 정상적으로 NULL(0)로 시작하는 지 체크하고,</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #000">rx_w2 </span><span style="color: #A67F59">=</span><span style="color: #000"> rx</span><span style="color: #999">[</span><span style="color: #905">1</span><span style="color: #999">]</span><span style="color: #000"> </span><span style="color: #A67F59">&amp;</span><span style="color: #000"> MCP3008_RX_WORD2_MASK</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">rx_w3 </span><span style="color: #A67F59">=</span><span style="color: #000"> rx</span><span style="color: #999">[</span><span style="color: #905">2</span><span style="color: #999">]</span><span style="color: #000"> </span><span style="color: #A67F59">&amp;</span><span style="color: #000"> MCP3008_RX_WORD3_MASK</span><span style="color: #999">;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>이부분에서 두번째 word의 하위 2bit와 3번째 word의 8 bit를 추출합니다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #000">result </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #999">((</span><span style="color: #000">rx_w2 </span><span style="color: #A67F59">&lt;&lt;</span><span style="color: #000"> </span><span style="color: #905">8</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #A67F59">|</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">rx_w3</span><span style="color: #999">))</span><span style="color: #000"> </span><span style="color: #A67F59">&amp;</span><span style="color: #000"> UINT10_VALIDATION_MASK</span><span style="color: #999">;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>앞서 추출한 10 bit 데이터를 최종적으로 한 변수에 저장하면 됩니다.</p>
+<p>앞에서 설명한 내용의 완성본 코드는&nbsp; <em><code>adc-mcp3008.c</code></em> &nbsp;파일입니다.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="회로-연결하기">회로 연결하기</h2>
+<p>앞서 SPI 인터페이스를 이용해 데이터를 읽는 방법을 알아봤으니 실제 회로 연결을 어떻게 하는지 알아보겠습니다.</p>
+<p>SPI는 앞서 언급했던 최소 4개의 핀(MISO, MOSI, CLK, CS)의 연결이 필요하고, 회로의 전원과 접지 등을 위해서<br>많은 수의 연결이 필요하니 유의하여 연결하셔야 합니다.</p>
+<p>회로의 최종 연결은 위의 그림과 같이 연결되어야 합니다. MCP3008의 핀을 바로 연결 할 수 없으니, Bread board를 이용하여 연결하도록 하겠습니다.</p>
+<p>Raspberry pi 3 연결도</p>
+<img src="/assets/images/tutorials/152/sound_bb.png" style="height:731px; width:1000px">
+<p>RPI3 연결 사진</p>
+<img src="https://tizen-prod-craftroom.s3.amazonaws.com/uploads/2019/08/connect_p1.jpg" style="height:562px; width:1000px">
+<img src="https://tizen-prod-craftroom.s3.amazonaws.com/uploads/2019/08/connect_p2.jpg" style="height:562px; width:1000px">
+<img src="https://tizen-prod-craftroom.s3.amazonaws.com/uploads/2019/08/connect_p3.jpg" style="height:562px; width:1000px">
+<img src="https://tizen-prod-craftroom.s3.amazonaws.com/uploads/2019/04/20171024_100209_1.jpg" style="height:563px; width:1000px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="sample-application-작성">Sample application 작성</h2>
+<p>센서의 값을 수집하는 sample application의&nbsp; <em><code>analog-sensor.c</code></em> &nbsp;파일의 코드 일부를 발췌하였습니다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">static</span><span style="color: #000"> Eina_Bool </span><span style="color: #DD4A68">__get_value</span><span style="color: #999">(</span><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">data</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">int</span><span style="color: #000"> ret </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">unsigned</span><span style="color: #000"> </span><span style="color: #07A">int</span><span style="color: #000"> value </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	app_data </span><span style="color: #A67F59">*</span><span style="color: #000">ad </span><span style="color: #A67F59">=</span><span style="color: #000"> data</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #A67F59">!</span><span style="color: #000">ad</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #DD4A68">_E</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">failed to get app_data</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #DD4A68">service_app_exit</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">return</span><span style="color: #000"> ECORE_CALLBACK_CANCEL</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	ret </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">sound_sensor_read</span><span style="color: #999">(</span><span style="color: #905">0</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #A67F59">&amp;</span><span style="color: #000">value</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">retv_if</span><span style="color: #999">(</span><span style="color: #000">ret </span><span style="color: #A67F59">!=</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">,</span><span style="color: #000"> ECORE_CALLBACK_RENEW</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090">	_D("sensor value - [%u]", value);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">return</span><span style="color: #000"> ECORE_CALLBACK_RENEW</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">static</span><span style="color: #000"> </span><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">service_app_control</span><span style="color: #999">(</span><span style="color: #000">app_control_h app_control</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">data</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">	app_data </span><span style="color: #A67F59">*</span><span style="color: #000">ad </span><span style="color: #A67F59">=</span><span style="color: #000"> data</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">ret_if</span><span style="color: #999">(</span><span style="color: #A67F59">!</span><span style="color: #000">ad</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">ad</span><span style="color: #999">-&gt;</span><span style="color: #000">idler</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #DD4A68">ecore_idler_del</span><span style="color: #999">(</span><span style="color: #000">ad</span><span style="color: #999">-&gt;</span><span style="color: #000">idler</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">		ad</span><span style="color: #999">-&gt;</span><span style="color: #000">idler </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	ad</span><span style="color: #999">-&gt;</span><span style="color: #000">idler </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">ecore_idler_add</span><span style="color: #999">(</span><span style="color: #000">__get_value</span><span style="color: #999">,</span><span style="color: #000"> ad</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #A67F59">!</span><span style="color: #000">ad</span><span style="color: #999">-&gt;</span><span style="color: #000">idler</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #DD4A68">_E</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Failed to add idler</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">    </span><span style="color: #07A">return</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>위 코드에서&nbsp; <em><code>service_app_control()</code></em> &nbsp;콜백 함수가 불리면&nbsp; <em><code>ecore_idler_add()</code></em> 함수를 통해 main loop이&nbsp;
+<code>idle</code>
+&nbsp;상태일때마다</p>
+<p><em><code>__get_value()</code></em> &nbsp;콜백 함수가 호출되고&nbsp; <em><code>__get_value()</code></em> &nbsp;함수에서 SPI를 이용하여 MCP3008에 연결된 sound sensor의 값을 읽어 오게됩니다.</p>
+<p>sound sensor는 아날로그 센서이므로 무수히 많은 데이터가 지속적으로 출력되는데,</p>
+<p>위 코드에서는idler를 사용하여&nbsp;main loop이 여력이 있는 만큼 센서 데이터를 읽어오게 됩니다.</p>
+<p><em><code>__get_value()</code></em> &nbsp;함수에서 호출하는&nbsp; <em><code>sound_sensor_read()</code></em> 함수의 내부는</p>
+<p>아래와 같이 MCP3008에서 수집된 값을 그대로 출력하는 아주 간단한 코드입니다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">sound_sensor_read</span><span style="color: #999">(</span><span style="color: #07A">int</span><span style="color: #000"> ch_num</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #07A">unsigned</span><span style="color: #000"> </span><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">out_value</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">unsigned</span><span style="color: #000"> </span><span style="color: #07A">int</span><span style="color: #000"> read_value </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">int</span><span style="color: #000"> ret </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #A67F59">!</span><span style="color: #000">initialized</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">		ret </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">adc_mcp3008_init</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #DD4A68">retv_if</span><span style="color: #999">(</span><span style="color: #000">ret </span><span style="color: #A67F59">!=</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #A67F59">-</span><span style="color: #905">1</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">		initialized </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">1</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	ret </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">adc_mcp3008_read</span><span style="color: #999">(</span><span style="color: #000">ch_num</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #A67F59">&amp;</span><span style="color: #000">read_value</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">retv_if</span><span style="color: #999">(</span><span style="color: #000">ret </span><span style="color: #A67F59">!=</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #A67F59">-</span><span style="color: #905">1</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">print_bar</span><span style="color: #999">(</span><span style="color: #000">read_value</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #A67F59">*</span><span style="color: #000">out_value </span><span style="color: #A67F59">=</span><span style="color: #000"> read_value</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">return</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><br> <em><code>print_bar()</code></em> 함수는 입력된 sound sensor 값을 bar형태로 출력해주는 간단한 함수입니다.</p>
+<p><br>application을 동작시켜 나오는 로그를 통해 어떤 데이터가 출력되는지 확인해보겠습니다.</p></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/9</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/84895ba0ae7f34d06b2e24359088ded5aef2eb94">84895ba0ae7f34d06b2e24359088ded5aef2eb94</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+

@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+    <title>Getting started with Raspberry PI 3&amp;4</title>
+  <link rel="stylesheet" href="/assets/aboutus.1b0f65e4.css" />
+<link rel="stylesheet" href="/assets/10.cb2c83b6.css" />
+<link rel="stylesheet" href="/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="13NfkC" component-url="/Header.14d8e174.js" component-export="default" renderer-url="/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      Getting started with Raspberry PI 3&amp;4
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">이 튜토리얼은 라즈베리파이 3 또는 4에서 Tizen IoT 개발 환경 구축을 가장 쉬운 방법으로 가이드하고 있습니다. - Written by 강석현(Shawn Kang)</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/assets/images/iot-active.png">
+        <img src="/assets/images/wearable-dimmed.png">
+        <img src="/assets/images/mobile-dimmed.png">
+        <img src="/assets/images/smart-tv-dimmed.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2020/07/01</span>
+            Modified
+            <span class="font-bold">2021/07/18</span>
+    </div>
+  </div><astro-island uid="tRrGF" component-url="/TextContent.c7f4d9de.js" component-export="default" renderer-url="/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,19],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[]\&quot;],\&quot;chapter\&quot;:[0,\&quot;\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Overview\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;I. Overview\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Installing Visual Studio\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. Installing Tizen Extension\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. Installing Tizen Studio and Packages\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;4. Creating a Tizen Certificate\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;II. Setting Up Your Environment\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Downloading Image Files\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. Flashing SD card\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;III. Flashing Tizen Image\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Overview\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2-1. Using the Settings App\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2-2. Using Serial Communication\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. Connecting to your PC\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;IV. Setting up Raspberry Pi\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Overview\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. Tizen C# UI App (Xamarin.Forms)\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. Tizen C# UI App (NUI)\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;4. Tizen C Service App\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;V. Creating and Deploying a project\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;*. 2021 IoT 해커톤 대상 추가 패키지 설치\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Installing JDK\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. Installing WiFi Plugin\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. USB Driver\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;VI. Appendix\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/19</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id="i-overview">I. Overview</h1><h2 id="1-overview">1. Overview</h2>
+<p>본 강좌는 <strong>라즈베리파이4&nbsp;또는 라즈베리파이3에서 Tizen IoT를 사용하기 원하는 개발자를 위한&nbsp;가이드</strong> 입니다.</p>
+<p>가장 쉽게 개발 환경을 구축하는 방법을 가이드하고 있으며&nbsp;크게 4부분으로 구성되어 있습니다.</p>
+<ol>
+<li>Visual&nbsp;Studio 및 Tizen Studio 설치</li>
+</ol>
+<p>2.&nbsp;IoT Setup Manager를 통한 라즈베리파이용 타이젠 IoT 이미지 제작</p>
+<ol start="3">
+<li>
+<p>라즈베리파이 Wifi 설정 후 개발 PC와 라즈베리파이 연결</p>
+</li>
+<li>
+<p>프로젝트 생성 및 설치</p>
+</li>
+</ol>
+<p><strong>사용&nbsp;환경</strong></p>
+<p><strong>준비물</strong></p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-setting-up-your-environment">II. Setting Up Your Environment</h1><h2 id="1-installing-visual-studio">1. Installing Visual Studio</h2>
+<p>C# App&nbsp;개발을 위해&nbsp; <strong>Visual Studio 2019</strong> 를 설치합니다.</p>
+<ol>
+<li><strong>Visual Studio Installer</strong> 다운로드 (&nbsp;<a href="https://visualstudio.microsoft.com/">https://visualstudio.microsoft.com/</a>&nbsp;)</li>
+</ol>
+<img src="/assets/images/tutorials/194/vs2019_1.png" style="border-style:solid; border-width:1px; height:500px; width:800px">
+<ol start="2">
+<li>Visual Studio Installer 실행 후,&nbsp; <strong>“.NET desktop development”, “Mobile Development with .NET”</strong> 와&nbsp;” <strong>.NET Core cross-platform development</strong> ” 툴셋 설치</li>
+</ol>
+<img src="/assets/images/tutorials/194/install11.PNG" style="border-style:solid; border-width:1px; height:558px; width:1000px">
+<img src="/assets/images/tutorials/194/install2.PNG" style="height:558px; width:1000px">
+<ol start="3">
+<li>설치 후 가이드에 따라 재부팅 수행</li>
+</ol>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-setting-up-your-environment">II. Setting Up Your Environment</h1><h2 id="2-installing-tizen-extension">2. Installing Tizen Extension</h2>
+<p>Tizen 개발을 위해&nbsp;Visual Studio Marketplace에 등록된&nbsp; <strong>Visual Studio Tools for Tizen extension</strong> 설치합니다.</p>
+<p>1.&nbsp;Visual Studio 2019 실행 후&nbsp;로그인 및 원하는 개발 테마 선택</p>
+<ul>
+<li>별도 계정이 없을 경우 “나중에 로그인” 선택</li>
+</ul>
+<img src="/assets/images/tutorials/194/32_2021.png" style="border-style:solid; border-width:1px; height:491px; width:400px">
+<p>2.&nbsp; ” <strong>코드를 사용하지 않고 계속</strong> ” 클릭</p>
+<img src="/assets/images/tutorials/194/start_without.png" style="border-style:solid; border-width:1px; height:450px; width:800px">
+<ol start="3">
+<li>Visual Studio 상단 메뉴 중 <strong>확장(Extensions) &gt; 확장 관리(Manage Extensions)</strong> &nbsp;선택</li>
+</ol>
+<img src="/assets/images/tutorials/191/2_22.png" style="height:70px; width:767px">
+<ol start="4">
+<li>온라인 탭에서&nbsp;” <strong>tizen</strong> ” 검색 후, ” <strong>Visual Studio Tools for Tizen</strong> ” 다운로드</li>
+</ol>
+<img src="/assets/images/tutorials/191/2_23.png" style="height:653px; width:941px">
+<ol start="5">
+<li>설치를 위하여 Visual Studio를 종료합니다.</li>
+</ol>
+<img src="/assets/images/tutorials/191/2_24.png" style="height:653px; width:941px">
+<ol start="6">
+<li>VSIX Installer가 실행된 뒤, ” <strong>Vistual Studio Tools for Tizen</strong> “가&nbsp;설치됩니다.</li>
+</ol>
+<img src="/assets/images/tutorials/194/35_2021.png" style="border-style:solid; border-width:1px; height:303px; width:400px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-setting-up-your-environment">II. Setting Up Your Environment</h1><h2 id="3-installing-tizen-studio-and-packages">3. Installing Tizen Studio and Packages</h2>
+<ol>
+<li>Visual Studio 2019 실행 후&nbsp;” <strong>코드를 사용하지 않고 계속</strong> ” 클릭</li>
+</ol>
+<img src="/assets/images/tutorials/194/start_without.png" style="border-style:solid; border-width:1px; height:450px; width:800px">
+<p>2.Visual Studio 상단 메뉴 중 <strong>도구(Tools) &gt; Tizen &gt; Tizen Package Manager</strong> 선택</p>
+<img src="/assets/images/tutorials/191/2_32.png" style="height:431px; width:1000px">
+<ol start="3">
+<li>” <strong>Install new Tizen SDK</strong> ” 선택 후 약관 동의</li>
+</ol>
+<img src="/assets/images/tutorials/191/2_33.png" style="border-style:solid; border-width:1px; height:377px; width:600px">
+<ol start="4">
+<li>Browse를 클릭하여 Tizen SDK가 설치될&nbsp;디렉토리 생성&nbsp;후&nbsp; <strong>Next</strong> &nbsp;버튼 클릭</li>
+</ol>
+<p>예) c:\tizen-sdk</p>
+<img src="/assets/images/tutorials/191/2_34.png" style="height:377px; width:600px">
+<ol start="5">
+<li>Baseline SDK Installer가 설치된 후,&nbsp;Tizen SDK가 설치됩니다.</li>
+</ol>
+<img src="/assets/images/tutorials/191/2_35.png" style="height:417px; width:600px">
+<img src="/assets/images/tutorials/149/3-6.jpg" style="height:418px; width:600px">
+<ol start="6">
+<li>Package Manager가 자동 실행되면&nbsp;(Visual Studio &gt; 도구 &gt; Tizen &gt; Package Manager 실행도 가능)</li>
+</ol>
+<p><strong>Extension SDK</strong> &nbsp;탭 선택 후&nbsp; <strong>IoT Setup Manager</strong> &nbsp;and&nbsp; <strong>IoT-Headed-6.0</strong> 의 **** 우측&nbsp; **Install** 아이콘 각각&nbsp;클릭하여 설치</p>
+<p>(스크린을 사용하지 않을 계획이면 IoT-Headless를 설치해도 무방)</p>
+<img src="/assets/images/tutorials/194/4_2021.png" style="border-style:solid; border-width:1px; height:618px; width:600px">
+<p><strong>※. Extension SDK란에&nbsp;IoT-Headed-6.0&nbsp;or IoT-Headless-6.0가 보이지 않는 경우</strong></p>
+<ul>
+<li>Package Manager 상단의 설정아이콘 클릭 후 Configuration 창에서 Extension SDK 클릭</li>
+</ul>
+<img src="/assets/images/tutorials/149/3-10_a.jpg" style="undefined">
+<ul>
+<li>리스트에서 해당&nbsp;Activation을 ON으로 설정하면 리스트에 출력됩니다.</li>
+</ul>
+<img src="/assets/images/tutorials/149/3-10_b_.jpg" style="undefined">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-setting-up-your-environment">II. Setting Up Your Environment</h1><h2 id="4-creating-a-tizen-certificate">4. Creating a Tizen Certificate</h2>
+<p>타이젠 앱을 라즈베리파이에 설치할 때 Signing을 위한 Tizen Certificate(인증서)가&nbsp;필요합니다.</p>
+<ol>
+<li>Visual Studio 2019 실행 후&nbsp;” <strong>코드를 사용하지 않고 계속</strong> ” 클릭</li>
+</ol>
+<img src="/assets/images/tutorials/194/start_without.png" style="border-style:solid; border-width:1px; height:450px; width:800px">
+<p>2.&nbsp;Visual Studio IDE 상단 메뉴 중 <strong>도구(Tools)</strong> &gt; <strong>Tizen</strong> &gt; <strong>Tizen Certificate Manager</strong> 메뉴 선택</p>
+<img src="/assets/images/tutorials/194/cert.png" style="border-style:solid; border-width:1px; height:431px; width:1000px">
+<ol start="3">
+<li>만약 “ <strong>Migration for Certificate Profile</strong> ” 창이 오픈되면&nbsp;기존에 생성한 Certificate profile가 없기 때문에&nbsp;빈칸으로 두고 <strong>OK</strong> 를 눌러주세요.</li>
+</ol>
+<img src="/assets/images/tutorials/149/4-3.jpg" style="height:366px; width:600px">
+<ol start="4">
+<li>” <strong>+”</strong> &nbsp;아이콘 클릭&nbsp;후&nbsp; <strong>Tizen Certificate</strong> 선택 후 정보 입력</li>
+</ol>
+<img src="/assets/images/tutorials/149/4-4.jpg" style="height:481px; width:600px">
+<ol start="5">
+<li>인증서 이름 입력 후 “Create a new author certificate”</li>
+</ol>
+<p>:&nbsp;Author certificate 과 Distributor certificate 두개가&nbsp;하나의 profile 을 구성합니다</p>
+<img src="/assets/images/tutorials/149/4-5.jpg" style="height:406px; width:600px">
+<img src="/assets/images/tutorials/149/4-6.jpg" style="height:403px; width:600px">
+<img src="/assets/images/tutorials/149/4-7.jpg" style="height:405px; width:600px">
+<ol start="6">
+<li>Tizen IoT API를 사용하기 위해서 Privilege Level를 <strong>Platform</strong> 으로 선택하여야 합니다.</li>
+</ol>
+<img src="/assets/images/tutorials/149/20190813_153342.png" style="height:406px; width:600px">
+<ol start="7">
+<li>타이젠 인증서 생성 완료</li>
+</ol>
+<img src="/assets/images/tutorials/149/4-9.jpg" style="height:481px; width:600px">
+<ol start="8">
+<li>Visual Studio 인증서 설정</li>
+</ol>
+<ul>
+<li>Visual Studio IDE 상단 메뉴 중 <strong>도구(Tools)</strong> &gt; <strong>Options</strong> 메뉴 선택</li>
+</ul>
+<img src="/assets/images/tutorials/194/options.png" style="border-style:solid; border-width:1px; height:490px; width:758px">
+<ul>
+<li>Tizen &gt; Certification 메뉴 이동 후 “Sign the .TPK file using the following option” 체크박스 체크 후 아래처럼 설정</li>
+</ul>
+<img src="/assets/images/tutorials/203/%EA%B7%B8%EB%A6%BC13.png" style="undefined">
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-flashing-tizen-image">III. Flashing Tizen Image</h1><h2 id="1-downloading-image-files">1. Downloading Image Files</h2>
+<p>라즈베리파이에 타이젠 이미지를 설치하기&nbsp;먼저 이미지 및 플러그인을 다운받아야 합니다.</p>
+<p><strong>1. 타이젠 이미지&nbsp;다운로드</strong></p>
+<ol>
+<li>
+<p>Boot Image&nbsp;: 디바이스에 맞는 이미지를 받아주세요.</p>
+</li>
+<li>
+<p>Platform Image: 디스플레이 사용 여부에 따라 이미지를 받아주세요.</p>
+</li>
+</ol>
+<p><strong>2. 플러그인&nbsp;다운로드</strong></p>
+<p>Wifi를 사용하기 위해서는 별도 플러그인을 설치해야 합니다.</p>
+<p>다음 링크를 접속해서&nbsp; <strong>Raspberry Pi 3/4(6.5) Plugin</strong> &nbsp;을 받아주세요.&nbsp;<a href="http://developer.samsung.com/tizendevice/firmware">http://developer.samsung.com/tizendevice/firmware</a></p>
+<img src="/assets/images/tutorials/194/wifi65.PNG" style="border-style:solid; border-width:1px; height:171px; width:778px">
+<p>다운받은 파일을 압축 해제 후&nbsp; <strong>RPI3n4_plugin_tizen-6.5</strong> <strong>\32bit\connectivity</strong> 폴더 안에 있는</p>
+<p><strong>wlandrv-plugin-tizen-1.1.5-1.armv7l.rpm</strong> 를 임의의 빈 디렉토리를 생성하여&nbsp;복사해 놓습니다.</p>
+<img src="/assets/images/tutorials/194/wifi65_folder.PNG" style="border-style:solid; border-width:1px; height:219px; width:342px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-flashing-tizen-image">III. Flashing Tizen Image</h1><h2 id="2-flashing-sd-card">2. Flashing SD card</h2>
+<p><strong>1. Micro SD 카드를 리더기에 삽입한 뒤 컴퓨터와 연결</strong></p>
+<p><strong>[Troubleshooting]</strong></p>
+<p>이미 TIZEN이 설치된 SD 카드를 재활용하여 사용하는 경우, SD 카드를 리더기에 삽입하여 컴퓨터와 연결할 경우 디스크 포맷 팝업창이 뜨는 경우가 있습니다. 이 경우 다른 포맷 옵션을 선택하지 않은채 그대로 팝업창을 모두 닫아 주시면 됩니다.</p>
+<p><strong>2.&nbsp;IoT Setup Manager 실행</strong></p>
+<img src="/assets/images/tutorials/191/iot_setup_manager.png" style="height:626px; width:1000px">
+<p>윈도우 바 검색창에 ” <strong>IoT Setup Manager</strong> “를 검색한 후 실행시켜 줍니다.</p>
+<p>(또는 Tizen Studio 실행 후 상단에 있는 IoT 메뉴에서도 “IoT Setup Manager”&nbsp;실행가능합니다.</p>
+<p>이후 Create 버튼을 눌러 새로운 프로파일을 생성합니다.</p>
+<p><strong>3. IoT Profile 설정</strong></p>
+<p><strong><img src="/assets/images/tutorials/137/page4_2.png" style="height:639px; width:627px"></strong></p>
+<p>위 사진과 같이 생성할 프로필의 정보와 이미지들을 넣어줍니다.</p>
+<p><strong>4. 이미지 생성 및 플래싱</strong></p>
+<img src="/assets/images/tutorials/194/iotsetupmanager_2021.png" style="border-style:solid; border-width:1px; height:345px; width:564px">
+<p>다시 IoT Setup Manager 창에서 방금 전 생성한 프로파일을 선택합니다.</p>
+<p><br>Select Drive에서 컴퓨터에서 인식된 Micro SD카드의 드라이브를 선택한뒤 Burn 버튼을 눌러줍니다.<br>진행바가 채워지며 하단에 ‘Done’ 메시지가 뜨면 TIZEN 이미지 플래싱이 완료된 것 입니다.</p>
+<p><strong>5. Raspberry PI 이미지 삽입</strong></p>
+<p><strong><img src="/assets/images/tutorials/131/page4_5_1195.png" style="height:409px; width:800px"></strong></p>
+<p>리더기에서 SD 카드를 제거 한뒤, 라즈베리파이&nbsp;뒷면의 Micro SD 카드 슬롯에 넣어준 후 라즈베리파이&nbsp;전원을 켜면 부팅이 진행됩니다.</p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iv-setting-up-raspberry-pi">IV. Setting up Raspberry Pi</h1><h2 id="1-overview-1">1. Overview</h2>
+<p>애플리케이션을 라즈베리파이에 설치하기 위해서는 라즈베리파이와 PC가 연결되어야 합니다.</p>
+<p>이를 위해&nbsp;라즈베리파이의 네트워크 설정 후 IP 주소를 조회해야&nbsp;합니다.</p>
+<p>상황에 따른 2가지 방법이 있습니다.</p>
+<p><strong>1) 세팅 앱 활용&nbsp;(쉬운 방법)</strong></p>
+<p>: &nbsp; <strong>Headed 이미지</strong> 와 <strong>모니터</strong> 를 연결하여 사용하고 있으면 IP 주소를 쉽게 알아 낼 수 있습니다.</p>
+<p>라즈베리파이 부팅 후에 <strong>세팅 앱</strong> 을 실행하면 됩니다. 자세한 사항은 IV-2-1 페이지<a href="http://tizenschool.org/tutorial/194/contents/9">[링크]</a>를 참고하세요.</p>
+<img src="/assets/images/tutorials/191/4_24.png" style="border-style:solid; border-width:1px; height:338px; width:600px">
+<p><strong>2) 시리얼 통신 사용</strong></p>
+<p>: <strong>Headless 이미지</strong> 를&nbsp;사용하거나 <strong>모니터가 없는 경우</strong> 시리얼 통신을 사용해야 합니다.</p>
+<p>자세한 사항은 IV-2-1 페이지<a href="http://tizenschool.org/tutorial/194/contents/10">[링크]</a>를 참고하세요.</p>
+<p><strong><img src="/assets/images/tutorials/137/page5_6.png" style="height:379px; width:600px"></strong></p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iv-setting-up-raspberry-pi">IV. Setting up Raspberry Pi</h1><h2 id="2-1-using-the-settings-app">2-1. Using the Settings App</h2>
+<p>이 페이지는&nbsp; <strong>타이젠 Headed 이미지와 모니터를 사용하는 환경에서의 가이드</strong> 입니다.</p>
+<p>다른 환경을 사용중이면 다음페이지인 시리얼 통신 가이드를 참고해주세요.</p>
+<p><strong>1. “Settings” 오픈</strong></p>
+<img src="/assets/images/tutorials/191/4_21.png" style="border-style:solid; border-width:1px; height:338px; width:600px">
+<p><strong>2.&nbsp;“Wi-Fi” 선택</strong> <br>
+<img src="/assets/images/tutorials/191/4_22.png" style="border-style:solid; border-width:1px; height:338px; width:600px"></p>
+<p><strong>3. 연결된 AP의 아이콘 클릭.</strong></p>
+<p>: 연결된 AP가 없으면 스캔 후 새로운 AP에 연결하세요.</p>
+<img src="/assets/images/tutorials/191/4_24.png" style="border-style:solid; border-width:1px; height:338px; width:600px">
+<p><strong>4. IP 주소 파악</strong></p>
+<p>: 파악된 라즈베리파이의 IP 주소는 PC&nbsp;연결시 사용됩니다.</p>
+<img src="/assets/images/tutorials/191/4_23.png" style="border-style:solid; border-width:1px; height:338px; width:600px">
+<p>위 방법으로 제대로 Wifi 연결이 되지 않는다면 다음페이지인 시리얼 통신 가이드를 참고해주세요.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iv-setting-up-raspberry-pi">IV. Setting up Raspberry Pi</h1><h2 id="2-2-using-serial-communication">2-2. Using Serial Communication</h2>
+<p>이 페이지는&nbsp; <strong>타이젠 Headless&nbsp;이미지를 사용하거나&nbsp;모니터 연결을 하지 않는&nbsp;환경에서의 가이드</strong> 입니다.</p>
+<p>이 가이드는 시리얼 통신을 위하여 <strong>FT232BL</strong> 시리얼 포트를 사용합니다. 같은 기능의 다른 시리얼 포트도 이용 가능합니다.</p>
+<p>시리얼 통신에 대해 좀 더 알고 싶으신 분은 다음&nbsp;링크를 참고해주세요.&nbsp;&nbsp;<a href="http://www.hardcopyworld.com/gnuboard5/bbs/board.php?bo_table=lecture_pract&amp;wr_id=93">시리얼 통신 상세 분석 (SERIAL COMMUNICATION)</a></p>
+<p><strong>1. 시리얼 포트 (FT232BL) 드라이버 설치</strong></p>
+<p>라즈베리파이와&nbsp;PC를 연결하는 시리얼 포트의 드라이버를 PC에 설치합니다.</p>
+<p>본 실습에서는 FT232BL 시리얼 포트를 사용하고 있기 때문에 FT232BL 드라이버를 다운로드하여 설치합니다.</p>
+<img src="/assets/images/tutorials/149/20190816_145229.png" style="undefined">
+<ul>
+<li>
+<p>FT232BL&nbsp;Windows Driver 다운로드&nbsp;<a href="https://www.ftdichip.com/Drivers/CDM/CDM21228_Setup.zip">[링크]</a></p>
+</li>
+<li>
+<p>FT232BL Windows Driver 관련 사이트 <a href="https://www.ftdichip.com/Drivers/VCP.htm">[링크]</a></p>
+<p><strong>2. 시리얼 터미널 (PuTTY) 설치</strong></p>
+</li>
+</ul>
+<p>연결된 시리얼 포트를 통해 보드와 통신하는 시리얼 터미널을 PC에 설치합니다.</p>
+<p>윈도우에서 주로 사용하는&nbsp;시리얼 터미널인 PuTTY 프로그램을 설치합니다.&nbsp;<a href="https://www.putty.org/">[Link]</a></p>
+<img src="/assets/images/tutorials/137/page5_3.png" style="height:387px; width:495px">
+<p><strong>3.&nbsp;라즈베리파이와 시리얼 포트 (FT232BL) 연결</strong></p>
+<ul>
+<li>라즈베리파이와 시리얼 통신을 하기 위해서는 아래 그림과 같이 라즈베리파이의 UART pin 과 UART to USB (FT232BL)와 연결 한 다음 PC의 USB 포트에 연결합니다.</li>
+</ul>
+<img src="/assets/images/tutorials/149/20190813_180253.png" style="undefined">
+<p>핀 연결이 완료되면 FT232BL 시리얼 포트를 PC의&nbsp;USB 포트로 연결합니다.</p>
+<p><strong>4. 시리얼 터미널 (PuTTY) 설정</strong></p>
+<img src="/assets/images/tutorials/149/20190813_181025.png" style="undefined">
+<img src="/assets/images/tutorials/149/20190813_181044.png" style="undefined">
+<img src="/assets/images/tutorials/131/page5_5.png" style="undefined">
+<p>위의 그림과 같이 <strong>[장치 관리자]</strong> 를 열어 USB Serial Port의 포트 번호를 알아냅니다.</p>
+<p>시리얼 포트가 인식되지 않으면 시리얼 포트 드라이버가 제대로 설치되었는지 다시 한 번 확인해주세요.</p>
+<p>PuTTY Configuration에 시리얼 번호 등을 입력하고 [Open]을 눌러 시리얼 터미널을 엽니다.</p>
+<p><strong>5. 라즈베리파이</strong> <strong>로그인</strong></p>
+<p><strong><img src="/assets/images/tutorials/137/page5_6.png" style="height:418px; width:661px"></strong></p>
+<p>라즈베리파이의 부팅이 끝나면 로그인 화면이 나타납니다. ( <strong>User ID : root / Password : tizen</strong> )</p>
+<p><strong>6. wifi_manager_test로 WiFi 연결하기</strong></p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">$ wifi_manager_test</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>시리얼 터미널에서 ” <strong>wifi_manager_test</strong> “명령어를 실행한 뒤 엔터를 누르면 WiFi 설정을 할 수 있는 화면이 나옵니다.</p>
+<img src="/assets/images/tutorials/137/page6_1.png" style="height:470px; width:426px">
+<p>” <strong>1 &gt; 3 &gt; c</strong> ”&nbsp;을 차례대로 입력&nbsp;후 사용할 AP의 이름 및 패스워드를 입력합니다.</p>
+<img src="/assets/images/tutorials/137/page6_2.png" style="height:680px; width:674px">
+<p>“0”&nbsp;을 입력하여 WiFi 연결 설정을 종료합니다.</p>
+<p><strong>7. 연결된 WiFi의 IP 주소 확인하기</strong></p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">$ ifconfig</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<img src="/assets/images/tutorials/137/page6_3.png" style="height:423px; width:600px">
+<p>Wifi가 연결되면 고유한 IP 주소를 가지게 됩니다.&nbsp;PC 연결시 여기서&nbsp;확인한 IP 주소를 사용합니다.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iv-setting-up-raspberry-pi">IV. Setting up Raspberry Pi</h1><h2 id="3-connecting-to-your-pc">3. Connecting to your PC</h2>
+<p>PC와 라즈베리파이는 ” <strong>Device Manager</strong> “로 연결 할 수 있습니다.</p>
+<p><strong>1. Device Manager 실행</strong></p>
+<p>: 윈도우 검색 바에서 ” <strong>Device Manager</strong> “를 검색 후 실행합니다.&nbsp;&nbsp;<br>(Visual Studio 또는 Tizen Studio의&nbsp;Tools 메뉴에서도 실행 가능합니다.)</p>
+<img src="/assets/images/tutorials/191/4_41.png" style="height:449px; width:800px">
+<ol start="2">
+<li>” <strong>Remote Device Manager” 아이콘</strong> 버튼 클릭</li>
+</ol>
+<img src="/assets/images/tutorials/191/4_42.png" style="border-style:solid; border-width:1px; height:360px; width:500px">
+<ol start="3">
+<li>디바이스 추가를 위하여&nbsp; <strong>’+’</strong> 버튼 클릭</li>
+</ol>
+<img src="/assets/images/tutorials/191/4_43.png" style="border-style:solid; border-width:1px; height:287px; width:400px">
+<ol start="4">
+<li>” <strong>Add Device”</strong> &nbsp;창에서 이름, IP, 포트 번호를 입력합니다.</li>
+</ol>
+<img src="/assets/images/tutorials/191/4_44.png" style="border-style:solid; border-width:1px; height:243px; width:300px">
+<ol start="5">
+<li>등록된 Remote Device의&nbsp; <strong>Connection</strong> &nbsp;스위치를 &nbsp; <strong>ON</strong> &nbsp;합니다.</li>
+</ol>
+<img src="/assets/images/tutorials/191/4_45.png" style="border-style:solid; border-width:1px; height:287px; width:400px">
+<ol start="6">
+<li>연결이 완료되면 라즈베리파이가&nbsp; <strong>Device Manager</strong> 리스트에 출력됩니다.</li>
+</ol>
+<img src="/assets/images/tutorials/191/4_46.png" style="border-style:solid; border-width:1px; height:243px; width:703px">
+<ol start="7">
+<li>Visual Studio 또는&nbsp;Tizen Studio 에서도 라즈베리파이와 연결된 상태인지&nbsp;확인 가능합니다.</li>
+</ol>
+<img src="/assets/images/tutorials/191/4_47.png" style="height:64px; width:730px">
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="v-creating-and-deploying-a-project">V. Creating and Deploying a project</h1><h2 id="1-overview-2">1. Overview</h2>
+<p>타이젠 애플리케이션을 만들기 전&nbsp;어떤 개발 언어를 사용할 지 정해야 합니다.</p>
+<p>타이젠 IoT에서는 대표적으로 2가지 개발 언어를 선택 할 수 있습니다.</p>
+<p><strong>1. Tizen C#</strong></p>
+<p>C#를 사용한다면 쉽게 앱을 제작할 수 있습니다.</p>
+<p>특히 UI를 쉽게 개발할 수 있도록&nbsp; <strong>Xamarin.Forms</strong> &nbsp;및 <strong>NUI</strong> UI 프레임워크가 지원됩니다.</p>
+<p>따라서&nbsp; <strong>UI application</strong> 을 제작할 때는 C#&nbsp;사용을&nbsp;추천합니다.</p>
+<p>Tizen C# 앱 개발을 위해서는&nbsp; <strong>Visual&nbsp;Studio</strong> &nbsp;를 사용합니다.</p>
+<p><strong>2. Tizen C</strong></p>
+<p>C를 사용한다면 상대적으로 빠르고 메모리 사용이 적은 앱을&nbsp;제작할 수 있습니다.</p>
+<p>따라서 <strong>Service application</strong> 을 제작할 때는 C&nbsp;사용을&nbsp;추천합니다.</p>
+<p>Tizen C&nbsp;앱 개발을 위해서는&nbsp; <strong>Tizen Studio</strong> &nbsp;를 사용합니다.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="v-creating-and-deploying-a-project">V. Creating and Deploying a project</h1><h2 id="2-tizen-c-ui-app-xamarinforms">2. Tizen C# UI App (Xamarin.Forms)</h2>
+<p>이번 페이지는 <strong>Xamarin.Forms UI Framework</strong> 를 사용하는 Tizen C# 프로젝트 생성 가이드입니다.</p>
+<p>Xamarin.Forms는 Tizen, Android, iOS 및 윈도우 데스크탑 까지 다양한 OS 및 디바이스를 지원하는</p>
+<p>Mircosoft사에서 개발한 UI Framework 입니다.</p>
+<p>(참고)&nbsp;<a href="https://docs.microsoft.com/ko-kr/xamarin/get-started/what-is-xamarin-forms">https://docs.microsoft.com/ko-kr/xamarin/get-started/what-is-xamarin-forms</a></p>
+<p>1.&nbsp; <strong>Visual Studio</strong> &nbsp;메뉴에서&nbsp; <strong>File &gt; New &gt; Project</strong> &nbsp;선택</p>
+<img src="/assets/images/tutorials/191/5_22.png" style="height:120px; width:661px">
+<ol start="2">
+<li>언어에서 <strong>C#</strong> , 플랫폼에서 <strong>Tizen</strong> 선택 후,&nbsp; <strong>Tizen XAML App (Xamarin.Forms)</strong> &nbsp;템플릿을 선택하고&nbsp;” <strong>Next</strong> ” 버튼을 누릅니다.</li>
+</ol>
+<img src="/assets/images/tutorials/194/project_2021.png" style="border-style:solid; border-width:1px; height:502px; width:800px">
+<ol start="3">
+<li><strong>프로젝트 이름</strong> 입력 후 ” <strong>Create”</strong> &nbsp;버튼을 누릅니다.</li>
+</ol>
+<img src="/assets/images/tutorials/191/5_24.png" style="border-style:solid; border-width:1px; height:531px; width:800px">
+<p>4.&nbsp;프로파일에서&nbsp; <strong>Common</strong> &nbsp;및 버전에서 <strong>6.0</strong> 을 선택한&nbsp;후&nbsp;” <strong>OK</strong> ” 버튼을 누릅니다.</p>
+<img src="/assets/images/tutorials/191/5_25.png" style="border-style:solid; border-width:1px; height:316px; width:660px">
+<ol start="5">
+<li>프로젝트 생성이 마무리 되면, <strong>Solution explorer</strong> 에 다음과 같이 표시됩니다.</li>
+</ol>
+<img src="/assets/images/tutorials/191/5_26.png" style="height:353px; width:290px">
+<ol start="6">
+<li>라즈베리파이와&nbsp;PC를&nbsp;연결한 후 제대로 연결되어 있는지 IDE 상단 메뉴에서 확인합니다.</li>
+</ol>
+<img src="/assets/images/tutorials/191/5_27.png" style="height:64px; width:730px">
+<ol start="7">
+<li>빌드 및 설치를 하기 위해서 다음 작업을 수행합니다.</li>
+</ol>
+<img src="/assets/images/tutorials/191/5_28.png" style="border-style:solid; border-width:1px; height:338px; width:600px">
+<p><strong>*. Tizen IoT Xamarin.Forms&nbsp;템플릿 프로젝트</strong> (<a href="https://s3-us-west-1.amazonaws.com/tizenschool/194/TizenIoTApp.zip">Tizen IoT Xamarin.Forms Template</a>&nbsp;)</p>
+<p>: Tizen IoT App 개발 시&nbsp;사용할 수 있는 Template App 입니다.</p>
+<p>Tizen IoT에 필요한 Nuget Package 및 해당 Package를 다운받을 수 있는 서버 설정들이 포함되어 있어 좀 더 쉽게 사용이 가능합니다.</p>
+<p>다운로드 받은 파일을 압축 해제 후 TizenApp.sln을 클릭하여, Visual Studio에서 해당 프로젝트를 사용할 수 있습니다.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="v-creating-and-deploying-a-project">V. Creating and Deploying a project</h1><h2 id="3-tizen-c-ui-app-nui">3. Tizen C# UI App (NUI)</h2>
+<p>이번 페이지는 <strong>NUI (Natural User Interface)</strong> 를 사용하는 Tizen C# 프로젝트 생성 가이드입니다.</p>
+<p>NUI는 다양한 Tizen Device에서 동작하는 2D/3D GUI 라이브러리 입니다.</p>
+<p>(참고)&nbsp;<a href="https://docs.tizen.org/application/dotnet/guides/nui/overview/">https://docs.tizen.org/application/dotnet/guides/nui/overview/</a></p>
+<ol>
+<li>최신 NUI Template을 사용하기 위해서 NUI Template VSIX를 다운 받아 설치합니다. <a href="https://github.com/nui-dali/Hackerthon2021/blob/main/Environment/NUITemplate.vsix">[다운]</a></li>
+</ol>
+<p>(추후 기본 내장 예정)</p>
+<img src="/assets/images/tutorials/194/NUI.png" style="border-style:solid; border-width:1px; height:332px; width:436px">
+<p>2.&nbsp; <strong>Visual Studio</strong> &nbsp;메뉴에서&nbsp; <strong>File &gt; New &gt; Project</strong> &nbsp;선택</p>
+<img src="/assets/images/tutorials/191/5_22.png" style="height:120px; width:661px">
+<ol start="3">
+<li>언어에서 <strong>C#</strong> , 플랫폼에서 <strong>Tizen</strong> 선택 후,&nbsp; <strong>Tizen NUI XAML Project</strong> 템플릿을 선택하고&nbsp;” <strong>Next</strong> ” 버튼을 누릅니다.</li>
+</ol>
+<p>(또는 NUI 검색)</p>
+<img src="/assets/images/tutorials/194/nui_project.png" style="border-style:solid; border-width:1px; height:502px; width:800px">
+<ol start="4">
+<li><strong>프로젝트 이름</strong> 입력 후 “Place solution and project in the same directory” 체크하고&nbsp;&nbsp;” <strong>Create”</strong> &nbsp;버튼을 누릅니다.</li>
+</ol>
+<ul>
+<li>사전에 설정된 Nuget Package 설정 정보를 이용하기 위하여 체크박스에 체크가 필요합니다.</li>
+</ul>
+<img src="/assets/images/tutorials/194/nui_project2.png" style="border-style:solid; border-width:1px; height:502px; width:800px">
+<ol start="5">
+<li>프로젝트 생성이 마무리 되면, <strong>Solution explorer</strong> 에 다음과 같이 표시됩니다.</li>
+</ol>
+<img src="/assets/images/tutorials/194/nui_project5.png" style="border-style:solid; border-width:1px; height:266px; width:389px">
+<ol start="6">
+<li>라즈베리파이와&nbsp;PC를&nbsp;연결한 후 제대로 연결되어 있는지 IDE 상단 메뉴에서 확인합니다.</li>
+</ol>
+<img src="/assets/images/tutorials/191/5_27.png" style="height:64px; width:730px">
+<ol start="7">
+<li>빌드 및 설치를 하기 위해서 다음 작업을 수행합니다.</li>
+</ol>
+<img src="/assets/images/tutorials/194/dump_screen.png" style="border-style:solid; border-width:1px; height:450px; width:800px">
+<p>*. 필요한 Packages가 제대로 설치되지 않아 Warning이 발생하면&nbsp;아래 순서대로 진행해주세요.</p>
+<img src="/assets/images/tutorials/194/nui_project3.png" style="border-style:solid; border-width:1px; height:338px; width:303px">
+<p>1)&nbsp;Solution Explorer 내 Solution 이름 위에서 마우스 우클릭</p>
+<p>2)&nbsp;Restore Nuget Packages 실행</p>
+<p>3)&nbsp;Clean Solution 실행</p>
+<p>4)&nbsp;Visual Studio 재실행</p>
+<img src="/assets/images/tutorials/194/nui_project4.png" style="border-style:solid; border-width:1px; height:439px; width:386px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="v-creating-and-deploying-a-project">V. Creating and Deploying a project</h1><h2 id="4-tizen-c-service-app">4. Tizen C Service App</h2>
+<p><strong>Tizen C&nbsp;Service&nbsp;application</strong> 프로젝트 생성 및 배포 가이드입니다.</p>
+<p>1.&nbsp; <strong>Tizen Studio</strong> 상단 메뉴에서&nbsp; <strong>File &gt; New &gt; Tizen Project</strong> &nbsp;를 선택</p>
+<img src="/assets/images/tutorials/149/6-1.jpg" style="undefined">
+<p>2.&nbsp;Project Type으로&nbsp; <strong>Template</strong> &nbsp;선택</p>
+<img src="/assets/images/tutorials/149/6-2.jpg" style="height:653px; width:800px">
+<p>3.&nbsp;Profile과 Version으로&nbsp; <strong>Custom</strong> &nbsp;/&nbsp; <strong>Iot-headed&nbsp;v6.0</strong> &nbsp;선택</p>
+<img src="/assets/images/tutorials/194/b1.png" style="height:565px; width:800px">
+<p>4.&nbsp;Application Type으로&nbsp; <strong>Native Application</strong> &nbsp;선택</p>
+<img src="/assets/images/tutorials/149/6-4.jpg" style="height:562px; width:800px">
+<p>5.&nbsp;Template으로&nbsp; <strong>Service</strong> 선택</p>
+<img src="/assets/images/tutorials/194/b2.png" style="height:565px; width:800px">
+<p>6.&nbsp;Project 이름으로 ” <strong>HelloWorld</strong> ” 입력</p>
+<img src="/assets/images/tutorials/149/6-6.jpg" style="undefined">
+<p><strong>7.&nbsp;Project 생성 완료</strong></p>
+<p>좌측 Project Explorer에서 생성된 프로젝트의 구조 및 파일을 확인할 수 있습니다.</p>
+<img src="/assets/images/tutorials/149/6_tizenstudio.jpg" style="border-style:solid; border-width:1px; height:542px; width:1000px">
+<p><strong>8.&nbsp;로그 출력 코드 삽입</strong></p>
+<p>좌측 Project Explorer의 src 폴더 안에 있는&nbsp; <strong>helloworld.c</strong> &nbsp;파일을 엽니다.</p>
+<p><strong>service_app_create</strong> 함수를 찾아서 아래 4번째 라인의 코드를 삽입합니다.</p>
+<p>[helloworld.c]</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 84px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">bool</span><span style="color: #000"> </span><span style="color: #DD4A68">service_app_create</span><span style="color: #999">(</span><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">data</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">    //</span><span style="color: #708090"> Todo: add your code here.</span></span>
+<span class="line"><span style="color: #000">    </span><span style="color: #DD4A68">dlog_print</span><span style="color: #999">(</span><span style="color: #000">DLOG_INFO</span><span style="color: #999">,</span><span style="color: #000"> LOG_TAG</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #999">"</span><span style="color: #690">Hello World</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">    </span><span style="color: #07A">return</span><span style="color: #000"> </span><span style="color: #905">true</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>※ LOG_TAG는 helloworld.h 파일안에 정의되어 있습니다.</p>
+<p>9.&nbsp;라즈베리파이와&nbsp;PC를&nbsp;연결한 후 제대로 연결되어 있는지 IDE 상단 메뉴에서 확인합니다.</p>
+<img src="/assets/images/tutorials/149/6-99_.jpg" style="undefined">
+<ol start="10">
+<li>프로젝트명에서 마우스 우 클릭 후 <strong>Run As &gt; Tizen Native Application</strong> 으로 설치를 시작합니다.</li>
+</ol>
+<img src="/assets/images/tutorials/149/20190813_154500.png" style="height:554px; width:800px">
+<p><strong>11.&nbsp;Project 실행 결과</strong></p>
+<p>Console 창에 <strong>“Tizen application is successfully launched.”</strong> 가 출력되면 정상적으로 설치가 된 것입니다.</p>
+<img src="/assets/images/tutorials/149/6-10.jpg" style="undefined">
+<p><strong>12.&nbsp;Log 확인</strong></p>
+<p>Tizen Studio &gt; Tools &gt; Device Manger&nbsp;에서 Log 확인이 가능합니다.</p>
+<img src="/assets/images/tutorials/167/devicemgr.JPG" style="border-style:solid; border-width:1px; height:553px; width:800px">
+<p>Tag 에서 마우스 우 클릭 후 LOG_TAG를 선택하여 원하는&nbsp;앱의 로그만 출력할 수 있습니다. ex)&nbsp;helloworld</p>
+<img src="/assets/images/tutorials/167/devicemgr_hello.JPG" style="border-style:solid; border-width:1px; height:551px; width:800px">
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="vi-appendix">VI. Appendix</h1><h2 id="-2021-iot-해커톤-대상-추가-패키지-설치">*. 2021 IoT 해커톤 대상 추가 패키지 설치</h2>
+<p>2021년 G캠프 서울 IoT 해커톤에서 NUI 및 Native C App 개발을 원하시는 개발자 중</p>
+<p>RPI4 Image를 직접 Flashing 한 경우 아래 패키지의 추가 설치가 필요합니다.</p>
+<p>(아래 패키지가 설치되지 않은 경우 제대로 NUI 및 Native C App이 동작하지 않을 수 있습니다.)</p>
+<p><strong>1. 최신 NUI 패키지</strong></p>
+<ol>
+<li>필요 패키지 2종 다운로드 후 각각 별도 폴더로 저장 후 압축 해제(<a href="https://s3-us-west-1.amazonaws.com/tizenschool/194/dali_packages_0721.zip">Dali Package</a>&nbsp;/ <a href="https://s3-us-west-1.amazonaws.com/tizenschool/194/tizenfx_packages_0721.zip">TizenFX Package</a>)</li>
+</ol>
+<p>ex)&nbsp;C:\dali ,&nbsp;C:\tizenfx</p>
+<ol start="2">
+<li>Console에서&nbsp;dali 파일&nbsp;압축 해제 한&nbsp;디렉토리로&nbsp;이동하여 dali 패키지를 디바이스로 복사</li>
+</ol>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">sdb push </span><span style="color: #A67F59">*</span><span style="color: #BBBBBB">.rpm /tmp</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ol start="3">
+<li>root 권한으로 sdb shell 접속</li>
+</ol>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">sdb root on</span></span>
+<span class="line"><span style="color: #BBBBBB">sdb shell</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ol start="4">
+<li>sdb shell에서 아래 명령어로 Dali 패키지 설치</li>
+</ol>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">mount -o rw,remount /</span></span>
+<span class="line"><span style="color: #BBBBBB">cd /tmp</span></span>
+<span class="line"><span style="color: #BBBBBB">rpm -Uh --force --nodeps </span><span style="color: #A67F59">*</span><span style="color: #BBBBBB">.rpm</span></span>
+<span class="line"><span style="color: #BBBBBB">rm </span><span style="color: #A67F59">*</span><span style="color: #BBBBBB">.rpm</span></span>
+<span class="line"><span style="color: #BBBBBB">exit</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ol start="5">
+<li>Console에서&nbsp;tizenfx 파일&nbsp;압축 해제 한&nbsp;디렉토리로 디렉토리로&nbsp;이동하여 tizenfx&nbsp;패키지를 디바이스로 복사</li>
+</ol>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">sdb push </span><span style="color: #A67F59">*</span><span style="color: #BBBBBB">.rpm /tmp</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ol start="6">
+<li>root 권한으로 sdb shell 접속</li>
+</ol>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">sdb root on</span></span>
+<span class="line"><span style="color: #BBBBBB">sdb shell</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ol start="7">
+<li>sdb shell에서 아래 명령어로 tizenfx 패키지 설치</li>
+</ol>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">mount -o rw,remount /</span></span>
+<span class="line"><span style="color: #BBBBBB">cd /tmp</span></span>
+<span class="line"><span style="color: #BBBBBB">find / -name </span><span style="color: #999">'</span><span style="color: #690">*.ni.dll</span><span style="color: #999">'</span><span style="color: #BBBBBB"> -exec rm {} </span><span style="color: #690">\;</span></span>
+<span class="line"><span style="color: #BBBBBB">find / -name </span><span style="color: #999">'</span><span style="color: #690">*.ni.exe</span><span style="color: #999">'</span><span style="color: #BBBBBB"> -exec rm {} </span><span style="color: #690">\;</span></span>
+<span class="line"><span style="color: #BBBBBB">rpm -Uh --force --nodeps </span><span style="color: #A67F59">*</span><span style="color: #BBBBBB">.rpm</span></span>
+<span class="line"><span style="color: #BBBBBB">dotnettool --ni-system</span></span>
+<span class="line"><span style="color: #BBBBBB">rm </span><span style="color: #A67F59">*</span><span style="color: #BBBBBB">.rpm</span></span>
+<span class="line"><span style="color: #BBBBBB">exit</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>2. Native C 개발 지원&nbsp;패치</strong></p>
+<ol>
+<li>
+<p>필요 패키지 다운로드&nbsp;(<a href="https://s3-us-west-1.amazonaws.com/tizenschool/194/sdbd-3.0.48-58.1.armv7l.rpm">sdbd-3.0.48-58.1.armv7l.rpm</a>)</p>
+</li>
+<li>
+<p>Console 실행 후 위 파일&nbsp;다운 받은 디렉토리로&nbsp;이동</p>
+</li>
+<li>
+<p>파일을 Device로 복사</p>
+</li>
+</ol>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">sdb push sdbd-3.0.48-58.1.armv7l.rpm /tmp/</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ol start="4">
+<li>root 권한으로 sdb shell 접속</li>
+</ol>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">sdb root on</span></span>
+<span class="line"><span style="color: #BBBBBB">sdb shell</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ol start="5">
+<li>sdb shell에서 아래 명령어 입력</li>
+</ol>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">mount -o rw,remount /</span></span>
+<span class="line"><span style="color: #BBBBBB">cd /tmp</span></span>
+<span class="line"><span style="color: #BBBBBB">rpm -ivh --force sdbd-3.0.48-58.1.armv7l.rpm --nodeps</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">/usr/sbin/setcap cap_setuid,cap_setgid,cap_dac_override,cap_sys_admin=eip /usr/sbin/sdbd</span></span>
+<span class="line"><span style="color: #BBBBBB">/usr/sbin/setcap cap_setuid,cap_setgid,cap_kill,cap_dac_override,cap_sys_admin=eip /usr/sbin/sdbd-service</span></span>
+<span class="line"><span style="color: #BBBBBB">/usr/sbin/setcap cap_setuid,cap_setgid,cap_kill,cap_dac_override,cap_sys_admin=eip /usr/sbin/sdbd</span></span>
+<span class="line"><span style="color: #BBBBBB">sync</span></span>
+<span class="line"><span style="color: #BBBBBB">rm </span><span style="color: #A67F59">*</span><span style="color: #BBBBBB">.rpm</span></span>
+<span class="line"><span style="color: #BBBBBB">reboot</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<img src="/assets/images/tutorials/194/sdbd.png" style="border-style:solid; border-width:1px; height:439px; width:919px">
+<p>*. Console에서 sdb 명령어를 찾지 못할 경우, Tizen SDK가 설치된 폴더 하위&nbsp;tools 폴더를 윈도우 시스템변수로 등록하거나,</p>
+<p>위 rpm 파일을 Tizen SDK 설치된 폴더 하위&nbsp;tools 폴더에 복사 후 해당 폴더에서 sdb 명령어를 사용해주세요. 예)&nbsp;C:\tizen-sdk\tools</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="vi-appendix">VI. Appendix</h1><h2 id="1-installing-jdk">1. Installing JDK</h2>
+<p>*. 최신버전의 Tizen SDK 사용 시 JDK를 별도로 설치해 줄 필요는 없습니다.</p>
+<p><strong>1. JDK 다운로드</strong></p>
+<p>Java SE Development Kit (JDK) 8 Version을 다운로드 받습니다.&nbsp;<a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">[Link]</a><br>( <strong>반드시 JDK 8버전 사용 권장</strong> )</p>
+<img src="/assets/images/tutorials/149/2-1.jpg" style="height:288px; width:1000px">
+<p><strong>2. JDK 설치</strong></p>
+<ul>
+<li>환경 변수 등록을 위하여 설치 경로를 기억해 주시기 바랍니다.</li>
+</ul>
+<img src="/assets/images/tutorials/149/2-2.jpg" style="undefined">
+<p><strong>3.&nbsp;JDK&nbsp;환경변수 등록</strong></p>
+<ol>
+<li><strong>제어판</strong> -&gt; <strong>시스템 및 보안</strong> -&gt; <strong>시스템</strong> 창으로 이동</li>
+</ol>
+<img src="/assets/images/tutorials/191/systemJDK1.png" style="border-style:solid; border-width:1px; height:298px; width:808px">
+<ol start="2">
+<li>
+<p>좌측 목록 중&nbsp; <strong>고급 시스템 설정</strong> &nbsp;클릭 후, 상단&nbsp; <strong>고급</strong> &nbsp;탭에서&nbsp; <strong>환경 변수</strong> &nbsp;클릭<br>
+<img src="/assets/images/tutorials/191/systemJDK2_1.png" style="border-style:solid; border-width:1px; height:579px; width:1100px"></p>
+</li>
+<li>
+<p>시스템 변수 목록중&nbsp; <strong>Path</strong> 클릭 후&nbsp; <strong>편집</strong> 버튼 클릭</p>
+</li>
+</ol>
+<p><strong>새로 만들기</strong> &nbsp;버튼 클릭 후, 전에 복사해둔 Java SE Development Kit (JDK) 설치 경로(하위 bin 포함)&nbsp;붙여넣기 후 확인</p>
+<p>(ex)&nbsp; <strong>C:\Program Files\Java\jdk1.8.0_221\bin</strong></p>
+<img src="/assets/images/tutorials/191/systemJDK3_1.png" style="border-style:solid; border-width:1px; height:380px; width:600px">
+<p>4)&nbsp;환경 변수 창에서 ” <strong>새로만들기</strong> ” 버튼을 클릭하여 변수이름으로 ” <strong>JAVA_HOME</strong> ”, 변수 값으로 복사해둔 JDK&nbsp;설치 경로(하위 bin 미포함)를 저장해주세요.</p>
+<p>(ex)&nbsp; <strong>C:\Program Files\Java\jdk1.8.0_221</strong></p>
+<img src="/assets/images/tutorials/191/systemJDK4.png" style="height:368px; width:600px">
+<p><strong>4.&nbsp;설치 확인</strong></p>
+<p>cmd창에서 “ <strong>java –version</strong> ” 명령어 실행시 1.8.0_xxx 버전 출력</p>
+<img src="/assets/images/tutorials/191/cmd.png" style="border-style:solid; border-width:1px; height:411px; width:250px">
+<img src="/assets/images/tutorials/149/2-3.jpg" style="height:390px; width:600px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="vi-appendix">VI. Appendix</h1><h2 id="2-installing-wifi-plugin">2. Installing WiFi Plugin</h2>
+<p>*. IoT Setup Manager를 통해서 혹시 RPM 설치가 정상적으로 진행되지 않으면 아래를 참고해주세요.</p>
+<ol>
+<li>
+<p>III-1 페이지<a href="http://tizenschool.org/tutorial/194/contents/6">[링크]</a>에서 다운받은 설치할&nbsp; <strong>rpm</strong> 파일을 USB 메모리에 저장합니다.</p>
+</li>
+<li>
+<p>IV-2-2 페이지<a href="http://tizenschool.org/tutorial/194/contents/10">[링크]</a>를 참고하여 <strong>라즈베리파이에 로그인</strong> 합니다..</p>
+</li>
+</ol>
+<p><strong><img src="/assets/images/tutorials/137/page5_6.png" style="height:418px; width:661px"></strong></p>
+<ol start="3">
+<li>
+<p>USB 메모리를 라즈베리파이에 연결합니다.</p>
+</li>
+<li>
+<p>아래 명령어를 사용하여 rpm을&nbsp;설치합니다.</p>
+</li>
+</ol>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">mkdir /tmp/usb</span></span>
+<span class="line"><span style="color: #BBBBBB">mount /dev/sda1 /tmp/usb</span></span>
+<span class="line"><span style="color: #BBBBBB">cd /tmp/usb</span></span>
+<span class="line"><span style="color: #BBBBBB">mount -o remount rw /</span></span>
+<span class="line"><span style="color: #BBBBBB">rpm -ivh file_name.rpm</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<img src="/assets/images/tutorials/191/rpm_install.png" style="border-style:solid; border-width:1px; height:418px; width:661px">
+<ol start="5">
+<li>재부팅을 진행합니다.</li>
+</ol>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">reboot</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>*. 만약 Voice Control 기능&nbsp;사용이 필요한 경우, 아래 멀티미디어&nbsp;패키지도 같은 방법으로 설치합니다.</p>
+<p>(최신 Binary에서는 기본 탑재되어 있지만, 이 가이드에서 설치한 바이너리에서는 아래 패키지가 포함되어 있지 않습니다.)</p>
+<p><a href="https://s3-us-west-1.amazonaws.com/tizenschool/194/mmfw-sysconf-target-rpi3-spk-0.2.165-72.1.armv7l.rpm">https://s3-us-west-1.amazonaws.com/tizenschool/194/mmfw-sysconf-target-rpi3-spk-0.2.165-72.1.armv7l.rpm</a></p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="vi-appendix">VI. Appendix</h1><h2 id="3-usb-driver">3. USB Driver</h2>
+<p>개발 PC와 라즈베리파이를 USB-C 케이블을 통해서도 연결할 수 있습니다.</p>
+<p>연결 후 필요한 App을 설치하기 위해서는 아래 드라이버가 설치되어야 합니다.</p>
+<p><a href="https://developer.samsung.com/mobile/android-usb-driver.html">https://developer.samsung.com/mobile/android-usb-driver.html</a></p>
+<p>설치 후 재부팅 하시면 정상적으로 라즈베리파이가 개발 PC에 잡히는 것을 확인할 수 있습니다.</p></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/19</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/84895ba0ae7f34d06b2e24359088ded5aef2eb94">84895ba0ae7f34d06b2e24359088ded5aef2eb94</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+

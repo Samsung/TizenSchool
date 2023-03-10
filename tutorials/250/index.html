@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+    <title>How to use Tizen Peripheral GPIO C# API</title>
+  <link rel="stylesheet" href="/assets/aboutus.1b0f65e4.css" />
+<link rel="stylesheet" href="/assets/10.cb2c83b6.css" />
+<link rel="stylesheet" href="/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="13NfkC" component-url="/Header.14d8e174.js" component-export="default" renderer-url="/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      How to use Tizen Peripheral GPIO C# API
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">본 강좌는 2021 서울 하드웨어 해커톤의 사전 워크샵 강의를 위하여 작성되었습니다. Tizen Peripheral GPIO C# API를 사용법을 가이드하고 있습니다. Written by 강석현(Shawn)</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/assets/images/iot-active.png">
+        <img src="/assets/images/wearable-dimmed.png">
+        <img src="/assets/images/mobile-dimmed.png">
+        <img src="/assets/images/smart-tv-dimmed.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2021/07/06</span>
+            Modified
+            <span class="font-bold">2021/08/13</span>
+    </div>
+  </div><astro-island uid="ZjEBpz" component-url="/TextContent.c7f4d9de.js" component-export="default" renderer-url="/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,11],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[]\&quot;],\&quot;chapter\&quot;:[0,\&quot;\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. 강좌 소개\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. GPIO 소개\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. 하드웨어 준비\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;4. NUI Project 생성\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;I. Overview\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. UI 구현\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. 기능 구현\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. Privilege 등록\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;4. 실행 결과\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;II. LED Light 제어\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. 기능 구현\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. 실행 결과\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;III. Motion Sensor 제어\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;모션 센서 추가 정보\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;IV. Appendix\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/11</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id="i-overview">I. Overview</h1><h2 id="1-강좌-소개">1. 강좌 소개</h2>
+<p><strong>Tizen Peripheral API</strong> 는 IoT Device에 연결된 주변장치(센서)를 사용하기 위해서&nbsp;사용합니다.</p>
+<p>GPIO, I2C, SPI 등 다양한 통신 방식이 있는데 이번 시간에는 <strong>GPIO</strong> 를 알아보도록 하겠습니다.</p>
+<p>이번 강좌는 크게 2가지 세션으로 나누어집니다.</p>
+<p><strong>1)&nbsp;LED Light 제어</strong></p>
+<ul>
+<li>Tizen C# App 생성 후 Button 클릭 시 LED Light를 켜고 끄는 기능 구현</li>
+</ul>
+<img src="/assets/images/tutorials/250/result.png" style="border-style:solid; border-width:1px; height:450px; width:800px">
+<img src="/assets/images/tutorials/208/final_result.png" style="undefined">
+<p><strong>2)&nbsp;Motion Sensor 제어</strong></p>
+<ul>
+<li>위에서 개발한 앱에 Motion Sensor를&nbsp;사용하여 주변 움직임에 따라 LED Light를 켜고 끄는 기능&nbsp;구현</li>
+</ul>
+<img src="https://download-tizen-online.s3-us-west-1.amazonaws.com/smart-light/bson_1908_final_off.jpg" style="undefined">
+&nbsp;&nbsp;
+<img src="https://download-tizen-online.s3-us-west-1.amazonaws.com/smart-light/bson_1908_final_on.jpg" style="undefined">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="i-overview">I. Overview</h1><h2 id="2-gpio-소개">2. GPIO 소개</h2>
+<p>GPIO 핀을 통해 <strong>binary input peripheral</strong> 상태 읽기/쓰기 가능한 Interface를 지원합니다.</p>
+<img src="https://tizen-prod-craftroom.s3.amazonaws.com/uploads/2018/08/gpio_edge.png" style="undefined">
+<p>Raspberry Pi 보드에서는 아래 Pin map에서 초록색으로 표시된 Pin들이 GPIO 입력 또는 출력을 위해 사용 가능합니다.</p>
+<img src="https://download-tizen-online.s3-us-west-1.amazonaws.com/smart-light/bson_rpi_pin_map_ver.jpg" style="undefined">
+<p>코딩 시 Pin number는 GPIO XX에 해당하는 숫자를 넣어주시면 됩니다.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="i-overview">I. Overview</h1><h2 id="3-하드웨어-준비">3. 하드웨어 준비</h2>
+<p>이번 강좌를 수행하기 위하여 필요한 주요 준비물입니다.</p>
+<ul>
+<li>Raspberry Pi&nbsp;보드&nbsp;<br>
+<img src="/assets/images/tutorials/250/rp4.png" style="height:311px; width:500px"></li>
+</ul>
+<p>-Breadboard (빵판)</p>
+<img src="/assets/images/tutorials/208/bread.png" style="height:669px; width:500px">
+<ul>
+<li>
+<p>Infrared Motion Sensor (HC-SR501)<br>
+<img src="https://download-tizen-online.s3-us-west-1.amazonaws.com/smart-light/bson_1908_motion_1switch.jpg" style="undefined"></p>
+</li>
+<li>
+<p>5파이 LED 전구 (전압 2.2V / 전류 50mA)<br>
+<img src="/assets/images/tutorials/250/LEDLight.png" style="height:276px; width:500px"></p>
+</li>
+<li>
+<p>220~1kΩ 저항<br>
+<img src="https://download-tizen-online.s3-us-west-1.amazonaws.com/smart-light/bson_1908_led_resistor.jpg" style="undefined"></p>
+</li>
+<li>
+<p>MF Cable 2개 및 FF Cable 3개</p>
+</li>
+</ul>
+<img src="/assets/images/tutorials/250/cable2.png" style="height:288px; width:1000px">
+<p>Raspberry Pi 보드의 핀은 아래와 같이 구성되어 있습니다.</p>
+<img src="https://download-tizen-online.s3-us-west-1.amazonaws.com/smart-light/bson_rpi_pin_map_board.jpg" style="undefined">
+<p>본 실습을 위해서&nbsp;보드에&nbsp;모션센서와 LED Light를 연결해줍니다.</p>
+<ul>
+<li>
+<p>Motion Sensor : FF Cable 사용 및&nbsp;GPIO 18번 연결</p>
+</li>
+<li>
+<p>LED Light : MF Cable 사용 및&nbsp;GPIO 24번 연결</p>
+</li>
+</ul>
+<p>*.&nbsp;LED Light를 빵판에 연결할&nbsp;때 긴쪽과 짧은쪽을 구별하여 연결해주세요. (아래 회로도에서 구부러져 있는 우측이 긴쪽)</p>
+<img src="https://download-tizen-online.s3-us-west-1.amazonaws.com/smart-light/bson_1908_final_pin_map.jpg" style="undefined">
+<p>아래와 같이&nbsp;전선을 연결할 수 있습니다.</p>
+<img src="/assets/images/tutorials/250/line2.png" style="border-style:solid; border-width:1px; height:497px; width:800px">
+<img src="/assets/images/tutorials/250/line.png" style="border-style:solid; border-width:1px; height:421px; width:800px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="i-overview">I. Overview</h1><h2 id="4-nui-project-생성">4. NUI Project 생성</h2>
+<p>UI Framework로 NUI 및 Xamarin.Forms 모두 사용 가능합니다.</p>
+<p>이번 강좌에서는 NUI 기반으로 프로젝트를 생성해 보도록 하겠습니다.</p>
+<ol>
+<li>최신 NUI Template을 사용하기 위해서 NUI Template VSIX를 다운 받아 설치합니다.&nbsp;<a href="https://github.com/nui-dali/Hackerthon2021/blob/main/Environment/NUITemplate.vsix">[다운]</a></li>
+</ol>
+<p>(기존 설치 하신 분은 다시 설치할 필요는 없습니다.)</p>
+<img src="/assets/images/tutorials/194/NUI.png" style="undefined">
+<p>2.&nbsp; <strong>Visual Studio</strong> &nbsp;메뉴에서&nbsp; <strong>File &gt; New &gt; Project</strong> &nbsp;선택</p>
+<img src="/assets/images/tutorials/191/5_22.png" style="border-style:solid; border-width:1px">
+<ol start="3">
+<li>언어에서&nbsp; <strong>C#</strong> , 플랫폼에서&nbsp; <strong>Tizen</strong> &nbsp;선택 후,&nbsp; <strong>Tizen NUI XAML Project</strong> 템플릿을 선택하고&nbsp;” <strong>Next</strong> ” 버튼을 누릅니다.</li>
+</ol>
+<p>(또는 NUI 검색)</p>
+<img src="/assets/images/tutorials/194/nui_project.png" style="border-style:solid; border-width:1px; height:627px; width:1000px">
+<ol start="4">
+<li><strong>프로젝트명</strong> &nbsp;입력 후 ” <strong>Create”</strong> &nbsp;버튼을 누릅니다. 예) MotionRecognitionLight</li>
+</ol>
+<img src="/assets/images/tutorials/250/createproject.png" style="border-style:solid; border-width:1px; height:627px; width:1000px">
+<ol start="5">
+<li>프로젝트 생성이 마무리 되면, <strong>Solution Explorer</strong> 에 다음과 같이 표시됩니다.</li>
+</ol>
+<img src="/assets/images/tutorials/250/project.png" style="border-style:solid; border-width:1px; height:271px; width:309px">
+<p>*. 필요한 Packages가 제대로 설치되지 않아 Warning이 발생하면&nbsp;아래 순서대로 진행해주세요.</p>
+<img src="/assets/images/tutorials/250/warning.png" style="border-style:solid; border-width:1px; height:342px; width:304px">
+<p>1)&nbsp;Solution Explorer 내 Solution 이름 위에서 마우스 우클릭</p>
+<p>2)&nbsp;Restore Nuget Packages 실행</p>
+<p>3)&nbsp;Clean Solution 실행</p>
+<ol start="4">
+<li>Rebuild Solution 실행</li>
+</ol>
+<p>5)&nbsp;Visual Studio 재실행</p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-led-light-제어">II. LED Light 제어</h1><h2 id="1-ui-구현">1. UI 구현</h2>
+<p>제일 먼저 아래처럼 버튼 하나를 추가한 UI를 구성해 보도록 하겠습니다.</p>
+<img src="/assets/images/tutorials/250/result.png" style="border-style:solid; border-width:1px; height:450px; width:800px">
+<p>1.&nbsp;Scene1Page.xaml 파일 오픈</p>
+<ol start="2">
+<li>기본 템플릿 코드 삭제</li>
+</ol>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 308px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;?</span><span style="color: #905">xml</span><span style="color: #690"> version</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1.0</span><span style="color: #999">"</span><span style="color: #690"> encoding</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">UTF-8</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">?&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;</span><span style="color: #905">View</span><span style="color: #BBBBBB"> </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Class</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">MotionRecognitionLight.Scene1Page</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #690">xmlns</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://tizen.org/Tizen.NUI/2018/XAML</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">x</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://schemas.microsoft.com/winfx/2009/xaml</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">local</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">clr-namespace:MotionRecognitionLight</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #690">WidthSpecification</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Static LayoutParamPolicies.MatchParent}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #690">HeightSpecification</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Static LayoutParamPolicies.MatchParent}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #690">BackgroundColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">White</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">View.Layout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">LinearLayout</span><span style="color: #BBBBBB"> </span><span style="color: #690">LinearOrientation</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Vertical</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">LinearAlignment</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Center</span><span style="color: #999">"</span><span style="color: #999">&gt;&lt;/</span><span style="color: #905">LinearLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">View.Layout</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">&lt;/</span><span style="color: #905">View</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ol start="3">
+<li>Button 추가</li>
+</ol>
+<ul>
+<li>버튼 내 기본 Text로&nbsp;“Change the LED Light”가 출력되고, 클릭 시&nbsp; <strong>ChangeLEDLight</strong> 함수 호출</li>
+</ul>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 308px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 336px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;?</span><span style="color: #905">xml</span><span style="color: #690"> version</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1.0</span><span style="color: #999">"</span><span style="color: #690"> encoding</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">UTF-8</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">?&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;</span><span style="color: #905">View</span><span style="color: #BBBBBB"> </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Class</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">MotionRecognitionLight.Scene1Page</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #690">xmlns</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://tizen.org/Tizen.NUI/2018/XAML</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">x</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://schemas.microsoft.com/winfx/2009/xaml</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">local</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">clr-namespace:MotionRecognitionLight</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #690">WidthSpecification</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Static LayoutParamPolicies.MatchParent}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #690">HeightSpecification</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Static LayoutParamPolicies.MatchParent}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #690">BackgroundColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">White</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">View.Layout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">LinearLayout</span><span style="color: #BBBBBB"> </span><span style="color: #690">LinearOrientation</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Vertical</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">LinearAlignment</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Center</span><span style="color: #999">"</span><span style="color: #999">&gt;&lt;/</span><span style="color: #905">LinearLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">View.Layout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Change the LED Light</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #690">Clicked</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">ChangeLEDLight</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;/</span><span style="color: #905">View</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-led-light-제어">II. LED Light 제어</h1><h2 id="2-기능-구현">2. 기능 구현</h2>
+<p>GPIO를 사용하여 LED Light를 제어해&nbsp;보도록 하겠습니다.</p>
+<p>1.&nbsp;Scene1Page.xaml.cs 파일 오픈</p>
+<ol start="2">
+<li>GpioPin 생성</li>
+</ol>
+<ul>
+<li>16라인 GpioPin 생성시 첫번째 인자는 GPIO Pin Number로 현재 하드웨어 구성시 사용한 24번 입력</li>
+</ul>
+<p>-&nbsp;GpioPin 생성시 두번째 인자는 데이터 전송 방향으로 현재 쓰기모드 상태로 초기값이 Low(0)인 상태로 설정</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 224px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 252px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 420px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #BBBBBB">.</span><span style="color: #000">NUI</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #BBBBBB">.</span><span style="color: #000">NUI</span><span style="color: #BBBBBB">.</span><span style="color: #000">BaseComponents</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #BBBBBB">.</span><span style="color: #000">Peripheral</span><span style="color: #BBBBBB">.</span><span style="color: #000">Gpio</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">MotionRecognitionLight</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">partial</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">Scene1Page</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">View</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #07A">int</span><span style="color: #BBBBBB"> </span><span style="color: #000">SENSOR_LED_GPIO_NUMBER</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">24</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">GpioPin</span><span style="color: #BBBBBB"> </span><span style="color: #000">ledGpio</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Scene1Page</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">InitializeComponent</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">ledGpio</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">GpioPin</span><span style="color: #999">(</span><span style="color: #000">SENSOR_LED_GPIO_NUMBER</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">GpioPinDriveMode</span><span style="color: #999">.</span><span style="color: #000">OutputInitiallyLow</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>3.&nbsp; <strong>ChangeLEDLight</strong> &nbsp;함수 구현</p>
+<ul>
+<li>
+<p>ChangeLEDLight 는 버튼 클릭시 호출되는 함수</p>
+</li>
+<li>
+<p>현재 ledGpio 상태값을 읽어와서 반대로 바꾸어주는 기능 (High &lt;-&gt; Low)</p>
+</li>
+</ul>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ChangeLEDLight</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">PinUpdatedEventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">if</span><span style="color: #999">(</span><span style="color: #000">ledGpio</span><span style="color: #999">.</span><span style="color: #DD4A68">Read</span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">==</span><span style="color: #BBBBBB"> </span><span style="color: #000">GpioPinValue</span><span style="color: #999">.</span><span style="color: #000">High</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">ledGpio</span><span style="color: #999">.</span><span style="color: #DD4A68">Write</span><span style="color: #999">(</span><span style="color: #000">GpioPinValue</span><span style="color: #999">.</span><span style="color: #000">Low</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">else</span><span style="color: #BBBBBB"> </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">ledGpio</span><span style="color: #999">.</span><span style="color: #DD4A68">Read</span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">==</span><span style="color: #BBBBBB"> </span><span style="color: #000">GpioPinValue</span><span style="color: #999">.</span><span style="color: #000">Low</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">ledGpio</span><span style="color: #999">.</span><span style="color: #DD4A68">Write</span><span style="color: #999">(</span><span style="color: #000">GpioPinValue</span><span style="color: #999">.</span><span style="color: #000">High</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ol start="4">
+<li>자원 반환</li>
+</ol>
+<ul>
+<li>앱 종료 시 사용중인&nbsp;자원의 반납이 필요합니다.</li>
+</ul>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Stop</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">ledGpio</span><span style="color: #999">.</span><span style="color: #DD4A68">Dispose</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ol start="5">
+<li>Scene1.cs 파일 오픈 후 App 종료 시 자원 반환 함수 호출</li>
+</ol>
+<ul>
+<li>App LifeCycle에서 UI Class에 접근할 수 있도록 Scene1Page를 별도 Private 변수에 저장하여 사용</li>
+</ul>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 112px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 336px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 364px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">MotionRecognitionLight</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">Scene1</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">NUIApplication</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">Scene1Page</span><span style="color: #BBBBBB"> </span><span style="color: #000">mainPage</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">override</span><span style="color: #BBBBBB"> </span><span style="color: #07A">protected</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnCreate</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">base</span><span style="color: #999">.</span><span style="color: #DD4A68">OnCreate</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">            //</span><span style="color: #708090"> NOTE To use theme.xaml, uncomment below line.</span></span>
+<span class="line"><span style="color: #999">            //</span><span style="color: #708090"> ThemeManager.ApplyTheme(new Theme(Tizen.Applications.Application.Current.DirectoryInfo.Resource + "theme/theme.xaml"));</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">mainPage</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Scene1Page</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">GetDefaultWindow</span><span style="color: #999">().</span><span style="color: #DD4A68">Add</span><span style="color: #999">(</span><span style="color: #000">mainPage</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">GetDefaultWindow</span><span style="color: #999">().</span><span style="color: #000">KeyEvent</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">OnScene1KeyEvent</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ul>
+<li>OnTerminate 함수 안에 위에서 구현한 Stop 함수 추가</li>
+</ul>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">override</span><span style="color: #BBBBBB"> </span><span style="color: #07A">protected</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnTerminate</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">mainPage</span><span style="color: #999">.</span><span style="color: #DD4A68">Stop</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">base</span><span style="color: #999">.</span><span style="color: #DD4A68">OnTerminate</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-led-light-제어">II. LED Light 제어</h1><h2 id="3-privilege-등록">3. Privilege 등록</h2>
+<p>프로그램에서 Peripheral API 사용하기&nbsp;위해서&nbsp;Privilege를 선언해 주어야 합니다.</p>
+<p>1.&nbsp; <strong>tizen-manifest.xml</strong> &nbsp;파일 오픈 후&nbsp; <strong>Privileges</strong> 탭에서&nbsp; <strong>Add</strong> 버튼&nbsp;클릭</p>
+<ol start="2">
+<li>Custom Privileges 선택 후&nbsp; <strong><a href="http://tizen.org/privilege/peripheralio">http://tizen.org/privilege/peripheralio</a></strong> &nbsp;입력</li>
+</ol>
+<img src="/assets/images/tutorials/250/privilege2.png" style="border-style:solid; border-width:1px; height:477px; width:1000px">
+<p>3.&nbsp; <strong>파일 저장</strong> &nbsp;(Ctrl + S or 상단 File 메뉴에서&nbsp;Save&nbsp;tizen-manifest.xml )</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-led-light-제어">II. LED Light 제어</h1><h2 id="4-실행-결과">4. 실행 결과</h2>
+<ol>
+<li>프로그램을 설치할 디바이스가 연결되어 있는지 확인합니다.</li>
+</ol>
+<img src="/assets/images/tutorials/191/5_27.png" style="undefined">
+<p>*. 연결되어 있지 않으면&nbsp;<a href="http://tizenschool.org/tutorial/194/contents/8">http://tizenschool.org/tutorial/194/contents/8</a>&nbsp;가이드를 참고해서 연결합니다.</p>
+<p>2.&nbsp; <strong>Ctrl-F5</strong> 로 설치 및 실행합니다.</p>
+<img src="/assets/images/tutorials/250/result.png" style="border-style:solid; border-width:1px; height:450px; width:800px">
+<p>3.&nbsp; <strong>버튼</strong> 을 클릭하여 LED 전구가 제대로 제어되는지 확인합니다.</p>
+<img src="/assets/images/tutorials/208/final_result.png" style="undefined">
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-motion-sensor-제어">III. Motion Sensor 제어</h1><h2 id="1-기능-구현">1. 기능 구현</h2>
+<p>GPIO를 사용하여 Motion Sensor를 제어해&nbsp;보도록 하겠습니다.</p>
+<p>1.&nbsp;Scene1Page.xaml.cs 파일 오픈</p>
+<ol start="2">
+<li>GpioPin 생성</li>
+</ol>
+<ul>
+<li>GpioPin 생성시 첫번째 인자는 GPIO Pin Number로 현재 하드웨어 구성시 사용한 18번 입력</li>
+</ul>
+<p>-&nbsp;GpioPin 생성시 두번째 인자는 데이터 전송 방향으로 현재 읽기모드로&nbsp;설정</p>
+<ul>
+<li>Motion Sensor의 값이 바뀔 때 ChangeLEDLight 함수가 호출되도록 CallBack 함수 등록</li>
+</ul>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 224px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 420px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 448px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">MotionRecognitionLight</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">partial</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">Scene1Page</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">View</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #07A">int</span><span style="color: #BBBBBB"> </span><span style="color: #000">SENSOR_LED_GPIO_NUMBER</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">24</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #07A">int</span><span style="color: #BBBBBB"> </span><span style="color: #000">SENSOR_MOTION_GPIO_NUMBER</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">18</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">GpioPin</span><span style="color: #BBBBBB"> </span><span style="color: #000">ledGpio</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">GpioPin</span><span style="color: #BBBBBB"> </span><span style="color: #000">motionGpio</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Scene1Page</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">InitializeComponent</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">ledGpio</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">GpioPin</span><span style="color: #999">(</span><span style="color: #000">SENSOR_LED_GPIO_NUMBER</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">GpioPinDriveMode</span><span style="color: #999">.</span><span style="color: #000">OutputInitiallyLow</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">motionGpio</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">GpioPin</span><span style="color: #999">(</span><span style="color: #000">SENSOR_MOTION_GPIO_NUMBER</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">GpioPinDriveMode</span><span style="color: #999">.</span><span style="color: #000">Input</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">motionGpio</span><span style="color: #999">.</span><span style="color: #000">ValueChanged</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">ChangeLEDLight</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ol start="3">
+<li>자원 반환</li>
+</ol>
+<ul>
+<li>앱 종료 시 사용중인&nbsp;자원의 반납이 필요합니다.</li>
+</ul>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 84px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Stop</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">ledGpio</span><span style="color: #999">.</span><span style="color: #DD4A68">Dispose</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">motionGpio</span><span style="color: #999">.</span><span style="color: #DD4A68">Dispose</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-motion-sensor-제어">III. Motion Sensor 제어</h1><h2 id="2-실행-결과">2. 실행 결과</h2>
+<ol>
+<li>프로그램을 설치할 디바이스가 연결되어 있는지 확인합니다.</li>
+</ol>
+<img src="/assets/images/tutorials/191/5_27.png" style="undefined">
+<p>*. 연결되어 있지 않으면&nbsp;<a href="http://tizenschool.org/tutorial/194/contents/8">http://tizenschool.org/tutorial/194/contents/8</a>&nbsp;가이드를 참고해서 연결합니다.</p>
+<p>2.&nbsp; <strong>Ctrl-F5</strong> 로 설치 및 실행합니다.</p>
+<img src="/assets/images/tutorials/250/result.png" style="border-style:solid; border-width:1px; height:450px; width:800px">
+<ol start="3">
+<li>Motion&nbsp;센서 주변에 움직임을 주어서&nbsp;LED 전구가 제대로 제어되는지 확인합니다.</li>
+</ol>
+<img src="https://download-tizen-online.s3-us-west-1.amazonaws.com/smart-light/bson_1908_final_off.jpg" style="undefined">
+&nbsp;&nbsp;
+<img src="https://download-tizen-online.s3-us-west-1.amazonaws.com/smart-light/bson_1908_final_on.jpg" style="undefined">
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iv-appendix">IV. Appendix</h1><h2 id="모션-센서-추가-정보">모션 센서 추가 정보</h2>
+<p>Infrared Motion Sensor는 물체의 적외선 정보를 감지하여 주변의 움직임을 파악하는 센서입니다.</p>
+<img src="https://download-tizen-online.s3-us-west-1.amazonaws.com/smart-light/bson_1908_motion_1switch.jpg" style="undefined">
+<br>
+<img src="https://download-tizen-online.s3-us-west-1.amazonaws.com/smart-light/bson_1908_motion_1pin.jpg" style="undefined">
+<br>
+<img src="https://download-tizen-online.s3-us-west-1.amazonaws.com/smart-light/bson_1908_motion_board.jpg" style="undefined">
+<p><a href="https://www.mpja.com/download/31227sc.pdf">HC-SR501 사용자 매뉴얼</a></p>
+<p>우리가 사용할 HC-SR501은 아래와 같이 구성되어 있습니다.<br>
+<img src="https://download-tizen-online.s3-us-west-1.amazonaws.com/smart-light/bson_1908_motion.jpg" style="undefined"></p>
+<p><strong>Sensitivity Adjust</strong></p>
+<p>HC-SR501은 정해진 측정 거리 내의 적외선을 감지할 수 있으며, 3~7m의 범위 내에서 측정 거리를 설정할 수 있습니다.<br>측정 거리가 증가하면 멀리 있는 물체의 움직임도 감지할 수 있기 때문에 움직임에 더 민감하게 반응합니다.</p>
+<p><strong>Time Delay Adjust</strong></p>
+<p>움직임이 감지된 후, 얼마의 시간 동안 다음 움직임 감지를 지연시킬 지 결정합니다. 3초~5분의 범위 내에서 지연 시간을 설정할 수 있습니다.</p>
+<p><strong>Trigger Setting</strong></p>
+<p>움직임을 감지하는 방식을 설정합니다.</p>
+<p>Tigger Mode에 대한 이해를 돕기위해 간단한 예제를 참고해주세요.</p>
+<img src="https://download-tizen-online.s3-us-west-1.amazonaws.com/smart-light/bson_1908_motion_ex_final.jpeg" style="undefined">
+<p>본 강좌를 위해서는 아래와 같이 설정을 해주세요.</p>
+<img src="https://download-tizen-online.s3-us-west-1.amazonaws.com/smart-light/bson_1908_motion_turn.jpg" style="undefined">
+<p><a href="https://s3-us-west-1.amazonaws.com/tizenschool/250/test.tpk">https://s3-us-west-1.amazonaws.com/tizenschool/250/test.tpk</a></p></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/11</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/84895ba0ae7f34d06b2e24359088ded5aef2eb94">84895ba0ae7f34d06b2e24359088ded5aef2eb94</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+

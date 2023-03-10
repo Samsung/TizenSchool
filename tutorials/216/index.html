@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+    <title>C# Camera</title>
+  <link rel="stylesheet" href="/assets/aboutus.1b0f65e4.css" />
+<link rel="stylesheet" href="/assets/10.cb2c83b6.css" />
+<link rel="stylesheet" href="/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="13NfkC" component-url="/Header.14d8e174.js" component-export="default" renderer-url="/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      C# Camera
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">C# Camera</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/assets/images/iot-dimmed.png">
+        <img src="/assets/images/wearable-dimmed.png">
+        <img src="/assets/images/mobile-dimmed.png">
+        <img src="/assets/images/smart-tv-dimmed.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2020/08/17</span>
+            Modified
+            <span class="font-bold">2020/08/21</span>
+    </div>
+  </div><astro-island uid="5dU4x" component-url="/TextContent.c7f4d9de.js" component-export="default" renderer-url="/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,21],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[]\&quot;],\&quot;chapter\&quot;:[0,\&quot;\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Creating a Project\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;I. Overview\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Creating a Service\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Creating a View\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Creating Renderer\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Privilges\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Result\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;II. Camera Preview\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;DatabaseService\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;CameraService\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Model\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;ViewModel\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;View\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Privileges\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Result\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;III. Taking a Photo\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Service\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Model\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;ViewModel\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;View\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Privileges\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Result\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;IV. Thumbnail\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;New page\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Create a Project\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;V. Tip\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/21</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id="i-overview">I. Overview</h1><h2 id="creating-a-project">Creating a Project</h2>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>I recommend that you are using the following basic project.</p>
+<p><a href="https://s3-us-west-1.amazonaws.com/tizenschool/216/MyCamera.zip">[Download]</a></p>
+<p>&nbsp;</p>
+<ul>
+<li>
+<p>It is based on the Tizen XAML App (Xamarin.Forms) template in the project wizard.</p>
+</li>
+<li>
+<p>res 폴더</p>
+</li>
+<li>
+<p>database</p>
+</li>
+<li>
+<p>ViewModel</p>
+</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-camera-preview">II. Camera Preview</h1><h2 id="creating-a-service">Creating a Service</h2>
+<p>&nbsp;</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Linq</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #BBBBBB">.</span><span style="color: #000">Multimedia</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">TCamera</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">Multimedia</span><span style="color: #999">.</span><span style="color: #000">Camera</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">TMediaView</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">Multimedia</span><span style="color: #999">.</span><span style="color: #000">MediaView</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">MyCamera</span><span style="color: #999">.</span><span style="color: #000">Service</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraService</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #07A">double</span><span style="color: #BBBBBB"> </span><span style="color: #000">ASPECT_RATIO_COEFFICIENT</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">9d</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">/</span><span style="color: #BBBBBB"> </span><span style="color: #905">16</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">static</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraService</span><span style="color: #BBBBBB"> </span><span style="color: #000">_instance</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">static</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraService</span><span style="color: #BBBBBB"> </span><span style="color: #000">Instance</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">_instance</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">??</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">_instance</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraService</span><span style="color: #999">());</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">TCamera</span><span style="color: #BBBBBB"> </span><span style="color: #000">_camera</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">CameraService</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">_camera</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">TCamera</span><span style="color: #999">(</span><span style="color: #000">CameraDevice</span><span style="color: #999">.</span><span style="color: #000">Rear</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">InitCameraControl</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">InitCameraView</span><span style="color: #999">(</span><span style="color: #000">TMediaView</span><span style="color: #BBBBBB"> </span><span style="color: #000">_mediaView</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">_camera</span><span style="color: #999">.</span><span style="color: #000">Display</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Display</span><span style="color: #999">(</span><span style="color: #000">_mediaView</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">InitCameraControl</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">try</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #DD4A68">SetCaptureResolution</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">_camera</span><span style="color: #999">.</span><span style="color: #000">DisplaySettings</span><span style="color: #999">.</span><span style="color: #000">Mode</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraDisplayMode</span><span style="color: #999">.</span><span style="color: #000">CroppedFull</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">_camera</span><span style="color: #999">.</span><span style="color: #000">Settings</span><span style="color: #999">.</span><span style="color: #000">CapturePixelFormat</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraPixelFormat</span><span style="color: #999">.</span><span style="color: #000">Jpeg</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">_camera</span><span style="color: #999">.</span><span style="color: #000">Settings</span><span style="color: #999">.</span><span style="color: #000">EnableTag</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">true</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">_camera</span><span style="color: #999">.</span><span style="color: #000">Settings</span><span style="color: #999">.</span><span style="color: #000">ImageQuality</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">100</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">_camera</span><span style="color: #999">.</span><span style="color: #000">Settings</span><span style="color: #999">.</span><span style="color: #000">OrientationTag</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraTagOrientation</span><span style="color: #999">.</span><span style="color: #000">TopLeft</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">catch</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">Exception</span><span style="color: #BBBBBB"> </span><span style="color: #000">exception</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #DD4A68">ErrorHandler</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">InitCameraControl error: </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">exception</span><span style="color: #999">.</span><span style="color: #000">Message</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">SetCaptureResolution</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">try</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">supportedResolution</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">_camera</span><span style="color: #999">.</span><span style="color: #000">Capabilities</span><span style="color: #999">.</span><span style="color: #000">SupportedCaptureResolutions</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #999">.</span><span style="color: #DD4A68">LastOrDefault</span><span style="color: #999">(</span><span style="color: #000">p</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">p</span><span style="color: #999">.</span><span style="color: #000">Width</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">*</span><span style="color: #BBBBBB"> </span><span style="color: #000">ASPECT_RATIO_COEFFICIENT</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">==</span><span style="color: #BBBBBB"> </span><span style="color: #000">p</span><span style="color: #999">.</span><span style="color: #000">Height</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">supportedResolution</span><span style="color: #999">.</span><span style="color: #000">Width</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">==</span><span style="color: #BBBBBB"> </span><span style="color: #905">0</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #000">_camera</span><span style="color: #999">.</span><span style="color: #000">Settings</span><span style="color: #999">.</span><span style="color: #000">CaptureResolution</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">_camera</span><span style="color: #999">.</span><span style="color: #000">Capabilities</span><span style="color: #999">.</span><span style="color: #000">SupportedCaptureResolutions</span></span>
+<span class="line"><span style="color: #BBBBBB">                        </span><span style="color: #999">.</span><span style="color: #DD4A68">LastOrDefault</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #07A">else</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #000">_camera</span><span style="color: #999">.</span><span style="color: #000">Settings</span><span style="color: #999">.</span><span style="color: #000">CaptureResolution</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">supportedResolution</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">catch</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">Exception</span><span style="color: #BBBBBB"> </span><span style="color: #000">exception</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #DD4A68">ErrorHandler</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Setting capture resolution error: </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">exception</span><span style="color: #999">.</span><span style="color: #000">Message</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">StartCameraPreview</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #A67F59">!</span><span style="color: #999">(</span><span style="color: #000">_camera</span><span style="color: #BBBBBB"> </span><span style="color: #07A">is</span><span style="color: #BBBBBB"> </span><span style="color: #000">null</span><span style="color: #999">))</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">_camera</span><span style="color: #999">.</span><span style="color: #000">State</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">==</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraState</span><span style="color: #999">.</span><span style="color: #000">Created</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">||</span><span style="color: #BBBBBB"> </span><span style="color: #000">_camera</span><span style="color: #999">.</span><span style="color: #000">State</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">==</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraState</span><span style="color: #999">.</span><span style="color: #000">Captured</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #07A">try</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                        </span><span style="color: #000">_camera</span><span style="color: #999">.</span><span style="color: #DD4A68">StartPreview</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">                        //</span><span style="color: #708090"> Set Foucs</span></span>
+<span class="line"><span style="color: #BBBBBB">                        </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">_camera</span><span style="color: #999">.</span><span style="color: #000">Capabilities</span><span style="color: #999">.</span><span style="color: #000">SupportedAutoFocusModes</span><span style="color: #999">.</span><span style="color: #DD4A68">Contains</span><span style="color: #999">(</span><span style="color: #000">CameraAutoFocusMode</span><span style="color: #999">.</span><span style="color: #000">Normal</span><span style="color: #999">))</span></span>
+<span class="line"><span style="color: #BBBBBB">                        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                            </span><span style="color: #000">_camera</span><span style="color: #999">.</span><span style="color: #DD4A68">StartFocusing</span><span style="color: #999">(</span><span style="color: #905">true</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">                        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #07A">catch</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">Exception</span><span style="color: #BBBBBB"> </span><span style="color: #000">exception</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                        </span><span style="color: #DD4A68">ErrorHandler</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Preview error: </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">exception</span><span style="color: #999">.</span><span style="color: #000">Message</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ErrorHandler</span><span style="color: #999">(</span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">errorMessage</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">Application</span><span style="color: #999">.</span><span style="color: #000">Current</span><span style="color: #999">.</span><span style="color: #000">MainPage</span><span style="color: #999">.</span><span style="color: #DD4A68">DisplayAlert</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Error</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">errorMessage</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">OK</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>&nbsp;</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-camera-preview">II. Camera Preview</h1><h2 id="creating-a-view">Creating a View</h2>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<ol>
+<li>MediaView.cs</li>
+</ol>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">MyCamera</span><span style="color: #999">.</span><span style="color: #000">View</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">MediaView</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #999">.</span><span style="color: #000">Forms</span><span style="color: #999">.</span><span style="color: #000">View</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">internal</span><span style="color: #BBBBBB"> </span><span style="color: #07A">static</span><span style="color: #BBBBBB"> </span><span style="color: #07A">readonly</span><span style="color: #BBBBBB"> </span><span style="color: #000">BindablePropertyKey</span><span style="color: #BBBBBB"> </span><span style="color: #000">NativeViewPropertyKey</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">BindableProperty</span><span style="color: #999">.</span><span style="color: #DD4A68">CreateReadOnly</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">NativeView</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">typeof</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #999">),</span><span style="color: #BBBBBB"> </span><span style="color: #07A">typeof</span><span style="color: #999">(</span><span style="color: #000">MediaView</span><span style="color: #999">),</span><span style="color: #BBBBBB"> </span><span style="color: #07A">default</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #999">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">static</span><span style="color: #BBBBBB"> </span><span style="color: #07A">readonly</span><span style="color: #BBBBBB"> </span><span style="color: #000">BindableProperty</span><span style="color: #BBBBBB"> </span><span style="color: #000">NativeViewProperty</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">NativeViewPropertyKey</span><span style="color: #999">.</span><span style="color: #000">BindableProperty</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">NativeView</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">get</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">GetValue</span><span style="color: #999">(</span><span style="color: #000">NativeViewProperty</span><span style="color: #999">);</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">internal</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">SetValue</span><span style="color: #999">(</span><span style="color: #000">NativeViewPropertyKey</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">);</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">event</span><span style="color: #BBBBBB"> </span><span style="color: #000">EventHandler</span><span style="color: #BBBBBB"> </span><span style="color: #000">NativeViewCreated</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">SendNativeViewCreated</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">NativeViewCreated</span><span style="color: #A67F59">?</span><span style="color: #999">.</span><span style="color: #DD4A68">Invoke</span><span style="color: #999">(</span><span style="color: #07A">this</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">EventArgs</span><span style="color: #999">.</span><span style="color: #000">Empty</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>&nbsp;</p>
+<p>2.&nbsp;Open the CameraPage.xaml</p>
+<p>&nbsp;</p>
+<ol start="3">
+<li>Add the mediaview</li>
+</ol>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;?</span><span style="color: #905">xml</span><span style="color: #690"> version</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1.0</span><span style="color: #999">"</span><span style="color: #690"> encoding</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">utf-8</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">?&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;</span><span style="color: #905">ContentPage</span><span style="color: #BBBBBB"> </span><span style="color: #690">xmlns</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://xamarin.com/schemas/2014/forms</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">x</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://schemas.microsoft.com/winfx/2009/xaml</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">d</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://xamarin.com/schemas/2014/forms/design</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">mc</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://schemas.openxmlformats.org/markup-compatibility/2006</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">control</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">clr-namespace:MyCamera.View</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">mc</span><span style="color: #999">:</span><span style="color: #690">Ignorable</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">d</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Class</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">MyCamera.View.CameraPage</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">ContentPage.Content</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">AbsoluteLayout</span><span style="color: #BBBBBB"> </span><span style="color: #690">BackgroundColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Black</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">control</span><span style="color: #999">:</span><span style="color: #905">MediaView</span><span style="color: #BBBBBB"> </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Name</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">CameraView</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                               </span><span style="color: #690">AbsoluteLayout.LayoutFlags</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">PositionProportional</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                               </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0.5,0.5,960,720</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;/</span><span style="color: #905">AbsoluteLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">ContentPage.Content</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;/</span><span style="color: #905">ContentPage</span><span style="color: #999">&gt;</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>&nbsp;</p>
+<ol start="4">
+<li>Open CameraPAge.xaml.cs</li>
+</ol>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #BBBBBB">.</span><span style="color: #000">Xaml</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">TMediaView</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">Multimedia</span><span style="color: #999">.</span><span style="color: #000">MediaView</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">MyCamera</span><span style="color: #BBBBBB">.</span><span style="color: #000">Service</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">MyCamera</span><span style="color: #999">.</span><span style="color: #000">View</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">[</span><span style="color: #000">XamlCompilation</span><span style="color: #999">(</span><span style="color: #000">XamlCompilationOptions</span><span style="color: #999">.</span><span style="color: #000">Compile</span><span style="color: #999">)]</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">partial</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraPage</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">ContentPage</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">TMediaView</span><span style="color: #BBBBBB"> </span><span style="color: #000">_mediaView</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">CameraPage</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">InitializeComponent</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">InitCameraControl</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">InitCameraControl</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">CameraView</span><span style="color: #999">.</span><span style="color: #000">NativeViewCreated</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">s</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">_mediaView</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">TMediaView</span><span style="color: #999">)</span><span style="color: #000">CameraView</span><span style="color: #999">.</span><span style="color: #000">NativeView</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">CameraService</span><span style="color: #999">.</span><span style="color: #000">Instance</span><span style="color: #999">.</span><span style="color: #DD4A68">InitCameraView</span><span style="color: #999">(</span><span style="color: #000">_mediaView</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">CameraService</span><span style="color: #999">.</span><span style="color: #000">Instance</span><span style="color: #999">.</span><span style="color: #DD4A68">StartCameraPreview</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">};</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>&nbsp;</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-camera-preview">II. Camera Preview</h1><h2 id="creating-renderer">Creating Renderer</h2>
+<p>&nbsp;</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">MyCamera</span><span style="color: #BBBBBB">.</span><span style="color: #000">View</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">MyCamera</span><span style="color: #BBBBBB">.</span><span style="color: #000">Renderer</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #BBBBBB">.</span><span style="color: #000">Platform</span><span style="color: #BBBBBB">.</span><span style="color: #000">Tizen</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">TMediaView</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">Multimedia</span><span style="color: #999">.</span><span style="color: #000">MediaView</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">[</span><span style="color: #07A">assembly</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">ExportRenderer</span><span style="color: #999">(</span><span style="color: #07A">typeof</span><span style="color: #999">(</span><span style="color: #000">MediaView</span><span style="color: #999">),</span><span style="color: #BBBBBB"> </span><span style="color: #07A">typeof</span><span style="color: #999">(</span><span style="color: #000">MediaViewRenderer</span><span style="color: #999">))]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">MyCamera</span><span style="color: #999">.</span><span style="color: #000">Renderer</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">MediaViewRenderer</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">VisualElementRenderer</span><span style="color: #999">&lt;</span><span style="color: #000">MediaView</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">TMediaView</span><span style="color: #BBBBBB"> </span><span style="color: #000">_control</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">MediaViewRenderer</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">protected</span><span style="color: #BBBBBB"> </span><span style="color: #07A">override</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnElementChanged</span><span style="color: #999">(</span><span style="color: #000">ElementChangedEventArgs</span><span style="color: #999">&lt;</span><span style="color: #000">MediaView</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">_control</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">==</span><span style="color: #BBBBBB"> </span><span style="color: #905">null</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">_control</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">TMediaView</span><span style="color: #999">(</span><span style="color: #000">Forms</span><span style="color: #999">.</span><span style="color: #000">NativeParent</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #DD4A68">SetNativeView</span><span style="color: #999">(</span><span style="color: #000">_control</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">OldElement</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">!=</span><span style="color: #BBBBBB"> </span><span style="color: #905">null</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">_control</span><span style="color: #999">.</span><span style="color: #000">Resized</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">-=</span><span style="color: #BBBBBB"> </span><span style="color: #000">NatvieViewResized</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">NewElement</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">!=</span><span style="color: #BBBBBB"> </span><span style="color: #905">null</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">_control</span><span style="color: #999">.</span><span style="color: #000">Resized</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">NatvieViewResized</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">Element</span><span style="color: #999">.</span><span style="color: #000">NativeView</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">_control</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">MediaView</span><span style="color: #BBBBBB"> </span><span style="color: #000">mediaView</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Element</span><span style="color: #BBBBBB"> </span><span style="color: #07A">as</span><span style="color: #BBBBBB"> </span><span style="color: #000">MediaView</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">mediaView</span><span style="color: #A67F59">?</span><span style="color: #999">.</span><span style="color: #DD4A68">SendNativeViewCreated</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">base</span><span style="color: #999">.</span><span style="color: #DD4A68">OnElementChanged</span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">NatvieViewResized</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">EventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">((</span><span style="color: #000">MediaView</span><span style="color: #999">)</span><span style="color: #000">Element</span><span style="color: #999">).</span><span style="color: #DD4A68">NativeSizeChanged</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>&nbsp;</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-camera-preview">II. Camera Preview</h1><h2 id="privilges">Privilges</h2>
+<p>&nbsp;</p>
+<p><a href="http://tizen.org/privilege/camera">http://tizen.org/privilege/camera</a></p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-camera-preview">II. Camera Preview</h1><h2 id="result">Result</h2>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-taking-a-photo">III. Taking a Photo</h1><h2 id="databaseservice">DatabaseService</h2>
+<p>&nbsp;</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #BBBBBB">.</span><span style="color: #000">Content</span><span style="color: #BBBBBB">.</span><span style="color: #000">MediaContent</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">MyCamera</span><span style="color: #999">.</span><span style="color: #000">Service</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">DatabaseService</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">static</span><span style="color: #BBBBBB"> </span><span style="color: #000">DatabaseService</span><span style="color: #BBBBBB"> </span><span style="color: #000">_instance</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">static</span><span style="color: #BBBBBB"> </span><span style="color: #000">DatabaseService</span><span style="color: #BBBBBB"> </span><span style="color: #000">Instance</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">_instance</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">??</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">_instance</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">DatabaseService</span><span style="color: #999">());</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">MediaDatabase</span><span style="color: #BBBBBB"> </span><span style="color: #000">_mediaDatabase</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">delegate</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #000">ErrorOccurredDelegate</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">errorMessage</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">event</span><span style="color: #BBBBBB"> </span><span style="color: #000">ErrorOccurredDelegate</span><span style="color: #BBBBBB"> </span><span style="color: #000">ErrorOccurred</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ConnectDatabase</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">_mediaDatabase</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">MediaDatabase</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">try</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">_mediaDatabase</span><span style="color: #999">.</span><span style="color: #DD4A68">Connect</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">catch</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">Exception</span><span style="color: #BBBBBB"> </span><span style="color: #000">exception</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #DD4A68">ErrorHandler</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Connecting DB error: </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">exception</span><span style="color: #999">.</span><span style="color: #000">Message</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">DisconnectDatabase</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">try</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">_mediaDatabase</span><span style="color: #999">.</span><span style="color: #DD4A68">Disconnect</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">_mediaDatabase</span><span style="color: #999">.</span><span style="color: #DD4A68">Dispose</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">catch</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">Exception</span><span style="color: #BBBBBB"> </span><span style="color: #000">exception</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #DD4A68">ErrorHandler</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Disconnecting DB error: </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">exception</span><span style="color: #999">.</span><span style="color: #000">Message</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">UpdateDatabase</span><span style="color: #999">(</span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">path</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">try</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">_mediaDatabase</span><span style="color: #999">.</span><span style="color: #DD4A68">ScanFolderAsync</span><span style="color: #999">(</span><span style="color: #000">path</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">catch</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">Exception</span><span style="color: #BBBBBB"> </span><span style="color: #000">exception</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #DD4A68">ErrorHandler</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Updating DB error: </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">exception</span><span style="color: #999">.</span><span style="color: #000">Message</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ErrorHandler</span><span style="color: #999">(</span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">errorMessage</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">ErrorOccurred</span><span style="color: #A67F59">?</span><span style="color: #999">.</span><span style="color: #DD4A68">Invoke</span><span style="color: #999">(</span><span style="color: #07A">this</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">errorMessage</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>&nbsp;</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-taking-a-photo">III. Taking a Photo</h1><h2 id="cameraservice">CameraService</h2>
+<p>&nbsp;</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 28px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 364px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 560px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 588px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">IO</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Linq</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #BBBBBB">.</span><span style="color: #000">Multimedia</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">TCamera</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">Multimedia</span><span style="color: #999">.</span><span style="color: #000">Camera</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">TMediaView</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">Multimedia</span><span style="color: #999">.</span><span style="color: #000">MediaView</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">MyCamera</span><span style="color: #999">.</span><span style="color: #000">Service</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraService</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #07A">double</span><span style="color: #BBBBBB"> </span><span style="color: #000">ASPECT_RATIO_COEFFICIENT</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">9d</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">/</span><span style="color: #BBBBBB"> </span><span style="color: #905">16</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">PHOTO_PATH_TEMPLATE</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">/opt/usr/home/owner/media/DCIM/Camera/{0}</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">static</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraService</span><span style="color: #BBBBBB"> </span><span style="color: #000">_instance</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">static</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraService</span><span style="color: #BBBBBB"> </span><span style="color: #000">Instance</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">_instance</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">??</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">_instance</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraService</span><span style="color: #999">());</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">TCamera</span><span style="color: #BBBBBB"> </span><span style="color: #000">_camera</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">StillImage</span><span style="color: #BBBBBB"> </span><span style="color: #000">_capturedPhoto</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">_photoPath</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 336px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 364px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">InitCameraControl</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">try</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #DD4A68">SetCaptureResolution</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">_camera</span><span style="color: #999">.</span><span style="color: #000">DisplaySettings</span><span style="color: #999">.</span><span style="color: #000">Mode</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraDisplayMode</span><span style="color: #999">.</span><span style="color: #000">CroppedFull</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">_camera</span><span style="color: #999">.</span><span style="color: #000">Settings</span><span style="color: #999">.</span><span style="color: #000">CapturePixelFormat</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraPixelFormat</span><span style="color: #999">.</span><span style="color: #000">Jpeg</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">_camera</span><span style="color: #999">.</span><span style="color: #000">Settings</span><span style="color: #999">.</span><span style="color: #000">EnableTag</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">true</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">_camera</span><span style="color: #999">.</span><span style="color: #000">Settings</span><span style="color: #999">.</span><span style="color: #000">ImageQuality</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">100</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">_camera</span><span style="color: #999">.</span><span style="color: #000">Settings</span><span style="color: #999">.</span><span style="color: #000">OrientationTag</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraTagOrientation</span><span style="color: #999">.</span><span style="color: #000">TopLeft</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">_camera</span><span style="color: #999">.</span><span style="color: #000">Capturing</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">OnCapturing</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">_camera</span><span style="color: #999">.</span><span style="color: #000">CaptureCompleted</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">OnCaptureCompleted</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">catch</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">Exception</span><span style="color: #BBBBBB"> </span><span style="color: #000">exception</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #DD4A68">ErrorHandler</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">InitCameraControl error: </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">exception</span><span style="color: #999">.</span><span style="color: #000">Message</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnCapturing</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraCapturingEventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">cameraCapturingEventArgs</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">_capturedPhoto</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">cameraCapturingEventArgs</span><span style="color: #999">.</span><span style="color: #000">MainImage</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnCaptureCompleted</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">EventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">bool</span><span style="color: #BBBBBB"> </span><span style="color: #000">errorOccurred</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">false</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">_photoPath</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">string</span><span style="color: #999">.</span><span style="color: #DD4A68">Format</span><span style="color: #999">(</span><span style="color: #000">PHOTO_PATH_TEMPLATE</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">DateTime</span><span style="color: #999">.</span><span style="color: #000">Now</span><span style="color: #999">.</span><span style="color: #DD4A68">ToString</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">yyyyMMdd-HHmmss</span><span style="color: #999">"</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">.jpg</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">memoryStream</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">MemoryStream</span><span style="color: #999">(</span><span style="color: #000">_capturedPhoto</span><span style="color: #999">.</span><span style="color: #000">Data</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">try</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">Directory</span><span style="color: #999">.</span><span style="color: #DD4A68">CreateDirectory</span><span style="color: #999">(</span><span style="color: #000">string</span><span style="color: #999">.</span><span style="color: #DD4A68">Format</span><span style="color: #999">(</span><span style="color: #000">PHOTO_PATH_TEMPLATE</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">""</span><span style="color: #999">));</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">FileStream</span><span style="color: #BBBBBB"> </span><span style="color: #000">fileStream</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">File</span><span style="color: #999">.</span><span style="color: #DD4A68">Create</span><span style="color: #999">(</span><span style="color: #000">_photoPath</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">memoryStream</span><span style="color: #999">.</span><span style="color: #DD4A68">WriteTo</span><span style="color: #999">(</span><span style="color: #000">fileStream</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">fileStream</span><span style="color: #999">.</span><span style="color: #DD4A68">Dispose</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">catch</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">Exception</span><span style="color: #BBBBBB"> </span><span style="color: #000">exception</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #DD4A68">ErrorHandler</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Saving photo error: </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">exception</span><span style="color: #999">.</span><span style="color: #000">Message</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">errorOccurred</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">true</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #A67F59">!</span><span style="color: #000">errorOccurred</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #DD4A68">UpdateDatabase</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">StartCameraPreview</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">UpdateDatabase</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">try</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">DatabaseService</span><span style="color: #999">.</span><span style="color: #000">Instance</span><span style="color: #999">.</span><span style="color: #DD4A68">ConnectDatabase</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">DatabaseService</span><span style="color: #999">.</span><span style="color: #000">Instance</span><span style="color: #999">.</span><span style="color: #000">ErrorOccurred</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">OnDatabaseError</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">DatabaseService</span><span style="color: #999">.</span><span style="color: #000">Instance</span><span style="color: #999">.</span><span style="color: #DD4A68">UpdateDatabase</span><span style="color: #999">(</span><span style="color: #000">string</span><span style="color: #999">.</span><span style="color: #DD4A68">Format</span><span style="color: #999">(</span><span style="color: #000">PHOTO_PATH_TEMPLATE</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">""</span><span style="color: #999">));</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">catch</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">Exception</span><span style="color: #BBBBBB"> </span><span style="color: #000">exception</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #DD4A68">ErrorHandler</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Updating DB error: </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">exception</span><span style="color: #999">.</span><span style="color: #000">Message</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnDatabaseError</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">errorMessage</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">throw</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Exception</span><span style="color: #999">(</span><span style="color: #000">errorMessage</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">TakePhoto</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">try</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">_camera</span><span style="color: #999">.</span><span style="color: #DD4A68">StartCapture</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">catch</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">Exception</span><span style="color: #BBBBBB"> </span><span style="color: #000">exception</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #DD4A68">ErrorHandler</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Taking photo error: </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">exception</span><span style="color: #999">.</span><span style="color: #000">Message</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-taking-a-photo">III. Taking a Photo</h1><h2 id="model">Model</h2>
+<p>&nbsp;</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 0px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 112px; top: 308px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">MyCamera</span><span style="color: #BBBBBB">.</span><span style="color: #000">Service</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Collections</span><span style="color: #BBBBBB">.</span><span style="color: #000">Generic</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Linq</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Text</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Threading</span><span style="color: #BBBBBB">.</span><span style="color: #000">Tasks</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">MyCamera</span><span style="color: #999">.</span><span style="color: #000">Model</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraModel</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">TakePhoto</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">CameraService</span><span style="color: #999">.</span><span style="color: #000">Instance</span><span style="color: #999">.</span><span style="color: #DD4A68">TakePhoto</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>&nbsp;</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-taking-a-photo">III. Taking a Photo</h1><h2 id="viewmodel">ViewModel</h2>
+<p>&nbsp;</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">MyCamera</span><span style="color: #BBBBBB">.</span><span style="color: #000">Model</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Collections</span><span style="color: #BBBBBB">.</span><span style="color: #000">Generic</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Linq</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Text</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Threading</span><span style="color: #BBBBBB">.</span><span style="color: #000">Tasks</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">MyCamera</span><span style="color: #999">.</span><span style="color: #000">ViewModel</span><span style="color: #BBBBBB"> </span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraViewModel</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">ViewModelBase</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraModel</span><span style="color: #BBBBBB"> </span><span style="color: #000">_cameraModel</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #BBBBBB"> </span><span style="color: #000">CapturePhotoCommand</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">CameraViewModel</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">_cameraModel</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraModel</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">CapturePhotoCommand</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #999">(</span><span style="color: #000">_cameraModel</span><span style="color: #999">.</span><span style="color: #000">TakePhoto</span><span style="color: #999">);</span><span style="color: #BBBBBB"> </span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>&nbsp;</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-taking-a-photo">III. Taking a Photo</h1><h2 id="view">View</h2>
+<p>&nbsp;</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;?</span><span style="color: #905">xml</span><span style="color: #690"> version</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1.0</span><span style="color: #999">"</span><span style="color: #690"> encoding</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">utf-8</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">?&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;</span><span style="color: #905">ContentPage</span><span style="color: #BBBBBB"> </span><span style="color: #690">xmlns</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://xamarin.com/schemas/2014/forms</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">x</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://schemas.microsoft.com/winfx/2009/xaml</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">d</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://xamarin.com/schemas/2014/forms/design</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">mc</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://schemas.openxmlformats.org/markup-compatibility/2006</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">control</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">clr-namespace:MyCamera.View</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">viewmodel</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">clr-namespace:MyCamera.ViewModel</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">mc</span><span style="color: #999">:</span><span style="color: #690">Ignorable</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">d</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Class</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">MyCamera.View.CameraPage</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">ContentPage.BindingContext</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">viewmodel</span><span style="color: #999">:</span><span style="color: #905">CameraViewModel</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">ContentPage.BindingContext</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">ContentPage.Content</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">AbsoluteLayout</span><span style="color: #BBBBBB"> </span><span style="color: #690">BackgroundColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Black</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">control</span><span style="color: #999">:</span><span style="color: #905">MediaView</span><span style="color: #BBBBBB"> </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Name</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">CameraView</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                               </span><span style="color: #690">AbsoluteLayout.LayoutFlags</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">PositionProportional</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                               </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0.5,0.5,960,720</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">ImageButton</span><span style="color: #BBBBBB"> </span><span style="color: #690">Source</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">capture.png</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                         </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding CapturePhotoCommand}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                         </span><span style="color: #690">AbsoluteLayout.LayoutFlags</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">PositionProportional</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                         </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0.5,0.8,146,146</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;/</span><span style="color: #905">AbsoluteLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">ContentPage.Content</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;/</span><span style="color: #905">ContentPage</span><span style="color: #999">&gt;</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>&nbsp;</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-taking-a-photo">III. Taking a Photo</h1><h2 id="privileges">Privileges</h2>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; <privilege><a href="http://tizen.org/privilege/mediastorage">http://tizen.org/privilege/mediastorage</a></privilege><br>&nbsp; &nbsp; &nbsp; &nbsp; <privilege><a href="http://tizen.org/privilege/content.write">http://tizen.org/privilege/content.write</a></privilege></p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-taking-a-photo">III. Taking a Photo</h1><h2 id="result-1">Result</h2>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iv-thumbnail">IV. Thumbnail</h1><h2 id="service">Service</h2>
+<p>&nbsp;</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 196px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 224px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">TCamera</span><span style="color: #BBBBBB"> </span><span style="color: #000">_camera</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">StillImage</span><span style="color: #BBBBBB"> </span><span style="color: #000">_capturedPhoto</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">_photoPath</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">Image</span><span style="color: #BBBBBB"> </span><span style="color: #000">_photoThumbnail</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">delegate</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraServicePhotoTakenDelegate</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">photoPath</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">Image</span><span style="color: #BBBBBB"> </span><span style="color: #000">photoThumbnail</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">event</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraServicePhotoTakenDelegate</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraServicePhotoTaken</span><span style="color: #999">;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 84px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnCapturing</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraCapturingEventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">cameraCapturingEventArgs</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">_capturedPhoto</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">cameraCapturingEventArgs</span><span style="color: #999">.</span><span style="color: #000">MainImage</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">SetThumbnail</span><span style="color: #999">(</span><span style="color: #000">cameraCapturingEventArgs</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>&nbsp;</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 644px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 616px; top: 812px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnCaptureCompleted</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">EventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">ErrorHandler</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">OnCaptureCompleted</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">bool</span><span style="color: #BBBBBB"> </span><span style="color: #000">errorOccurred</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">false</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">_photoPath</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">string</span><span style="color: #999">.</span><span style="color: #DD4A68">Format</span><span style="color: #999">(</span><span style="color: #000">PHOTO_PATH_TEMPLATE</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">DateTime</span><span style="color: #999">.</span><span style="color: #000">Now</span><span style="color: #999">.</span><span style="color: #DD4A68">ToString</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">yyyyMMdd-HHmmss</span><span style="color: #999">"</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">.jpg</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">memoryStream</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">MemoryStream</span><span style="color: #999">(</span><span style="color: #000">_capturedPhoto</span><span style="color: #999">.</span><span style="color: #000">Data</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">try</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">Directory</span><span style="color: #999">.</span><span style="color: #DD4A68">CreateDirectory</span><span style="color: #999">(</span><span style="color: #000">string</span><span style="color: #999">.</span><span style="color: #DD4A68">Format</span><span style="color: #999">(</span><span style="color: #000">PHOTO_PATH_TEMPLATE</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">""</span><span style="color: #999">));</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">FileStream</span><span style="color: #BBBBBB"> </span><span style="color: #000">fileStream</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">File</span><span style="color: #999">.</span><span style="color: #DD4A68">Create</span><span style="color: #999">(</span><span style="color: #000">_photoPath</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">memoryStream</span><span style="color: #999">.</span><span style="color: #DD4A68">WriteTo</span><span style="color: #999">(</span><span style="color: #000">fileStream</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">fileStream</span><span style="color: #999">.</span><span style="color: #DD4A68">Dispose</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">catch</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">Exception</span><span style="color: #BBBBBB"> </span><span style="color: #000">exception</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #DD4A68">ErrorHandler</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Saving photo error: </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">exception</span><span style="color: #999">.</span><span style="color: #000">Message</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">errorOccurred</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">true</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #A67F59">!</span><span style="color: #000">errorOccurred</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #DD4A68">UpdateDatabase</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">CameraServicePhotoTaken</span><span style="color: #A67F59">?</span><span style="color: #999">.</span><span style="color: #DD4A68">Invoke</span><span style="color: #999">(</span><span style="color: #07A">this</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">_photoPath</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">_photoThumbnail</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">StartCameraPreview</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">SetThumbnail</span><span style="color: #999">(</span><span style="color: #000">CameraCapturingEventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">cameraCapturingEventArgs</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">try</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">_photoThumbnail</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Image</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">cameraCapturingEventArgs</span><span style="color: #999">.</span><span style="color: #000">Thumbnail</span><span style="color: #BBBBBB"> </span><span style="color: #07A">is</span><span style="color: #BBBBBB"> </span><span style="color: #000">null</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #000">_photoThumbnail</span><span style="color: #999">.</span><span style="color: #000">Source</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">ImageSource</span><span style="color: #999">.</span><span style="color: #DD4A68">FromStream</span><span style="color: #999">(()</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">MemoryStream</span><span style="color: #999">(</span><span style="color: #000">cameraCapturingEventArgs</span><span style="color: #999">.</span><span style="color: #000">MainImage</span><span style="color: #999">.</span><span style="color: #000">Data</span><span style="color: #999">));</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #07A">else</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #000">_photoThumbnail</span><span style="color: #999">.</span><span style="color: #000">Source</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">ImageSource</span><span style="color: #999">.</span><span style="color: #DD4A68">FromStream</span><span style="color: #999">(()</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">MemoryStream</span><span style="color: #999">(</span><span style="color: #000">cameraCapturingEventArgs</span><span style="color: #999">.</span><span style="color: #000">Thumbnail</span><span style="color: #999">.</span><span style="color: #000">Data</span><span style="color: #999">));</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">catch</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">Exception</span><span style="color: #BBBBBB"> </span><span style="color: #000">exception</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #DD4A68">ErrorHandler</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Error while setting thumbnail: </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">exception</span><span style="color: #999">.</span><span style="color: #000">Message</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iv-thumbnail">IV. Thumbnail</h1><h2 id="model-1">Model</h2>
+<p>&nbsp;</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 28px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 252px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 308px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 280px; top: 364px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">MyCamera</span><span style="color: #BBBBBB">.</span><span style="color: #000">Service</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">MyCamera</span><span style="color: #999">.</span><span style="color: #000">Model</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraModel</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">delegate</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraModelPhotoTakenDelegate</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">_photoPath</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">Image</span><span style="color: #BBBBBB"> </span><span style="color: #000">photoThumbnail</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">event</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraModelPhotoTakenDelegate</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraModelPhotoTaken</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">CameraModel</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">CameraService</span><span style="color: #999">.</span><span style="color: #000">Instance</span><span style="color: #999">.</span><span style="color: #000">CameraServicePhotoTaken</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">OnPhotoTaken</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnPhotoTaken</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">_photoPath</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">Image</span><span style="color: #BBBBBB"> </span><span style="color: #000">_photoThumbnail</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">CameraModelPhotoTaken</span><span style="color: #A67F59">?</span><span style="color: #999">.</span><span style="color: #DD4A68">Invoke</span><span style="color: #999">(</span><span style="color: #07A">this</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">_photoPath</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">_photoThumbnail</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">TakePhoto</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">CameraService</span><span style="color: #999">.</span><span style="color: #000">Instance</span><span style="color: #999">.</span><span style="color: #DD4A68">TakePhoto</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>&nbsp;</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iv-thumbnail">IV. Thumbnail</h1><h2 id="viewmodel-1">ViewModel</h2>
+<p>&nbsp;</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">MyCamera</span><span style="color: #BBBBBB">.</span><span style="color: #000">Model</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">MyCamera</span><span style="color: #999">.</span><span style="color: #000">ViewModel</span><span style="color: #BBBBBB"> </span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraViewModel</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">ViewModelBase</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">bool</span><span style="color: #BBBBBB"> </span><span style="color: #000">_isPreviewVisible</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">bool</span><span style="color: #BBBBBB"> </span><span style="color: #000">IsPreviewVisible</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">get</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">_isPreviewVisible</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">set</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">SetProperty</span><span style="color: #999">(</span><span style="color: #07A">ref</span><span style="color: #BBBBBB"> </span><span style="color: #000">_isPreviewVisible</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">ImageSource</span><span style="color: #BBBBBB"> </span><span style="color: #000">_photoThumbnail</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">ImageSource</span><span style="color: #BBBBBB"> </span><span style="color: #000">PhotoThumbnail</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">get</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #000">_photoThumbnail</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">set</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">SetProperty</span><span style="color: #999">(</span><span style="color: #07A">ref</span><span style="color: #BBBBBB"> </span><span style="color: #000">_photoThumbnail</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">);</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraModel</span><span style="color: #BBBBBB"> </span><span style="color: #000">_cameraModel</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #BBBBBB"> </span><span style="color: #000">CapturePhotoCommand</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #BBBBBB"> </span><span style="color: #000">LaunchImageViewerCommand</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">CameraViewModel</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">IsPreviewVisible</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">false</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">_cameraModel</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">CameraModel</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">_cameraModel</span><span style="color: #999">.</span><span style="color: #000">CameraModelPhotoTaken</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">OnPhotoTaken</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">CapturePhotoCommand</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #999">(</span><span style="color: #000">_cameraModel</span><span style="color: #999">.</span><span style="color: #000">TakePhoto</span><span style="color: #999">);</span><span style="color: #BBBBBB"> </span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">LaunchImageViewerCommand</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #999">(</span><span style="color: #000">LaunchImageViewer</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">LaunchImageViewer</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">Applications</span><span style="color: #999">.</span><span style="color: #000">AppControl</span><span style="color: #BBBBBB"> </span><span style="color: #000">appcontrol</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">Applications</span><span style="color: #999">.</span><span style="color: #000">AppControl</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">appcontrol</span><span style="color: #999">.</span><span style="color: #000">Operation</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">Applications</span><span style="color: #999">.</span><span style="color: #000">AppControlOperations</span><span style="color: #999">.</span><span style="color: #000">View</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">appcontrol</span><span style="color: #999">.</span><span style="color: #000">Mime</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">image/*</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">appcontrol</span><span style="color: #999">.</span><span style="color: #000">Uri</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">file://</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">_cameraModel</span><span style="color: #999">.</span><span style="color: #000">PhotoPath</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">Applications</span><span style="color: #999">.</span><span style="color: #000">AppControl</span><span style="color: #999">.</span><span style="color: #DD4A68">SendLaunchRequest</span><span style="color: #999">(</span><span style="color: #000">appcontrol</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnPhotoTaken</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">Image</span><span style="color: #BBBBBB"> </span><span style="color: #000">photoThumbnail</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">PhotoThumbnail</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">photoThumbnail</span><span style="color: #999">.</span><span style="color: #000">Source</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">IsPreviewVisible</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">true</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>&nbsp;</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iv-thumbnail">IV. Thumbnail</h1><h2 id="view-1">View</h2>
+<p>&nbsp;</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;</span><span style="color: #905">Frame</span><span style="color: #BBBBBB"> </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">80, 450, 240, 180</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">IsVisible</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding IsPreviewVisible}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">OutlineColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">White</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">Padding</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #999">&lt;</span><span style="color: #905">ImageButton</span><span style="color: #BBBBBB"> </span><span style="color: #690">BackgroundColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Black</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                             </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding LaunchImageViewerCommand}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                             </span><span style="color: #690">Source</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding PhotoThumbnail}</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #999">&lt;/</span><span style="color: #905">ImageButton</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;/</span><span style="color: #905">Frame</span><span style="color: #999">&gt;</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>&nbsp;</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iv-thumbnail">IV. Thumbnail</h1><h2 id="privileges-1">Privileges</h2>
+<p>&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; <privilege><a href="http://tizen.org/privilege/appmanager.launch">http://tizen.org/privilege/appmanager.launch</a></privilege></p>
+<p>&nbsp;</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iv-thumbnail">IV. Thumbnail</h1><h2 id="result-2">Result</h2>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="v-tip">V. Tip</h1><h2 id="new-page">New page</h2>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">mount -o remount rw /</span></span>
+<span class="line"><span style="color: #BBBBBB">sed -i </span><span style="color: #999">'</span><span style="color: #690">s/^Brightness/;Brightness/g</span><span style="color: #999">'</span><span style="color: #BBBBBB"> /etc/multimedia/mmfw_camcorder_camera0.ini</span></span>
+<span class="line"><span style="color: #BBBBBB">sync</span></span>
+<span class="line"><span style="color: #BBBBBB">reboot</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>&nbsp;</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="v-tip">V. Tip</h1><h2 id="create-a-project">Create a Project</h2>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>shared 폴더, MyCamera.Tizen.cs tizen-manifest.xml 복사</p>
+<p>&nbsp;</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #A67F59">&lt;</span><span style="color: #BBBBBB">Project Sdk=</span><span style="color: #999">"</span><span style="color: #690">Tizen.NET.Sdk/1.0.9</span><span style="color: #999">"</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #A67F59">&lt;</span><span style="color: #BBBBBB">PropertyGroup</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #A67F59">&lt;</span><span style="color: #BBBBBB">OutputType</span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB">Exe</span><span style="color: #A67F59">&lt;</span><span style="color: #BBBBBB">/OutputType</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #A67F59">&lt;</span><span style="color: #BBBBBB">TargetFramework</span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB">tizen</span><span style="color: #A67F59">60&lt;</span><span style="color: #BBBBBB">/TargetFramework</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #A67F59">&lt;</span><span style="color: #BBBBBB">/PropertyGroup</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #A67F59">&lt;</span><span style="color: #BBBBBB">PropertyGroup Condition=</span><span style="color: #999">"</span><span style="color: #690"> '</span><span style="color: #999">$(</span><span style="color: #690">Configuration</span><span style="color: #999">)</span><span style="color: #690">|</span><span style="color: #999">$(</span><span style="color: #690">Platform</span><span style="color: #999">)</span><span style="color: #690">' == 'Debug|AnyCPU' </span><span style="color: #999">"</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #A67F59">&lt;</span><span style="color: #BBBBBB">DebugType</span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB">portable</span><span style="color: #A67F59">&lt;</span><span style="color: #BBBBBB">/DebugType</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #A67F59">&lt;</span><span style="color: #BBBBBB">/PropertyGroup</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #A67F59">&lt;</span><span style="color: #BBBBBB">PropertyGroup Condition=</span><span style="color: #999">"</span><span style="color: #690"> '</span><span style="color: #999">$(</span><span style="color: #690">Configuration</span><span style="color: #999">)</span><span style="color: #690">|</span><span style="color: #999">$(</span><span style="color: #690">Platform</span><span style="color: #999">)</span><span style="color: #690">' == 'Release|AnyCPU' </span><span style="color: #999">"</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #A67F59">&lt;</span><span style="color: #BBBBBB">DebugType</span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB">None</span><span style="color: #A67F59">&lt;</span><span style="color: #BBBBBB">/DebugType</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #A67F59">&lt;</span><span style="color: #BBBBBB">/PropertyGroup</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">...</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>&nbsp;</p>
+<p>tizen-manifest 내 tizen 중간명 삭제</p>
+<p>&nbsp;</p>
+<p>View 폴더 생성 및 링크</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/21</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/84895ba0ae7f34d06b2e24359088ded5aef2eb94">84895ba0ae7f34d06b2e24359088ded5aef2eb94</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+

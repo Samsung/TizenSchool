@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+    <title>Digital Signage using Tizen</title>
+  <link rel="stylesheet" href="/assets/aboutus.1b0f65e4.css" />
+<link rel="stylesheet" href="/assets/10.cb2c83b6.css" />
+<link rel="stylesheet" href="/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="13NfkC" component-url="/Header.14d8e174.js" component-export="default" renderer-url="/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      Digital Signage using Tizen
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">This is a guide for launching a new digital signage using Tizen IoT</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/assets/images/iot-active.png">
+        <img src="/assets/images/wearable-dimmed.png">
+        <img src="/assets/images/mobile-dimmed.png">
+        <img src="/assets/images/smart-tv-dimmed.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2020/10/30</span>
+            Modified
+            <span class="font-bold">2021/00/14</span>
+    </div>
+  </div><astro-island uid="Z12sxyX" component-url="/TextContent.c7f4d9de.js" component-export="default" renderer-url="/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,3],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Overview\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. WebView\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. Portrait + Full HD\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/3</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="1-overview">1. Overview</h2>
+<p><strong>1. Xamarin 기본 강의</strong></p>
+<p>1)&nbsp;Tizen C# 개발 환경 구축</p>
+<ul>
+<li>
+<p>강의 자료 :&nbsp;<a href="http://tizenschool.org/tutorial/194">http://tizenschool.org/tutorial/194</a></p>
+</li>
+<li>
+<p>강의 영상 :&nbsp;<a href="https://www.youtube.com/watch?v=AobfrqCJiS0">https://www.youtube.com/watch?v=AobfrqCJiS0</a></p>
+</li>
+</ul>
+<ol start="2">
+<li>Tizen C# App개발(HTTP 통신 연계)</li>
+</ol>
+<ul>
+<li>
+<p>강의 자료&nbsp;:&nbsp;<a href="http://tizenschool.org/tutorial/197">http://tizenschool.org/tutorial/197</a></p>
+</li>
+<li>
+<p>강의 영상 :&nbsp;<a href="https://www.youtube.com/embed/8P3vHggZEd8">https://www.youtube.com/</a><a href="https://www.youtube.com/watch?v=AobfrqCJiS0">watch?v=</a><a href="https://www.youtube.com/embed/8P3vHggZEd8">8P3vHggZEd8</a></p>
+</li>
+</ul>
+<ol start="3">
+<li>Xamarin.Forms Overview 영상&nbsp;:&nbsp;<a href="http://tizenschool.org/tutorial/181">http://tizenschool.org/tutorial/206</a></li>
+</ol>
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="2-webview">2. WebView</h2>
+<p><strong>Webview&nbsp;<a href="https://s3-us-west-1.amazonaws.com/tizenschool/219/WebViewKiosk.zip">[Down]</a></strong></p>
+<ol>
+<li>Guide</li>
+</ol>
+<ul>
+<li>
+<p>실행 방법 : 압축 해제 후&nbsp;Browser.sln 파일을 실행하여 Visual Studio에서 프로젝트 오픈</p>
+</li>
+<li>
+<p>ViewController를 담당하는&nbsp;MainPageViewModel.cs 페이지에서 접속 URL 변경 가능</p>
+</li>
+<li>
+<p>현재 좌측 상단 클릭시 접속 URL을 변경할 수 있는 기능을 추가했지만, 키보드 이슈로 주석처리</p>
+</li>
+</ul>
+<ol start="2">
+<li>주요 파일</li>
+</ol>
+<p>-&nbsp;Browser.Tizen &gt;&nbsp;Browser.Tizen.cs : App 시작점 (Main 함수)</p>
+<ul>
+<li>Browser &gt; MainPage.xaml : View</li>
+</ul>
+<p>-&nbsp;Browser &gt;&nbsp;MainPageViewModel.cs : ViewModel</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="3-portrait--full-hd">3. Portrait + Full HD</h2>
+<p>IoT Setup Manager (1.0.5 이상 버전)에서 아래 Binary와 RPM Bundle을 추가하여 이미지를 구워주세요.</p>
+<img src="/assets/images/tutorials/219/iot_setup_manager.png" style="height:238px; width:557px">
+<p><strong>ㅁ 최신 Tizen Binary 사용</strong></p>
+<ul>
+<li>
+<p>Boot : <a href="http://download.tizen.org/snapshots/tizen/6.0-unified/tizen-6.0-unified_20201207.1/images/standard/iot-boot-armv7l-rpi4/tizen-6.0-unified_20201207.1_iot-boot-armv7l-rpi4.tar.gz">http://download.tizen.org/snapshots/tizen/6.0-unified/tizen-6.0-unified_20201207.1/images/standard/iot-boot-armv7l-rpi4/tizen-6.0-unified_20201207.1_iot-boot-armv7l-rpi4.tar.gz</a></p>
+</li>
+<li>
+<p>Image&nbsp;: <a href="http://download.tizen.org/snapshots/tizen/6.0-unified/tizen-6.0-unified_20201207.1/images/standard/iot-headed-3parts-armv7l-rpi/tizen-6.0-unified_20201207.1_iot-headed-3parts-armv7l-rpi.tar.gz">http://download.tizen.org/snapshots/tizen/6.0-unified/tizen-6.0-unified_20201207.1/images/standard/iot-headed-3parts-armv7l-rpi/tizen-6.0-unified_20201207.1_iot-headed-3parts-armv7l-rpi.tar.gz</a></p>
+</li>
+</ul>
+<p><strong>ㅁ RPM Bundle 추가</strong></p>
+<ul>
+<li>
+<p>Portrait Mode 전환 <a href="https://s3-us-west-1.amazonaws.com/tizenschool/219/e-tizen-data-profile_common-0.6.7-0_90.noarch.rpm">[Down]</a></p>
+</li>
+<li>
+<p>Full HD 전환&nbsp;<a href="https://s3-us-west-1.amazonaws.com/tizenschool/219/libtdm-vc4-1.1.8-0.armv7l.rpm">[Down]</a></p>
+</li>
+<li>
+<p>IoT Setup Manager에서 이미지 Burn 하실때 위 RPM 패키지도 기존 WiFi Driver(wlandrv)와 함께 같은 폴더에 넣어 주세요.</p>
+</li>
+</ul>
+<img src="/assets/images/tutorials/219/rpm_bundle.png" style="height:77px; width:330px"></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/3</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/84895ba0ae7f34d06b2e24359088ded5aef2eb94">84895ba0ae7f34d06b2e24359088ded5aef2eb94</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+

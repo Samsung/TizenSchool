@@ -1,0 +1,120 @@
+# 이 viminfo 파일은 빔이 만든 것입니다 Vim 8.1.
+# 조심만 한다면 고칠 수도 있습니다!
+
+# Viminfo version
+|1,4
+
+# 이 파일이 저장되었을 때의 'encoding'의 값
+*encoding=cp949
+
+
+# hlsearch on (H) or off (h):
+~h
+# Last Search Pattern:
+~Msle0~/\<신규\>
+
+# 명령 행 히스토리 (새것부터 오래된 것 순):
+:set nu
+|2,0,1572415341,,"set nu"
+:vs
+|2,0,1572415333,,"vs"
+:q!
+|2,0,1566367005,,"q!"
+:q
+|2,0,1566367003,,"q"
+
+# 찾을 문자열 히스토리 (새것부터 오래된 것 순):
+? \<신규\>
+|2,1,1567577023,,"\\<신규\\>"
+
+# 표현 히스토리 (새것부터 오래된 것 순):
+
+# 입력 행 히스토리 (새것부터 오래된 것 순):
+
+# 디버그 행 히스토리 (새것부터 오래된 것 순):
+
+# 레지스터:
+"0	LINE	0
+	휴가 10/4 - 김준석
+|3,0,0,1,1,0,1569997889,"휴가 10/4 - 김준석"
+""1	CHAR	0
+	(진행) [MCD] 오른손 모드 지원을 위한 기능 검토
+	(진행) [MCD] App 화면 캡쳐시 Video 화면도 캡쳐할 수 있는 방안 확인
+	(신규) [MCD] Seamless Effect 개발자 설명회
+	(신규/진행) [VD] Netflix app 관련 wayland client단 block 이슈 분석 지원 및 패치 검토
+	
+|3,1,1,0,5,0,1572416999,"(진행) [MCD] 오른손 모드 지원을 위한 기능 검토","(진행) [MCD] App 화면 캡쳐시 Video 화면도 캡쳐할 수 있는 방안 확인","(신규) [MCD] Seamless Effect 개발자 설명회","(신규/진행) [VD] Netflix app 관련 wayland client단 block 이슈 분석 지원 및 패치 검토",""
+"2	CHAR	0
+	(완료) libPUI default clear animation 추가 - 2개 타입 (immediate, fade out)
+	(진행) Tizen Speaker GBM 릴리즈 관련 이슈 대응 (Manual TCs, SVACE/Coverity)
+	
+|3,0,2,0,3,0,1572416989,"(완료) libPUI default clear animation 추가 - 2개 타입 (immediate, fade out)","(진행) Tizen Speaker GBM 릴리즈 관련 이슈 대응 (Manual TCs, SVACE/Coverity)",""
+"3	CHAR	0
+	(진행) [MCD] 오른손 모드 지원을 위한 기능 검토
+	(신규/진행) [MCD] AOD 고도화 요구사항 정리 회의
+	(신규/진행) [MCD] App 화면 캡쳐시 Video 화면도 캡쳐할 수 있는 방안 확인
+	(신규/완료) [DA] TDAF-887: tzsh 에러 문제 분석 / 가이드
+	(신규/진행) [VD] Netflix app 관련 wayland client단 block 이슈 분석 지원
+	
+|3,0,3,0,6,0,1572416958,"(진행) [MCD] 오른손 모드 지원을 위한 기능 검토","(신규/진행) [MCD] AOD 고도화 요구사항 정리 회의","(신규/진행) [MCD] App 화면 캡쳐시 Video 화면도 캡쳐할 수 있는 방안 확인","(신규/완료) [DA] TDAF-887: tzsh 에러 문제 분석 / 가이드","(신규/진행) [VD] Netflix app 관련 wayland client단 block 이슈 분석 지원",""
+"4	CHAR	0
+	(진행) 5.5 M2 RC5 릴리즈 바이너리 이슈 대응
+	(진행) E20, module의 evas 종속적 코딩 유형 정리
+	(진행) e_policy_appinfo -> e_appinfo rename 및 wrapping
+	(진행) Window Focus 설정 처리 통합 구현 
+	(신규/진행) libinput global key remap 구조 prototyping
+	(신규/진행) gesture 모듈 기능 확인 및 버그 수정
+	(신규) E_test_helper에 mouse/touch generation 추가
+	(신규) Virtual Screen 지원 방안 마련
+	
+|3,0,4,0,9,0,1572416918,"(진행) 5.5 M2 RC5 릴리즈 바이너리 이슈 대응","(진행) E20, module의 evas 종속적 코딩 유형 정리","(진행) e_policy_appinfo -> e_appinfo rename 및 wrapping","(진행) Window Focus 설정 처리 통합 구현 ","(신규/진행) libinput global key remap 구조 prototyping","(신규/진행) gesture 모듈 기능 확인 및 버그 수정","(신규) E_test_helper에 mouse/touch generation 추가","(신규) Virtual Screen 지원 방안 마련",""
+"5	CHAR	0
+	(완료) libPUI default clear animation 추가 - 2개 타입 (immediate, fade out)
+	(신규/완료) Tizen Speaker profile 릴리즈노트 작성
+	(진행) Tizen Speaker GBM 릴리즈 자주검증 (Manual TCs, SVACE/Coverity)
+	
+|3,0,5,0,4,0,1572416905,"(완료) libPUI default clear animation 추가 - 2개 타입 (immediate, fade out)","(신규/완료) Tizen Speaker profile 릴리즈노트 작성","(진행) Tizen Speaker GBM 릴리즈 자주검증 (Manual TCs, SVACE/Coverity)",""
+"6	CHAR	0
+	(완료) VD Virtual Screen 기능 public 공용화 검토
+	(완료) wm-policy 모듈 SAM score 검토
+	(완료) e_policy_appinfo appid base로 수정/확장
+	(완료) Application Event 중 Enlightenment 와 연관된 Event 정리 - App 과 연관된 이벤트
+	(신규/완료) efl-util gesture deactivation 가이드 제공 및 mode manager 관련 TC 구현 지원
+	(신규/완료) E_test_helper에 key generation 추가 (미구현부 구현)
+	(신규/완료) seamless effect - bwd case 안되는 문제 분석 : app 구현 문제
+	(신규/완료) detent event 발생 시 hook 추가
+	(신규/완료) OpenTK 에서 alpha 적용 안되는 문제 분석
+	(신규/완료) DBus로 전달하는 wininfo에 실제 화면 size를 전달하도록 수정
+	(진행) E20, module의 evas 종속적 코딩 유형 정리
+	(진행) Window Focus 설정 처리 통합
+	(신규/진행) Watch key remap 기능 관련 논의 및 검토 (kernel/user level global remap)
+	(신규/진행) e_policy_appinfo -> e_appinfo rename 및 wrapping
+	(신규/진행) gesture 모듈 privilege 적용 및 기타 버그 수정
+	
+|3,0,6,0,16,0,1572416856,"(완료) VD Virtual Screen 기능 public 공용화 검토","(완료) wm-policy 모듈 SAM score 검토","(완료) e_policy_appinfo appid base로 수정/확장","(완료) Application Event 중 Enlightenment 와 연관된 Event 정리 - App 과 연관된 이벤트","(신규/완료) efl-util gesture deactivation 가이드 제공 및 mode manager 관련 TC 구현 지원","(신규/완료) E_test_helper에 key generation 추가 (미구현부 구현)",>73
+|<"(신규/완료) seamless effect - bwd case 안되는 문제 분석 : app 구현 문제","(신규/완료) detent event 발생 시 hook 추가","(신규/완료) OpenTK 에서 alpha 적용 안되는 문제 분석","(신규/완료) DBus로 전달하는 wininfo에 실제 화면 size를 전달하도록 수정","(진행) E20, module의 evas 종속적 코딩 유형 정리","(진행) Window Focus 설정 처리 통합","(신규/진행) Watch key remap 기능 관련 논의 및 검토 (kernel/user level global remap)","(신규/진행) e_policy_appinfo -> e_appinfo rename 및 wrapping",>59
+|<"(신규/진행) gesture 모듈 privilege 적용 및 기타 버그 수정",""
+"7	LINE	0
+	(신규) [MCD] Seamless Effect 개발자 설명회
+|3,0,7,1,1,0,1572416733,"(신규) [MCD] Seamless Effect 개발자 설명회"
+"8	LINE	0
+	(진행) [무선] App 화면 캡쳐시 Video 화면도 캡쳐할 수 있는 방안 확인
+|3,0,8,1,1,0,1572416706,"(진행) [무선] App 화면 캡쳐시 Video 화면도 캡쳐할 수 있는 방안 확인"
+"9	LINE	0
+	(신규/진행) Netflix app 관련 wayland client단 block 이슈 분석 지원 및 패치 검토
+|3,0,9,1,1,0,1572416704,"(신규/진행) Netflix app 관련 wayland client단 block 이슈 분석 지원 및 패치 검토"
+"-	CHAR	0
+	선
+|3,0,36,0,1,0,1572416709,"선"
+
+# 파일 마크:
+
+# 점프목록 (새것이 먼저):
+
+# 파일내의 마크 히스토리 (새것부터 오래된 순):
+
+> ~\Downloads\gvim_8.1.1896_x64\vim\vim81\option-window
+	*	1566366939	0
+	"	1	0
+	.	993	0
+	+	993	0

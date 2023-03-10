@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+    <title>How to use the Peripheral C API in the C# App</title>
+  <link rel="stylesheet" href="/assets/aboutus.1b0f65e4.css" />
+<link rel="stylesheet" href="/assets/10.cb2c83b6.css" />
+<link rel="stylesheet" href="/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="13NfkC" component-url="/Header.14d8e174.js" component-export="default" renderer-url="/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      How to use the Peripheral C API in the C# App
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">This guides how to use the Peripheral C API for controlling the LED using the Interop in the C# UI Application - Written by 강석현(Shawn)</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/assets/images/iot-active.png">
+        <img src="/assets/images/wearable-dimmed.png">
+        <img src="/assets/images/mobile-dimmed.png">
+        <img src="/assets/images/smart-tv-dimmed.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2020/07/10</span>
+            Modified
+            <span class="font-bold">2020/08/17</span>
+    </div>
+  </div><astro-island uid="ldpW2" component-url="/TextContent.c7f4d9de.js" component-export="default" renderer-url="/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,10],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[]\&quot;],\&quot;chapter\&quot;:[0,\&quot;\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. 배경\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. 목표\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. 하드웨어 준비\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;I. Overview\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. 프로젝트 생성\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. Logic 구현\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;II. Shared library (C)\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. 프로젝트 생성\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. UI 구현\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. Logic 구현\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;4. Privilege 등록\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;5. 실행 결과\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;III. UI application (C#)\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/10</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id="i-overview">I. Overview</h1><h2 id="1-배경">1. 배경</h2>
+<p>이 튜토리얼은&nbsp; <strong>Tizen C# App에서 Peripheral IO API로&nbsp;IoT 센서를&nbsp;사용하는 방법</strong> 을&nbsp;가이드하고 있습니다.</p>
+<p>IoT 센서를 제어할 수 있는 Peripheral IO API의 경우 C언어용 API만&nbsp;있기 때문에</p>
+<p>C#&nbsp;App에서 Peripheral IO API를 사용하여&nbsp;직접 IoT&nbsp;센서 제어가 불가능합니다.</p>
+<p>Tizen C# App에서 IoT 센서를 사용하는 대안은 아래 2가지 방법이 있습니다.</p>
+<p><strong>1)&nbsp;C Library 생성 후&nbsp;C# App에서 사용</strong></p>
+<p>-&nbsp;Peripheral IO API를 사용하는 C Library 생성 후 해당 Library를 C# UI App에서 사용</p>
+<ul>
+<li>1개의 앱 존재</li>
+</ul>
+<p><strong>2)&nbsp;C Service&nbsp;App과 C# UI App 각각 생성&nbsp;후 App간 통신</strong></p>
+<p>-&nbsp;Peripheral IO API를 사용하는 C Service App과 UI를 담당하는 C# UI App을 각각 제작한 후 App간&nbsp;통신</p>
+<ul>
+<li>2개의 분리된&nbsp;앱 존재</li>
+</ul>
+<p><strong>본 튜토리얼은 1번째 방식인 C# UI App 에서 C Library 사용법을 가이드 합니다.</strong></p>
+<p>Peripheral IO 및&nbsp;UI 내용은&nbsp;간단한 예제코드만&nbsp;사용하고 있습니다.</p>
+<p>관련된 상세한 정보는 아래 각각의 튜토리얼을&nbsp;참고해 주시기 바랍니다.</p>
+<p>-&nbsp;&nbsp;Pheripheral API (GPIO) :&nbsp;<a href="http://tizenschool.org/tutorial/154">http://tizenschool.org/tutorial/154</a></p>
+<p>-&nbsp;&nbsp;Pheripheral API (I2C) :&nbsp;<a href="http://tizenschool.org/tutorial/153">http://tizenschool.org/tutorial/153</a></p>
+<p>-&nbsp;&nbsp;Pheripheral API (SPI) :&nbsp;<a href="http://tizenschool.org/tutorial/152">http://tizenschool.org/tutorial/152</a></p>
+<p>-&nbsp;&nbsp;Xamarin.Forms UI 영상&nbsp;:&nbsp;<a href="http://tizenschool.org/tutorial/181">http://tizenschool.org/tutorial/206</a></p>
+<p><strong>*. 참고 이미지</strong></p>
+<img src="/assets/images/tutorials/208/basic_ppt.png" style="height:358px; width:1000px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="i-overview">I. Overview</h1><h2 id="2-목표">2. 목표</h2>
+<p><strong>본 튜토리얼은 LED 전구를 Tizen C# App에서 켜고 끌 수 있는 기능을 구현하고자 합니다.</strong></p>
+<p>LED 전구를 통제하기 위해&nbsp;Peripheral IO API(GPIO)를 사용하는 C Library를 제작 한 후,</p>
+<p>이 Library를 사용하는 아래&nbsp;Tizen C# UI App 제작이&nbsp;목표입니다.</p>
+<img src="/assets/images/tutorials/208/op_0.png" style="border-style:solid; border-width:1px; height:450px; width:800px">
+<p><strong>[주요 작업]</strong></p>
+<p>1)&nbsp;LED 전구와 Raspberry PI 보드와 물리적 연결 (GPIO)</p>
+<p>2)&nbsp;Tizen Studio 기반&nbsp;Peripheral IO API를 사용하는 C Shared Library 제작</p>
+<p>3)&nbsp;Visual Studio 기반 Shared Library를 사용하여 LED 전구를 통제하는 C# UI App&nbsp;제작</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="i-overview">I. Overview</h1><h2 id="3-하드웨어-준비">3. 하드웨어 준비</h2>
+<p>아래 준비물을 준비 한 후 가이드대로 필요한 하드웨어 연결을 수행합니다.</p>
+<p><strong>1. 준비물</strong></p>
+<p><strong>2. 하드웨어 연결</strong></p>
+<p>Raspberry Pi 3/4&nbsp;보드의 핀은 아래와 같이 구성되어 있습니다.</p>
+<img src="https://download-tizen-online.s3-us-west-1.amazonaws.com/smart-light/bson_rpi_pin_map_board.jpg" style="undefined">
+<p>본 실습을 위해서&nbsp;보드에 LED 전구, 저항을 연결해줍니다. ( <strong>현재 GPIO 24 사용 예정</strong> )</p>
+<img src="/assets/images/tutorials/208/op_0_1.png" style="height:487px; width:492px">
+<p>실제 아래와 같은 모양으로 연결할 수 있습니다.</p>
+<img src="/assets/images/tutorials/208/prepare_hw.png" style="height:499px; width:740px">
+<p>*. LED 전구의 긴핀은 위 사진 기준으로 우측에 배치합니다.</p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-shared-library-c">II. Shared library (C)</h1><h2 id="1-프로젝트-생성">1. 프로젝트 생성</h2>
+<p>LED를 제어하기 위해&nbsp;Peripheral IO API를 사용해야 합니다.</p>
+<p>Peripheral IO API의 경우 C# API는 아직 제공되고 있지 않으며, 반드시 C API를 사용해야 합니다.</p>
+<p><br>C# App에서&nbsp;LED를 통제할 수 있도록 Peripheral IO API를 사용하는&nbsp; <strong>SharedLibrary</strong> 를 우선 만들어보도록 하겠습니다.</p>
+<ol>
+<li>
+<p><strong>Tizen Studio</strong> 실행</p>
+</li>
+<li>
+<p>상단 메뉴 중 <strong>File &gt; New &gt; Tizen Project</strong> 선택</p>
+</li>
+</ol>
+<img src="/assets/images/tutorials/208/c_start.png" style="height:111px; width:600px">
+<ol start="3">
+<li><strong>Template</strong> 선택 후, Custom 란에 있는 <strong>iot-headless</strong> 프로파일 선택 (iot-headed도 사용가능 <strong>)</strong></li>
+</ol>
+<img src="/assets/images/tutorials/208/op_c_1.png" style="border-style:solid; border-width:1px; height:565px; width:800px">
+<ol start="4">
+<li><strong>Native Application</strong> 선택 후, <strong>Shared Library</strong> 선택</li>
+</ol>
+<img src="/assets/images/tutorials/208/op_c_2.png" style="border-style:solid; border-width:1px; height:565px; width:800px">
+<ol start="5">
+<li>Project 이름을 입력합니다. 예) SharedLibraryLED</li>
+</ol>
+<img src="/assets/images/tutorials/208/ts_projectname.png" style="height:565px; width:800px">
+<ol start="6">
+<li>프로젝트 생성&nbsp;완료</li>
+</ol>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-shared-library-c">II. Shared library (C)</h1><h2 id="2-logic-구현">2. Logic 구현</h2>
+<p>1.&nbsp; inc 폴더 안에&nbsp; <strong>sharedlibraryled.h</strong> 를 연 후 아래&nbsp;같이 수정합니다.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 112px; top: 392px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">#</span><span style="color: #07A">ifndef</span><span style="color: #000"> </span><span style="color: #DD4A68">_SHAREDLIBRARYLED_H_</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000"> </span><span style="color: #DD4A68">_SHAREDLIBRARYLED_H_</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">/**</span></span>
+<span class="line"><span style="color: #708090"> * This header file is included to define _EXPORT_.</span></span>
+<span class="line"><span style="color: #708090"> </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">include</span><span style="color: #000"> </span><span style="color: #999">&lt;</span><span style="color: #690">stdbool.h</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">include</span><span style="color: #000"> </span><span style="color: #999">&lt;</span><span style="color: #690">tizen.h</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">ifdef</span><span style="color: #000"> </span><span style="color: #DD4A68">__cplusplus</span></span>
+<span class="line"><span style="color: #07A">extern</span><span style="color: #000"> </span><span style="color: #999">"</span><span style="color: #690">C</span><span style="color: #999">"</span><span style="color: #000"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">endif</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> This method is exported from sharedlibraryled.so</span></span>
+<span class="line"><span style="color: #000">EXPORT_API </span><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">led_init</span><span style="color: #999">(</span><span style="color: #07A">void</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">EXPORT_API </span><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">led_terminate</span><span style="color: #999">(</span><span style="color: #07A">void</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">EXPORT_API </span><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">led_on</span><span style="color: #999">(</span><span style="color: #07A">void</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">EXPORT_API </span><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">led_off</span><span style="color: #999">(</span><span style="color: #07A">void</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">ifdef</span><span style="color: #000"> </span><span style="color: #DD4A68">__cplusplus</span></span>
+<span class="line"><span style="color: #000">}</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">endif</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">endif</span><span style="color: #708090"> </span><span style="color: #999">//</span><span style="color: #708090"> _SHAREDLIBRARYLED_H_</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ol start="2">
+<li>src 폴더 안에&nbsp; <strong>sharedlibraryled.c</strong> 를 연 후 아래&nbsp;같이 수정합니다.</li>
+</ol>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">/**</span></span>
+<span class="line"><span style="color: #708090"> * This file contains the exported symbol.</span></span>
+<span class="line"><span style="color: #708090"> </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">include</span><span style="color: #000"> </span><span style="color: #999">"</span><span style="color: #690">sharedlibraryled.h</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">include</span><span style="color: #000"> </span><span style="color: #999">&lt;</span><span style="color: #690">peripheral_io.h</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000"> </span><span style="color: #DD4A68">SENSOR_LED_GPIO_NUMBER</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #905">24</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #000">peripheral_gpio_h g_sensor_h </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">led_init</span><span style="color: #999">(){</span></span>
+<span class="line"><span style="color: #000">&nbsp;&nbsp; &nbsp;</span><span style="color: #DD4A68">peripheral_gpio_open</span><span style="color: #999">(</span><span style="color: #000">SENSOR_LED_GPIO_NUMBER</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #A67F59">&amp;</span><span style="color: #000">g_sensor_h</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">&nbsp;&nbsp; &nbsp;</span><span style="color: #DD4A68">peripheral_gpio_set_direction</span><span style="color: #999">(</span><span style="color: #000">g_sensor_h</span><span style="color: #999">,</span><span style="color: #000"> PERIPHERAL_GPIO_DIRECTION_OUT_INITIALLY_LOW</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">led_terminate</span><span style="color: #999">(){</span></span>
+<span class="line"><span style="color: #000">&nbsp;&nbsp; &nbsp;</span><span style="color: #DD4A68">peripheral_gpio_close</span><span style="color: #999">(</span><span style="color: #000">g_sensor_h</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">    g_sensor_h </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">led_on</span><span style="color: #999">(){</span></span>
+<span class="line"><span style="color: #000">&nbsp;&nbsp; &nbsp;</span><span style="color: #DD4A68">peripheral_gpio_write</span><span style="color: #999">(</span><span style="color: #000">g_sensor_h</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #905">1</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">led_off</span><span style="color: #999">(){</span></span>
+<span class="line"><span style="color: #000">&nbsp;&nbsp; &nbsp;</span><span style="color: #DD4A68">peripheral_gpio_write</span><span style="color: #999">(</span><span style="color: #000">g_sensor_h</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ol start="3">
+<li>
+<p>Project Explorer에서 SharedLibraryLED 프로젝트 명에서 우 클릭한 후 ” <strong>Build Project</strong> ” 실행</p>
+</li>
+<li>
+<p>빌드가 성공적으로 마무리되면, SharedLibraryLED 프로젝트의 Debug 폴더 안에 <strong>libsharedlibraryled.so</strong> 가 생성됩니다.</p>
+</li>
+</ol>
+<p>이 파일을 앞으로 C# UI Application에서 사용하게 됩니다.</p>
+<img src="/assets/images/tutorials/208/op_c_3.png" style="border-style:solid; border-width:1px; height:245px; width:266px">
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-ui-application-c">III. UI application (C#)</h1><h2 id="1-프로젝트-생성-1">1. 프로젝트 생성</h2>
+<p>LED 제어를 위해 앞서 제작한 Shared Library를 사용하는 C# UI App을 제작해 보도록 하겠습니다.</p>
+<p>1.&nbsp; <strong>Visual Studio</strong> &nbsp;메뉴에서&nbsp; <strong>File &gt; New &gt; Project</strong> &nbsp;선택</p>
+<img src="/assets/images/tutorials/191/5_22.png" style="undefined">
+<ol start="2">
+<li>언어에서 <strong>C#</strong> , 플랫폼에서 <strong>Tizen</strong> 선택 후,&nbsp; <strong>Tizen XAML App (Xamarin.Forms)</strong> &nbsp;템플릿을 선택하고&nbsp;” <strong>Next</strong> ” 버튼을 누릅니다.</li>
+</ol>
+<img src="/assets/images/tutorials/191/5_23.png" style="border-style:solid; border-width:1px; height:531px; width:800px">
+<ol start="3">
+<li><strong>프로젝트명</strong> &nbsp;입력 후 ” <strong>Create”</strong> &nbsp;버튼을 누릅니다. 예) LED_Manager</li>
+</ol>
+<img src="/assets/images/tutorials/208/op_cs_1.png" style="border-style:solid; border-width:1px; height:531px; width:800px">
+<p>4.&nbsp;Profile에서&nbsp; <strong>Common</strong> &nbsp;을 선택한&nbsp;후&nbsp;” <strong>OK</strong> ” 버튼을 누릅니다.</p>
+<img src="/assets/images/tutorials/208/op_cs_2.png" style="border-style:solid; border-width:1px; height:316px; width:660px">
+<ol start="5">
+<li>프로젝트 생성 완료</li>
+</ol>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-ui-application-c">III. UI application (C#)</h1><h2 id="2-ui-구현">2. UI 구현</h2>
+<p>UI&nbsp;구성을&nbsp;위해&nbsp; <strong>MainPage.xaml</strong> 파일을 오픈합니다.</p>
+<p>만들고자 하는 UI는 다음과 같습니다. (중앙 텍스트 및 버튼 2개)</p>
+<img src="/assets/images/tutorials/208/op_0.png" style="border-style:solid; border-width:1px; height:450px; width:800px">
+<p><strong>1. AbsoluteLayout 사용</strong></p>
+<ul>
+<li>기존 StackLayout 부분을 삭제하고 AbsoluteLayout으로 변경합니다.</li>
+</ul>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 84px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;?</span><span style="color: #905">xml</span><span style="color: #690"> version</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1.0</span><span style="color: #999">"</span><span style="color: #690"> encoding</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">utf-8</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">?&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;</span><span style="color: #905">ContentPage</span><span style="color: #BBBBBB"> </span><span style="color: #690">xmlns</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://xamarin.com/schemas/2014/forms</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">x</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://schemas.microsoft.com/winfx/2009/xaml</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Class</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">LED_Manager.MainPage</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">ContentPage.Content</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">AbsoluteLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;/</span><span style="color: #905">AbsoluteLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">ContentPage.Content</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;/</span><span style="color: #905">ContentPage</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>*. AbsoluteLayout은 좌측상단 좌표를 기점으로 하여 원하는 위치에 View(버튼, 텍스트)등을 배치할 수 있는 레이아웃입니다.</p>
+<p><a href="https://docs.microsoft.com/ko-kr/xamarin/xamarin-forms/user-interface/layouts/absolute-layout">https://docs.microsoft.com/ko-kr/xamarin/xamarin-forms/user-interface/layouts/absolute-layout</a></p>
+<p><strong>2. Label과 Button&nbsp;2개 추가</strong></p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;?</span><span style="color: #905">xml</span><span style="color: #690"> version</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1.0</span><span style="color: #999">"</span><span style="color: #690"> encoding</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">utf-8</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">?&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;</span><span style="color: #905">ContentPage</span><span style="color: #BBBBBB"> </span><span style="color: #690">xmlns</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://xamarin.com/schemas/2014/forms</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">x</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://schemas.microsoft.com/winfx/2009/xaml</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Class</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">LED_Manager.MainPage</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">ContentPage.Content</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">AbsoluteLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Label</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Using the peripheralio C API in the C# App</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">FontSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Large</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">HorizontalTextAlignment</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Center</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">VerticalTextAlignment</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Center</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">AbsoluteLayout.LayoutFlags</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">All</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0.5,0.4,1.0,0.20</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">LED On</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Clicked</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Button_TurnOn</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">AbsoluteLayout.LayoutFlags</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">All</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0.25,0.75,0.20,0.1</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">LED Off</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Clicked</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Button_TurnOff</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">AbsoluteLayout.LayoutFlags</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">All</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0.75,0.75,0.20,0.1</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;/</span><span style="color: #905">AbsoluteLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">ContentPage.Content</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;/</span><span style="color: #905">ContentPage</span><span style="color: #999">&gt;</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-ui-application-c">III. UI application (C#)</h1><h2 id="3-logic-구현">3. Logic 구현</h2>
+<ol>
+<li>LED_Manager.Tizen 프로젝트 내 <strong>lib 폴더</strong> 안에 앞서 생성한 <strong>SharedLibrary(so) 파일 추가</strong></li>
+</ol>
+<img src="/assets/images/tutorials/208/op_cs_4.png" style="border-style:solid; border-width:1px; height:348px; width:285px">
+<ol start="2">
+<li><strong>MainPage.xaml.cs</strong> 파일에서&nbsp;InteropService&nbsp;사용하여 외부 DLL Import</li>
+</ol>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 84px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 224px; top: 420px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Collections</span><span style="color: #BBBBBB">.</span><span style="color: #000">Generic</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Linq</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Runtime</span><span style="color: #BBBBBB">.</span><span style="color: #000">InteropServices</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Text</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Threading</span><span style="color: #BBBBBB">.</span><span style="color: #000">Tasks</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #BBBBBB">.</span><span style="color: #000">Xaml</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">LED_Manager</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">[</span><span style="color: #000">XamlCompilation</span><span style="color: #999">(</span><span style="color: #000">XamlCompilationOptions</span><span style="color: #999">.</span><span style="color: #000">Compile</span><span style="color: #999">)]</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">partial</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">MainPage</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">ContentPage</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">[</span><span style="color: #000">DllImport</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">libsharedlibraryled.so</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">EntryPoint</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">led_init</span><span style="color: #999">"</span><span style="color: #999">)]</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">internal</span><span style="color: #BBBBBB"> </span><span style="color: #07A">static</span><span style="color: #BBBBBB"> </span><span style="color: #07A">extern</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">InitLED</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">[</span><span style="color: #000">DllImport</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">libsharedlibraryled.so</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">EntryPoint</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">led_on</span><span style="color: #999">"</span><span style="color: #999">)]</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">internal</span><span style="color: #BBBBBB"> </span><span style="color: #07A">static</span><span style="color: #BBBBBB"> </span><span style="color: #07A">extern</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">TurnOnLED</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">[</span><span style="color: #000">DllImport</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">libsharedlibraryled.so</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">EntryPoint</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">led_off</span><span style="color: #999">"</span><span style="color: #999">)]</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">internal</span><span style="color: #BBBBBB"> </span><span style="color: #07A">static</span><span style="color: #BBBBBB"> </span><span style="color: #07A">extern</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">TurnOffLED</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">MainPage</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">InitializeComponent</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ol start="3">
+<li>상황별 LED API 호출</li>
+</ol>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 784px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 252px; top: 868px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Collections</span><span style="color: #BBBBBB">.</span><span style="color: #000">Generic</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Linq</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Runtime</span><span style="color: #BBBBBB">.</span><span style="color: #000">InteropServices</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Text</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Threading</span><span style="color: #BBBBBB">.</span><span style="color: #000">Tasks</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #BBBBBB">.</span><span style="color: #000">Xaml</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">LED_Manager</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">[</span><span style="color: #000">XamlCompilation</span><span style="color: #999">(</span><span style="color: #000">XamlCompilationOptions</span><span style="color: #999">.</span><span style="color: #000">Compile</span><span style="color: #999">)]</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">partial</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">MainPage</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">ContentPage</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">[</span><span style="color: #000">DllImport</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">libsharedlibraryled.so</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">EntryPoint</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">led_init</span><span style="color: #999">"</span><span style="color: #999">)]</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">internal</span><span style="color: #BBBBBB"> </span><span style="color: #07A">static</span><span style="color: #BBBBBB"> </span><span style="color: #07A">extern</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">InitLED</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">[</span><span style="color: #000">DllImport</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">libsharedlibraryled.so</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">EntryPoint</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">led_on</span><span style="color: #999">"</span><span style="color: #999">)]</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">internal</span><span style="color: #BBBBBB"> </span><span style="color: #07A">static</span><span style="color: #BBBBBB"> </span><span style="color: #07A">extern</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">TurnOnLED</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">[</span><span style="color: #000">DllImport</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">libsharedlibraryled.so</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">EntryPoint</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">led_off</span><span style="color: #999">"</span><span style="color: #999">)]</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">internal</span><span style="color: #BBBBBB"> </span><span style="color: #07A">static</span><span style="color: #BBBBBB"> </span><span style="color: #07A">extern</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">TurnOffLED</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">MainPage</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">InitializeComponent</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">InitLED</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Button_TurnOn</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">EventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">TurnOnLED</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Button_TurnOff</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">EventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">TurnOffLED</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ol start="4">
+<li>App 종료시 자원 반납을 위해 LED_Manager.Tizen 프로젝트 내 <strong>LED_Manager.Tizen.cs</strong> 파일에 아래 코드를 추가합니다.</li>
+</ol>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 28px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 224px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 252px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 168px; top: 504px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Runtime</span><span style="color: #BBBBBB">.</span><span style="color: #000">InteropServices</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">LED_Manager</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">Program</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">global</span><span style="color: #999">::</span><span style="color: #000">Xamarin</span><span style="color: #999">.</span><span style="color: #000">Forms</span><span style="color: #999">.</span><span style="color: #000">Platform</span><span style="color: #999">.</span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">FormsApplication</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">[</span><span style="color: #000">DllImport</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">libsharedlibraryled.so</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">EntryPoint</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">led_terminate</span><span style="color: #999">"</span><span style="color: #999">)]</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">internal</span><span style="color: #BBBBBB"> </span><span style="color: #07A">static</span><span style="color: #BBBBBB"> </span><span style="color: #07A">extern</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">TerminateLED</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">protected</span><span style="color: #BBBBBB"> </span><span style="color: #07A">override</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnCreate</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">base</span><span style="color: #999">.</span><span style="color: #DD4A68">OnCreate</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">LoadApplication</span><span style="color: #999">(</span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">App</span><span style="color: #999">());</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">protected</span><span style="color: #BBBBBB"> </span><span style="color: #07A">override</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnTerminate</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">TerminateLED</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">base</span><span style="color: #999">.</span><span style="color: #DD4A68">OnTerminate</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">static</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Main</span><span style="color: #999">(</span><span style="color: #07A">string</span><span style="color: #999">[]</span><span style="color: #BBBBBB"> </span><span style="color: #000">args</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">app</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Program</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">Forms</span><span style="color: #999">.</span><span style="color: #DD4A68">Init</span><span style="color: #999">(</span><span style="color: #000">app</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">app</span><span style="color: #999">.</span><span style="color: #DD4A68">Run</span><span style="color: #999">(</span><span style="color: #000">args</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-ui-application-c">III. UI application (C#)</h1><h2 id="4-privilege-등록">4. Privilege 등록</h2>
+<p>프로그램에서 Peripheral API 사용하기&nbsp;위해서&nbsp;Privilege를 선언해 주어야 합니다.</p>
+<ol>
+<li>
+<p><strong>tizen-manifest.xml</strong> 파일 오픈 후 <strong>Privileges</strong> 탭에서 <strong>Add</strong> 버튼&nbsp;클릭</p>
+</li>
+<li>
+<p>Custom Privileges 선택 후&nbsp; <strong><a href="http://tizen.org/privilege/peripheralio">http://tizen.org/privilege/peripheralio</a></strong> 입력</p>
+</li>
+</ol>
+<img src="/assets/images/tutorials/208/op_cs_3.png" style="border-style:solid; border-width:1px; height:579px; width:1200px">
+<ol start="3">
+<li><strong>파일 저장</strong> (Ctrl + S or 상단 File 메뉴에서&nbsp;Save&nbsp;tizen-manifest.xml )</li>
+</ol>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-ui-application-c">III. UI application (C#)</h1><h2 id="5-실행-결과">5. 실행 결과</h2>
+<ol>
+<li>프로그램을 설치할 디바이스가 연결되어 있는지 확인합니다.</li>
+</ol>
+<img src="/assets/images/tutorials/191/5_27.png" style="undefined">
+<p>*. 연결되어 있지 않으면&nbsp;<a href="http://tizenschool.org/tutorial/194/contents/8">http://tizenschool.org/tutorial/194/contents/8</a>&nbsp;가이드를 참고해서 연결합니다.</p>
+<ol start="2">
+<li><strong>Ctrl-F5</strong> 로 설치 및 실행합니다.</li>
+</ol>
+<img src="/assets/images/tutorials/208/op_0.png" style="border-style:solid; border-width:1px; height:450px; width:800px">
+<ol start="3">
+<li><strong>LED On / LED Off 버튼</strong> 을 클릭하여 LED 전구가 제대로 제어되는지 확인합니다.</li>
+</ol>
+<img src="/assets/images/tutorials/208/final_result.png" style="height:344px; width:723px">
+<p>*. 정상적으로 설치가 안 될 경우 인증서 생성 및 적용이 제대로 되어 있는지 체크합니다.</p>
+<p>Peripheral API를 사용하기 위해&nbsp;Platform Level의 Tizen Certificate(타이젠 인증서)가 필요합니다.</p>
+<p>해당 인증서가 없을 경우 아래 강좌를 참고해서 생성해주세요.</p>
+<p><a href="http://tizenschool.org/tutorial/194/contents/5">http://tizenschool.org/tutorial/194/contents/5</a></p></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/10</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/84895ba0ae7f34d06b2e24359088ded5aef2eb94">84895ba0ae7f34d06b2e24359088ded5aef2eb94</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+

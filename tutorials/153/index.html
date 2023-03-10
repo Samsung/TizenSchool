@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+    <title>[Kor] How to use Light Sensor on Tizen IoT [I2C]</title>
+  <link rel="stylesheet" href="/assets/aboutus.1b0f65e4.css" />
+<link rel="stylesheet" href="/assets/10.cb2c83b6.css" />
+<link rel="stylesheet" href="/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="13NfkC" component-url="/Header.14d8e174.js" component-export="default" renderer-url="/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      [Kor] How to use Light Sensor on Tizen IoT [I2C]
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">본 강좌는 2019 서울 하드웨어 해커톤의 사전 워크샵 강의를 위하여 작성되었습니다. - Written by 윤진</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/assets/images/iot-active.png">
+        <img src="/assets/images/wearable-dimmed.png">
+        <img src="/assets/images/mobile-dimmed.png">
+        <img src="/assets/images/smart-tv-dimmed.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2019/07/21</span>
+            Modified
+            <span class="font-bold">2019/07/26</span>
+    </div>
+  </div><astro-island uid="Z2qWe7A" component-url="/TextContent.c7f4d9de.js" component-export="default" renderer-url="/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,6],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;준비물\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;조도는 무엇인가?\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;조도센서 준비하기\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;RPI3와 조도센서를 물리적으로 연결하기\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;조도센서를 위한 I2C 프로토콜\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;코딩해보기\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/6</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="준비물">준비물</h2>
+<img src="/assets/images/tutorials/153/prepare.png" style="height:505px; width:846px">
+<p>소스 다운로드&nbsp;:&nbsp;git clone <a href="https://git.tizen.org/cgit/apps/native/rcc">https://git.tizen.org/cgit/apps/native/rcc</a> illuminance -b illuminance</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="조도는-무엇인가">조도는 무엇인가?</h2>
+<p>조도란 단위면적당 비춰지는 빛의 밝기를 의미한다. 조도는 인간의 눈으로 감지해낼 수 있는 파장을 기준으로 만들어졌다.</p>
+<img src="/assets/images/tutorials/153/lux.png" style="height:533px; width:438px">
+<p>럭스의 예(출처 : 위키피디아 럭스 항목)</p>
+<p>단위로는 럭스를 사용하고 lx라고 표기한다. <strong>촛불 하나</strong> 를 <strong>1m</strong> 밖에서 볼 때 밝기가 1lx이다. 따라서 lx를 우리말로 촉광(candle-light)이라고 표현하기도 한다. 실내공간의 조도는 &nbsp;50~500lx 정도이다. 화창한 낮, 태양의 조도는 4만에서 10만lx에 이른다.</p>
+<p>QUIZ : 이 곳의 조도는 어느 정도일까?</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="조도센서-준비하기">조도센서 준비하기</h2>
+<p>조도를 측정하는 조도센서는 <strong>인간의 생활공간의 조도</strong> 를 바탕으로 만들어졌다. 사람 눈의 감도를 기준으로 조도센서의 감도를 보정한다. 센서의 감도가 눈의 감도와 다른 경우 보정필터 등을 추가로 사용하여 감도를 보정하기도 한다.</p>
+<p>대다수의 조도센서는 <strong>0lx부터 65535lx</strong> 까지의 범위에서 동작한다. 이 범위로 빛이 없는 공간의 조도부터 직사광선이 내리쬐는 대낮의 조도까지 측정할 수 있다. 1lx보다 훨씬 작은 단위에서 움직이는 별빛은 일반적인 조도센서가 측정할 수 없다.</p>
+<img src="https://tizen-prod-craftroom.s3.amazonaws.com/uploads/2018/08/light.png" style="undefined">
+<p>위의 센서는 조도센서 모델 GY-302이다. 검색 엔진에서 쉽게 찾을 수 있다. 가격도 비교적 저렴하여 몇천원 정도면 구매할 수 있다. 해외업체에서 센서를 주문하면 국내업체보다 배송이 오래 걸리지만 보다 저렴하다. 자신의 상황에 맞추어 센서를 구매한다.</p>
+<p>QUIZ : 조도를 측정하는 칩은 무엇일까?</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="rpi3와-조도센서를-물리적으로-연결하기">RPI3와 조도센서를 물리적으로 연결하기</h2>
+<p>이제 조도센서를 RPI3에 연결해보자. 조도센서의 핀 5개를 RPI3의 핀에 연결해보려 한다. <strong>각 핀에서 요구하는 전압</strong> 은 아래 표와 같다. 센서의 각 핀에서 요구하는 전압을 반드시 확인한다. 만약 센서에서 요구하는 전압보다 낮은 값이 들어가면, 센서는 제대로 동작하지 않는다. 반대로 더 높은 경우에는 센서에 문제가 생길 수도 있다. 센서가 뜨거워지고 김이 모락모락 피어오르면 타버린 것이다.</p>
+<img src="/assets/images/tutorials/153/voltage.png" style="height:215px; width:273px">
+<p>GY-302이 동작하려면 <strong>Vcc에 DC 2.4V ~ 3.6V</strong> 범위 내의 전압이 필요하다. 다행스럽게도 RPI3는 DC 3.3V의 전압을 제공하고 있다. 따라서 GY-302은 RPI3로부터 지속적으로 전원을 공급받을 수 있다.</p>
+<p>GY-302의 SCL과 SDA 핀으로 데이터 통신을 하게 된다. 이 때 두 핀의 최대 허용전압은 3.6V이다. RPI3의 경우 <strong>SCL과 SDA 핀은 0~3.3V</strong> 의 전압 범위를 가지고 동작하고 있다. 따라서 GY-302과 RPI3의 핀들도 상호 연결하여 사용할 수 있다.</p>
+<p>마지막으로 주소의 타입을 정할 수 있는 <strong>ADDR 핀에는 GND 혹은 Vcc 두 가지 값</strong> 을 줄 수 있다. 이 값들도 모두 허용전압에 포함되어 있다.</p>
+<p>RPI3 핀맵</p>
+<img src="/assets/images/tutorials/153/rasp_pin_3detail_hor.jpg" style="undefined">
+<p>RPI3에는 총 40개의 핀이 있다. 그 중 1번, 17번 핀이 센서의 Vcc에서 필요로하는 3.3V 전압을 제공한다. 그리고 6번, 9번, 14번, 20번, 25번, 30번, 34번, 39번은 접지이다. SDA와 SCL 핀은 선택의 여지없이 각각 3번과 5번에 연결할 수 있다. 그리고 ADDR은 Vcc나 GND에 연결한다.</p>
+<img src="https://tizen-prod-craftroom.s3.amazonaws.com/uploads/2019/08/connectpin.png" style="undefined">
+<img src="https://tizen-prod-craftroom.s3.amazonaws.com/uploads/2019/08/Screenshot-from-2019-08-20-16-02-50.png" style="undefined">
+<p>최종적으로 위의 그림에서 RPI3와 조도센서의 연결상태를 볼 수 있다. 조도센서의 핀을 기준으로 살펴보자. ADDR과 GND는 함께 묶여 RPI3의 GND와 연결된다. SDA는 RPI3의 3번, SCL은 5번에 연결되어 있다. 마지막으로 Vcc를 연결한다. 이제 모든 하드웨어 준비는 끝났다.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="조도센서를-위한-i2c-프로토콜">조도센서를 위한 I2C 프로토콜</h2>
+<img src="https://tizen-prod-craftroom.s3.amazonaws.com/uploads/2018/08/peri_api_i2c_diagram.png" style="undefined">
+<p>I2C 인터페이스 다이어그램(출처 : 타이젠 공식 홈페이지)</p>
+<ul>
+<li>
+<p><strong>버스 공유</strong></p>
+</li>
+<li>
+<p><strong>주소를 이용한 상호 인지</strong></p>
+</li>
+</ul>
+<p><strong>SCL &amp; SDA</strong></p>
+<p>I2C 프로토콜은 SCL(Serial Clock Line)과 SDA(Serial Data Line) 핀만으로 다수의 노드를 제어할 수 있다. 다수의 노드는 위의 그림에서 볼 수 있듯, 마스터 노드와 슬레이브 노드역할로 나뉜다. 한 버스 단위에 마스터 역할의 노드는 여러 개 올 수 있다. 하지만, 이 구도에서는 <strong>RPI3만을 유일한 마스터</strong> 로 사용한다. 그에 반해 슬레이브 노드는 다수 존재한다.</p>
+<p>마스터의 SCL 선은 모든 슬레이브의 SCL과 동시에 연결된다. <strong>마스터 노드의 주역할은 모두를 동기화시키기 위한 클락을 생성</strong> 하는 데에 있다. 마스터 노드가 SCL 선으로 클락을 보내면, 모든 슬레이브가 동시에 클락신호를 받는다. 마스터의 클락신호에 맞춰서 슬레이브가 동작한다.</p>
+<p>마스터의 SDA 선 또한 모든 슬레이브의 SDA와 동시에 연결된다. 데이터 교환은 이 SDA 선을 타고 이뤄진다. 비트 단위의 데이터가 시리얼 방식으로 넘어가고 넘어온다. 데이터를 위한 선이 하나이기 때문에 마스터와 슬레이브가 동시에 데이터를 보낼 수는 없다. 마스터가 보낼 때는 슬레이브는 받고, 슬레이브가 보낼 때는 마스터가 받는다. 이러한 방식을 반이중 통신 혹은 <strong>Half-duplex</strong> 라고 일컫는다.</p>
+<p><strong>비트 단위 전달 : 시리얼</strong></p>
+<img src="https://tizen-prod-craftroom.s3.amazonaws.com/uploads/2018/08/i2c_bit.png" style="undefined">
+<br>비트 단위 전달(출처 : 위키피디아)
+<ul>
+<li>
+<p>마스터가 클락을 제어한다.</p>
+</li>
+<li>
+<p>클락이 Low 신호일때, 마스터 혹은&nbsp;슬레이브는 데이터를 쓴다.</p>
+</li>
+<li>
+<p>클락이 High 신호일때, 슬레이브 혹은 마스터는 데이터를 읽는다.</p>
+</li>
+<li>
+<p>클락이 High 신호일때, 데이터를 쓰는 경우는 시작과 끝을 위해서만 사용한다.</p>
+</li>
+</ul>
+<p>위의 그림은 비트 단위로 데이터가 전달되는 추이를 나타낸다. 개략적으로 아래의 루틴으로 데이터가 전달된다.</p>
+<p>한 번에 한 비트씩 이동하니 속도가 느렸다. 최초에 I2C가 소개되었을 무렵에는 100kbit/s의 속도였다. 한 바이트가 8비트이니 <strong>초당 12,500바이트</strong> 정도의 데이터가 전달되는 것이다. 4메가짜리 MP3 파일을 전송하기 위해서는 327초가 필요하다. 하지만, 최근까지 버전업을 계속하여 이제는 초당 메가단위의 데이터를 전달한다.</p>
+<p><strong>슬레이브 주소</strong></p>
+<p>위의 버스에는 다수의 슬레이브 중 하나를 선택하기 위한 선이 없다. 마스터가 SDA로 전달하는 데이터를 모든 슬레이브에서 받아볼 수 있다. <strong>그렇다면 어떻게 다수의 슬레이브 중 하나를 고를 수 있을까?</strong> 마스터는 데이터를 수취할 대상의 ‘주소’를 데이터와 함께 보내 한 번에 한 슬레이브와만 소통한다.</p>
+<p>사실 모든 슬레이브는 주소를 가지고 있다. 슬레이브의 주소는 제품 출시전부터 확정된다. 소프트웨어 개발자가 프로그래밍 과정에 슬레이브의 주소를 임의로 변경할 수 없다. 왜냐하면 슬레이브의 제조업체가 I2C 관리사와 협의하여 주소를 받기 때문이다. 그리고 그 <strong>주소를 제품의 스펙에 명시</strong> 해둔다. 슬레이브를 사용하기 위해서는 스펙에 적혀져 있는 주소로만 접근해야 한다.</p>
+<p>주소는 무한정 존재하지 않는다. I2C의 주소체계는 <strong>7비트 방식</strong> 과 <strong>10비트 방식</strong> 이 있다. 7비트 방식을 기준으로 주소체계를 보면, <strong>2의 7승 128개의 주소</strong> 가 존재하는 것을 알 수 있다. 주소는 0번부터 127번까지이다. 그렇지만, 이 중 일부는 다른 용도로 예약되어 사용한다. 따라서 실질적으로는 총 112개의 주소만 사용할 수 있다.</p>
+<p><strong>GY-302 주소타입</strong></p>
+<p>GY-302에는 두 가지 타입의 주소가 있다고 언급하였다. 이 타입은 GY-302의 ADDR 핀에 넣어주는 전압으로 결정된다. 만약 전압이 <strong>0V라면 조도센서는 0x23</strong> 의 주소를 갖고, <strong>5V라면 0x5C</strong> 를 갖는다. 위의 그림에서 조도센서의 ADDR을 접지와 연결하였으니 조도센서 슬레이브에 접근하기 위해서는 0x23 주소를 사용해야 한다. 향후 마스터역할을 하는 RPI3에서 이 주소를 사용하여 조도센서에 접근하도록 하겠다.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="코딩해보기">코딩해보기</h2>
+<p><strong>권한 추가하기</strong></p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;</span><span style="color: #905">privileges</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">   </span><span style="color: #999">&lt;</span><span style="color: #905">privilege</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB">http://tizen.org/privilege/peripheralio</span><span style="color: #999">&lt;/</span><span style="color: #905">privilege</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;/</span><span style="color: #905">privileges</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>주변기기를 제어하기 위해서는 특별한 권한이 필요하다. 타이젠 스튜디오에서 tizen-manifest.xml에 ‘ <strong>peripheralio</strong> ’ 권한을 추가하도록 한다.</p>
+<p><strong>헤더 추가하기</strong></p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">#</span><span style="color: #07A">include</span><span style="color: #000"> </span><span style="color: #999">&lt;</span><span style="color: #690">peripheral_io.h</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>위의 헤더파일을 소스에 포함하여 I2C 관련 함수를 사용하고자 한다.</p>
+<p><strong>핸들 관리하기</strong></p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_i2c_open</span><span style="color: #999">(</span><span style="color: #07A">int</span><span style="color: #000"> bus</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #07A">int</span><span style="color: #000"> address</span><span style="color: #999">,</span><span style="color: #000"> peripheral_i2c_h </span><span style="color: #A67F59">*</span><span style="color: #000">i2c</span><span style="color: #999">)</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>위의 함수로 I2C 버스를 사용하기 위한 핸들을 생성한다.</p>
+<p>첫번째 인자인 bus는 <strong>버스 번호</strong> 를 의미한다. 타이젠의 레퍼런스 디바이스인 라즈베리파이에는 버스가 하나 존재한다. 따라서 버스 번호는 통상 1을 입력해준다. 하지만, 차후에 다른 레퍼런스 보드가 추가되는 경우 1 외에 다른 값도 올 수 있다.</p>
+<img src="/assets/images/tutorials/153/pin.png" style="height:75px; width:262px">
+<p>두번째 인자 address는 <strong>슬레이브 노드에 접속하기 위한 주소</strong> 를 의미한다. 이 주소는 플랫폼 단에서 정하는 것이 아니다. 위에서 언급한 바와 같이 제조업체에 의해 디바이스가 생산되는 시점에 이미 정해져서 나온다. 슬레이브의 스펙을 확인하도록 한다.</p>
+<p>세번째 인자로 핸들을 받게 된다. 이 핸들을 매개로 하여 I2C 버스를 제어하게 된다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_i2c_close</span><span style="color: #999">(</span><span style="color: #000">peripheral_i2c_h i2c</span><span style="color: #999">)</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>I2C 핸들의 사용기한이 끝나면 위의 함수로 정리해주어야 한다. 인자로 핸들만 넘겨주도록 한다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #000">peripheral_i2c_h i2c_h</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">int</span><span style="color: #000"> ret</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">​</span></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> ADDRESS는 슬레이브 장치의 스펙에 명시된 주소를 적어준다.</span></span>
+<span class="line"><span style="color: #000">ret </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_i2c_open</span><span style="color: #999">(</span><span style="color: #905">1</span><span style="color: #999">,</span><span style="color: #000"> ADDRESS</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #A67F59">&amp;</span><span style="color: #000">i2c_h</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">ret </span><span style="color: #A67F59">!=</span><span style="color: #000"> PERIPHERAL_ERROR_NONE</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">    //</span><span style="color: #708090"> 에러처리</span></span>
+<span class="line"><span style="color: #000">    </span><span style="color: #07A">return</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #000">​</span></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> 필요루틴</span></span>
+<span class="line"><span style="color: #000">​</span></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> 핸들 정리하기</span></span>
+<span class="line"><span style="color: #DD4A68">peripheral_i2c_close</span><span style="color: #999">(</span><span style="color: #000">i2c_h</span><span style="color: #999">);</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>위의 코드에서 핸들을 생성하고 정리하는 일련의 과정을 엿볼 수 있다.</p>
+<p><strong>데이터 읽고 쓰기</strong></p>
+<ul>
+<li>데이터 쓰기</li>
+</ul>
+<img src="https://tizen-prod-craftroom.s3.amazonaws.com/uploads/2018/08/i2c_data_write.png" style="undefined">
+<ul>
+<li>
+<p>7비트(주소) + 1비트(R/W)&nbsp; = 8비트</p>
+</li>
+<li>
+<p>주소를 제외하면 1바이트의 데이터 전달</p>
+</li>
+<li>
+<p>마스터가 쓰고, 슬레이브가 읽는다.</p>
+</li>
+</ul>
+<p>위는&nbsp;마스터가 데이터를 쓸 때 사용한다. 마스터는 시작신호와 함께 슬레이브 주소와 쓰기모드 설정값을 보낸다. 슬레이브는 이를 잘 받았다는 Ack을 날린다. 마스터는 다시 <strong>명령코드</strong> 를 슬레이브에 전달한다. 슬레이브는 명령코드를 받고 Ack을 보낸다. 최종적으로 마스터는 정지신호로 마무리한다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_i2c_write</span><span style="color: #999">(</span><span style="color: #000">peripheral_i2c_h i2c</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #07A">uint8_t</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">data</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #07A">uint32_t</span><span style="color: #000"> length</span><span style="color: #999">)</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>위의 함수로 손쉽게 I2C 슬레이브 장치에 데이터를 쓸 수 있다. 첫번째 인자로 I2C 핸들을 넣고, 두번째에는 버퍼 주소를, 그리고 마지막으로 버퍼의 크기를 넘겨준다. 위의 함수는 버퍼의 데이터를 슬레이브 디바이스에 그대로 옮기게 된다.</p>
+<p>조도센서로부터 데이터를 읽어오기 위해서는 명령코드가 필요하다. 명령코드는 센서 스펙에 명시되어 있다. 몇가지 <strong>주요한 명령코드</strong> 는 아래 표와 같다.</p>
+<img src="/assets/images/tutorials/153/op.png" style="undefined">
+<p>위의 표에서 단 한차례 시행하는 명령은 매번 값을 읽을 때마다 다시 설정해줘야 한다. 만약 지속적으로 값을 얻어오고자 할때는 Continuously 모드의 명령어를 사용하자. 여기 코드에서는 Continuously H-Resolution Mode(0x10)를 사용하였다.</p>
+<p><br>- 데이터 읽기</p>
+<img src="https://tizen-prod-craftroom.s3.amazonaws.com/uploads/2018/08/i2c_data.png" style="undefined">
+<ul>
+<li>
+<p>7비트(주소) + 1비트(R/W)&nbsp; = 8비트</p>
+</li>
+<li>
+<p>주소를 제외하면 2바이트를 전달</p>
+</li>
+<li>
+<p>슬레이브가 쓰고 마스터가 읽는다.</p>
+</li>
+</ul>
+<p>마스터 노드가 슬레이브 노드로부터 데이터를 읽으려면, 위와 같은 비트의 흐름을 거쳐야 한다. 우선 마스터 노드가 시작 신호에 이어 슬레이브 주소와 읽기모드 설정값을 보낸다. 그러면 해당 주소의 슬레이브 노드는 받았다는 Ack을 보내고 연이어서 데이터의 상위바이트를 보낸다. 그러면 마스터는 상위바이트를 잘 받았다는 Ack을 보낸다. 그러면 슬레이브가 하위 바이트를 다시 보낸다. 마스터는 다시 Nack을 보내고 정지신호로 통신을 마친다.</p>
+<p>하지만, 이런 비트의 흐름을 모두 코딩하기에는 번거로움이 있다. 따라서 타이젠 IoT에서 별도의 함수군을 준비해두었는데 그게 바로 Peripheral I/O 함수이다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_i2c_read</span><span style="color: #999">(</span><span style="color: #000">peripheral_i2c_h i2c</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #07A">uint8_t</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">data</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #07A">uint32_t</span><span style="color: #000"> length</span><span style="color: #999">)</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>위의 함수로는 I2C 슬레이브 장치로부터 데이터를 읽어온다. 첫번째 인자로 I2C 핸들이 들어가고, 두번째 인자로는 버퍼주소를, 세번째에는 버퍼 사이즈를 입력한다. 위의 함수가 리턴될 때, 데이터가 두번째 인자로 넣어준 버퍼에 세번째 인자로 넣어준 사이즈만큼 채워져서 넘어온다. 위의 함수로 간단하게 데이터를 읽을 수 있다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #000">peripheral_i2c_h sensor_h</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">int</span><span style="color: #000"> ret </span><span style="color: #A67F59">=</span><span style="color: #000"> PERIPHERAL_ERROR_NONE</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">int</span><span style="color: #000"> value </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">unsigned</span><span style="color: #000"> </span><span style="color: #07A">char</span><span style="color: #000"> buf</span><span style="color: #999">[</span><span style="color: #905">10</span><span style="color: #999">]</span><span style="color: #000"> </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #999">{</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #999">};</span></span>
+<span class="line"><span style="color: #000">​</span></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> I2C 프로토콜 핸들을 생성한다.</span></span>
+<span class="line"><span style="color: #000">ret </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_i2c_open</span><span style="color: #999">(</span><span style="color: #000">i2c_bus</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #07A">0x</span><span style="color: #905">23</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #A67F59">&amp;</span><span style="color: #000">sensor_h</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">ret </span><span style="color: #A67F59">!=</span><span style="color: #000"> PERIPHERAL_ERROR_NONE</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">    //</span><span style="color: #708090"> 에러처리</span></span>
+<span class="line"><span style="color: #000">    </span><span style="color: #07A">return</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #000">​</span></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> 조도센서에서 수행할 명령을 버퍼에 쓴다.</span></span>
+<span class="line"><span style="color: #000">buf</span><span style="color: #999">[</span><span style="color: #905">0</span><span style="color: #999">]</span><span style="color: #000"> </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #07A">0x</span><span style="color: #905">10</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">​</span></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> 조도센서에 버퍼 데이터를 기록한다.</span></span>
+<span class="line"><span style="color: #000">ret </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_i2c_write</span><span style="color: #999">(</span><span style="color: #000">resource_sensor_s.sensor_h</span><span style="color: #999">,</span><span style="color: #000"> buf</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #905">1</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">ret </span><span style="color: #A67F59">&lt;</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">    //</span><span style="color: #708090"> 에러처리</span></span>
+<span class="line"><span style="color: #000">    </span><span style="color: #07A">return</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #000">​</span></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> 조도센서로부터 값을 얻는다.</span></span>
+<span class="line"><span style="color: #000">ret </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_i2c_read</span><span style="color: #999">(</span><span style="color: #000">resource_sensor_s.sensor_h</span><span style="color: #999">,</span><span style="color: #000"> buf</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #905">2</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">ret </span><span style="color: #A67F59">&lt;</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">    //</span><span style="color: #708090"> 에러처리</span></span>
+<span class="line"><span style="color: #000">    </span><span style="color: #07A">return</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #000">​</span></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> 조도센서로부터 받은 두 바이트 버퍼를 숫자로 만들고(빅앤디언),</span></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> 1.2로 나눠서 센싱값을 얻는다.</span></span>
+<span class="line"><span style="color: #000">value </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">buf</span><span style="color: #999">[</span><span style="color: #905">0</span><span style="color: #999">]</span><span style="color: #000"> </span><span style="color: #A67F59">&lt;&lt;</span><span style="color: #000"> </span><span style="color: #905">8</span><span style="color: #000"> </span><span style="color: #A67F59">|</span><span style="color: #000"> buf</span><span style="color: #999">[</span><span style="color: #905">1</span><span style="color: #999">])</span><span style="color: #000"> </span><span style="color: #A67F59">/</span><span style="color: #000"> </span><span style="color: #905">1.2</span><span style="color: #999">;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>센서로부터 추출한 값과 실제 럭스간에서는 차이가 있다. 따라서 둘 사이의 차이를 바로 잡아주어야 한다. 이 간극은 센서를 만든 제조업체에서 제공하는 스펙문서를 보고 확인할 수 있다. 여기서 그 차이는 센싱값을 1.2로 나눠주는 것으로 해소할 수 있다. 예를 들어 센서로부터 읽은 값이 12000이면 1.2로 나눈 10000이 최종 센싱값이 된다.</p>
+<p><strong>RCC에 준비된 함수 이용하기</strong></p>
+<p>RCC 저장소에는 조도센서 GY-302을 위한 함수가 포함되어 있다.</p>
+<p>int resource_read_illuminance_sensor(int i2c_bus, uint32_t *out_value)<br>위의 함수를 사용하면, 조도센서를 위한 핸들, 슬레이브의 주소, 읽기를 위한 명령코드, 센싱값의 보정 등에 대해 신경쓰지 않아도 된다. 그저 첫번째 인자로 I2C 버스를 입력해주면, 두번째 인자로 센싱값을 넘겨받는다. RPI3의 경우, 위의 버스값은 1로 고정되어 있기 때문에 신경쓸 것도 없다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">uint32_t</span><span style="color: #000"> value </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">​</span></span>
+<span class="line"><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #DD4A68">resource_read_illuminance_sensor</span><span style="color: #999">(</span><span style="color: #905">1</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #A67F59">&amp;</span><span style="color: #000">value</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #A67F59">&lt;</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">    //</span><span style="color: #708090"> 에러처리</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #000">​</span></span>
+<span class="line"><span style="color: #DD4A68">I</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Illuminance : %d</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #000"> value</span><span style="color: #999">);</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>위의 코드만으로 조도센서로부터 센싱값을 추출할 수 있다. 이와 같은 함수는 GY-302 센서모델에 맞춰서만 사용할 수 있다. 이미 개발된 함수가 없다면 Peripheral I/O를 사용하는 수밖에 없다.</p></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/6</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/84895ba0ae7f34d06b2e24359088ded5aef2eb94">84895ba0ae7f34d06b2e24359088ded5aef2eb94</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+

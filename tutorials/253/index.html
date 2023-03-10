@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+    <title>How to use Tizen Peripheral SPI C# API</title>
+  <link rel="stylesheet" href="/assets/aboutus.1b0f65e4.css" />
+<link rel="stylesheet" href="/assets/10.cb2c83b6.css" />
+<link rel="stylesheet" href="/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="13NfkC" component-url="/Header.14d8e174.js" component-export="default" renderer-url="/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      How to use Tizen Peripheral SPI C# API
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">본 강좌는 2021  서울 하드웨어 해커톤의 사전 워크샵 강의를 위하여 작성되었습니다. Peripheral SPI  C# API 를 이용하여 Analog Sensor 를 사용하는 법을 설명합니다. Written by 장기석</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/assets/images/iot-active.png">
+        <img src="/assets/images/wearable-dimmed.png">
+        <img src="/assets/images/mobile-dimmed.png">
+        <img src="/assets/images/smart-tv-dimmed.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2021/07/10</span>
+            Modified
+            <span class="font-bold">2021/07/12</span>
+    </div>
+  </div><astro-island uid="1d5oqh" component-url="/TextContent.c7f4d9de.js" component-export="default" renderer-url="/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,10],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[]\&quot;],\&quot;chapter\&quot;:[0,\&quot;\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. 강좌 소개\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. 준비물\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;I. Overview\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Analog Sound Sensor\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. AD Converter (MCP3008)\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. SPI\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;4. 회로 연결\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;2. 하드웨어 구성 및 SPI\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. 프로젝트 생성 및 설정\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. UI 구현\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. SPI 코드 구현\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;3. 소프트웨어 구현\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;참고\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;4. Appendix\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/10</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id="i-overview">I. Overview</h1><h2 id="1-강좌-소개">1. 강좌 소개</h2>
+<p>이 강좌에서는 Tizen Peripheral SPI C# API를 사용하는 방법을 설명합니다.</p>
+<p><a href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface">SPI</a>&nbsp;는 Serial Peripheral Interface의 약자로 장치 간의 데이터 전송에 널리 사용되는 직렬 양방향 통신 버스입니다.</p>
+<p><br>이 강좌에서는 Tizen 애플리케이션 예제를 통해 Tizen Peripheral SPI C# API를 사용하는 방법을 설명합니다.</p>
+<p>예제는 SPI 버스를 통해 MCP3008이라는 ADC를 이용해 아날로그 센서과 통신하여 Analog sound 데이터를 읽는 기능을 제공합니다.</p>
+<p><a href="https://cdn-shop.adafruit.com/datasheets/MCP3008.pdf">MCP3008 제조사 Datasheet</a></p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="i-overview">I. Overview</h1><h2 id="2-준비물">2. 준비물</h2>
+<p><strong>HW Component</strong></p>
+<p><strong>Software Requirements</strong></p>
+<p><strong>Tizen Version</strong></p>
+<p><strong>Source code</strong></p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="2-하드웨어-구성-및-spi">2. 하드웨어 구성 및 SPI</h1><h2 id="1-analog-sound-sensor">1. Analog Sound Sensor</h2>
+<ul>
+<li>
+<p>KY-037/038</p>
+</li>
+<li>
+<p>Operating voltage:5V</p>
+</li>
+<li>
+<p>Interface:&nbsp; <strong>Analog</strong> &nbsp;and Digital</p>
+</li>
+</ul>
+<img src="https://tizen-prod-craftroom.s3.amazonaws.com/uploads/2019/08/sensor.jpg" style="height:187px; width:500px">
+<p>본 강좌에서는 센서의 인터페이스 중 아날로그 인터페이스를 사용하려고 합니다.<br>하지만 아날로그 출력을 입력으로 받을 수 있는 부분이 Raspberry 3/3+ 보드에 없으므로 센서를 보드에 직접 연결하여 사용할 수는 없습니다.</p>
+<img src="/assets/images/tutorials/152/question.png" style="height:495px; width:900px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="2-하드웨어-구성-및-spi">2. 하드웨어 구성 및 SPI</h1><h2 id="2-ad-converter-mcp3008">2. AD Converter (MCP3008)</h2>
+<p>이번 강좌에서는 MCP3008이라는 ADC를 이용해 아날로그 센서와 디지털 신호를 받는 보드 사이를 연결해보도록 하겠습니다.</p>
+<p><a href="https://cdn-shop.adafruit.com/datasheets/MCP3008.pdf">MCP3008 제조사 Datasheet</a></p>
+<img src="https://cdn-learn.adafruit.com/assets/assets/000/030/456/original/sensors_raspberry_pi_mcp3008pin.gif?1455010861" style="undefined">
+<p>아날로그 - 디지털 컨버터는 아래 그림처럼 특정 주기마다 아날로그 신호 값를 디지털 신호값으로 변환하여 주는 장치입니다.</p>
+<p>(수학적으로 적분하는 동작을 통해 그래프의 특정 구간 크기를 구합니다.)</p>
+<img src="https://tizen-prod-craftroom.s3.amazonaws.com/uploads/2018/08/Screenshot-from-2018-08-13-19-06-49.png" style="height:146px; width:1100px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="2-하드웨어-구성-및-spi">2. 하드웨어 구성 및 SPI</h1><h2 id="3-spi">3. SPI</h2>
+<p>MCP3008은 SPI 인터페이스를 지원하는 모듈입니다.</p>
+<p>SPI 인테페이스를 사용하기에 앞서 SPI가 어떤 것인지 알아보겠습니다.</p>
+<img src="https://developer.tizen.org/sites/default/files/images/peri_api_spi_diagram.png" style="height:244px; width:600px">
+<p>SPI는 위 그림처럼 Master Device와 Slave Device가 4개의 선으로 연결되어 통신하는 인터페이스입니다.&nbsp;각각의 Pin 이름에 대한 설명은 아래와 같습니다.</p>
+<p>위 그림에서 SPI Master가 Raspberry Pi&nbsp;보드쪽, SPI Slave가 MCP3008쪽입니다.</p>
+<p>그림의 화살표 방향으로 실제 데이터가 전송됩니다. 마스터 장치의 CS pin 갯수에 따라 연결가능한 슬래이브 갯수가 정해지는데,</p>
+<p>Raspberry Pi 3는 2개의 CS&nbsp;pin이 있습니다.</p>
+<p>예를 들어,Raspberry Pi 3와 MCP3008은 아래와 같은 핀들을 사용하여 연결 할 수 있습니다.</p>
+<img src="/assets/images/tutorials/152/connect1-1.png" style="height:432px; width:900px">
+<br>&nbsp;
+<p>SPI 인터페이스는 일반적으로 아래 그림과 같이 2개의 register를 이용한 circular 형태로 통신을 하고 있어 매우 빠른 속도의 양방향 통신을 지원합니다.</p>
+<p>(이런 구조에서는 한 클럭에 1bit를 서로 주고 받을 수 있으므로 동기화 클럭에 따라 속도가 달라집니다.)</p>
+<br>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/SPI_8-bit_circular_transfer.svg/1024px-SPI_8-bit_circular_transfer.svg.png" style="height:360px; width:900px">
+<p><a href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface">위키피디아</a>의 SPI 부분을 참조하시면 더 자세한 내용을 확인하실 수 있습니다.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="2-하드웨어-구성-및-spi">2. 하드웨어 구성 및 SPI</h1><h2 id="4-회로-연결">4. 회로 연결</h2>
+<p>실제 회로 연결을 어떻게 하는지 알아보겠습니다.</p>
+<p>SPI는 앞서 언급했던 최소 4개의 핀(MISO, MOSI, CLK, CS)의 연결이 필요하고, 회로의 전원과 접지 등을 위해서<br>많은 수의 연결이 필요하니 유의하여 연결하셔야 합니다.</p>
+<p>회로의 최종 연결은 위의 그림과 같이 연결되어야 합니다. MCP3008의 핀을 바로 연결 할 수 없으니, Bread board를 이용하여 연결하도록 하겠습니다.</p>
+<p><strong>회로&nbsp; 연결</strong></p>
+<img src="/assets/images/tutorials/152/sound_bb.png" style="height:731px; width:1000px">
+<p>RPI3 연결 사진</p>
+<img src="https://tizen-prod-craftroom.s3.amazonaws.com/uploads/2019/08/connect_p3.jpg" style="height:562px; width:1000px">
+<img src="https://tizen-prod-craftroom.s3.amazonaws.com/uploads/2019/04/20171024_100209_1.jpg" style="height:563px; width:1000px">
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="3-소프트웨어-구현">3. 소프트웨어 구현</h1><h2 id="1-프로젝트-생성-및-설정">1. 프로젝트 생성 및 설정</h2>
+<p><strong>프로젝트 생성</strong></p>
+<p>1.&nbsp; <strong>Tizen NUI XAML Project</strong> 템플릿으로 새로운 프로젝트를 생성한다.</p>
+<img src="/assets/images/tutorials/253/project1.png" style="height:398px; width:900px">
+<img src="/assets/images/tutorials/253/project2.png" style="height:465px; width:900px">
+<ol start="2">
+<li>프로젝트 생성이 완료되면서&nbsp;아래와 같은 파일이 자동 생성된다. 자동 생성된 파일을 그대로 사용해도 되고, 원하는 이름으로 변경해도 된다.</li>
+</ol>
+<p>다만 이름을 변경하는 경우, 파일 내에 자동 변환&nbsp;되지 않아서 수동으로 변경해야 하는 부분들이 있으니 주의해서 변경한다.</p>
+<p><strong>권한(Privilege) 설정</strong></p>
+<p>주변기기를 제어하기 위해서는 특별한 권한이 필요하다.&nbsp;코딩을 하기에 앞서&nbsp;tizen-manifest.xml에&nbsp; <strong>peripheralio</strong> &nbsp;권한을 추가한다.</p>
+<p>1.&nbsp; <strong>tizen-manifest.xml</strong> &nbsp;파일 오픈 후&nbsp; <strong>Privileges</strong> 탭에서&nbsp; <strong>Add</strong> 버튼&nbsp;클릭</p>
+<p>2.&nbsp; <strong>Custom Privileges</strong> 를 선택&nbsp;후&nbsp; <strong><a href="http://tizen.org/privilege/peripheralio">http://tizen.org/privilege/peripheralio</a></strong> &nbsp;입력하고&nbsp; <strong>OK</strong> 버튼 클릭</p>
+<p>3.&nbsp; <strong>파일 저장</strong> &nbsp;(Ctrl + S or 상단 File 메뉴에서&nbsp;Save&nbsp;tizen-manifest.xml )</p>
+<img src="/assets/images/tutorials/253/project3.png" style="height:572px; width:504px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="3-소프트웨어-구현">3. 소프트웨어 구현</h1><h2 id="2-ui-구현">2. UI 구현</h2>
+<p>먼저 UI부터 구성해 보겠습니다.</p>
+<p>만들고자 하는 UI는 아래와 같습니다.</p>
+<p>Start 버튼을 누르면 데이터를 읽어오고, Stop 버튼을 눌러서 멈추는 간단한 동작입니다.</p>
+<p>읽어온 데이터는 간단히 아래에 텍스트로 출력합니다.</p>
+<img src="/assets/images/tutorials/253/SoundSensorUI2.png" style="border-style:solid; border-width:1px; height:450px; width:800px">
+<p><strong>1.&nbsp; Layout 재설정</strong></p>
+<p>UI&nbsp;구성을&nbsp;위해서&nbsp; <strong>Scene1Page.xaml</strong> 파일을 수정하겠습니다.</p>
+<p><strong>Button</strong> 과 <strong>TextLabel</strong> 을 추가하고 간격 조절을 위한&nbsp;LinearLayout 내&nbsp; <strong>Cellpadding</strong> 을 추가했습니다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;?</span><span style="color: #905">xml</span><span style="color: #690"> version</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1.0</span><span style="color: #999">"</span><span style="color: #690"> encoding</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">UTF-8</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">?&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;</span><span style="color: #905">View</span><span style="color: #BBBBBB"> </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Class</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">SoundSensor.Scene1Page</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #690">xmlns</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://tizen.org/Tizen.NUI/2018/XAML</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">x</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://schemas.microsoft.com/winfx/2009/xaml</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">local</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">clr-namespace:SoundSensor</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #690">WidthSpecification</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Static LayoutParamPolicies.MatchParent}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #690">HeightSpecification</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Static LayoutParamPolicies.MatchParent}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #690">BackgroundColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">White</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">View.Layout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">LinearLayout</span><span style="color: #BBBBBB"> </span><span style="color: #690">LinearOrientation</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Vertical</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">LinearAlignment</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Center</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">CellPadding</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">20,20</span><span style="color: #999">"</span><span style="color: #999">&gt;&lt;/</span><span style="color: #905">LinearLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">View.Layout</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">ImageView</span><span style="color: #BBBBBB"> </span><span style="color: #690">ResourceUrl</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">*Resource*/images/tizen.png</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">TextLabel</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Read Sound Data using SPI</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">PixelSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">48</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Start</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Clicked</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">ButtonStart</span><span style="color: #999">"</span><span style="color: #999">&gt;&lt;/</span><span style="color: #905">Button</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Stop</span><span style="color: #999">"</span><span style="color: #BBBBBB">  </span><span style="color: #690">Clicked</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">ButtonStop</span><span style="color: #999">"</span><span style="color: #999">&gt;&lt;/</span><span style="color: #905">Button</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">TextLabel</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Sound Value :</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">PixelSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">36</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">TextLabel</span><span style="color: #BBBBBB"> </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Name</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">SoundValue</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">PixelSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">36</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;/</span><span style="color: #905">View</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>2. 버튼 이벤트 추가</strong></p>
+<p>버튼 이벤트를 추가하기&nbsp;위해&nbsp; <strong>Scene1Page.xaml.cs</strong> 파일을 수정하겠습니다.</p>
+<p>Button의 <strong>Clicked</strong> 이벤트에 반응하는 <strong>ButtonStart()</strong> ,&nbsp; <strong>ButtonStop()</strong> 함수를 추가합니다.</p>
+<p>타이머를 설정하고, <strong>TickEvent()</strong> 를 추가하였습니다.</p>
+<p>실제로 데이터를 읽어오는 <strong>ReadSensor()</strong> 는 다음에&nbsp;설명하겟습니다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">partial</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">Scene1Page</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">View</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        .................</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ButtonStart</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">ClickedEventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">DataUpdateStart</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ButtonStop</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">ClickedEventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">DataUpdateStop</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">DataUpdateStart</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">            //</span><span style="color: #708090"> Open device</span></span>
+<span class="line"><span style="color: #BBBBBB">            .................</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">            //</span><span style="color: #708090"> Create timer</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">myTimer</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Timer</span><span style="color: #999">(</span><span style="color: #905">50</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">myTimer</span><span style="color: #999">.</span><span style="color: #000">Tick</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">TickEvent</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">myTimer</span><span style="color: #999">.</span><span style="color: #DD4A68">Start</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">DataUpdateStop</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">myTimer</span><span style="color: #999">.</span><span style="color: #DD4A68">Dispose</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">            //</span><span style="color: #708090"> Close device</span></span>
+<span class="line"><span style="color: #BBBBBB">            .........................</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">SoundValue</span><span style="color: #999">.</span><span style="color: #000">Text</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">0</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">Timer</span><span style="color: #BBBBBB"> </span><span style="color: #000">myTimer</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">bool</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">TickEvent</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">source</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">NUI</span><span style="color: #999">.</span><span style="color: #000">Timer</span><span style="color: #999">.</span><span style="color: #000">TickEventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">uint</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">bool</span><span style="color: #BBBBBB"> </span><span style="color: #000">result</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ReadSensor</span><span style="color: #999">(</span><span style="color: #07A">ref</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">result</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">SoundValue</span><span style="color: #999">.</span><span style="color: #000">Text</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">.</span><span style="color: #DD4A68">ToString</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #905">true</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">bool</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ReadSensor</span><span style="color: #999">(</span><span style="color: #07A">ref</span><span style="color: #BBBBBB"> </span><span style="color: #07A">uint</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                 .....................</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="3-소프트웨어-구현">3. 소프트웨어 구현</h1><h2 id="3-spi-코드-구현">3. SPI 코드 구현</h2>
+<p><strong>Scene1Page.xaml.cs</strong> 를 열어 <strong>ReadSensor()</strong> 를 구현해 봅시다.</p>
+<p>실제 SPI를 통해 데이터를 읽어오는&nbsp; <strong>Adc_MCP3008</strong> class 를 사용하는 코드입니다</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">partial</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">Scene1Page</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">View</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">Adc_MCP3008</span><span style="color: #BBBBBB"> </span><span style="color: #000">adcDevice</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">bool</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ReadSensor</span><span style="color: #999">(</span><span style="color: #07A">ref</span><span style="color: #BBBBBB"> </span><span style="color: #07A">uint</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">uint</span><span style="color: #BBBBBB"> </span><span style="color: #000">read_value</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #A67F59">!</span><span style="color: #000">adcDevice</span><span style="color: #999">.</span><span style="color: #DD4A68">Read</span><span style="color: #999">(</span><span style="color: #905">0</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">ref</span><span style="color: #BBBBBB"> </span><span style="color: #000">read_value</span><span style="color: #999">))</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #905">false</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">value</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">read_value</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #905">true</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">DataUpdateStart</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">            //</span><span style="color: #708090"> Open device</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">adcDevice</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Adc_MCP3008</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">            //</span><span style="color: #708090"> Create timer</span></span>
+<span class="line"><span style="color: #BBBBBB">            .......................</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">DataUpdateStop</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">adcDevice</span><span style="color: #999">.</span><span style="color: #DD4A68">Close</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            .................</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        ................</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><br> <strong>Adc_MCP3008</strong> 클래스를 구현하기 전에 Peripheral SPI C# API를 먼저 보겠습니다</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">SpiDevice</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">IDisposable</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">SpiDevice</span><span style="color: #999">(</span><span style="color: #07A">int</span><span style="color: #BBBBBB"> </span><span style="color: #000">bus</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">int</span><span style="color: #BBBBBB"> </span><span style="color: #000">chip</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">SpiMode</span><span style="color: #BBBBBB"> </span><span style="color: #000">Mode</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">BitOrder</span><span style="color: #BBBBBB"> </span><span style="color: #000">BitOrder</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">byte</span><span style="color: #BBBBBB"> </span><span style="color: #000">BitsPerWord</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">uint</span><span style="color: #BBBBBB"> </span><span style="color: #000">ClockFrequency</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Close</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Read</span><span style="color: #999">(</span><span style="color: #07A">byte</span><span style="color: #999">[]</span><span style="color: #BBBBBB"> </span><span style="color: #000">buffer</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">TransferSequential</span><span style="color: #999">(</span><span style="color: #07A">byte</span><span style="color: #999">[]</span><span style="color: #BBBBBB"> </span><span style="color: #000">writeBuffer</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">byte</span><span style="color: #999">[]</span><span style="color: #BBBBBB"> </span><span style="color: #000">readBuffer</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Write</span><span style="color: #999">(</span><span style="color: #07A">byte</span><span style="color: #999">[]</span><span style="color: #BBBBBB"> </span><span style="color: #000">data</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        .....................</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>Adc_MCP3008.cs</strong> 를 생성합니다.</p>
+<p>SPI&nbsp;관련 API를 사용하기 위해서는 <strong>Tizen.Peripheral.Spi</strong> 를 추가해야 합니다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #BBBBBB">.</span><span style="color: #000">Peripheral</span><span style="color: #BBBBBB">.</span><span style="color: #000">Spi</span><span style="color: #999">;</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>먼저 SpiDevice를 만들어 SPI&nbsp;슬레이브 장치에 연결하는 코드를 구현합니다.</p>
+<p>SpiDevice를 초기화 하기 위해서는 아래의 설정을 결정해여 합니다.</p>
+<p><strong>MCP3008 초기화</strong></p>
+<p>Raspberry Pi 3의&nbsp;<a href="https://developer.tizen.org/development/iot-extension-sdk/api-guides/tizen-peripheral-io-native-api/spi">설정 정보</a>는 아래와 같습니다.</p>
+<img src="https://tizen-prod-craftroom.s3.amazonaws.com/uploads/2019/08/rpi3_bus_cs.png" style="undefined">
+<p>저희가 사용 중인 MCP3008의 정보는 datasheet에서 필요한 정보를 찾아야 합니다.</p>
+<br>
+<img src="https://tizen-prod-craftroom.s3.amazonaws.com/uploads/2018/08/mcp3008-6-1.png" style="undefined">
+<p>위와 같이 datasheet에서 설정 정보를 찾을 수 있습니다.</p>
+<p>결정된 설정 내용은 다음과 같습니다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">	</span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">Adc_MCP3008</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #07A">int</span><span style="color: #BBBBBB"> </span><span style="color: #000">BUS</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #07A">int</span><span style="color: #BBBBBB"> </span><span style="color: #000">CS</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #07A">uint</span><span style="color: #BBBBBB"> </span><span style="color: #000">SPEED</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">3600000</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #07A">byte</span><span style="color: #BBBBBB"> </span><span style="color: #000">BPW</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">8</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">SpiDevice</span><span style="color: #BBBBBB"> </span><span style="color: #000">spiDevice</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Adc_MCP3008</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #DD4A68">Init</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Init</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">			//</span><span style="color: #708090"> open device</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #000">spiDevice</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">SpiDevice</span><span style="color: #999">(</span><span style="color: #000">BUS</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">CS</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">				</span><span style="color: #000">Mode</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">SpiMode</span><span style="color: #999">.</span><span style="color: #000">Mode0</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">				</span><span style="color: #000">BitOrder</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">BitOrder</span><span style="color: #999">.</span><span style="color: #000">MSB</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">				</span><span style="color: #000">BitsPerWord</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">BPW</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">				</span><span style="color: #000">ClockFrequency</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">SPEED</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #999">};</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Close</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">spiDevice</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">==</span><span style="color: #BBBBBB"> </span><span style="color: #905">null</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">				</span><span style="color: #07A">return</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #000">spiDevice</span><span style="color: #999">.</span><span style="color: #DD4A68">Close</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>센서 데이터 읽어오기</strong></p>
+<p>SPI인터페이스를 이용하여 MCP3008을 초기화 하였으니, 데이터를 송/수신하는 방법에 대해 알아 보겠습니다.</p>
+<p>SPI 인터페이스는 송/수신이 동시에 가능하므로,&nbsp;TransferSequential() ** 함수를 사용합니다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">TransferSequential</span><span style="color: #999">(</span><span style="color: #07A">byte</span><span style="color: #999">[]</span><span style="color: #BBBBBB"> </span><span style="color: #000">writeBuffer</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">byte</span><span style="color: #999">[]</span><span style="color: #BBBBBB"> </span><span style="color: #000">readBuffer</span><span style="color: #999">);</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>MCP3008에게 보드가 전달할 첫 번째 데이터는 MCP3008의 8개 입력 채널 중 어떤 채널의 값을 전달 받을 지 선택하는 입력 데이터 입니다.</p>
+<p>아래 datasheet 내용과 같이 4bit 데이터를 각 채널에 따라 선택하면 됩니다.</p>
+<br>
+<img src="https://tizen-prod-craftroom.s3.amazonaws.com/uploads/2018/08/ch-select.png" style="undefined">
+<p>8bit word에서 상위 4bit 데이터의 값이므로 아래와 같은 값을 사용하면 됩니다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">readonly</span><span style="color: #BBBBBB"> </span><span style="color: #07A">byte</span><span style="color: #999">[]</span><span style="color: #BBBBBB"> </span><span style="color: #000">TX_CH</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #905">0x80</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">0x90</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">0xA0</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">0xB0</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">0xC0</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">0xD0</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">0xE0</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">0xF0</span><span style="color: #BBBBBB"> </span><span style="color: #999">};</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>datasheet에서 <strong>수신 데이터</strong> 의 형식을 살펴보면 아래 그림과 같습니다.</p>
+<img src="https://tizen-prod-craftroom.s3.amazonaws.com/uploads/2018/08/Screenshot-from-2018-08-14-20-32-54.png" style="height:123px; width:1000px">
+<p>총 3개의 word가 있고,&nbsp;첫번째 word는 무시할 수 있는 값들입니다.</p>
+<p>두번째 word는 끝에서 3번째 bit에 NULL(0)로 데이터 시작을 알리는 bit가 있고, 10bit 데이터 중 상위 2bit 데이터가 포함되어 있습니다.</p>
+<p>세번째 word는 10bit 데이터 중 하위 8bit 데이터가 포함되어 있습니다.</p>
+<p>이 정보를 바탕으로 MCP3008의 특정 채널 입력데이터를 얻는 코드를 아래와 같이 작성 할 수 있습니다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">	</span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">Adc_MCP3008</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #07A">byte</span><span style="color: #BBBBBB"> </span><span style="color: #000">TX_WORD1</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0x01</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #07A">byte</span><span style="color: #BBBBBB"> </span><span style="color: #000">TX_WORD3</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0x00</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">readonly</span><span style="color: #BBBBBB"> </span><span style="color: #07A">byte</span><span style="color: #999">[]</span><span style="color: #BBBBBB"> </span><span style="color: #000">TX_CH</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #905">0x80</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">0x90</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">0xA0</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">0xB0</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">0xC0</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">0xD0</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">0xE0</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">0xF0</span><span style="color: #BBBBBB"> </span><span style="color: #999">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #07A">byte</span><span style="color: #BBBBBB"> </span><span style="color: #000">RX_WORD1_MASK</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0x00</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #07A">byte</span><span style="color: #BBBBBB"> </span><span style="color: #000">RX_WORD2_NULL_BIT_MASK</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0x04</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #07A">byte</span><span style="color: #BBBBBB"> </span><span style="color: #000">RX_WORD2_MASK</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0x03</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #07A">byte</span><span style="color: #BBBBBB"> </span><span style="color: #000">RX_WORD3_MASK</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0xFF</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #07A">uint</span><span style="color: #BBBBBB"> </span><span style="color: #000">UINT10_VALIDATION_MASK</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0x3FF</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">SpiDevice</span><span style="color: #BBBBBB"> </span><span style="color: #000">spiDevice</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">bool</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Read</span><span style="color: #999">(</span><span style="color: #07A">int</span><span style="color: #BBBBBB"> </span><span style="color: #000">channel</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">ref</span><span style="color: #BBBBBB"> </span><span style="color: #07A">uint</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">spiDevice</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">==</span><span style="color: #BBBBBB"> </span><span style="color: #905">null</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">				</span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #905">false</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">channel</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&lt;</span><span style="color: #BBBBBB"> </span><span style="color: #905">0</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">||</span><span style="color: #BBBBBB"> </span><span style="color: #000">channel</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #905">7</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">				</span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #905">false</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #07A">byte</span><span style="color: #999">[]</span><span style="color: #BBBBBB"> </span><span style="color: #000">tx</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #905">0x00</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">0x00</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">0x00</span><span style="color: #BBBBBB"> </span><span style="color: #999">};</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #000">tx</span><span style="color: #999">[</span><span style="color: #905">0</span><span style="color: #999">]</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">TX_WORD1</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #000">tx</span><span style="color: #999">[</span><span style="color: #905">1</span><span style="color: #999">]</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">TX_CH</span><span style="color: #999">[</span><span style="color: #000">channel</span><span style="color: #999">];</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #000">tx</span><span style="color: #999">[</span><span style="color: #905">2</span><span style="color: #999">]</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">TX_WORD3</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #07A">byte</span><span style="color: #999">[]</span><span style="color: #BBBBBB"> </span><span style="color: #000">rx</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #905">0x00</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">0x00</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">0x00</span><span style="color: #BBBBBB"> </span><span style="color: #999">};</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #000">spiDevice</span><span style="color: #999">.</span><span style="color: #DD4A68">TransferSequential</span><span style="color: #999">(</span><span style="color: #000">tx</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">rx</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #07A">byte</span><span style="color: #BBBBBB"> </span><span style="color: #000">rx_w1</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #07A">byte</span><span style="color: #999">)(</span><span style="color: #000">rx</span><span style="color: #999">[</span><span style="color: #905">0</span><span style="color: #999">]</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&amp;</span><span style="color: #BBBBBB"> </span><span style="color: #000">RX_WORD1_MASK</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">rx_w1</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">!=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0x00</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">				</span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #905">false</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #07A">byte</span><span style="color: #BBBBBB"> </span><span style="color: #000">rx_w2_nb</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #07A">byte</span><span style="color: #999">)(</span><span style="color: #000">rx</span><span style="color: #999">[</span><span style="color: #905">1</span><span style="color: #999">]</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&amp;</span><span style="color: #BBBBBB"> </span><span style="color: #000">RX_WORD2_NULL_BIT_MASK</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">rx_w2_nb</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">!=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0x00</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">				</span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #905">false</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #07A">byte</span><span style="color: #BBBBBB"> </span><span style="color: #000">rx_w2</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #07A">byte</span><span style="color: #999">)(</span><span style="color: #000">rx</span><span style="color: #999">[</span><span style="color: #905">1</span><span style="color: #999">]</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&amp;</span><span style="color: #BBBBBB"> </span><span style="color: #000">RX_WORD2_MASK</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #07A">byte</span><span style="color: #BBBBBB"> </span><span style="color: #000">rx_w3</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #07A">byte</span><span style="color: #999">)(</span><span style="color: #000">rx</span><span style="color: #999">[</span><span style="color: #905">2</span><span style="color: #999">]</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&amp;</span><span style="color: #BBBBBB"> </span><span style="color: #000">RX_WORD3_MASK</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #07A">uint</span><span style="color: #BBBBBB"> </span><span style="color: #000">result</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">rx_w2</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #000">result</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&lt;&lt;=</span><span style="color: #BBBBBB"> </span><span style="color: #905">8</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #000">result</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">|=</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">rx_w3</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #000">result</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&amp;=</span><span style="color: #BBBBBB"> </span><span style="color: #000">UINT10_VALIDATION_MASK</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #000">value</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">result</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #905">true</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        ........................</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="4-appendix">4. Appendix</h1><h2 id="참고">참고</h2>
+<p>1.&nbsp;<a href="https://github.com/nui-dali/Hackerthon2021/tree/main/Environment">Hackerthon2021 환경설정</a></p>
+<p>2.&nbsp;<a href="https://tizenschool.org/tutorial/191/contents/1">Getting started with Raspberry PI 3&amp;4</a></p>
+<p>3.&nbsp;<a href="https://cdn-shop.adafruit.com/datasheets/MCP3008.pdf">MCP3008 제조사 Datasheet</a></p></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/10</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/84895ba0ae7f34d06b2e24359088ded5aef2eb94">84895ba0ae7f34d06b2e24359088ded5aef2eb94</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+
