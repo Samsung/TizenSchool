@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="112" height="192" viewBox="0 0 112 192">
+  <defs>
+    <style>
+      .cls-1, .cls-7 {
+        fill: #f7f7f7;
+      }
+
+      .cls-2 {
+        fill: #6dccca;
+      }
+
+      .cls-2, .cls-4, .cls-7, .cls-9 {
+        font-size: 20px;
+        font-family: 'BreezeSans', sans-serif;
+      }
+
+      .cls-10, .cls-3, .cls-5, .cls-8 {
+        fill: none;
+        stroke-linecap: round;
+        stroke-width: 2px;
+      }
+
+      .cls-3 {
+        stroke: #6dccca;
+      }
+
+      .cls-10, .cls-3, .cls-5 {
+        stroke-linejoin: round;
+      }
+
+      .cls-4 {
+        fill: #d1d1d1;
+      }
+
+      .cls-5 {
+        stroke: #d1d1d1;
+      }
+
+      .cls-6 {
+        fill: #2e6564;
+      }
+
+      .cls-8 {
+        stroke: #fff;
+      }
+
+      .cls-9 {
+        fill: #519d9b;
+      }
+
+      .cls-10 {
+        stroke: #519d9b;
+      }
+    </style>
+  </defs>
+  <g id="Group_6463" data-name="Group 6463" transform="translate(-421 -142)">
+    <g id="but_copy_snippet" transform="translate(421 142)">
+      <path id="Path_3676" data-name="Path 3676" class="cls-1" d="M0,0H112V48H0Z"/>
+      <text id="Copy_" data-name="Copy " class="cls-2" transform="translate(49 31)"><tspan x="0" y="0">Copy </tspan></text>
+      <g id="Group_3042" data-name="Group 3042" transform="translate(20 16)">
+        <g id="Icon_feather-copy" data-name="Icon feather-copy">
+          <path id="Path_3664" data-name="Path 3664" class="cls-3" d="M15.1,13.5h7.2a1.6,1.6,0,0,1,1.6,1.6v7.2a1.6,1.6,0,0,1-1.6,1.6H15.1a1.6,1.6,0,0,1-1.6-1.6V15.1A1.6,1.6,0,0,1,15.1,13.5Z" transform="translate(-7.905 -7.905)"/>
+          <path id="Path_3665" data-name="Path 3665" class="cls-3" d="M5.4,13.405H4.6A1.6,1.6,0,0,1,3,11.8V4.6A1.6,1.6,0,0,1,4.6,3h7.2a1.6,1.6,0,0,1,1.6,1.6v.8" transform="translate(-3 -3)"/>
+        </g>
+      </g>
+    </g>
+    <g id="but_copy_snippet-2" data-name="but_copy_snippet" transform="translate(421 286)">
+      <path id="Path_3676-2" data-name="Path 3676" class="cls-1" d="M0,0H112V48H0Z"/>
+      <text id="Copy_2" data-name="Copy " class="cls-4" transform="translate(49 31)"><tspan x="0" y="0">Copy </tspan></text>
+      <g id="Group_3042-2" data-name="Group 3042" transform="translate(20 16)">
+        <g id="Icon_feather-copy-2" data-name="Icon feather-copy">
+          <path id="Path_3664-2" data-name="Path 3664" class="cls-5" d="M15.1,13.5h7.2a1.6,1.6,0,0,1,1.6,1.6v7.2a1.6,1.6,0,0,1-1.6,1.6H15.1a1.6,1.6,0,0,1-1.6-1.6V15.1A1.6,1.6,0,0,1,15.1,13.5Z" transform="translate(-7.905 -7.905)"/>
+          <path id="Path_3665-2" data-name="Path 3665" class="cls-5" d="M5.4,13.405H4.6A1.6,1.6,0,0,1,3,11.8V4.6A1.6,1.6,0,0,1,4.6,3h7.2a1.6,1.6,0,0,1,1.6,1.6v.8" transform="translate(-3 -3)"/>
+        </g>
+      </g>
+    </g>
+    <g id="but_copy_snippet-3" data-name="but_copy_snippet" transform="translate(421 238)">
+      <path id="Path_3676-3" data-name="Path 3676" class="cls-6" d="M0,0H112V48H0Z"/>
+      <text id="Done_" data-name="Done " class="cls-7" transform="translate(49 31)"><tspan x="0" y="0">Done </tspan></text>
+      <g id="Group_6452" data-name="Group 6452" transform="translate(21 18)">
+        <g id="Group_3038" data-name="Group 3038" transform="translate(0 7.544)">
+          <line id="Line_2" data-name="Line 2" class="cls-8" x2="5.456" y2="5.456"/>
+        </g>
+        <line id="Line_3" data-name="Line 3" class="cls-8" x1="9.2" y2="13" transform="translate(5.8)"/>
+      </g>
+    </g>
+    <g id="but_copy_snippet-4" data-name="but_copy_snippet" transform="translate(421 190)">
+      <path id="Path_3676-4" data-name="Path 3676" class="cls-1" d="M0,0H112V48H0Z"/>
+      <text id="Copy_3" data-name="Copy " class="cls-9" transform="translate(49 31)"><tspan x="0" y="0">Copy </tspan></text>
+      <g id="Group_3042-3" data-name="Group 3042" transform="translate(20 16)">
+        <g id="Icon_feather-copy-3" data-name="Icon feather-copy">
+          <path id="Path_3664-3" data-name="Path 3664" class="cls-10" d="M15.1,13.5h7.2a1.6,1.6,0,0,1,1.6,1.6v7.2a1.6,1.6,0,0,1-1.6,1.6H15.1a1.6,1.6,0,0,1-1.6-1.6V15.1A1.6,1.6,0,0,1,15.1,13.5Z" transform="translate(-7.905 -7.905)"/>
+          <path id="Path_3665-3" data-name="Path 3665" class="cls-10" d="M5.4,13.405H4.6A1.6,1.6,0,0,1,3,11.8V4.6A1.6,1.6,0,0,1,4.6,3h7.2a1.6,1.6,0,0,1,1.6,1.6v.8" transform="translate(-3 -3)"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

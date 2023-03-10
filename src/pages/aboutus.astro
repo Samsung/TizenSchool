@@ -1,0 +1,130 @@
+---
+import Header from "../components/Header.svelte";
+import Layout from "../layouts/Layout.astro";
+import Member from "../components/about-us/Member.svelte";
+
+const members = [
+  {
+    photoFileName: "profile-skang.jpg",
+    name: "Seoghyun",
+    surname: "Kang",
+    job: "Project Manager",
+  },
+  {
+    photoFileName: "profile-rczerski.jpg",
+    name: "Radosław",
+    surname: "Czerski",
+    job: "Project Manager",
+  },
+  {
+    photoFileName: "profile-acichosz.jpg",
+    name: "Anna",
+    surname: "Cichosz",
+    job: "Designer",
+  },
+  {
+    photoFileName: "profile-pfalba.jpg",
+    name: "Patryk",
+    surname: "Falba",
+    job: "Developer",
+  },
+  {
+    photoFileName: "profile-pgorny.jpg",
+    name: "Piotr",
+    surname: "Górny",
+    job: "Developer",
+  },
+  {
+    photoFileName: "profile-dpaziewski.jpg",
+    name: "Dariusz",
+    surname: "Paziewski",
+    job: "Developer",
+  },
+];
+
+const membersExpanded = [
+  {
+    photoFileName: "profile-kpark.jpg",
+    name: "Kyungeun",
+    surname: "Park",
+    job: "Developer",
+  },
+  {
+    photoFileName: "profile-kjo.jpg",
+    name: "Kyuho",
+    surname: "Jo",
+    job: "Developer",
+  },
+  {
+    photoFileName: "profile-mpark.jpg",
+    name: "Moonkyoung",
+    surname: "Park",
+    job: "Developer",
+  },
+  {
+    photoFileName: "profile-ykim.jpg",
+    name: "Yongkook",
+    surname: "Kim",
+    job: "Developer",
+  },
+  {
+    photoFileName: "profile-sjeong.jpg",
+    name: "Seongmoon",
+    surname: "Jeong",
+    job: "Developer",
+  },
+  {
+    photoFileName: "profile-bson.jpg",
+    name: "Boyeon",
+    surname: "Son",
+    job: "Developer",
+  },
+  {
+    photoFileName: "profile-skim.jpg",
+    name: "Soofeel",
+    surname: "Kim",
+    job: "Developer",
+  },
+  {
+    photoFileName: "profile-hjang.jpg",
+    name: "Heonjae",
+    surname: "Jang",
+    job: "Developer",
+  },
+];
+---
+
+<Layout title="About Us">
+  <Header client:load />
+  <div class="flex w-[1100px] mx-auto flex-col items-center">
+    <div class="text-5xl font-bold mt-12">TIZEN SCHOOL TEAM</div>
+    <div class="w-24 h-0.5 bg-primary mt-8"></div>
+    <div class="mb-16 mt-6 text-[1.4rem]">
+      We are devoted to create the ultimate place for you to learn about
+      developing applications on Tizen
+    </div>
+    <div class="grid grid-cols-3 mb-16 gap-x-48 gap-y-16">
+      {members.map((member) => <Member member={member} />)}
+    </div>
+    <div class="w-full border-b mb-20 text-center">
+      <div
+        class="inline-block text-lg pb-1 border-b-4 border-primary cursor-pointer"
+        onclick="
+          let style = this.parentElement.nextElementSibling.style; 
+          if (style.display) {
+            style.display = '';
+            this.innerText = 'MORE'
+          } else {
+            style.display = 'grid';
+            this.innerText = 'LESS'
+          }
+        "
+      >
+        MORE
+      </div>
+    </div>
+    <div class="grid-cols-3 gap-x-48 mb-16 gap-y-16 hidden">
+      {membersExpanded.map((member) => <Member member={member} />)}
+    </div>
+  </div>
+</Layout>

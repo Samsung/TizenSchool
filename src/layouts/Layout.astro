@@ -1,0 +1,49 @@
+---
+import "../styles/global.scss";
+
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/images/favicon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/images/favicon-32x32.png"
+    />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+    <div class="h-24 bg-gray-100">
+      <div
+        class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary"
+      >
+        ©{import.meta.env.YEAR}
+        <span class="font-bold"
+          >Tizen School <a
+            class="text-sm font-light underline text-blue-600 pl-1"
+            href={`https://github.com/Samsung/TizenSchool/commit/${
+              import.meta.env.GITHUB_SHA
+            }`}>{import.meta.env.GITHUB_SHA}</a
+          >
+        </span>
+      </div>
+    </div>
+  </body>
+</html>

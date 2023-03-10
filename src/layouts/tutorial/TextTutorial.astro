@@ -1,0 +1,111 @@
+---
+import { applyHighlights } from "../../../scripts/highlighter";
+import TextContent from "../../components/tutorial/TextContent.svelte";
+import Tutorial from "./Tutorial.astro";
+
+const { frontmatter, compiledContent, headings } = Astro.props;
+
+let pageCount = 0;
+let toc = [];
+let chapter: {
+  page: { title: string }[];
+  chapter: string;
+} | null = null;
+
+for (let { depth, text } of headings) {
+  if (depth === 1) {
+    chapter = {
+      page: [],
+      chapter: text,
+    };
+    toc.push(chapter);
+  } else if (depth === 2) {
+    pageCount += 1;
+    chapter?.page.push({ title: text });
+  }
+}
+---
+
+<Tutorial frontmatter={frontmatter}>
+  <TextContent client:load pageCount={pageCount} toc={toc}>
+    <div
+      class="text-lg tutorial-container"
+      set:html={applyHighlights(compiledContent())}
+    />
+  </TextContent>
+</Tutorial>
+
+<style is:global>
+  .chapter {
+    display: contents;
+  }
+
+  .astro-code {
+    counter-reset: line;
+    overflow: auto;
+    padding-bottom: 10px;
+    /* white-space: pre-wrap;
+    word-wrap: break-word; */
+  }
+
+  code {
+    position: relative;
+    z-index: 10;
+  }
+
+  span.line {
+    display: inline-block;
+  }
+
+  span.line::before {
+    display: inline-block;
+    counter-increment: line;
+    text-align: right;
+    width: 3rem;
+    padding-right: 0.7rem;
+    margin-right: 0.7rem;
+    content: counter(line);
+    color: #999;
+    border-right: 1px solid #999;
+  }
+
+  .tutorial-container img {
+    margin: 15px 0;
+  }
+
+  .tutorial-container a {
+    color: blue;
+    text-decoration: underline;
+  }
+
+  .code-highlight {
+    background-image: linear-gradient(
+      to right,
+      hsla(24, 20%, 50%, 0.1) 70%,
+      hsla(24, 20%, 50%, 0)
+    );
+  }
+
+  .code-block-bar {
+    position: relative;
+    background-color: #f7f7f7;
+    box-shadow: 0 3px 6px rgb(0 0 0 / 16%);
+    z-index: 10;
+  }
+
+  .copy-btn {
+    background-image: url("/assets/images/copy-snippet-btn.svg");
+    height: 100%;
+    width: 112px;
+    margin-left: auto;
+  }
+
+  .copy-btn:hover {
+    cursor: pointer;
+    background-position-y: -48px;
+  }
+
+  .copy-btn.copy-btn-done {
+    background-position-y: -96px;
+  }
+</style>

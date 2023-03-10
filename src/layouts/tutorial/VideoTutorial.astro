@@ -1,0 +1,15 @@
+---
+import Tutorial from "./Tutorial.astro";
+const { frontmatter } = Astro.props;
+---
+
+<Tutorial frontmatter={frontmatter}>
+  <div class="max-w-6xl mx-auto border-t mt-[40px] py-14">
+    <iframe
+      src={frontmatter.videoUrl}
+      class="mx-auto"
+      allowfullscreen
+      height="585"
+      width="1040"></iframe>
+  </div>
+</Tutorial>

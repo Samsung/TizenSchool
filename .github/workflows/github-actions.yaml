@@ -1,0 +1,28 @@
+name: tizen school tutorials build
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+      - run: |
+          npm i
+          YEAR=$(date +%Y) npm run build
+          rm -rf .git
+          cd dist
+          echo "tizenschool.org" > CNAME
+          touch .nojekyll
+          git init
+          git add -A
+          git config user.email "j.sobierski@samsung.com"
+          git config user.name "tizen-school-tutorials-pipeline"
+          git commit -m "built from $GITHUB_SHA"
+          git switch -c build
+          git push -u 'https://${{ github.actor }}:${{ github.token }}@github.com/Samsung/TizenSchool.git' build -f

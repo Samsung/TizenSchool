@@ -1,0 +1,56 @@
+---
+import Layout from "../Layout.astro";
+import Header from "../../components/Header.svelte";
+
+const {
+  frontmatter: { title, description, profile, modified, created },
+} = Astro.props;
+---
+
+<Layout title={title}>
+  <Header client:load />
+  <div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div
+      class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]"
+    >
+      {title}
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">{description ?? ""}</div><div
+        class="flex w-[216px] gap-[10px]"
+      >
+        <img
+          src={`/assets/images/iot-${
+            profile.includes("iot") ? "active" : "dimmed"
+          }.png`}
+        />
+        <img
+          src={`/assets/images/wearable-${
+            profile.includes("wearable") ? "active" : "dimmed"
+          }.png`}
+        />
+        <img
+          src={`/assets/images/mobile-${
+            profile.includes("mobile") ? "active" : "dimmed"
+          }.png`}
+        />
+        <img
+          src={`/assets/images/smart-tv-${
+            profile.includes("tv") ? "active" : "dimmed"
+          }.png`}
+        />
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">{created}</span>{
+        modified && (
+          <>
+            Modified
+            <span class="font-bold">{modified}</span>
+          </>
+        )
+      }
+    </div>
+  </div>
+  <slot />
+</Layout>

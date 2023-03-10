@@ -1,0 +1,17 @@
+---
+import Layout from "../layouts/Layout.astro";
+import List from "../components/index/List.svelte";
+
+const metadata = (await Astro.glob("./tutorials/*.md"))
+  .filter((tutorial) => tutorial.frontmatter.state === "open")
+  .map((tutorial) => {
+    return {
+      ...tutorial.frontmatter,
+      id: +tutorial.url!.split("/").at(-1)!,
+    } as any;
+  });
+---
+
+<Layout title="Tizen School">
+  <List metadata={metadata} client:load />
+</Layout>
