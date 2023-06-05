@@ -22,10 +22,12 @@ module.exports = {
         "icon-profile": "30px",
       },
       backgroundImage: {
-        "icon-profile-mobile": "url('/assets/images/icon_mobile.png')",
-        "icon-profile-wearable": "url('/assets/images/icon_wearable.png')",
-        "icon-profile-iot": "url('/assets/images/icon_iot.png')",
-        "icon-profile-tv": "url('/assets/images/icon_tv.png')",
+        "icon-profile-mobile":
+          "url('/TizenSchool/assets/images/icon_mobile.png')",
+        "icon-profile-wearable":
+          "url('/TizenSchool/assets/images/icon_wearable.png')",
+        "icon-profile-iot": "url('/TizenSchool/assets/images/icon_iot.png')",
+        "icon-profile-tv": "url('/TizenSchool/assets/images/icon_tv.png')",
         "toc-arrow": "url(/assets/images/toc-arrow-down.png)",
         "arrow-grey": "url(/assets/images/caret-icon-grey.svg)",
         search: "url(/assets/images/search-icon.svg)",

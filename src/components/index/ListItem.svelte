@@ -66,8 +66,8 @@
     .indicator {
       width: 20px;
       height: 20px;
-      background: url("/assets/images/icon_level.svg") -3px -2px no-repeat
-        transparent;
+      background: url("/TizenSchool/assets/images/icon_level.svg") -3px -2px
+        no-repeat transparent;
       background-size: 42px 24px;
 
       &.level-2 {

@@ -10,7 +10,7 @@ import svelte from "@astrojs/svelte";
 export default defineConfig({
   integrations: [tailwind(), svelte()],
   site: "https://tizenschool.org/",
-  base: "/",
+  base: "/TizenSchool",
   markdown: {
     shikiConfig: {
       theme: {

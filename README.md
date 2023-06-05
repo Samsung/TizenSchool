@@ -3,7 +3,7 @@
 1. Create an `{id}.md` file in `/src/pages/tutorials/` with a chosen unique id.
 1. Create an `{id}` directory in `public/assets/images/tutorials/`
    - There you may place images for your tutorial and the thumbnail
-   - In order to reference them, use an url like this: `/assets/images/tutorials/{id}/my_image.png`
+   - In order to reference them, use an url like this: `/TizenSchool/assets/images/tutorials/{id}/my_image.png`
 
 ## If you're authoring a text tutorial
 

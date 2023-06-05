@@ -35,7 +35,7 @@
 
 <div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between">
   <a
-    class="block bg-[url('/assets/images/logo.png')] w-[212px] h-[52px]"
+    class="block bg-[url('/TizenSchool/assets/images/logo.png')] w-[212px] h-[52px]"
     href="/"
   />
   <SearchBar
@@ -44,9 +44,8 @@
       queryText = detail;
     }}
   />
-  <a
-    class="self-start text-[15px] pt-1 hover:font-semibold"
-    href="/aboutus/">About us</a
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/"
+    >About us</a
   >
 </div>
 <div class="max-w-6xl mx-auto">
@@ -59,9 +58,7 @@
         class="h-96 flex flex-col gap-1 items-center justify-center text-2xl font-bold text-tutorial"
       >
         No items found.
-        <a
-          href="/"
-          class="text-primary hover:text-[#25a39f] underline"
+        <a href="/" class="text-primary hover:text-[#25a39f] underline"
           >See available tutorials</a
         >
       </div>
