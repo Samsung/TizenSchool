@@ -9,7 +9,7 @@ import svelte from "@astrojs/svelte";
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), svelte()],
-  site: "https://tizenschool.org/",
+  site: "https://samsung.github.io/",
   base: "/TizenSchool",
   markdown: {
     shikiConfig: {
