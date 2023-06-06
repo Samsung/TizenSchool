@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/TizenSchool/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/TizenSchool/assets/images/favicon-32x32.png">
+    <title>Digital Weather Watch With Heart Rate Monitor</title>
+  <link rel="stylesheet" href="/TizenSchool/assets/aboutus.9016036b.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.013d619c.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="2r5SHS" component-url="/TizenSchool/Header.fde63186.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/TizenSchool/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      Digital Weather Watch With Heart Rate Monitor
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">We will make the T-store chart application using TAU &amp; open Web API in this tutorial. The first session is setting UI for this application, and the secon session is getting and displaying the data.</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/TizenSchool/assets/images/iot-dimmed.png">
+        <img src="/TizenSchool/assets/images/wearable-active.png">
+        <img src="/TizenSchool/assets/images/mobile-dimmed.png">
+        <img src="/TizenSchool/assets/images/smart-tv-dimmed.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2017/08/15</span>
+            Modified
+            <span class="font-bold">2018/10/06</span>
+    </div>
+  </div><astro-island uid="ZG0cpJ" component-url="/TizenSchool/TextContent.c7f4d9de.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,14],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Overview\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. Importing Project\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;I. INTRODUCTION\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Goal\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. Getting Current Date\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. Displaying Date\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;4. Getting Current Time\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;5. Displaying Time\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;II. DIGITAL WATCH\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Goal\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. Adding Rotary Event\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. Getting Weather Data\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;4. Displaying Weather Data\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;III. WEATHER\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Goal\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. Getting Current Date\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. Displaying Date\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;IV. HEART RATE MONITOR\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/14</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id="i-introduction">I. INTRODUCTION</h1><h2 id="1-overview">1. Overview</h2>
+<p>In this tutorial, we will make a Digital Watch + Weather Forecasting application.</p>
+<img src="/TizenSchool/assets/images/tutorials/12/final_watch.png" style="undefined">
+<img src="/TizenSchool/assets/images/tutorials/12/final_weather.png" style="undefined">
+<img src="/TizenSchool/assets/images/tutorials/12/final_heart.png" style="undefined">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="i-introduction">I. INTRODUCTION</h1><h2 id="2-importing-project">2. Importing Project</h2>
+<p>Step 1: Click <strong>File</strong> &gt; <strong>Import</strong> .</p>
+<img src="/TizenSchool/assets/images/tutorials/12/import-1.png" style="undefined">
+<p>Step 2: Choose  <strong>Tizen</strong>  &gt;  <strong>Tizen Project</strong>  and click  <strong>Next</strong> .</p>
+<img src="/TizenSchool/assets/images/tutorials/12/import-2.png" style="undefined">
+<p>Step 3: Select and archive(weatherWatchStart.wgt) file, choose Platform  <strong>mobile-2.4</strong> , and click  <strong>Finish</strong> .</p>
+<img src="/TizenSchool/assets/images/tutorials/12/import-3.png" style="undefined">
+<img src="/TizenSchool/assets/images/tutorials/12/start_watch.png" style="undefined">
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-digital-watch">II. DIGITAL WATCH</h1><h2 id="1-goal">1. Goal</h2>
+<p>Display current date and time in digital watch format</p>
+<img src="/TizenSchool/assets/images/tutorials/12/final_watch.png" style="width:35%">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-digital-watch">II. DIGITAL WATCH</h1><h2 id="2-getting-current-date">2. Getting Current Date</h2>
+<p>Step 1: Get the values for current month, date and day using ‘Date()’</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 112px; top: 28px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">getDate</span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">date</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Date</span><span style="color: #A67F59">&lt;&gt;</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">currentMonth</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">date</span><span style="color: #999">.</span><span style="color: #DD4A68">getMonth</span><span style="color: #999">(),</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">currentDate</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">date</span><span style="color: #999">.</span><span style="color: #DD4A68">getDate</span><span style="color: #999">(),</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">currentDay</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">date</span><span style="color: #999">.</span><span style="color: #DD4A68">getDay</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 2: Call displayDate() function</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 168px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">getDate</span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">date</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Date</span><span style="color: #A67F59">&lt;&gt;</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">currentMonth</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">date</span><span style="color: #999">.</span><span style="color: #DD4A68">getMonth</span><span style="color: #999">(),</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">currentDate</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">date</span><span style="color: #999">.</span><span style="color: #DD4A68">getDate</span><span style="color: #999">(),</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">currentDay</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">date</span><span style="color: #999">.</span><span style="color: #DD4A68">getDay</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #DD4A68">displayDate</span><span style="color: #999">(</span><span style="color: #000">currentMonth</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">currentDate</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">currentDay</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ul>
+<li>Reference</li>
+</ul>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date() API </a></p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-digital-watch">II. DIGITAL WATCH</h1><h2 id="3-displaying-date">3. Displaying Date</h2>
+<p>Step 1: Change the values of hour &amp; minute elements using ‘getElementById’ &amp; ‘innerHTML’</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 84px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">displayDate</span><span style="color: #999">(</span><span style="color: #000">month</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">date</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">day</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">textDate</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">document</span><span style="color: #999">.</span><span style="color: #DD4A68">getElementById</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">text-date</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">textDate</span><span style="color: #999">.</span><span style="color: #000">innerHTML</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">month</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690"> </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">date</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690"> </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">day</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 2: Call getDate() function in init</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 84px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">init</span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #DD4A68">setEvents</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #DD4A68">getDate</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 3: Change the numbers to corresponding texts</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 0px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 28px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 168px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">monthArray</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> [</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">JAN</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">FEB</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">MAR</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">APR</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">MAY</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">JUN</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">JUL</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">AUG</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">SEP</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">OCT</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">NOV</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">DEC</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">  ]</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">dayArray</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> [</span><span style="color: #999">"</span><span style="color: #690">SUN</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">MON</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">TUE</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">WED</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">THU</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">FRI</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">SAT</span><span style="color: #999">"</span><span style="color: #BBBBBB">]</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">displayDate</span><span style="color: #999">(</span><span style="color: #000">month</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">date</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">day</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">textDate</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">document</span><span style="color: #999">.</span><span style="color: #DD4A68">getElementById</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">text-date</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">textDate</span><span style="color: #999">.</span><span style="color: #000">innerHTML</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">monthArray</span><span style="color: #BBBBBB">[</span><span style="color: #000">month</span><span style="color: #BBBBBB">] </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690"> </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">date</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690"> </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">dayArray</span><span style="color: #BBBBBB">[</span><span style="color: #000">day</span><span style="color: #BBBBBB">]</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ul>
+<li>Reference</li>
+</ul>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById">document.getElementById() </a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML">Element.innerHTML </a></p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-digital-watch">II. DIGITAL WATCH</h1><h2 id="4-getting-current-time">4. Getting Current Time</h2>
+<p>Step 1: Get the values for current hour and minute using ‘Date()’</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 84px; top: 28px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">getTime</span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">date</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Date</span><span style="color: #A67F59">&lt;&gt;</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">currentHour</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">date</span><span style="color: #999">.</span><span style="color: #DD4A68">getHours</span><span style="color: #999">(),</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">currentMinute</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">date</span><span style="color: #999">.</span><span style="color: #DD4A68">getMinutes</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 2: Call displayTime() function</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">getTime</span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">date</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Date</span><span style="color: #A67F59">&lt;&gt;</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">currentHour</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">date</span><span style="color: #999">.</span><span style="color: #DD4A68">getHours</span><span style="color: #999">(),</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">currentMinute</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">date</span><span style="color: #999">.</span><span style="color: #DD4A68">getMinutes</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #DD4A68">displayTime</span><span style="color: #999">(</span><span style="color: #000">currentHour</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">currentMinute</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ul>
+<li>Reference</li>
+</ul>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date">Date() API </a></p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-digital-watch">II. DIGITAL WATCH</h1><h2 id="5-displaying-time">5. Displaying Time</h2>
+<p>Step 1: Change the values of hour &amp; minute elements using ‘getElementById’ &amp; ‘innerHTML’</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 56px; top: 28px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 56px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">displayTime</span><span style="color: #999">(</span><span style="color: #000">hour</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">minute</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">textHour</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">document</span><span style="color: #999">.</span><span style="color: #DD4A68">getElementById</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">text-hour</span><span style="color: #999">"</span><span style="color: #999">),</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">textMinute</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">document</span><span style="color: #999">.</span><span style="color: #DD4A68">getElementById</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">text-minute</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">  //</span><span style="color: #708090"> Change the text for hour &amp; minute</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">textHour</span><span style="color: #999">.</span><span style="color: #000">innerHTML</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">hour</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">textMinute</span><span style="color: #999">.</span><span style="color: #000">innerHTML</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">minute</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 2: Make colon blink every second by changing ‘visibility’ of the element</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 196px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 392px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 420px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 448px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 476px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 504px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 532px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 560px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">monthArray</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> [</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">JAN</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">FEB</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">MAR</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">APR</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">MAY</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">JUN</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">JUL</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">AUG</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">SEP</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">OCT</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">NOV</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">DEC</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">  ]</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">dayArray</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> [</span><span style="color: #999">"</span><span style="color: #690">SUN</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">MON</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">TUE</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">WED</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">THU</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">FRI</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">SAT</span><span style="color: #999">"</span><span style="color: #BBBBBB">]</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">flagColon</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">false</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">displayTime</span><span style="color: #999">(</span><span style="color: #000">hour</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">minute</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">textHour</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">document</span><span style="color: #999">.</span><span style="color: #DD4A68">getElementById</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">text-hour</span><span style="color: #999">"</span><span style="color: #999">),</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">textMinute</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">document</span><span style="color: #999">.</span><span style="color: #DD4A68">getElementById</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">text-minute</span><span style="color: #999">"</span><span style="color: #999">),</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">textColon</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">document</span><span style="color: #999">.</span><span style="color: #DD4A68">getElementById</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">text-colon</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">  //</span><span style="color: #708090"> Change the text for hour &amp; minute</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">textHour</span><span style="color: #999">.</span><span style="color: #000">innerHTML</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">hour</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">textMinute</span><span style="color: #999">.</span><span style="color: #000">innerHTML</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">minute</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">  //</span><span style="color: #708090"> Make colon blink every second</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">flagColon</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">textColon</span><span style="color: #999">.</span><span style="color: #000">style</span><span style="color: #999">.</span><span style="color: #000">visibility</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">visible</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">flagColon</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">false</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">}</span><span style="color: #BBBBBB"> </span><span style="color: #07A">else</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">textColon</span><span style="color: #999">.</span><span style="color: #000">style</span><span style="color: #999">.</span><span style="color: #000">visibility</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">hidden</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">flagColon</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">true</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 3: Call getTime() function every second using ‘setInterval’</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 168px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">init</span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #DD4A68">setEvents</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #DD4A68">getDate</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">  //</span><span style="color: #708090"> Execute getTime function every 1000 milliseconds</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #DD4A68">setInterval</span><span style="color: #999">(</span><span style="color: #000">getTime</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">1000</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 4: Implement addDigit() function to add an extra digit in front of a single-digit number</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">addDigit</span><span style="color: #999">(</span><span style="color: #000">number</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">number</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&lt;</span><span style="color: #BBBBBB"> </span><span style="color: #905">10</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">0</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">number</span><span style="color: #999">.</span><span style="color: #DD4A68">toString</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">}</span><span style="color: #BBBBBB"> </span><span style="color: #07A">else</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #000">number</span><span style="color: #999">.</span><span style="color: #DD4A68">toString</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 5: Apply addDigit() function to hour &amp; minute texts</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">displayTime</span><span style="color: #999">(</span><span style="color: #000">hour</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">minute</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">textHour</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">document</span><span style="color: #999">.</span><span style="color: #DD4A68">getElementById</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">text-hour</span><span style="color: #999">"</span><span style="color: #999">),</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">textMinute</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">document</span><span style="color: #999">.</span><span style="color: #DD4A68">getElementById</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">text-minute</span><span style="color: #999">"</span><span style="color: #999">),</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">textColon</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">document</span><span style="color: #999">.</span><span style="color: #DD4A68">getElementById</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">text-colon</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">  //</span><span style="color: #708090"> Chnage the text for hour &amp; minute</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">textHour</span><span style="color: #999">.</span><span style="color: #000">innerHTML</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">addDigit</span><span style="color: #999">(</span><span style="color: #000">hour</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">textMinute</span><span style="color: #999">.</span><span style="color: #000">innerHTML</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">addDigit</span><span style="color: #999">(</span><span style="color: #000">minute</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">  //</span><span style="color: #708090"> Make colon blink every second</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">flagColon</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">textColon</span><span style="color: #999">.</span><span style="color: #000">style</span><span style="color: #999">.</span><span style="color: #000">visibility</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">visible</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">flagColon</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">false</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">}</span><span style="color: #BBBBBB"> </span><span style="color: #07A">else</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">textColon</span><span style="color: #999">.</span><span style="color: #000">style</span><span style="color: #999">.</span><span style="color: #000">visibility</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">hidden</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">flagColon</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">true</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ul>
+<li>Reference</li>
+</ul>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById">document.getElementById() </a></p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML">Element.innerHTML </a></p>
+<p><a href="http://www.w3schools.com/jsref/prop_style_visibility.asp">HTML DOM Style visibility Property</a></p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-weather">III. WEATHER</h1><h2 id="1-goal-1">1. Goal</h2>
+<p>Display current weather condition and temperature using information from the Web</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-weather">III. WEATHER</h1><h2 id="2-adding-rotary-event">2. Adding Rotary Event</h2>
+<p>Step 1: Add event listener for rotary event</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 84px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 112px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 168px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 196px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 224px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 252px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 280px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 308px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">setEvents</span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">  //</span><span style="color: #708090"> Add event listener for rotary event (bezel)</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">document</span><span style="color: #999">.</span><span style="color: #DD4A68">addEventListener</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">rotarydetent</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">    //</span><span style="color: #708090"> Get the direction value from the event</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">direction</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">detail</span><span style="color: #999">.</span><span style="color: #000">direction</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">direction</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">===</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">CW</span><span style="color: #999">"</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">      //</span><span style="color: #708090"> Add behavior for clockwise rotation</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span><span style="color: #BBBBBB"> </span><span style="color: #07A">else</span><span style="color: #BBBBBB"> </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">direction</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">===</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">CCW</span><span style="color: #999">"</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">      //</span><span style="color: #708090"> Add behavior for counter-clockwise rotation</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">  //</span><span style="color: #708090"> Add event listener for tizenhwkey</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">document</span><span style="color: #999">.</span><span style="color: #DD4A68">addEventListener</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">tizenhwkey</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">keyName</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">===</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">back</span><span style="color: #999">"</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #07A">try</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">tizen</span><span style="color: #999">.</span><span style="color: #000">application</span><span style="color: #999">.</span><span style="color: #DD4A68">getCurrentApplication</span><span style="color: #999">().</span><span style="color: #DD4A68">exit</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #999">}</span><span style="color: #BBBBBB"> </span><span style="color: #07A">catch</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">error</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">console</span><span style="color: #999">.</span><span style="color: #DD4A68">error</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">getCurrentApplication(): </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">error</span><span style="color: #999">.</span><span style="color: #000">message</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">});</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 2: Add behavior to toggle between the watch/weather pages</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 168px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 280px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 308px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 392px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 420px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">setEvents</span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">  //</span><span style="color: #708090"> Add event listener for rotary event (bezel)</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">document</span><span style="color: #999">.</span><span style="color: #DD4A68">addEventListener</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">rotarydetent</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">    //</span><span style="color: #708090"> Get the direction value from the event</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">direction</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">detail</span><span style="color: #999">.</span><span style="color: #000">direction</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #000">watchPage</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">document</span><span style="color: #999">.</span><span style="color: #DD4A68">getElementById</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">watch-page</span><span style="color: #999">"</span><span style="color: #999">),</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #000">weatherPage</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">document</span><span style="color: #999">.</span><span style="color: #DD4A68">getElementById</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">weather-page</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">direction</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">===</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">CW</span><span style="color: #999">"</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">      //</span><span style="color: #708090"> Add behavior for clockwise rotation</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #000">watchPage</span><span style="color: #999">.</span><span style="color: #000">style</span><span style="color: #999">.</span><span style="color: #000">display</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">none</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #000">weatherPage</span><span style="color: #999">.</span><span style="color: #000">style</span><span style="color: #999">.</span><span style="color: #000">display</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">block</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span><span style="color: #BBBBBB"> </span><span style="color: #07A">else</span><span style="color: #BBBBBB"> </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">direction</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">===</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">CCW</span><span style="color: #999">"</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">      //</span><span style="color: #708090"> Add behavior for counter-clockwise rotation</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #000">watchPage</span><span style="color: #999">.</span><span style="color: #000">style</span><span style="color: #999">.</span><span style="color: #000">display</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">block</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #000">weatherPage</span><span style="color: #999">.</span><span style="color: #000">style</span><span style="color: #999">.</span><span style="color: #000">display</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">none</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">  //</span><span style="color: #708090"> Add event listener for tizenhwkey</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">document</span><span style="color: #999">.</span><span style="color: #DD4A68">addEventListener</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">tizenhwkey</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">keyName</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">===</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">back</span><span style="color: #999">"</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #07A">try</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">tizen</span><span style="color: #999">.</span><span style="color: #000">application</span><span style="color: #999">.</span><span style="color: #DD4A68">getCurrentApplication</span><span style="color: #999">().</span><span style="color: #DD4A68">exit</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #999">}</span><span style="color: #BBBBBB"> </span><span style="color: #07A">catch</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">error</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">console</span><span style="color: #999">.</span><span style="color: #DD4A68">error</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">getCurrentApplication(): </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">error</span><span style="color: #999">.</span><span style="color: #000">message</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">});</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ul>
+<li>Reference</li>
+</ul>
+<p><a href="https://developer.tizen.org/dev-guide/2.4/org.tizen.gettingstarted/html/web/details/event_handling_w.htm#rotary">Tizen Wearable Rotary Events </a></p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-weather">III. WEATHER</h1><h2 id="3-getting-weather-data">3. Getting Weather Data</h2>
+<p>Step 1: Use the ‘XMLHttpRequest’ object to get weather data from a web server</p>
+<p><a href="http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=1165052000">XML Doc of Weather Condition in Seoul</a></p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 84px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 364px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 392px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 560px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 588px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">monthArray</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> [</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">JAN</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">FEB</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">MAR</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">APR</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">MAY</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">JUN</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">JUL</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">AUG</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">SEP</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">OCT</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">NOV</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">DEC</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">  ]</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">dayArray</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> [</span><span style="color: #999">"</span><span style="color: #690">SUN</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">MON</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">TUE</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">WED</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">THU</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">FRI</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">SAT</span><span style="color: #999">"</span><span style="color: #BBBBBB">]</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">flagColon</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">false</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">XML_ADDRESS</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=1165052000</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">getWeather</span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">xmlhttp</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">xmlDoc</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">dataItem</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">xmlhttp</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">new</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">XMLHttpRequest</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">xmlhttp</span><span style="color: #999">.</span><span style="color: #DD4A68">onreadystatechange</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">weatherInfo</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">tempInfo</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">xmlhttp</span><span style="color: #999">.</span><span style="color: #000">readyState</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">===</span><span style="color: #BBBBBB"> </span><span style="color: #905">4</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&amp;&amp;</span><span style="color: #BBBBBB"> </span><span style="color: #000">xmlhttp</span><span style="color: #999">.</span><span style="color: #000">status</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">===</span><span style="color: #BBBBBB"> </span><span style="color: #905">200</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #000">xmlDoc</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">xmlhttp</span><span style="color: #999">.</span><span style="color: #000">responseXML</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #000">dataItem</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">xmlDoc</span><span style="color: #999">.</span><span style="color: #DD4A68">getElementsByTagName</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">item</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #000">weatherInfo</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">dataItem</span><span style="color: #BBBBBB">[</span><span style="color: #905">0</span><span style="color: #BBBBBB">]</span><span style="color: #999">.</span><span style="color: #DD4A68">getElementsByTagName</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">wfEn</span><span style="color: #999">"</span><span style="color: #999">)</span><span style="color: #BBBBBB">[</span><span style="color: #905">0</span><span style="color: #BBBBBB">]</span><span style="color: #999">.</span><span style="color: #000">childNodes</span><span style="color: #BBBBBB">[</span><span style="color: #905">0</span><span style="color: #BBBBBB">]</span><span style="color: #999">.</span><span style="color: #000">nodeValue</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #000">tempInfo</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">dataItem</span><span style="color: #BBBBBB">[</span><span style="color: #905">0</span><span style="color: #BBBBBB">]</span><span style="color: #999">.</span><span style="color: #DD4A68">getElementsByTagName</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">temp</span><span style="color: #999">"</span><span style="color: #999">)</span><span style="color: #BBBBBB">[</span><span style="color: #905">0</span><span style="color: #BBBBBB">]</span><span style="color: #999">.</span><span style="color: #000">childNodes</span><span style="color: #BBBBBB">[</span><span style="color: #905">0</span><span style="color: #BBBBBB">]</span><span style="color: #999">.</span><span style="color: #000">nodeValue</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #000">xmlhttp</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">null</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">xmlhttp</span><span style="color: #999">.</span><span style="color: #DD4A68">open</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">GET</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">XML_ADDRESS</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">false</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">xmlhttp</span><span style="color: #999">.</span><span style="color: #DD4A68">send</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 2: Change privilege and access options in config.xml</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;?</span><span style="color: #905">xml</span><span style="color: #690"> version</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">1.0</span><span style="color: #999">'</span><span style="color: #690"> encoding</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">UTF-8</span><span style="color: #999">'</span><span style="color: #BBBBBB">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">&lt;widget</span><span style="color: #690"> xmlns</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">http://www.w3.org/ns/widgets</span><span style="color: #999">'</span><span style="color: #690"> xmlns</span><span style="color: #BBBBBB">:tizen=</span><span style="color: #999">'</span><span style="color: #690">http://tizen.org/ns/widgets</span><span style="color: #999">'</span><span style="color: #690"> id</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">http://yourdomain/tutorial</span><span style="color: #999">'</span><span style="color: #690"> version</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">1.0.0</span><span style="color: #999">'</span><span style="color: #690"> viewmodes</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">maximized</span><span style="color: #999">'</span><span style="color: #BBBBBB">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    &lt;tizen:application</span><span style="color: #690"> id</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">fP4YVhm2I3.tutorial</span><span style="color: #999">'</span><span style="color: #690"> package</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">fP4YVhm2I3</span><span style="color: #999">'</span><span style="color: #690"> required</span><span style="color: #BBBBBB">_version=</span><span style="color: #999">'</span><span style="color: #690">2.3.1</span><span style="color: #999">'</span><span style="color: #BBBBBB">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    &lt;content</span><span style="color: #690"> src</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">index.html</span><span style="color: #999">'</span><span style="color: #BBBBBB">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    &lt;feature</span><span style="color: #690"> name</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">http://tizen.org/feature/screen.size.all</span><span style="color: #999">'</span><span style="color: #BBBBBB">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    &lt;icon</span><span style="color: #690"> src</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">icon.png</span><span style="color: #999">'</span><span style="color: #690"> height</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">117</span><span style="color: #999">'</span><span style="color: #690"> width</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">117</span><span style="color: #999">'</span><span style="color: #BBBBBB">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    &lt;name&gt;tutorial&lt;/name&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    &lt;tizen:privilege</span><span style="color: #690"> name</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">http://tizen.org/privilege/internet</span><span style="color: #999">'</span><span style="color: #BBBBBB">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    &lt;access</span><span style="color: #690"> origin</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">http://www.kma.go.kr</span><span style="color: #999">'</span><span style="color: #690"> subdomains</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">true</span><span style="color: #999">'</span><span style="color: #BBBBBB">&gt;&lt;/access&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    &lt;tizen:profile</span><span style="color: #690"> name</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">wearable</span><span style="color: #999">'</span><span style="color: #BBBBBB">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">&lt;/widget&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">#10,11#</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 3: Call displayWeather() function</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">getWeather</span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">xmlhttp</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">xmlDoc</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">dataItem</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">xmlhttp</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">new</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">XMLHttpRequest</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">xmlhttp</span><span style="color: #999">.</span><span style="color: #DD4A68">onreadystatechange</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">function</span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">weatherInfo</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">tempInfo</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">xmlhttp</span><span style="color: #999">.</span><span style="color: #000">readyState</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">===</span><span style="color: #BBBBBB"> </span><span style="color: #905">4</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&amp;&amp;</span><span style="color: #BBBBBB"> </span><span style="color: #000">xmlhttp</span><span style="color: #999">.</span><span style="color: #000">status</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">===</span><span style="color: #BBBBBB"> </span><span style="color: #905">200</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">xmlDoc</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">xmlhttp</span><span style="color: #999">.</span><span style="color: #000">responseXML</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">dataItem</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">xmlDoc</span><span style="color: #999">.</span><span style="color: #DD4A68">getElementsByTagName</span><span style="color: #999">(</span><span style="color: #999">'</span><span style="color: #690">item</span><span style="color: #999">'</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">weatherInfo</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">dataItem</span><span style="color: #BBBBBB">[</span><span style="color: #905">0</span><span style="color: #BBBBBB">]</span><span style="color: #999">.</span><span style="color: #DD4A68">getElementsByTagName</span><span style="color: #999">(</span><span style="color: #999">'</span><span style="color: #690">wfEn</span><span style="color: #999">'</span><span style="color: #999">)</span><span style="color: #BBBBBB">[</span><span style="color: #905">0</span><span style="color: #BBBBBB">]</span><span style="color: #999">.</span><span style="color: #000">childNodes</span><span style="color: #BBBBBB">[</span><span style="color: #905">0</span><span style="color: #BBBBBB">]</span><span style="color: #999">.</span><span style="color: #000">nodeValue</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">tempInfo</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">dataItem</span><span style="color: #BBBBBB">[</span><span style="color: #905">0</span><span style="color: #BBBBBB">]</span><span style="color: #999">.</span><span style="color: #DD4A68">getElementsByTagName</span><span style="color: #999">(</span><span style="color: #999">'</span><span style="color: #690">temp</span><span style="color: #999">'</span><span style="color: #999">)</span><span style="color: #BBBBBB">[</span><span style="color: #905">0</span><span style="color: #BBBBBB">]</span><span style="color: #999">.</span><span style="color: #000">childNodes</span><span style="color: #BBBBBB">[</span><span style="color: #905">0</span><span style="color: #BBBBBB">]</span><span style="color: #999">.</span><span style="color: #000">nodeValue</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">displayWeather</span><span style="color: #999">(</span><span style="color: #000">weatherInfo</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">tempInfo</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">xmlhttp</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">null</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">xmlhttp</span><span style="color: #999">.</span><span style="color: #DD4A68">open</span><span style="color: #999">(</span><span style="color: #999">'</span><span style="color: #690">GET</span><span style="color: #999">'</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">XML_ADDRESS</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">false</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">xmlhttp</span><span style="color: #999">.</span><span style="color: #DD4A68">send</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">#</span><span style="color: #905">19</span><span style="color: #BBBBBB">#</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ul>
+<li>Reference</li>
+</ul>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest">XMLHttpRequest </a></p>
+<p><a href="https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest">Using XMLHttpRequest </a></p>
+<p><a href="https://developer.tizen.org/development/getting-started/web-application/understanding-tizen-programming/security-and-api-privileges">Tizen Security and API Privileges</a></p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-weather">III. WEATHER</h1><h2 id="4-displaying-weather-data">4. Displaying Weather Data</h2>
+<p>Step 1: Change the values of temperature &amp; the weather icon using ‘getElementById’ &amp; ‘innerHTML’</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 28px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 84px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">displayWeather</span><span style="color: #999">(</span><span style="color: #000">weather</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">temp</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">textTemp</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">document</span><span style="color: #999">.</span><span style="color: #DD4A68">getElementById</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">text-temp</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">textTemp</span><span style="color: #999">.</span><span style="color: #000">innerHTML</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">temp</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 2: Call getWeather() function in init</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 224px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">init</span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #DD4A68">setEvents</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #DD4A68">getDate</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">  //</span><span style="color: #708090"> Execute getTime function every 1000 milliseconds</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #DD4A68">setInterval</span><span style="color: #999">(</span><span style="color: #000">getTime</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">1000</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #DD4A68">getWeather</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 3: Use the ‘switch’ statement to select match weather icons to corresponding conditions</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 644px; top: 168px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">displayWeather</span><span style="color: #999">(</span><span style="color: #000">weather</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">temp</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">textTemp</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">document</span><span style="color: #999">.</span><span style="color: #DD4A68">getElementById</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">text-temp</span><span style="color: #999">"</span><span style="color: #999">),</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">iconWeather</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">document</span><span style="color: #999">.</span><span style="color: #DD4A68">getElementById</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">icon-weather</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">textTemp</span><span style="color: #999">.</span><span style="color: #000">innerHTML</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">temp</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">switch</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">weather</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">case</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Clear</span><span style="color: #999">"</span><span style="color: #999">:</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #000">iconWeather</span><span style="color: #999">.</span><span style="color: #000">src</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">images/clear.png</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #07A">break</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">case</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Partly Cloudy</span><span style="color: #999">"</span><span style="color: #999">:</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #000">iconWeather</span><span style="color: #999">.</span><span style="color: #000">src</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">images/partly-cloudy.png</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #07A">break</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">case</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Mostly Cloudy</span><span style="color: #999">"</span><span style="color: #999">:</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #000">iconWeather</span><span style="color: #999">.</span><span style="color: #000">src</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">images/mostly-cloudy.png</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #07A">break</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">case</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Cloudy</span><span style="color: #999">"</span><span style="color: #999">:</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #000">iconWeather</span><span style="color: #999">.</span><span style="color: #000">src</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">images/cloudy.png</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #07A">break</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">case</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Rain</span><span style="color: #999">"</span><span style="color: #999">:</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #000">iconWeather</span><span style="color: #999">.</span><span style="color: #000">src</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">images/rain.png</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #07A">break</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">case</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Snow/Rain</span><span style="color: #999">"</span><span style="color: #999">:</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #000">iconWeather</span><span style="color: #999">.</span><span style="color: #000">src</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">images/snow-rain.png</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #07A">break</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">default</span><span style="color: #999">:</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #000">iconWeather</span><span style="color: #999">.</span><span style="color: #000">src</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">images/default.png</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #07A">break</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ul>
+<li>Reference</li>
+</ul>
+<p><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Statements/switch">JS Switch</a></p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iv-heart-rate-monitor">IV. HEART RATE MONITOR</h1><h2 id="1-goal-2">1. Goal</h2>
+<p>Display current date and time in digital watch format</p>
+<img src="/TizenSchool/assets/images/tutorials/12/final_heart.png" style="width:35%">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iv-heart-rate-monitor">IV. HEART RATE MONITOR</h1><h2 id="2-getting-current-date-1">2. Getting Current Date</h2>
+<p>Step 1: Add a third page in index.html</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 140px; top: 616px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;</span><span style="color: #905">body</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">div</span><span style="color: #BBBBBB"> </span><span style="color: #690">id</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">watch-page</span><span style="color: #999">'</span><span style="color: #BBBBBB"> </span><span style="color: #690">class</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">page</span><span style="color: #999">'</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">div</span><span style="color: #BBBBBB"> </span><span style="color: #690">id</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">date-container</span><span style="color: #999">'</span><span style="color: #BBBBBB"> </span><span style="color: #690">class</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">container</span><span style="color: #999">'</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">div</span><span style="color: #BBBBBB"> </span><span style="color: #690">id</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">text-date</span><span style="color: #999">'</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB">JAN 00 MON</span><span style="color: #999">&lt;/</span><span style="color: #905">div</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;/</span><span style="color: #905">div</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">div</span><span style="color: #BBBBBB"> </span><span style="color: #690">id</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">time-container</span><span style="color: #999">'</span><span style="color: #BBBBBB"> </span><span style="color: #690">class</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">container</span><span style="color: #999">'</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">div</span><span style="color: #BBBBBB"> </span><span style="color: #690">id</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">text-hour</span><span style="color: #999">'</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB">00</span><span style="color: #999">&lt;/</span><span style="color: #905">div</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">div</span><span style="color: #BBBBBB"> </span><span style="color: #690">id</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">text-colon</span><span style="color: #999">'</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB">:</span><span style="color: #999">&lt;/</span><span style="color: #905">div</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">div</span><span style="color: #BBBBBB"> </span><span style="color: #690">id</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">text-minute</span><span style="color: #999">'</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB">00</span><span style="color: #999">&lt;/</span><span style="color: #905">div</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;/</span><span style="color: #905">div</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">div</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">div</span><span style="color: #BBBBBB"> </span><span style="color: #690">id</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">weather-page</span><span style="color: #999">'</span><span style="color: #BBBBBB"> </span><span style="color: #690">class</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">page</span><span style="color: #999">'</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">div</span><span style="color: #BBBBBB"> </span><span style="color: #690">id</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">icon-container</span><span style="color: #999">'</span><span style="color: #BBBBBB"> </span><span style="color: #690">class</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">container</span><span style="color: #999">'</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">img</span><span style="color: #BBBBBB"> </span><span style="color: #690">id</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">icon-weather</span><span style="color: #999">'</span><span style="color: #BBBBBB"> </span><span style="color: #690">src</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">images/default.png</span><span style="color: #999">'</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;/</span><span style="color: #905">div</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">div</span><span style="color: #BBBBBB"> </span><span style="color: #690">id</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">temp-container</span><span style="color: #999">'</span><span style="color: #BBBBBB"> </span><span style="color: #690">class</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">container</span><span style="color: #999">'</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">div</span><span style="color: #BBBBBB"> </span><span style="color: #690">id</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">text-temp</span><span style="color: #999">'</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB">00</span><span style="color: #999">&lt;/</span><span style="color: #905">div</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">div</span><span style="color: #BBBBBB"> </span><span style="color: #690">id</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">text-temp-unit</span><span style="color: #999">'</span><span style="color: #999">&gt;&lt;</span><span style="color: #905">sup</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB">o</span><span style="color: #999">&lt;/</span><span style="color: #905">sup</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB">C</span><span style="color: #999">&lt;/</span><span style="color: #905">div</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;/</span><span style="color: #905">div</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">div</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">div</span><span style="color: #BBBBBB"> </span><span style="color: #690">id</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">heart-page</span><span style="color: #999">'</span><span style="color: #BBBBBB"> </span><span style="color: #690">class</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">page</span><span style="color: #999">'</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">div</span><span style="color: #BBBBBB"> </span><span style="color: #690">id</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">temp-heart</span><span style="color: #999">'</span><span style="color: #BBBBBB"> </span><span style="color: #690">class</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">container</span><span style="color: #999">'</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">div</span><span style="color: #BBBBBB"> </span><span style="color: #690">id</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">text-heart</span><span style="color: #999">'</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB">0</span><span style="color: #999">&lt;/</span><span style="color: #905">div</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;/</span><span style="color: #905">div</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">div</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;/</span><span style="color: #905">body</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 2: Add styling in style.css</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 252px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">/*</span><span style="color: #708090">-------HEART PAGE-------</span><span style="color: #999">*/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #690">heart-page</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  display</span><span style="color: #999">:</span><span style="color: #BBBBBB"> none</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #690">heart-container</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  padding-top</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #905">30</span><span style="color: #07A">%</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">  font-size</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #905">750</span><span style="color: #07A">%</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">  display</span><span style="color: #999">:</span><span style="color: #BBBBBB"> inline-block</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 3: Check the page using the Web Inspector (debug mode)</p>
+<p>Step 4: Add behavior to handle the third page in app.js</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 476px; top: 112px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">monthArray</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> [</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">JAN</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">FEB</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">MAR</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">APR</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">MAY</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">JUN</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">JUL</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">AUG</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">SEP</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">OCT</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">NOV</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">DEC</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">  ]</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">dayArray</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> [</span><span style="color: #999">"</span><span style="color: #690">SUN</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">MON</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">TUE</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">WED</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">THU</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">FRI</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">SAT</span><span style="color: #999">"</span><span style="color: #BBBBBB">]</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">flagColon</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">false</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">XML_ADDRESS</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=1165052000</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">FIRST_PAGE</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">LAST_PAGE</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">2</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">pageArray</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> [</span><span style="color: #999">"</span><span style="color: #690">watch-page</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">weather-page</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">heart-page</span><span style="color: #999">"</span><span style="color: #BBBBBB">]</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">currentPage</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">showPage</span><span style="color: #999">(</span><span style="color: #000">dir</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">dir</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">===</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">CW</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&amp;&amp;</span><span style="color: #BBBBBB"> </span><span style="color: #000">currentPage</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">!==</span><span style="color: #BBBBBB"> </span><span style="color: #000">LAST_PAGE</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">document</span><span style="color: #999">.</span><span style="color: #DD4A68">getElementById</span><span style="color: #999">(</span><span style="color: #000">pageArray</span><span style="color: #BBBBBB">[</span><span style="color: #000">currentPage</span><span style="color: #BBBBBB">]</span><span style="color: #999">).</span><span style="color: #000">style</span><span style="color: #999">.</span><span style="color: #000">display</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">none</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">document</span><span style="color: #999">.</span><span style="color: #DD4A68">getElementById</span><span style="color: #999">(</span><span style="color: #000">pageArray</span><span style="color: #BBBBBB">[</span><span style="color: #000">currentPage</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #905">1</span><span style="color: #BBBBBB">]</span><span style="color: #999">).</span><span style="color: #000">style</span><span style="color: #999">.</span><span style="color: #000">display</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">block</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">currentPage</span><span style="color: #A67F59">++</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">}</span><span style="color: #BBBBBB"> </span><span style="color: #07A">else</span><span style="color: #BBBBBB"> </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">dir</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">===</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">CCW</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&amp;&amp;</span><span style="color: #BBBBBB"> </span><span style="color: #000">currentPage</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">!==</span><span style="color: #BBBBBB"> </span><span style="color: #000">FIRST_PAGE</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">document</span><span style="color: #999">.</span><span style="color: #DD4A68">getElementById</span><span style="color: #999">(</span><span style="color: #000">pageArray</span><span style="color: #BBBBBB">[</span><span style="color: #000">currentPage</span><span style="color: #BBBBBB">]</span><span style="color: #999">).</span><span style="color: #000">style</span><span style="color: #999">.</span><span style="color: #000">display</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">none</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">document</span><span style="color: #999">.</span><span style="color: #DD4A68">getElementById</span><span style="color: #999">(</span><span style="color: #000">pageArray</span><span style="color: #BBBBBB">[</span><span style="color: #000">currentPage</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">-</span><span style="color: #BBBBBB"> </span><span style="color: #905">1</span><span style="color: #BBBBBB">]</span><span style="color: #999">).</span><span style="color: #000">style</span><span style="color: #999">.</span><span style="color: #000">display</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">block</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">currentPage</span><span style="color: #A67F59">--</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">}</span><span style="color: #BBBBBB"> </span><span style="color: #07A">else</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">console</span><span style="color: #999">.</span><span style="color: #DD4A68">log</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">this the first/last page.</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 5: Update the event listener for rotary event</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 112px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 168px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">setEvents</span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">  //</span><span style="color: #708090"> Add event listener for rotary event (bezel)</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">document</span><span style="color: #999">.</span><span style="color: #DD4A68">addEventListener</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">rotarydetent</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">    //</span><span style="color: #708090"> Get the direction value from the event</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">direction</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">detail</span><span style="color: #999">.</span><span style="color: #000">direction</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #DD4A68">showPage</span><span style="color: #999">(</span><span style="color: #000">direction</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">  //</span><span style="color: #708090"> Add event listener for tizenhwkey</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">document</span><span style="color: #999">.</span><span style="color: #DD4A68">addEventListener</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">tizenhwkey</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">keyName</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">===</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">back</span><span style="color: #999">"</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #07A">try</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">tizen</span><span style="color: #999">.</span><span style="color: #000">application</span><span style="color: #999">.</span><span style="color: #DD4A68">getCurrentApplication</span><span style="color: #999">().</span><span style="color: #DD4A68">exit</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #999">}</span><span style="color: #BBBBBB"> </span><span style="color: #07A">catch</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">error</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">console</span><span style="color: #999">.</span><span style="color: #DD4A68">error</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">getCurrentApplication(): </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">error</span><span style="color: #999">.</span><span style="color: #000">message</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">});</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iv-heart-rate-monitor">IV. HEART RATE MONITOR</h1><h2 id="3-displaying-date-1">3. Displaying Date</h2>
+<p>Step 1: Add ‘health info’ privilege in config.xml</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 224px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;?</span><span style="color: #905">xml</span><span style="color: #690"> version</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">1.0</span><span style="color: #999">'</span><span style="color: #690"> encoding</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">UTF-8</span><span style="color: #999">'</span><span style="color: #999">?&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;</span><span style="color: #905">widget</span><span style="color: #BBBBBB"> </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">tizen</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">http://tizen.org/ns/widgets</span><span style="color: #999">'</span><span style="color: #BBBBBB"> </span><span style="color: #690">xmlns</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">http://www.w3.org/ns/widgets</span><span style="color: #999">'</span><span style="color: #BBBBBB"> </span><span style="color: #690">id</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">http://yourdomain/weatherWatch</span><span style="color: #999">'</span><span style="color: #BBBBBB"> </span><span style="color: #690">version</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">1.0.0</span><span style="color: #999">'</span><span style="color: #BBBBBB"> </span><span style="color: #690">viewmodes</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">maximized</span><span style="color: #999">'</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">access</span><span style="color: #BBBBBB"> </span><span style="color: #690">origin</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">http://www.kma.go.kr</span><span style="color: #999">'</span><span style="color: #BBBBBB"> </span><span style="color: #690">subdomains</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">true</span><span style="color: #999">'</span><span style="color: #999">&gt;&lt;/</span><span style="color: #905">access</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">tizen</span><span style="color: #999">:</span><span style="color: #905">application</span><span style="color: #BBBBBB"> </span><span style="color: #690">id</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">fP4YVhm2I3.tutorial</span><span style="color: #999">'</span><span style="color: #BBBBBB"> </span><span style="color: #690">package</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">fP4YVhm2I3</span><span style="color: #999">'</span><span style="color: #BBBBBB"> </span><span style="color: #690">required_version</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">2.3.1</span><span style="color: #999">'</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">content</span><span style="color: #BBBBBB"> </span><span style="color: #690">src</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">index.html</span><span style="color: #999">'</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">feature</span><span style="color: #BBBBBB"> </span><span style="color: #690">name</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">http://tizen.org/feature/screen.size.all</span><span style="color: #999">'</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">icon</span><span style="color: #BBBBBB"> </span><span style="color: #690">src</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">icon.png</span><span style="color: #999">'</span><span style="color: #BBBBBB"> </span><span style="color: #690">height</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">117</span><span style="color: #999">'</span><span style="color: #BBBBBB"> </span><span style="color: #690">width</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">117</span><span style="color: #999">'</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">name</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB">weatherWatch</span><span style="color: #999">&lt;/</span><span style="color: #905">name</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">tizen</span><span style="color: #999">:</span><span style="color: #905">privilege</span><span style="color: #BBBBBB"> </span><span style="color: #690">name</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">http://tizen.org/privilege/healthinfo</span><span style="color: #999">'</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">tizen</span><span style="color: #999">:</span><span style="color: #905">privilege</span><span style="color: #BBBBBB"> </span><span style="color: #690">name</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">http://tizen.org/privilege/internet</span><span style="color: #999">'</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">tizen</span><span style="color: #999">:</span><span style="color: #905">profile</span><span style="color: #BBBBBB"> </span><span style="color: #690">name</span><span style="color: #BBBBBB">=</span><span style="color: #999">'</span><span style="color: #690">wearable</span><span style="color: #999">'</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;/</span><span style="color: #905">widget</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 2: Add a function for getting the heart rate data</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 280px; top: 0px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">getHeart</span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">textHeart</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">document</span><span style="color: #999">.</span><span style="color: #DD4A68">getElementById</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">text-heart</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">onchangedCB</span><span style="color: #999">(</span><span style="color: #000">hrm</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">textHeart</span><span style="color: #999">.</span><span style="color: #000">innerHTML</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">hrm</span><span style="color: #999">.</span><span style="color: #000">heartRate</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">tizen</span><span style="color: #999">.</span><span style="color: #000">humanactivitymonitor</span><span style="color: #999">.</span><span style="color: #DD4A68">start</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">HRM</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">onchangedCB</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 3: Call getHeart() function in init</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 224px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">init</span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #DD4A68">setEvents</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #DD4A68">getDate</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">  //</span><span style="color: #708090"> Execute getTime function every 1000 milliseconds</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #DD4A68">setInterval</span><span style="color: #999">(</span><span style="color: #000">getTime</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">1000</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #DD4A68">getWeather</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #DD4A68">getHeart</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/14</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/642c4c04779a63be966fa6579cbe2e444ddde584">642c4c04779a63be966fa6579cbe2e444ddde584</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+

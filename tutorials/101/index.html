@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/TizenSchool/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/TizenSchool/assets/images/favicon-32x32.png">
+    <title>How to navigate between pages</title>
+  <link rel="stylesheet" href="/TizenSchool/assets/aboutus.9016036b.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.013d619c.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="2r5SHS" component-url="/TizenSchool/Header.fde63186.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/TizenSchool/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      How to navigate between pages
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">The tutorial demonstrates how to implement navigation between pages in Xamarin.Forms application.</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/TizenSchool/assets/images/iot-dimmed.png">
+        <img src="/TizenSchool/assets/images/wearable-dimmed.png">
+        <img src="/TizenSchool/assets/images/mobile-active.png">
+        <img src="/TizenSchool/assets/images/smart-tv-dimmed.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2017/11/15</span>
+            Modified
+            <span class="font-bold">2020/04/14</span>
+    </div>
+  </div><astro-island uid="ZfEkwR" component-url="/TizenSchool/TextContent.c7f4d9de.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,8],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[]\&quot;],\&quot;chapter\&quot;:[0,\&quot;\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Overview\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. How navigation in Xamarin.Forms works\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. Importing and building solution\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;I. INTRODUCTION\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Goal\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. Setting up navigation service\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. Implementing the view model\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;4. Binding the view model to the view\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;5. Testing\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;II. EXAMPLE APPLICATION\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/8</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id="i-introduction">I. INTRODUCTION</h1><h2 id="1-overview">1. Overview</h2>
+<p>In the tutorial below we will learn how <strong>Xamarin.Forms navigation</strong> works, what is the logic behind it, and also we will show how to implement it in the code according to the MVVM pattern.</p>
+<p>The tutorial is divided into two main chapters:</p>
+<p>At the end of this tutorial, we will get a simple Tizen application with all functions necessary to understand the idea of <strong>Xamarin.Forms navigation</strong> and its usage in practice.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="i-introduction">I. INTRODUCTION</h1><h2 id="2-how-navigation-in-xamarinforms-works">2. How navigation in Xamarin.Forms works</h2>
+<p>The most popular form of navigation uses the <strong>NavigationPage</strong> class. This class handles page transitions on a stack basis:</p>
+<p>In example below the page at the bottom is a root page. The one colored green is the page that the user sees at the moment.</p>
+<img src="/TizenSchool/assets/images/tutorials/100/AppNavigation_Navigation_stack_default_2.PNG" style="border-style:solid; border-width:0px; height:408px; width:418px">
+<p>To explain the pushing and popping logic we are going to use the pages below and form the navigation stack from them.</p>
+<img src="/TizenSchool/assets/images/tutorials/100/AppNavigation_PagesIntoStack.png" style="height:517px; width:800px">
+<p><strong>Push</strong></p>
+<p>When we want to go from one page to another, we must add&nbsp;this new page to the navigation stack. The page will be placed at the top of the stack and will become&nbsp;visible for the user.</p>
+<p>In example below <em>Blue page</em> is the one currently displayed. When we tap&nbsp; <em>Go to the Green page button</em> the <em>Green page</em> is added to the stack and appears on the screen:</p>
+<img src="/TizenSchool/assets/images/tutorials/100/AppNavigation_Push.png" style="height:582px; width:800px">
+<p><strong>Pop</strong></p>
+<p>To return to the previous page, it is necessary to pop the current page from the stack. NavigationPage contains the navigation bar at the top of the screen which handles process of going to the previous page by default.</p>
+<p>In example below we are on the <em>Green page</em> . We can tap the <em>Go back to the previous page</em> button (or the arrow in the top-left corner of the page) to pop the page from the navigation stack and return to the <em>Blue page</em> .</p>
+<img src="/TizenSchool/assets/images/tutorials/100/AppNavigation_Pop.png" style="height:588px; width:800px">
+<p><strong>Go to the root</strong></p>
+<p>NavigationPage allows to go back directly to the root page.</p>
+<p>In our example, the user sees the <em>Green page</em> , taps&nbsp; <em>Go back to the root page</em> button and is navigated to the <em>Main page</em> – first page added to the stack.</p>
+<img src="/TizenSchool/assets/images/tutorials/100/AppNavigation_GoToRoot.png" style="height:592px; width:800px">
+<p>Now we know how the navigation system works in Xamarin.Forms. It is time to&nbsp;learn how to implement it in our code.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="i-introduction">I. INTRODUCTION</h1><h2 id="3-importing-and-building-solution">3. Importing and building solution</h2>
+<p>Now, we will set up a Visual Studio environment for further development.</p>
+<p>Step 1: Download and unpack <strong><a href="https://tizenschool.org/assets/images/tutorials/100/App_Navigation.zip">AppNavigation.zip</a></strong> file.</p>
+<p>Step 2: Click File &gt; Open &gt; Project/Solution…</p>
+<img src="/TizenSchool/assets/images/tutorials/82/Setup_1X.png" style="height:417px; width:940px">
+<p>Step 3: Go to downloaded directory and select <em>AppNavigation.sln</em> file (Microsoft Visual Studio Solution), then click the “Open” button.</p>
+<img src="/TizenSchool/assets/images/tutorials/100/AppNavigation_1_1_OpenSolution.PNG" style="height:528px; width:943px">
+<p>The solution structure is visible in the Solution Explorer view. It contains two projects: <em>AppNavigation(Portable)</em> and <em>AppNavigation.Tizen.Mobile</em> .</p>
+<img src="/TizenSchool/assets/images/tutorials/100/AppNavigation_1_2_SolutionView.PNG" style="height:640px; width:640px">
+<p>Step 4: Right click on the solution and select “Restore NuGet Packages” from the context menu. This will set up NuGet packages for all projects.</p>
+<img src="/TizenSchool/assets/images/tutorials/100/AppNavigation_1_3_RestoreNuget.PNG" style="height:640px; width:640px">
+<p>Step 5: Right click on the solution again and select “Clean Solution” from the context menu.</p>
+<img src="/TizenSchool/assets/images/tutorials/100/AppNavigation_1_4_CleanSolution.PNG" style="height:640px; width:640px">
+<p>Step 6: Right click on the solution again and select “Rebuild Solution” from the context menu.</p>
+<img src="/TizenSchool/assets/images/tutorials/100/AppNavigation_1_5_RebuildSolution.PNG" style="height:640px; width:640px">
+<p>Step 7: Right click on the <em>AppNavigation.Tizen.Mobile</em> &nbsp;project and select “Set as StartUp Project” from the context menu.</p>
+<img src="/TizenSchool/assets/images/tutorials/100/AppNavigation_1_6_SetAsStartUp.PNG" style="height:640px; width:640px">
+<p>The application is ready to be launched on the emulator or target device. This is the&nbsp;base version of the application we are going to work on.</p>
+<img src="/TizenSchool/assets/images/tutorials/100/AppNavigation_1_7_InitialState.png" style="height:600px; width:338px">
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-example-application">II. EXAMPLE APPLICATION</h1><h2 id="1-goal">1. Goal</h2>
+<p>The purpose of this chapter is to implement a fully functioning navigation system between pages that complies with the MVVM pattern. In our project the UI of all pages is already created but there is no logic behind it. The navigation scheme which we are going to implement&nbsp;is shown below.</p>
+<img src="/TizenSchool/assets/images/tutorials/100/AppNavigation_Navigation_flow.PNG" style="height:607px; width:762px">
+<p><em>Main page</em> allows the user to navigate to the <em>Blue page.</em> From there, one can change page to <em>Green page</em> ,&nbsp; <em>Red page</em> or return to the previous page. Both <em>Green page</em> and <em>Red page</em> provides methods to return to previous page or go back to the <em>root page</em> .</p>
+<p>As the final result, we receive an application that allows smooth navigation between pages. The implemented code uses the capabilities of the NavigationPage class, builds and modifies the navigation stack.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-example-application">II. EXAMPLE APPLICATION</h1><h2 id="2-setting-up-navigation-service">2. Setting up navigation service</h2>
+<p>Let’s start with implementation of services we are going to use. These services will allow to <strong>change pages</strong> , <strong>return to the previous one</strong> and <strong>go back directly to a <em>root</em> page</strong> .</p>
+<p>Step 1: We have to add new interface. Our services will manage transitions between pages, so they are&nbsp;connected to the View layer. Right click on the <em>Views</em> folder, select&nbsp; <em>Add &gt; New Item…</em> from the context menu,&nbsp;choose type&nbsp; <em>Interface</em> and name it&nbsp; <em>IPageNavigation.cs</em></p>
+<img src="/TizenSchool/assets/images/tutorials/100/AppNavigation_2_1_AddInterface.PNG" style="height:422px; width:332px">
+<p>Step 2: Let’s modify our&nbsp; <em>IPageNavigation.cs</em> interface <em>. A</em> dd following methods:</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 1148px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">AppNavigation</span><span style="color: #999">.</span><span style="color: #000">Views</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> Page navigation interface.</span></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">interface</span><span style="color: #BBBBBB"> </span><span style="color: #000">IPageNavigation</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">#</span><span style="color: #07A">region</span><span style="color: #BBBBBB"> </span><span style="color: #690">methods</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Creates and sets the main page.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">CreateMainPage</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Goes to the blue page.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">bindingContext</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">BindingContext.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">GoToBluePage</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">bindingContext</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Goes to the green page.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">bindingContext</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">BindingContext.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">GoToGreenPage</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">bindingContext</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Goes to the red page.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">bindingContext</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">BindingContext.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">GoToRedPage</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">bindingContext</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Goes back to the previous page.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">GoBackToPreviousPage</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Goes back to the root page.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">GoBackToRoot</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">#</span><span style="color: #07A">endregion</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 3: Next, go to <em>AppNavigation.Tizen.Mobile</em> project. ** Right click on the <em>Views</em> folder ** and&nbsp;add new <em>PageNavigation.cs</em> class ** inside it.</p>
+<img src="/TizenSchool/assets/images/tutorials/100/AppNavigation_2_3_AddService.PNG" style="height:422px; width:332px">
+<p>Step 4: Implement the <em>IPageNavigation</em> interface in ** the <em>PageNavigation</em> class <em>.</em> Also&nbsp;specify *DependencyAttribute* .</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 84px; top: 0px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 112px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 1904px; top: 224px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">AppNavigation</span><span style="color: #BBBBBB">.</span><span style="color: #000">Tizen</span><span style="color: #BBBBBB">.</span><span style="color: #000">Mobile</span><span style="color: #BBBBBB">.</span><span style="color: #000">Views</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">AppNavigation</span><span style="color: #BBBBBB">.</span><span style="color: #000">Views</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">[</span><span style="color: #07A">assembly</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #999">.</span><span style="color: #000">Forms</span><span style="color: #999">.</span><span style="color: #000">Dependency</span><span style="color: #999">(</span><span style="color: #07A">typeof</span><span style="color: #999">(</span><span style="color: #000">PageNavigation</span><span style="color: #999">))]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">AppNavigation</span><span style="color: #999">.</span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">Mobile</span><span style="color: #999">.</span><span style="color: #000">Views</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> Page navigation implementation for Tizen.Mobile.</span></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">PageNavigation</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">IPageNavigation</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">#</span><span style="color: #07A">region</span><span style="color: #BBBBBB"> </span><span style="color: #690">methods</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Creates and sets the main page.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">CreateMainPage</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">Application</span><span style="color: #999">.</span><span style="color: #000">Current</span><span style="color: #999">.</span><span style="color: #000">MainPage</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">NavigationPage</span><span style="color: #999">(</span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">AppMainPage</span><span style="color: #999">());</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Goes back to the previous page.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">GoBackToPreviousPage</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">Application</span><span style="color: #999">.</span><span style="color: #000">Current</span><span style="color: #999">.</span><span style="color: #000">MainPage</span><span style="color: #999">.</span><span style="color: #000">Navigation</span><span style="color: #999">.</span><span style="color: #DD4A68">PopAsync</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Goes back to the root page.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">GoBackToRoot</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">Application</span><span style="color: #999">.</span><span style="color: #000">Current</span><span style="color: #999">.</span><span style="color: #000">MainPage</span><span style="color: #999">.</span><span style="color: #000">Navigation</span><span style="color: #999">.</span><span style="color: #DD4A68">PopToRootAsync</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Goes to the blue page.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">bindingContext</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">BindingContext.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">GoToBluePage</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">bindingContext</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">Application</span><span style="color: #999">.</span><span style="color: #000">Current</span><span style="color: #999">.</span><span style="color: #000">MainPage</span><span style="color: #999">.</span><span style="color: #000">Navigation</span><span style="color: #999">.</span><span style="color: #DD4A68">PushAsync</span><span style="color: #999">(</span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">BluePage</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">BindingContext</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">bindingContext</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">});</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Goes to the green page.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">bindingContext</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">BindingContext.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">GoToGreenPage</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">bindingContext</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">Application</span><span style="color: #999">.</span><span style="color: #000">Current</span><span style="color: #999">.</span><span style="color: #000">MainPage</span><span style="color: #999">.</span><span style="color: #000">Navigation</span><span style="color: #999">.</span><span style="color: #DD4A68">PushAsync</span><span style="color: #999">(</span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">GreenPage</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">BindingContext</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">bindingContext</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">});</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Goes to the red page.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">bindingContext</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">BindingContext.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">GoToRedPage</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">bindingContext</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">Application</span><span style="color: #999">.</span><span style="color: #000">Current</span><span style="color: #999">.</span><span style="color: #000">MainPage</span><span style="color: #999">.</span><span style="color: #000">Navigation</span><span style="color: #999">.</span><span style="color: #DD4A68">PushAsync</span><span style="color: #999">(</span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">RedPage</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">BindingContext</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">bindingContext</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">});</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">#</span><span style="color: #07A">endregion</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>You can see that whenever we create a new instance of a given page, we set up its binding context to the one passed as a function parameter. Concept of binding view model with view is explained in Section 4.</p>
+<p>Now, when we have services set up, we can change the first page of our application to be&nbsp; <em>AppMainPage.xaml</em> . Go to <em>AppNavigation.cs</em> &nbsp;file and change <em>App()</em> method to use <em>DependencyService</em> and call <em>CreateMainPage().</em></p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 0px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 504px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">AppNavigation</span><span style="color: #BBBBBB">.</span><span style="color: #000">Views</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">AppNavigation</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> Portable application part main class.</span></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">App</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">Application</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">#</span><span style="color: #07A">region</span><span style="color: #BBBBBB"> </span><span style="color: #690">methods</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Portable application part constructor.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Sets root page of application.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">App</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">DependencyService</span><span style="color: #999">.</span><span style="color: #DD4A68">Get</span><span style="color: #999">&lt;</span><span style="color: #000">IPageNavigation</span><span style="color: #999">&gt;().</span><span style="color: #DD4A68">CreateMainPage</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">#</span><span style="color: #07A">endregion</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>That is how our main ( <em>root</em> ) page should look like (the button in not active yet):</p>
+<img src="/TizenSchool/assets/images/tutorials/100/AppNavigation_Final_MainPage.png" style="height:600px; width:338px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-example-application">II. EXAMPLE APPLICATION</h1><h2 id="3-implementing-the-view-model">3. Implementing the view model</h2>
+<p>To make use of our Services, we have to develop our view model class -&nbsp; <em>AppViewModel.cs</em></p>
+<p>Step 1: Create _private field IPageNavigation&nbsp;<em>navigation</em> <em>.</em></p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 0px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 224px; top: 252px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">AppNavigation</span><span style="color: #BBBBBB">.</span><span style="color: #000">Views</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">AppNavigation</span><span style="color: #999">.</span><span style="color: #000">ViewModels</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> Main view model for application.</span></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">AppViewModel</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">ViewModelBase</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">#</span><span style="color: #07A">region</span><span style="color: #BBBBBB"> </span><span style="color: #690">fields</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Reference object for navigation between pages obtained in constructor using DependencyService.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">readonly</span><span style="color: #BBBBBB"> </span><span style="color: #000">IPageNavigation</span><span style="color: #BBBBBB"> </span><span style="color: #000">_navigation</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">#</span><span style="color: #07A">endregion</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 2: Write class constructor which initializes navigation service.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 28px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 336px; top: 532px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">AppNavigation</span><span style="color: #BBBBBB">.</span><span style="color: #000">Views</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">AppNavigation</span><span style="color: #999">.</span><span style="color: #000">ViewModels</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> Main view model for application.</span></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">AppViewModel</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">ViewModelBase</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">#</span><span style="color: #07A">region</span><span style="color: #BBBBBB"> </span><span style="color: #690">fields</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Reference object for navigation between pages obtained in constructor using DependencyService.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">readonly</span><span style="color: #BBBBBB"> </span><span style="color: #000">IPageNavigation</span><span style="color: #BBBBBB"> </span><span style="color: #000">_navigation</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">#</span><span style="color: #07A">endregion</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">#</span><span style="color: #07A">region</span><span style="color: #BBBBBB"> </span><span style="color: #690">methods</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> View model constructor.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Initializes navigation service.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">AppViewModel</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">_navigation</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DependencyService</span><span style="color: #999">.</span><span style="color: #DD4A68">Get</span><span style="color: #999">&lt;</span><span style="color: #000">IPageNavigation</span><span style="color: #999">&gt;();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">#</span><span style="color: #07A">endregion</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 3: Create public command&nbsp;properties which will be used to change page on a selected button tap.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 784px; top: 112px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">readonly</span><span style="color: #BBBBBB"> </span><span style="color: #000">IPageNavigation</span><span style="color: #BBBBBB"> </span><span style="color: #000">_navigation</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">#</span><span style="color: #07A">endregion</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">#</span><span style="color: #07A">region</span><span style="color: #BBBBBB"> </span><span style="color: #690">properties</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Command which changes page to the Blue page.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #BBBBBB"> </span><span style="color: #000">GoToBluePageCommand</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #000">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Command which changes page to the Green page.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #BBBBBB"> </span><span style="color: #000">GoToGreenPageCommand</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #000">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Command which changes page to the Red page.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #BBBBBB"> </span><span style="color: #000">GoToRedPageCommand</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #000">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Command which changes page to the previous one.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #BBBBBB"> </span><span style="color: #000">GoBackToPreviousPageCommand</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #000">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Command which returns to the root page.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #BBBBBB"> </span><span style="color: #000">GoBackToRootPageCommand</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #000">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">#</span><span style="color: #07A">endregion</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">#</span><span style="color: #07A">region</span><span style="color: #BBBBBB"> </span><span style="color: #690">methods</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> View model constructor.</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 4: Create private methods which will be called on a selected command execution.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 1232px; top: 308px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">#</span><span style="color: #07A">region</span><span style="color: #BBBBBB"> </span><span style="color: #690">methods</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> View model constructor.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Initializes navigation service and commands.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">AppViewModel</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">_navigation</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DependencyService</span><span style="color: #999">.</span><span style="color: #DD4A68">Get</span><span style="color: #999">&lt;</span><span style="color: #000">IPageNavigation</span><span style="color: #999">&gt;();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Handles execution of GoToBluePageCommand.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Calls service to change page to the Blue page.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ExecuteGoToBluePageCommand</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">_navigation</span><span style="color: #999">.</span><span style="color: #DD4A68">GoToBluePage</span><span style="color: #999">(</span><span style="color: #07A">this</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Handles execution of GoToGreenPageCommand.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Calls service to change page to the Green page.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ExecuteGoToGreenPageCommand</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">_navigation</span><span style="color: #999">.</span><span style="color: #DD4A68">GoToGreenPage</span><span style="color: #999">(</span><span style="color: #07A">this</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Handles execution of GoToRedPageCommand.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Calls service to change page to the Red page.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ExecuteGoToRedPageCommand</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">_navigation</span><span style="color: #999">.</span><span style="color: #DD4A68">GoToRedPage</span><span style="color: #999">(</span><span style="color: #07A">this</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Handles execution of GoBackToPreviousPageCommand.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Calls service to change page to the previous one.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ExecuteGoBackToPreviousPageCommand</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">_navigation</span><span style="color: #999">.</span><span style="color: #DD4A68">GoBackToPreviousPage</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Handles execution of GoBackToRootPageCommand.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Calls service to return to the root page.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ExecuteGoBackToRootPageCommand</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">_navigation</span><span style="color: #999">.</span><span style="color: #DD4A68">GoBackToRoot</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">#</span><span style="color: #07A">endregion</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 5: Initialize&nbsp;commands in the class constructor.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 140px; top: 196px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> View model constructor.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Initializes navigation service and commands.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">AppViewModel</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">_navigation</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DependencyService</span><span style="color: #999">.</span><span style="color: #DD4A68">Get</span><span style="color: #999">&lt;</span><span style="color: #000">IPageNavigation</span><span style="color: #999">&gt;();</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">GoToBluePageCommand</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #999">(</span><span style="color: #000">ExecuteGoToBluePageCommand</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">GoToGreenPageCommand</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #999">(</span><span style="color: #000">ExecuteGoToGreenPageCommand</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">GoToRedPageCommand</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #999">(</span><span style="color: #000">ExecuteGoToRedPageCommand</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">GoBackToPreviousPageCommand</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #999">(</span><span style="color: #000">ExecuteGoBackToPreviousPageCommand</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">GoBackToRootPageCommand</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #999">(</span><span style="color: #000">ExecuteGoBackToRootPageCommand</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-example-application">II. EXAMPLE APPLICATION</h1><h2 id="4-binding-the-view-model-to-the-view">4. Binding the view model to the view</h2>
+<p>The last thing to do is to combine our view model <em>AppViewModel.cs</em> <em>with</em> views. We are going to use the binding technique.</p>
+<p>Open <em>AppMainPage.xaml</em> file, which indicates our <em>root</em> page. As you can see, the binding context is already set here:</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">ContentPage.BindingContext</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">viewModels</span><span style="color: #999">:</span><span style="color: #905">AppViewModel</span><span style="color: #BBBBBB"> </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Name</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">AppViewModel</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">ContentPage.BindingContext</span><span style="color: #999">&gt;</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>We want to use the same binding context for each page. That is the reason why we set a <em>BindingContext</em> property for every newly created page as can be seen in navigation service <em>PageNavigation.cs</em> :</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 224px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Goes to the blue page.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">bindingContext</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">BindingContext.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">GoToBluePage</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">bindingContext</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">Application</span><span style="color: #999">.</span><span style="color: #000">Current</span><span style="color: #999">.</span><span style="color: #000">MainPage</span><span style="color: #999">.</span><span style="color: #000">Navigation</span><span style="color: #999">.</span><span style="color: #DD4A68">PushAsync</span><span style="color: #999">(</span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">BluePage</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">BindingContext</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">bindingContext</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">});</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>And whenever we call this service from our view model to change page to a new one, as a method parameter we use <em>this</em> keyword which refers to the current instance of the class.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 168px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Handles execution of GoToBluePageCommand.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> Calls service to change page to the Blue page.</span></span>
+<span class="line"><span style="color: #999">        ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ExecuteGoToBluePageCommand</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">_navigation</span><span style="color: #999">.</span><span style="color: #DD4A68">GoToBluePage</span><span style="color: #999">(</span><span style="color: #07A">this</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>All we have to do is to add inside our views a reference to commands in the view model via binding. We set it for:</p>
+<p>1)&nbsp; <em>AppMainPage.xaml</em></p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 28px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">BackgroundColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Blue</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding GoToBluePageCommand}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">FontSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Large</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">HeightRequest</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">104</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">HorizontalOptions</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">FillAndExpand</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Margin</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">24,24,24,12</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Go to the Blue page</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>2)&nbsp; <em>BluePage.xaml</em></p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 84px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 280px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 476px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">ContentPage.Content</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">StackLayout</span><span style="color: #BBBBBB"> </span><span style="color: #690">VerticalOptions</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">EndAndExpand</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">BackgroundColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Green</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding GoToGreenPageCommand}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">FontSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Large</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">HeightRequest</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">104</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">HorizontalOptions</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">FillAndExpand</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Margin</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">24,24,24,12</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Go to the Green page</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">BackgroundColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Red</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding GoToRedPageCommand}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">FontSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Large</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">HeightRequest</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">104</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">HorizontalOptions</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">FillAndExpand</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Margin</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">24,12,24,12</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Go to the Red page</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">BackgroundColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">#3dc0cc</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding GoBackToPreviousPageCommand}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">FontSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Large</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">HeightRequest</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">104</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">HorizontalOptions</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">FillAndExpand</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Margin</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">24,12,24,24</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Go back to the previous page</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;/</span><span style="color: #905">StackLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">ContentPage.Content</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>3)&nbsp; <em>GreenPage.xaml</em></p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 84px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 280px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">ContentPage.Content</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">StackLayout</span><span style="color: #BBBBBB"> </span><span style="color: #690">VerticalOptions</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">EndAndExpand</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">BackgroundColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Blue</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding GoBackToPreviousPageCommand}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">FontSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Large</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">HeightRequest</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">104</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">HorizontalOptions</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">FillAndExpand</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Margin</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">24,24,24,12</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Go back to the previous page</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">BackgroundColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">#3dc0cc</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding GoBackToRootPageCommand}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">FontSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Large</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">HeightRequest</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">104</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">HorizontalOptions</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">FillAndExpand</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Margin</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">24,12,24,24</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Go back directly to the Main page</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;/</span><span style="color: #905">StackLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">ContentPage.Content</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>4)&nbsp; <em>RedPage.xaml</em></p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 84px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 280px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">ContentPage.Content</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">StackLayout</span><span style="color: #BBBBBB"> </span><span style="color: #690">VerticalOptions</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">EndAndExpand</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">BackgroundColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Blue</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding GoBackToPreviousPageCommand}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">FontSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Large</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">HeightRequest</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">104</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">HorizontalOptions</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">FillAndExpand</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Margin</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">24,24,24,12</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Go back to the previous page</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">BackgroundColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">#3dc0cc</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding GoBackToRootPageCommand}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">FontSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Large</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">HeightRequest</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">104</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">HorizontalOptions</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">FillAndExpand</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Margin</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">24,12,24,24</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Go back directly to the Main page</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;/</span><span style="color: #905">StackLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">ContentPage.Content</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-example-application">II. EXAMPLE APPLICATION</h1><h2 id="5-testing">5. Testing</h2>
+<p>Congratulation! Our application is finished.</p>
+<p>Now we can see in practice how navigation in Xamarin.Forms works:</p>
+<p>1.&nbsp;&nbsp; Go to a next page</p>
+<img src="/TizenSchool/assets/images/tutorials/100/AppNavigation_3_1_Next.PNG" style="height:334px; width:740px">
+<p>2.&nbsp;&nbsp; Return to the previous page</p>
+<img src="/TizenSchool/assets/images/tutorials/100/AppNavigation_3_2_Back.PNG" style="height:323px; width:740px">
+<p>3.&nbsp;&nbsp; Go back to the <em>root</em> page</p>
+<img src="/TizenSchool/assets/images/tutorials/100/AppNavigation_3_3_Root.PNG" style="height:340px; width:740px"></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/8</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/642c4c04779a63be966fa6579cbe2e444ddde584">642c4c04779a63be966fa6579cbe2e444ddde584</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/TizenSchool/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/TizenSchool/assets/images/favicon-32x32.png">
+    <title>[Gear Maze] Development Overview</title>
+  <link rel="stylesheet" href="/TizenSchool/assets/aboutus.9016036b.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.013d619c.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="2r5SHS" component-url="/TizenSchool/Header.fde63186.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/TizenSchool/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      [Gear Maze] Development Overview
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">GearMaze is a maze game one can enjoy walking in the real world wearing a Samsung Gear.</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/TizenSchool/assets/images/iot-dimmed.png">
+        <img src="/TizenSchool/assets/images/wearable-active.png">
+        <img src="/TizenSchool/assets/images/mobile-dimmed.png">
+        <img src="/TizenSchool/assets/images/smart-tv-dimmed.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2017/09/12</span>
+            Modified
+            <span class="font-bold">2022/06/05</span>
+    </div>
+  </div><astro-island uid="ZkxoNe" component-url="/TizenSchool/TextContent.c7f4d9de.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,9],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Gear Maze?\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. Game Scenario\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. Game Rules\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;4. Technical Information\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;Ⅰ. Introduction\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Step Recognition (Gait Recognition)\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. Spider Item using Accelerometer Sensor\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. Black Hole Item using Barometer Sensor\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;4. EMP Item using HeartRateMonitor Sensor\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;5. Communication between Gear and Phone\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;Ⅱ. Used Technique\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/9</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id="ⅰ-introduction">Ⅰ. Introduction</h1><h2 id="1-gear-maze">1. Gear Maze?</h2>
+<p>You must escape from the maze with invisible walls.</p>
+<p>After you enter the maze from the bottom left corner, you have to exit on the upper right corner.</p>
+<p>There are invisible walls insider the maze. Try to memorize and avoid these walls.</p>
+<img src="/TizenSchool/assets/images/tutorials/69/20170922_090147.png" style="height:511px; width:687px">
+<p>When you hit a wall, you have to go back to the starting point and the other player takes his/her turn</p>
+<p>This is a map before you activate it. In this status, your steps won’t count and can not move.</p>
+<img src="/TizenSchool/assets/images/tutorials/69/20170922_090324.png" style="height:347px; width:575px">
+<p>Tap the map before you move.</p>
+<img src="/TizenSchool/assets/images/tutorials/69/20170922_090421.png" style="height:415px; width:642px">
+<p>There are items and traps hidden in the maze. Some of them protects you and some of them do the opposite.</p>
+<img src="/TizenSchool/assets/images/tutorials/69/20170922_090501.png" style="height:504px; width:864px">
+<p>The Gear will help you go through the mazes.</p>
+<img src="/TizenSchool/assets/images/tutorials/69/20170922_090616.png" style="height:484px; width:400px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ⅰ-introduction">Ⅰ. Introduction</h1><h2 id="2-game-scenario">2. Game Scenario</h2>
+<p><strong>PROGRAMMING LANGUAGES</strong></p>
+<p><strong>SENSORS</strong></p>
+<p><strong>NETWORK</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/69/20170922_091027.png" style="height:352px; width:600px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ⅰ-introduction">Ⅰ. Introduction</h1><h2 id="3-game-rules">3. Game Rules</h2>
+<img src="/TizenSchool/assets/images/tutorials/69/sticker_rgb-01.png" style="height:350px; width:350px">
+<p><strong>GearMaze</strong> is a maze game you can enjoy while walking wearing a Samsung Gear in real world.</p>
+<p>Escape the maze through&nbsp;invisible walls using various items and achieving diverse&nbsp;missions.</p>
+<p>You can even enjoy it with your friends! You can download it from Samsung Galaxy Apps.</p>
+<img src="/TizenSchool/assets/images/tutorials/69/screenshot.png" style="height:453px; width:678px">
+<p>■ Gear Maze Lectures</p>
+<ul>
+<li>
+<p><a href="/tutorial/69">Development Overview</a></p>
+</li>
+<li>
+<p><a href="/tutorial/83">Implement BLACKHOLE using barometer sensor</a></p>
+</li>
+</ul>
+<p>-&nbsp;<a href="/tutorial/68">Implement SPIDER using accelerator sensor</a>.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ⅰ-introduction">Ⅰ. Introduction</h1><h2 id="4-technical-information">4. Technical Information</h2>
+<img src="/TizenSchool/assets/images/tutorials/69/20170922_085528.png" style="height:388px; width:1137px">
+<p>You are locked up in a cube.</p>
+<p>The cube consists of 5 floors and each floor has 9 rooms.</p>
+<img src="/TizenSchool/assets/images/tutorials/69/20170922_085705.png" style="height:509px; width:694px">
+<p>A room is a maze. Go through the rooms in order and find a core in the last room.</p>
+<img src="/TizenSchool/assets/images/tutorials/69/20170922_085246.png" style="height:333px; width:509px">
+<p>The core will unlock the next floor. Find all 5 cores to escape the cube.</p>
+<img src="/TizenSchool/assets/images/tutorials/69/20170922_085333.png" style="height:238px; width:799px">
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ⅱ-used-technique">Ⅱ. Used Technique</h1><h2 id="1-step-recognition-gait-recognition">1. Step Recognition (Gait Recognition)</h2>
+<p>The most important thing of this game is step recognition.</p>
+<p>We use <strong>DeviceMotion event among the W3C APIs</strong> for step recognition.</p>
+<p>The direction is measured based on the acceleration on the x, y, and z sides when the user moves in a specific direction.</p>
+<img src="/TizenSchool/assets/images/tutorials/69/20170924_1402315.png" style="height:229px; width:617px">
+<p>■ Reference Sites</p>
+<ul>
+<li><a href="http://www.w3.org/TR/2016/CR-orientation-event-20160818/#devicemotion">http://www.w3.org/TR/2016/CR-orientation-event-20160818/#devicemotion</a></li>
+</ul>
+<p>-&nbsp;<a href="https://developer.tizen.org/development/guides/native-application/location-and-sensors/device-sensors#accelerometer">https://developer.tizen.org/development/guides/native-application/location-and-sensors/device-sensors#accelerometer</a></p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ⅱ-used-technique">Ⅱ. Used Technique</h1><h2 id="2-spider-item-using-accelerometer-sensor">2. Spider Item using Accelerometer Sensor</h2>
+<img src="/TizenSchool/assets/images/tutorials/69/20170924_145933.png" style="height:338px; width:330px">
+<p>■ Misson</p>
+<p>You must shake your arm as fast as possible to get rid of the spiders</p>
+<p>■ How to implement</p>
+<p>SPIDER item is using the Accelerometer sensor to detect whether each spider is on or off.</p>
+<p>This item uses DeviceMotionEvent(W3C API)&nbsp;because the&nbsp;changes of acceleration are used.</p>
+<p>For more information, please visit the&nbsp;<a href="/tutorial/68">Implement SPIDER using accelerator sensor</a>.</p>
+<p>■ Reference Sites</p>
+<ul>
+<li><a href="http://www.w3.org/TR/2016/CR-orientation-event-20160818/#devicemotion">http://www.w3.org/TR/2016/CR-orientation-event-20160818/#devicemotion</a></li>
+</ul>
+<p>-&nbsp;<a href="https://developer.tizen.org/development/guides/native-application/location-and-sensors/device-sensors#accelerometer">https://developer.tizen.org/development/guides/native-application/location-and-sensors/device-sensors#accelerometer</a></p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ⅱ-used-technique">Ⅱ. Used Technique</h1><h2 id="3-black-hole-item-using-barometer-sensor">3. Black Hole Item using Barometer Sensor</h2>
+<p>Gear Maze offers the&nbsp;“Gear Maze Watcher” Android application for Game Watcher.</p>
+<img src="/TizenSchool/assets/images/tutorials/69/20170922_093539.png" style="height:485px; width:753px">
+<p>For the “Gear Maze Watcher”, we used the Companion type application.</p>
+<p>Companion type applications mean an application model which needs data communication or interaction between an Android mobile application and a Gear application. The communication protocol between the Gear and mobile applications is called SAP (Samsung Accessory Protocol).</p>
+<img src="/TizenSchool/assets/images/tutorials/69/20170922_094547.png" style="height:495px; width:603px">
+<p>■ Reference Sites</p>
+<ul>
+<li><a href="http://developer.samsung.com/gear/develop/creating-your-first-app/web-companion/setup-sdk">http://developer.samsung.com/gear/develop/creating-your-first-app/web-companion/setup-sdk</a></li>
+</ul>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ⅱ-used-technique">Ⅱ. Used Technique</h1><h2 id="4-emp-item-using-heartratemonitor-sensor">4. EMP Item using HeartRateMonitor Sensor</h2>
+<img src="/TizenSchool/assets/images/tutorials/69/20170924_145915.png" style="height:339px; width:326px">
+<p>■ Misson</p>
+<p>You must sit and jump as high as possible to escape from the blackhole</p>
+<p>■ How to implement</p>
+<p>Black Hole item is using the Barometer sensor to detect the&nbsp;air pressure.</p>
+<p>We can see the change in height from the change in air pressure.</p>
+<p>For more information, please visit the&nbsp;<a href="/tutorial/83">Implement BLACKHOLE using barometer sensor</a>.</p>
+<p>■ Reference Sites</p>
+<p>-&nbsp;<a href="https://developer.tizen.org/development/sample/web/Sensor/Altimeter">https://developer.tizen.org/development/sample/web/Sensor/Altimeter</a></p>
+<ul>
+<li><a href="https://developer.tizen.org/development/guides/native-application/location-and-sensors/device-sensors#pressure">https://developer.tizen.org/development/guides/native-application/location-and-sensors/device-sensors#pressure</a></li>
+</ul>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ⅱ-used-technique">Ⅱ. Used Technique</h1><h2 id="5-communication-between-gear-and-phone">5. Communication between Gear and Phone</h2>
+<img src="/TizenSchool/assets/images/tutorials/69/20170924_145856.png" style="height:333px; width:323px">
+<p>■ Misson</p>
+<ul>
+<li>You can fire EMP to remove adjacent walls if you raise heartbeat by 10bpm</li>
+</ul>
+<p>■ How to implement</p>
+<p>EMP item is using the Heart Rate Monitor sensor to detect the heart rate.</p>
+<p>■ Reference Sites</p>
+<ul>
+<li><a href="https://developer.tizen.org/development/sample/web/Sensor/Heart_Rate_Monitor">https://developer.tizen.org/development/sample/web/Sensor/Heart_Rate_Monitor</a></li>
+</ul>
+<p>-&nbsp;<a href="https://developer.tizen.org/development/guides/native-application/location-and-sensors/device-sensors#hrm">https://developer.tizen.org/development/guides/native-application/location-and-sensors/device-sensors#hrm</a></p></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/9</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/642c4c04779a63be966fa6579cbe2e444ddde584">642c4c04779a63be966fa6579cbe2e444ddde584</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+

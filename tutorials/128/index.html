@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/TizenSchool/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/TizenSchool/assets/images/favicon-32x32.png">
+    <title>Create Geocoding apllication using Tizen.CircularUI and HERE maps</title>
+  <link rel="stylesheet" href="/TizenSchool/assets/aboutus.9016036b.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.013d619c.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="2r5SHS" component-url="/TizenSchool/Header.fde63186.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/TizenSchool/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      Create Geocoding apllication using Tizen.CircularUI and HERE maps
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">Sample application that presents how to search for place and show it on the map.</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/TizenSchool/assets/images/iot-dimmed.png">
+        <img src="/TizenSchool/assets/images/wearable-dimmed.png">
+        <img src="/TizenSchool/assets/images/mobile-dimmed.png">
+        <img src="/TizenSchool/assets/images/smart-tv-dimmed.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2019/02/25</span>
+            Modified
+            <span class="font-bold">2019/02/27</span>
+    </div>
+  </div><astro-island uid="1QFRii" component-url="/TizenSchool/TextContent.c7f4d9de.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,13],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Overview\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Prerequisites\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;Introduction\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Goal\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Importing and building solution\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Creating map service\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Asking user for permission\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Implementing search logic\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;Logic of the application\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Goal\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Creating map renderer and control\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Displaying map\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Placing markers on the map\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Zooming and centering the map\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Zooming in and out the map with the bezel\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;Using MapView\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/13</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id="introduction">Introduction</h1><h2 id="overview">Overview</h2>
+<p>In this tutorial we will create an application that will show location on the map just by it’s name. You will be able to write down some location name and it will show it on the map. If there is more than one result multiple markers will be shown. HERE map provider will be used in this tutorial.</p>
+<img src="/TizenSchool/assets/images/tutorials/128/search.png" style="height:544px; width:415px">
+<img src="/TizenSchool/assets/images/tutorials/128/map.png" style="undefined">
+<p>This tutorial will focus on creating and using Map API with HERE maps. Basic UI is already created.</p>
+<p>Content of this tutorial is under <a href="http://floralicense.org/license">Flora</a> license.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="introduction">Introduction</h1><h2 id="prerequisites">Prerequisites</h2>
+<p>This tutorial assumes that you’ve already learned how to:</p>
+<p><strong>If not please check our other tutorials.</strong></p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="logic-of-the-application">Logic of the application</h1><h2 id="goal">Goal</h2>
+<p>In this chapter we will focus on logic of the application. We will ask user for permission to using maps, then we will create search logic.</p>
+<img src="/TizenSchool/assets/images/tutorials/128/search.png" style="height:544px; width:415px">
+<img src="/TizenSchool/assets/images/tutorials/128/permission.png" style="undefined">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="logic-of-the-application">Logic of the application</h1><h2 id="importing-and-building-solution">Importing and building solution</h2>
+<p>In this part of the tutorial we will ask user for permission to using maps. If user agree, we will navigate to search place, otherwise we will close the application. This functionality is provided by MapService, that we have implemented in previous step.</p>
+<p>Open <em>Geocoding.Tizen.Wearable/Services/GeocodingService.cs</em> file. We need map service, so in constructor write:</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 168px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> GeocodingService class constructor.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Creates instance of internal MapServiceProvider class.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">GeocodingService</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_mapService</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DependencyService</span><span style="color: #999">.</span><span style="color: #DD4A68">Get</span><span style="color: #999">&lt;</span><span style="color: #000">IMapServiceProvider</span><span style="color: #999">&gt;().</span><span style="color: #DD4A68">GetService</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Now we can implement function requesting user consent.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 56px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Requests user's consent to the map provider's license terms.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">async</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">RequestUserConsent</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">bool</span><span style="color: #BBBBBB"> </span><span style="color: #000">isConsent</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">await</span><span style="color: #BBBBBB"> </span><span style="color: #000">_mapService</span><span style="color: #999">.</span><span style="color: #DD4A68">RequestUserConsent</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">UserConsent</span><span style="color: #A67F59">?</span><span style="color: #999">.</span><span style="color: #DD4A68">Invoke</span><span style="color: #999">(</span><span style="color: #07A">this</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">GeocodingUserConsentArgs</span><span style="color: #999">(</span><span style="color: #000">isConsent</span><span style="color: #999">));</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>As you can see, we call asynchronous method to request user consent. Then we invoke event with response result. If you look at GeocodingUserConsentArgs you can find bool property indicating the result.</p>
+<p>Now we can use our new function in view-model. Open <em>Geocoding/ViewModels/MainViewModel.cs</em> file.</p>
+<p>We need to get instance of the service and then subscribe to response event.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 84px; top: 196px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Initializes class instance.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">MainViewModel</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_navigation</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DependencyService</span><span style="color: #999">.</span><span style="color: #DD4A68">Get</span><span style="color: #999">&lt;</span><span style="color: #000">IPageNavigation</span><span style="color: #999">&gt;();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_iInformationPopupService</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DependencyService</span><span style="color: #999">.</span><span style="color: #DD4A68">Get</span><span style="color: #999">&lt;</span><span style="color: #000">IInformationPopupService</span><span style="color: #999">&gt;();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_iGeocodingService</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DependencyService</span><span style="color: #999">.</span><span style="color: #DD4A68">Get</span><span style="color: #999">&lt;</span><span style="color: #000">IGeocodingService</span><span style="color: #999">&gt;();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_iGeocodingService</span><span style="color: #999">.</span><span style="color: #000">UserConsent</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">ServiceOnUserConsent</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #DD4A68">InitCommands</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>We need to take action depending on the response. If user allows application to use maps we can navigate to search page. If not we will close application. In MainViewModel implement <em>ServiceOnUserConsent</em> method.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 224px; top: 196px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Handles "UserConsent" event of the geocoding service.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">sender</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">Object firing the event.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">e</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">Event arguments.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ServiceOnUserConsent</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">IGeocodingUserConsentArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">IsConsent</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">_navigation</span><span style="color: #999">.</span><span style="color: #DD4A68">CreateSearchPage</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">else</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">_navigation</span><span style="color: #999">.</span><span style="color: #DD4A68">Close</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Last thing to do is to implement method, which will be executed on button click. It will call the service function.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Handles execution of "StartCommand".</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ExecuteStart</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_iGeocodingService</span><span style="color: #999">.</span><span style="color: #DD4A68">RequestUserConsent</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Now if you run application you should be able to navigate to search page. Of course if you grant permission.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="logic-of-the-application">Logic of the application</h1><h2 id="creating-map-service">Creating map service</h2>
+<p>In this step we will import and build Visual Studio solution contatining initial application code.</p>
+<p>Download base code: <a href="https://tizenschool.org/assets/images/tutorials/128/Geocoding.zip">Geocoding.zip</a></p>
+<p>You can read how to import solution <a href="https://samsung.github.io/TizenSchool/tutorial/110/contents/1">here</a>.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="logic-of-the-application">Logic of the application</h1><h2 id="asking-user-for-permission">Asking user for permission</h2>
+<p>In order to use maps API we need to create map service. We will use HERE Maps. HERE maps API requires Application Id and Application key, which can be obtained from their <a href="http://developer.here.com">web site</a>. Please create account and generate app id and app key.</p>
+<p>Now we can use this case to create map service. Open <em>Geocoding/Config.cs</em> file and paste keys to correct fields.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 112px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 280px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> ID registered with provider.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Please visit http://developer.here.com to obtain application id.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">_APP_ID</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">your_app_id</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Key assigned with application ID.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Please visit http://developer.here.com to obtain application key.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">_APP_KEY</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">your_app_key</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>As you can see below Authentication token is combined from those two keys.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 84px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Authentication token used to initialize map library.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">static</span><span style="color: #BBBBBB"> </span><span style="color: #000">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">AuthenticationToken</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">_APP_ID</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">/</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">_APP_KEY</span><span style="color: #999">;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Now we can implement map service. Please open <em>Geocoding.Tizen.Wearable/Services/MapServiceProvider.cs</em> file. In the constructor we will create MapService from Tizen.Maps namespace. Also in order to allow other components to use this service, we will implement getter function.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 392px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Initializes class instance.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">MapServiceProvider</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_mapService</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">MapService</span><span style="color: #999">(</span><span style="color: #000">Config</span><span style="color: #999">.</span><span style="color: #000">ProviderName</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">Config</span><span style="color: #999">.</span><span style="color: #000">AuthenticationToken</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Returns an instance of the map service class.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">returns</span><span style="color: #999">&gt;</span><span style="color: #708090">An instance of the map service class.</span><span style="color: #999">&lt;/</span><span style="color: #905">returns</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">MapService</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">GetService</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #000">_mapService</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Now when we have our service implemented we can take further steps in this tutorial.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="logic-of-the-application">Logic of the application</h1><h2 id="implementing-search-logic">Implementing search logic</h2>
+<p>In this chapter we will add logic to search page. View is already implemented, we just need to implement view-model and service.</p>
+<p>Open <em>Geocoding.Tizen.Wearable/Services/GeocodingService.cs</em> file. We will implement <em>CreateGeocodeRequestMethod</em> .</p>
+<p>We take address in parameter. We create new request and then we asynchronously get result from this response. Remember about async-await pattern. API throws exception when connection failed or there is no result. On such cases we invoke appropriate events.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 532px; top: 168px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Creates request to translate given address to its geographical location.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">address</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">Address value.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">async</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">CreateGeocodeRequestMethod</span><span style="color: #999">(</span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">address</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">try</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">request</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">_mapService</span><span style="color: #999">.</span><span style="color: #DD4A68">CreateGeocodeRequest</span><span style="color: #999">(</span><span style="color: #000">address</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">_latestGeocodeResponse</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">await</span><span style="color: #BBBBBB"> </span><span style="color: #000">request</span><span style="color: #999">.</span><span style="color: #DD4A68">GetResponseAsync</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">GeocodeRequestSuccess</span><span style="color: #A67F59">?</span><span style="color: #999">.</span><span style="color: #DD4A68">Invoke</span><span style="color: #999">(</span><span style="color: #07A">this</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">EventArgs</span><span style="color: #999">());</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">catch</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">Exception</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">Message</span><span style="color: #999">.</span><span style="color: #DD4A68">Contains</span><span style="color: #999">(</span><span style="color: #000">NETWORK_UNREACHABLE_ERROR</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">||</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">Message</span><span style="color: #999">.</span><span style="color: #DD4A68">Contains</span><span style="color: #999">(</span><span style="color: #000">INVALID_OPERATION_ERROR</span><span style="color: #999">))</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">GeocodeRequestConnectionFailed</span><span style="color: #A67F59">?</span><span style="color: #999">.</span><span style="color: #DD4A68">Invoke</span><span style="color: #999">(</span><span style="color: #07A">this</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">EventArgs</span><span style="color: #999">());</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">Message</span><span style="color: #999">.</span><span style="color: #DD4A68">Contains</span><span style="color: #999">(</span><span style="color: #000">NOT_FOUND_ERROR</span><span style="color: #999">))</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">GeocodeRequestNotFound</span><span style="color: #A67F59">?</span><span style="color: #999">.</span><span style="color: #DD4A68">Invoke</span><span style="color: #999">(</span><span style="color: #07A">this</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">EventArgs</span><span style="color: #999">());</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Now we can use our new method. Open <em>Geocoding/ViewModels/MainViewModel.cs</em></p>
+<p>We will add implementation to <em>ExecuteStartSearching</em> method. It is attached to <em>StartSearchingCommand</em> . It will be binded to action button on search page. Morover we want to hide our input, so we set IsSearchInputVisible property to false. It is binded to Visible property of input i the view.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 56px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Handles execution of "StartSearchingCommand".</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ExecuteStartSearching</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">IsSearchInputVisible</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">false</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_iGeocodingService</span><span style="color: #999">.</span><span style="color: #DD4A68">CreateGeocodeRequestMethod</span><span style="color: #999">(</span><span style="color: #000">SearchValue</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Furthermore, we need to take action based on result of the request. We need to implement 3 methods, which will be assigned to proper events.</p>
+<p>On each result we want to set the input visible, so we set <em>IsSearchInputVisible</em> to true. On fail we show user correct popup, on success we create and navigate to page with map.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 56px; top: 196px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 56px; top: 504px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 56px; top: 812px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Handles "GeocodeRequestConnectionFailed" event of the geocoding service.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">sender</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">Object firing the event.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">e</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">Event arguments.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ServiceOnGeocodeRequestConnectionFailed</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">EventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">IsSearchInputVisible</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">true</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_iInformationPopupService</span><span style="color: #999">.</span><span style="color: #DD4A68">ShowConnectionFailedPopup</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Handles "GeocodeRequestNotFound" event of the geocoding service.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">sender</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">Object firing the event.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">e</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">Event arguments.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ServiceOnGeocodeRequestNotFound</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">EventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">IsSearchInputVisible</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">true</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_iInformationPopupService</span><span style="color: #999">.</span><span style="color: #DD4A68">ShowNoResultsPopup</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Handles "GeocodeRequestSuccess" event of the geocoding service.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">sender</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">Object firing the event.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">e</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">Event arguments.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ServiceOnGeocodeRequestSuccess</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">EventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">IsSearchInputVisible</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">true</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_navigation</span><span style="color: #999">.</span><span style="color: #DD4A68">CreateMapPage</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><br>Next thing to do is to subscribe events.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 84px; top: 280px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Initializes class instance.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">MainViewModel</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_navigation</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DependencyService</span><span style="color: #999">.</span><span style="color: #DD4A68">Get</span><span style="color: #999">&lt;</span><span style="color: #000">IPageNavigation</span><span style="color: #999">&gt;();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_iInformationPopupService</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DependencyService</span><span style="color: #999">.</span><span style="color: #DD4A68">Get</span><span style="color: #999">&lt;</span><span style="color: #000">IInformationPopupService</span><span style="color: #999">&gt;();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_iGeocodingService</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DependencyService</span><span style="color: #999">.</span><span style="color: #DD4A68">Get</span><span style="color: #999">&lt;</span><span style="color: #000">IGeocodingService</span><span style="color: #999">&gt;();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_iGeocodingService</span><span style="color: #999">.</span><span style="color: #000">UserConsent</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">ServiceOnUserConsent</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_iGeocodingService</span><span style="color: #999">.</span><span style="color: #000">GeocodeRequestSuccess</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">ServiceOnGeocodeRequestSuccess</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_iGeocodingService</span><span style="color: #999">.</span><span style="color: #000">GeocodeRequestNotFound</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">ServiceOnGeocodeRequestNotFound</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_iGeocodingService</span><span style="color: #999">.</span><span style="color: #000">GeocodeRequestConnectionFailed</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">ServiceOnGeocodeRequestConnectionFailed</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #DD4A68">InitCommands</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Finally, we can bind the command to the action button. Open file, find declaration of ActionButton and assign <em>StartSearchingCommand</em> to the Command property of the ActionButton.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 84px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;</span><span style="color: #905">cui</span><span style="color: #999">:</span><span style="color: #905">CirclePage.ActionButton</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">cui</span><span style="color: #999">:</span><span style="color: #905">ActionButtonItem</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">DONE</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                          </span><span style="color: #690">IsEnable</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding Source={x:Reference root}, Path=BindingContext.IsSearchValueValid}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                          </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding Source={x:Reference root}, Path=BindingContext.StartSearchingCommand}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                          </span><span style="color: #690">IsVisible</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding Source={x:Reference root}, Path=BindingContext.IsSearchInputVisible}</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;/</span><span style="color: #905">cui</span><span style="color: #999">:</span><span style="color: #905">CirclePage.ActionButton</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>You can test the application. Next chapter will cover creating and handling MapView.</p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="using-mapview">Using MapView</h1><h2 id="goal-1">Goal</h2>
+<p>In this chapter we will use TizenMapView to show a map. Moreover we will learn how to zoom in/out the map and how to place markers on the map.</p>
+<img src="/TizenSchool/assets/images/tutorials/128/map.png" style="undefined">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="using-mapview">Using MapView</h1><h2 id="creating-map-renderer-and-control">Creating map renderer and control</h2>
+<p>Implementing map renderer is the first thing to do in order to display a map.</p>
+<p>Open <em>Geocoding.Tizen.Wearable/Renderers/TizenMapViewRenderer.cs</em> file.</p>
+<p>We need to override <em>OnElementChanged</em> method. This code creates native MapView, resizes it and shows it.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 336px; top: 168px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 56px; top: 756px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Overridden OnElementChanged method which initializes new control as a Tizen map view.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">e</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">Event arguments.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">protected</span><span style="color: #BBBBBB"> </span><span style="color: #07A">override</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnElementChanged</span><span style="color: #999">(</span><span style="color: #000">ElementChangedEventArgs</span><span style="color: #999">&lt;</span><span style="color: #000">TizenMapView</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">Control</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">==</span><span style="color: #BBBBBB"> </span><span style="color: #905">null</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">_mapView</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">MapView</span><span style="color: #999">(</span><span style="color: #000">Forms</span><span style="color: #999">.</span><span style="color: #000">NativeParent</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">Element</span><span style="color: #999">.</span><span style="color: #000">Service</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">_mapView</span><span style="color: #999">.</span><span style="color: #000">ViewReady</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">OnViewReady</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #DD4A68">SetNativeControl</span><span style="color: #999">(</span><span style="color: #000">_mapView</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">Control</span><span style="color: #999">.</span><span style="color: #DD4A68">Resize</span><span style="color: #999">(</span><span style="color: #000">Element</span><span style="color: #999">.</span><span style="color: #000">ControlWidth</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">Element</span><span style="color: #999">.</span><span style="color: #000">ControlHeight</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">Control</span><span style="color: #999">.</span><span style="color: #DD4A68">Show</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">base</span><span style="color: #999">.</span><span style="color: #DD4A68">OnElementChanged</span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Handles "ViewReady" event of the MapView class.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">sender</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">Object firing the event.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">e</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">Event arguments.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnViewReady</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">EventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">Element</span><span style="color: #999">.</span><span style="color: #000">Map</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Control</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_mapView</span><span style="color: #999">.</span><span style="color: #000">ViewReady</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">-=</span><span style="color: #BBBBBB"> </span><span style="color: #000">OnViewReady</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><br>As you can see we used TizenMapView. It is custom control, that we have to implement. It derives from Xamarin.Forms.View. Open <em>Geocoding.Tizen.Wearable/Controls/TizenMapView.cs</em> file. We will create bunch of properties and event that will be useful in using this control.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 112px; top: 224px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 896px; top: 476px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> TizenMapView control class.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Provides base functionality of the TizenMapView.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">TizenMapView</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">View</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">#</span><span style="color: #07A">region</span><span style="color: #BBBBBB"> </span><span style="color: #690">fields</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> Backing field of the MapView property.</span></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">MapView</span><span style="color: #BBBBBB"> </span><span style="color: #000">_map</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">#</span><span style="color: #07A">endregion</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">#</span><span style="color: #07A">region</span><span style="color: #BBBBBB"> </span><span style="color: #690">properties</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> Notifies about map view initialization success.</span></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">event</span><span style="color: #BBBBBB"> </span><span style="color: #000">EventHandler</span><span style="color: #BBBBBB"> </span><span style="color: #000">MapViewSet</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> Control width.</span></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">int</span><span style="color: #BBBBBB"> </span><span style="color: #000">ControlWidth</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> Control height.</span></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">int</span><span style="color: #BBBBBB"> </span><span style="color: #000">ControlHeight</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> An instance of the Tizen MapService class.</span></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">MapService</span><span style="color: #BBBBBB"> </span><span style="color: #000">Service</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> An instance of the Tizen MapView class.</span></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">MapView</span><span style="color: #BBBBBB"> </span><span style="color: #000">Map</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">get</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">_map</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">set</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">_map</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">MapViewSet</span><span style="color: #A67F59">?</span><span style="color: #999">.</span><span style="color: #DD4A68">Invoke</span><span style="color: #999">(</span><span style="color: #07A">this</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">null</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">#</span><span style="color: #07A">endregion</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Now we are ready to use this view in the page.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="using-mapview">Using MapView</h1><h2 id="displaying-map">Displaying map</h2>
+<p>We displayed map, so now we can work with it. First thing to do is to parse response from map service.</p>
+<p>Open <em>Geocoding.Tizen.Wearable/Services/GeocodingService.cs</em> file.</p>
+<p>We will invoke event for each point obtained.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 308px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Parses data provided with the last geocoding request.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ParseLastGeocodeResponse</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">int</span><span style="color: #BBBBBB"> </span><span style="color: #000">count</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">_latestGeocodeResponse</span><span style="color: #999">.</span><span style="color: #DD4A68">Count</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">count</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">==</span><span style="color: #BBBBBB"> </span><span style="color: #905">0</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">return</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">foreach</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">result</span><span style="color: #BBBBBB"> </span><span style="color: #07A">in</span><span style="color: #BBBBBB"> </span><span style="color: #000">_latestGeocodeResponse</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">CoordinatesReceived</span><span style="color: #A67F59">?</span><span style="color: #999">.</span><span style="color: #DD4A68">Invoke</span><span style="color: #999">(</span><span style="color: #07A">this</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">GeocodingCoordinatesArgs</span><span style="color: #999">(</span><span style="color: #000">result</span><span style="color: #999">.</span><span style="color: #000">Latitude</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">result</span><span style="color: #999">.</span><span style="color: #000">Longitude</span><span style="color: #999">));</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Open <em>Geocoding.Tizen.Wearable/Views/MapPage.xaml.cs</em> file.</p>
+<p>We need to do few things:</p>
+<p>To do 1st point we need to subscribe to <em>MapViewSet</em> event from MapView. We can kill two birds with one stone and do the point 2 also.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 280px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 588px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> MapPage class constructor.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">MapPage</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #DD4A68">InitializeComponent</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_iGeocodingService</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DependencyService</span><span style="color: #999">.</span><span style="color: #DD4A68">Get</span><span style="color: #999">&lt;</span><span style="color: #000">IGeocodingService</span><span style="color: #999">&gt;();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_mapService</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DependencyService</span><span style="color: #999">.</span><span style="color: #DD4A68">Get</span><span style="color: #999">&lt;</span><span style="color: #000">IMapServiceProvider</span><span style="color: #999">&gt;().</span><span style="color: #DD4A68">GetService</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_iGeocodingService</span><span style="color: #999">.</span><span style="color: #000">CoordinatesReceived</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">ServiceOnCoordinatesReceived</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">NavigationPage</span><span style="color: #999">.</span><span style="color: #DD4A68">SetHasNavigationBar</span><span style="color: #999">(</span><span style="color: #07A">this</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">false</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_mapView</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">TizenMapView</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">Service</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">_mapService</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">ControlWidth</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">SCREEN_SIZE</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">ControlHeight</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">SCREEN_SIZE</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_mapView</span><span style="color: #999">.</span><span style="color: #000">MapViewSet</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">OnMapViewSet</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">Content</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">_mapView</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Next step is to implement <em>OnMapViewSet</em> method. We simply invoke service function.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 196px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Handles "OnMapViewSet" event of the map view.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">sender</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">Object firing the event.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">e</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">Event arguments.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnMapViewSet</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">EventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_iGeocodingService</span><span style="color: #999">.</span><span style="color: #DD4A68">ParseLastGeocodeResponse</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Now we can move to point 3. We save obtained coordinates to local field, then use maps API to add new pin.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 84px; top: 196px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Handles "CoordinatesReceived" event of the geocoding service.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">sender</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">Object firing the event.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">e</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">Event arguments.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ServiceOnCoordinatesReceived</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">IGeocodingCoordinatesArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_recentlyReceivedCoordinates</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Geocoordinates</span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">Latitude</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">Longitude</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_mapView</span><span style="color: #999">.</span><span style="color: #000">Map</span><span style="color: #999">.</span><span style="color: #DD4A68">Add</span><span style="color: #999">(</span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Pin</span><span style="color: #999">(</span><span style="color: #000">_recentlyReceivedCoordinates</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">ResourcePath</span><span style="color: #999">.</span><span style="color: #DD4A68">GetPath</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">pin.png</span><span style="color: #999">"</span><span style="color: #999">)));</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Last thing to do is to clean up as it was mentioned in 4th point.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 224px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 252px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Overrides OnDisappearing method.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Unregisters event handlers.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">protected</span><span style="color: #BBBBBB"> </span><span style="color: #07A">override</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnDisappearing</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">base</span><span style="color: #999">.</span><span style="color: #DD4A68">OnDisappearing</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_iGeocodingService</span><span style="color: #999">.</span><span style="color: #000">CoordinatesReceived</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">-=</span><span style="color: #BBBBBB"> </span><span style="color: #000">ServiceOnCoordinatesReceived</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_mapView</span><span style="color: #999">.</span><span style="color: #000">MapViewSet</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">-=</span><span style="color: #BBBBBB"> </span><span style="color: #000">OnMapViewSet</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>You can build, run and test the application. You should see markers on the map.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="using-mapview">Using MapView</h1><h2 id="placing-markers-on-the-map">Placing markers on the map</h2>
+<p>You managed to reach the very last part of the tuorial. We will implement zooming in and out using bezel.</p>
+<p>Open <em>Geocoding.Tizen.Wearable/Views/MapPage.xaml.cs</em> file.</p>
+<p>We will subscribe to event responsible for bezel change.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 728px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> MapPage class constructor.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">MapPage</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #DD4A68">InitializeComponent</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_iGeocodingService</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DependencyService</span><span style="color: #999">.</span><span style="color: #DD4A68">Get</span><span style="color: #999">&lt;</span><span style="color: #000">IGeocodingService</span><span style="color: #999">&gt;();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_mapService</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DependencyService</span><span style="color: #999">.</span><span style="color: #DD4A68">Get</span><span style="color: #999">&lt;</span><span style="color: #000">IMapServiceProvider</span><span style="color: #999">&gt;().</span><span style="color: #DD4A68">GetService</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_iGeocodingService</span><span style="color: #999">.</span><span style="color: #000">CoordinatesReceived</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">ServiceOnCoordinatesReceived</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_iGeocodingService</span><span style="color: #999">.</span><span style="color: #000">CenterPointCalculated</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">ServiceOnCenterPointCalculated</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">NavigationPage</span><span style="color: #999">.</span><span style="color: #DD4A68">SetHasNavigationBar</span><span style="color: #999">(</span><span style="color: #07A">this</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">false</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_mapView</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">TizenMapView</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">Service</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">_mapService</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">ControlWidth</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">SCREEN_SIZE</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">ControlHeight</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">SCREEN_SIZE</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_mapView</span><span style="color: #999">.</span><span style="color: #000">MapViewSet</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">OnMapViewSet</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">Content</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">_mapView</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">RotaryEventManager</span><span style="color: #999">.</span><span style="color: #000">Rotated</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">OnRotaryChange</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Now we can implement event handler.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 224px; top: 196px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Handles "Rotated" event of the rotary event manager.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Zooms in/out map on rotary event.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">e</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">Rotary event arguments.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnRotaryChange</span><span style="color: #999">(</span><span style="color: #000">ElmSharp</span><span style="color: #999">.</span><span style="color: #000">Wearable</span><span style="color: #999">.</span><span style="color: #000">RotaryEventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">IsClockwise</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">_mapView</span><span style="color: #999">.</span><span style="color: #000">Map</span><span style="color: #999">.</span><span style="color: #000">ZoomLevel</span><span style="color: #A67F59">++</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">else</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">_mapView</span><span style="color: #999">.</span><span style="color: #000">Map</span><span style="color: #999">.</span><span style="color: #000">ZoomLevel</span><span style="color: #A67F59">--</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>That was last feature to do in our application. You can run it and test it, maybe you will find some bugs :) If something was unclear or you want to give us some feedback, please drop us a message in comment section.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="using-mapview">Using MapView</h1><h2 id="zooming-and-centering-the-map">Zooming and centering the map</h2>
+<p>In this step we will display a map on the screen.</p>
+<p>Open <em>Geocoding.Tizen.Wearable/Views/MapPage.xaml.cs</em> file.</p>
+<p>Firstly, in the constructor we must initialize required components. We take geocoding and map services from DependencyService. Important thing - turn off navigation bar, it covers big part of the watch screen. Then we have to create an instance of TizenMapView. Finally we can assign our map to content of the page.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 364px; top: 112px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">MapPage</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #DD4A68">InitializeComponent</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_iGeocodingService</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DependencyService</span><span style="color: #999">.</span><span style="color: #DD4A68">Get</span><span style="color: #999">&lt;</span><span style="color: #000">IGeocodingService</span><span style="color: #999">&gt;();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_mapService</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DependencyService</span><span style="color: #999">.</span><span style="color: #DD4A68">Get</span><span style="color: #999">&lt;</span><span style="color: #000">IMapServiceProvider</span><span style="color: #999">&gt;().</span><span style="color: #DD4A68">GetService</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">NavigationPage</span><span style="color: #999">.</span><span style="color: #DD4A68">SetHasNavigationBar</span><span style="color: #999">(</span><span style="color: #07A">this</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">false</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_mapView</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">TizenMapView</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">Service</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">_mapService</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">ControlWidth</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">SCREEN_SIZE</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">ControlHeight</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">SCREEN_SIZE</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">Content</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">_mapView</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>You can test your application. Map should be visible now!</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="using-mapview">Using MapView</h1><h2 id="zooming-in-and-out-the-map-with-the-bezel">Zooming in and out the map with the bezel</h2>
+<p>When you were testing application you could notice that pins are not in the visible part of the map. We will fix this problem in this part of the tutorial.</p>
+<p>Open <em>Geocoding.Tizen.Wearable/Services/GeocodingService.cs</em> file.</p>
+<p>We will modify <em>ParseLastGeocodeResponse</em> method. We want to know where is the center between found locations.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 56px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 56px; top: 504px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 56px; top: 616px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Parses data provided with the last geocoding request.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ParseLastGeocodeResponse</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">double</span><span style="color: #BBBBBB"> </span><span style="color: #000">latitudeSum</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">double</span><span style="color: #BBBBBB"> </span><span style="color: #000">longitudeSum</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">int</span><span style="color: #BBBBBB"> </span><span style="color: #000">count</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">_latestGeocodeResponse</span><span style="color: #999">.</span><span style="color: #DD4A68">Count</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">count</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">==</span><span style="color: #BBBBBB"> </span><span style="color: #905">0</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">return</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">foreach</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">result</span><span style="color: #BBBBBB"> </span><span style="color: #07A">in</span><span style="color: #BBBBBB"> </span><span style="color: #000">_latestGeocodeResponse</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">CoordinatesReceived</span><span style="color: #A67F59">?</span><span style="color: #999">.</span><span style="color: #DD4A68">Invoke</span><span style="color: #999">(</span><span style="color: #07A">this</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">GeocodingCoordinatesArgs</span><span style="color: #999">(</span><span style="color: #000">result</span><span style="color: #999">.</span><span style="color: #000">Latitude</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">result</span><span style="color: #999">.</span><span style="color: #000">Longitude</span><span style="color: #999">));</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">latitudeSum</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">result</span><span style="color: #999">.</span><span style="color: #000">Latitude</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">longitudeSum</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">result</span><span style="color: #999">.</span><span style="color: #000">Longitude</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">CenterPointCalculated</span><span style="color: #A67F59">?</span><span style="color: #999">.</span><span style="color: #DD4A68">Invoke</span><span style="color: #999">(</span><span style="color: #07A">this</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">GeocodingCoordinatesArgs</span><span style="color: #999">(</span><span style="color: #000">latitudeSum</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">/</span><span style="color: #BBBBBB"> </span><span style="color: #000">count</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">longitudeSum</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">/</span><span style="color: #BBBBBB"> </span><span style="color: #000">count</span><span style="color: #999">));</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Now in <em>Geocoding.Tizen.Wearable/Views/MapPage.xaml.cs</em> file we will subscribe to this new event and implement event handler.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 308px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> MapPage class constructor.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">MapPage</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #DD4A68">InitializeComponent</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_iGeocodingService</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DependencyService</span><span style="color: #999">.</span><span style="color: #DD4A68">Get</span><span style="color: #999">&lt;</span><span style="color: #000">IGeocodingService</span><span style="color: #999">&gt;();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_mapService</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DependencyService</span><span style="color: #999">.</span><span style="color: #DD4A68">Get</span><span style="color: #999">&lt;</span><span style="color: #000">IMapServiceProvider</span><span style="color: #999">&gt;().</span><span style="color: #DD4A68">GetService</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_iGeocodingService</span><span style="color: #999">.</span><span style="color: #000">CoordinatesReceived</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">ServiceOnCoordinatesReceived</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_iGeocodingService</span><span style="color: #999">.</span><span style="color: #000">CenterPointCalculated</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">ServiceOnCenterPointCalculated</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">NavigationPage</span><span style="color: #999">.</span><span style="color: #DD4A68">SetHasNavigationBar</span><span style="color: #999">(</span><span style="color: #07A">this</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">false</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_mapView</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">TizenMapView</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">Service</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">_mapService</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">ControlWidth</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">SCREEN_SIZE</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">ControlHeight</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">SCREEN_SIZE</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_mapView</span><span style="color: #999">.</span><span style="color: #000">MapViewSet</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">OnMapViewSet</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">Content</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">_mapView</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Now map is centered on the pins. Maybe you noticed that map has constant zoom level. We will add feature to zoom in map closer to pin.</p>
+<p>In the same file we need to store all points obtained from service. Extend <em>ServiceOnCoordinatesReceived</em> method.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 56px; top: 308px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Handles "CoordinatesReceived" event of the geocoding service.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">sender</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">Object firing the event.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">e</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">Event arguments.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ServiceOnCoordinatesReceived</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">IGeocodingCoordinatesArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_recentlyReceivedCoordinates</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Geocoordinates</span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">Latitude</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">Longitude</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_mapView</span><span style="color: #999">.</span><span style="color: #000">Map</span><span style="color: #999">.</span><span style="color: #DD4A68">Add</span><span style="color: #999">(</span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Pin</span><span style="color: #999">(</span><span style="color: #000">_recentlyReceivedCoordinates</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">ResourcePath</span><span style="color: #999">.</span><span style="color: #DD4A68">GetPath</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">pin.png</span><span style="color: #999">"</span><span style="color: #999">)));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">ElmSharp</span><span style="color: #999">.</span><span style="color: #000">Point</span><span style="color: #BBBBBB"> </span><span style="color: #000">screen</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">_mapView</span><span style="color: #999">.</span><span style="color: #000">Map</span><span style="color: #999">.</span><span style="color: #DD4A68">GeolocationToScreen</span><span style="color: #999">(</span><span style="color: #000">_recentlyReceivedCoordinates</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_pinScreenCoordinates</span><span style="color: #999">.</span><span style="color: #DD4A68">Add</span><span style="color: #999">(</span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Point</span><span style="color: #999">(</span><span style="color: #000">screen</span><span style="color: #999">.</span><span style="color: #000">X</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">screen</span><span style="color: #999">.</span><span style="color: #000">Y</span><span style="color: #999">));</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Implement <em>ServiceOnCenterPointCalculated</em> method.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 84px; top: 196px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Handles "CenterPointCalculated" event of the geocoding service.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">sender</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">Object firing the event.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">e</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">Event arguments.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ServiceOnCenterPointCalculated</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">IGeocodingCoordinatesArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_mapView</span><span style="color: #999">.</span><span style="color: #000">Map</span><span style="color: #999">.</span><span style="color: #000">Center</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Geocoordinates</span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">Latitude</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">Longitude</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #DD4A68">InitializeZoom</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #DD4A68">CenterMap</span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">Latitude</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">Longitude</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>As you can see we used two not implemented methods. We will implement the first one. We need to calculate correct zoom level for one or more pins. Things go complicated for more than one pin. We need to calculate horizontal and vertical distance between points. Then we use that distance to calulate zoom level in method <em>AdjustZoom</em> .</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 784px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 420px; top: 1176px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Initializes the zoom value of the map view.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">InitializeZoom</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">double</span><span style="color: #BBBBBB"> </span><span style="color: #000">minX</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Double</span><span style="color: #999">.</span><span style="color: #000">MaxValue</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">double</span><span style="color: #BBBBBB"> </span><span style="color: #000">maxX</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">double</span><span style="color: #BBBBBB"> </span><span style="color: #000">minY</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Double</span><span style="color: #999">.</span><span style="color: #000">MaxValue</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">double</span><span style="color: #BBBBBB"> </span><span style="color: #000">maxY</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">_pinScreenCoordinates</span><span style="color: #999">.</span><span style="color: #000">Count</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">==</span><span style="color: #BBBBBB"> </span><span style="color: #905">1</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">_mapView</span><span style="color: #999">.</span><span style="color: #000">Map</span><span style="color: #999">.</span><span style="color: #000">ZoomLevel</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">ZOOM_VALUE_FOR_ONE_MARKER</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">return</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">foreach</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">data</span><span style="color: #BBBBBB"> </span><span style="color: #07A">in</span><span style="color: #BBBBBB"> </span><span style="color: #000">_pinScreenCoordinates</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">double</span><span style="color: #BBBBBB"> </span><span style="color: #000">x</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">data</span><span style="color: #999">.</span><span style="color: #000">X</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">double</span><span style="color: #BBBBBB"> </span><span style="color: #000">y</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">data</span><span style="color: #999">.</span><span style="color: #000">Y</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">minX</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Math</span><span style="color: #999">.</span><span style="color: #DD4A68">Min</span><span style="color: #999">(</span><span style="color: #000">minX</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">x</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">maxX</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Math</span><span style="color: #999">.</span><span style="color: #DD4A68">Max</span><span style="color: #999">(</span><span style="color: #000">maxX</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">x</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">minY</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Math</span><span style="color: #999">.</span><span style="color: #DD4A68">Min</span><span style="color: #999">(</span><span style="color: #000">minY</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">y</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">maxY</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Math</span><span style="color: #999">.</span><span style="color: #DD4A68">Max</span><span style="color: #999">(</span><span style="color: #000">maxY</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">y</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">double</span><span style="color: #BBBBBB"> </span><span style="color: #000">horizontalDistance</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">maxX</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">-</span><span style="color: #BBBBBB"> </span><span style="color: #000">minX</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">double</span><span style="color: #BBBBBB"> </span><span style="color: #000">verticalDistance</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">maxY</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">-</span><span style="color: #BBBBBB"> </span><span style="color: #000">minY</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_distance</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Math</span><span style="color: #999">.</span><span style="color: #DD4A68">Sqrt</span><span style="color: #999">(</span><span style="color: #000">Math</span><span style="color: #999">.</span><span style="color: #DD4A68">Pow</span><span style="color: #999">(</span><span style="color: #000">horizontalDistance</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">2</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">Math</span><span style="color: #999">.</span><span style="color: #DD4A68">Pow</span><span style="color: #999">(</span><span style="color: #000">verticalDistance</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">2</span><span style="color: #999">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_mapView</span><span style="color: #999">.</span><span style="color: #000">Map</span><span style="color: #999">.</span><span style="color: #000">ZoomLevel</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">AdjustZoom</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Adjusts the zoom value of the map view so that the specified distance between markers</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> fits on the device screen.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">returns</span><span style="color: #999">&gt;</span><span style="color: #708090">Zoom value.</span><span style="color: #999">&lt;/</span><span style="color: #905">returns</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">int</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">AdjustZoom</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">int</span><span style="color: #BBBBBB"> </span><span style="color: #000">zoom</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DEFAULT_ZOOM_VALUE</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">double</span><span style="color: #BBBBBB"> </span><span style="color: #000">distance</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">_distance</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">distance</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&gt;=</span><span style="color: #BBBBBB"> </span><span style="color: #000">MAX_DISTANCE_BETWEEN_MARKERS</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #000">ZOOM_VALUE_FOR_ONE_MARKER</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">while</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">distance</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&lt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">MAX_DISTANCE_BETWEEN_MARKERS</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">/</span><span style="color: #BBBBBB"> </span><span style="color: #905">2</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">distance</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">*=</span><span style="color: #BBBBBB"> </span><span style="color: #905">2</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">zoom</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #905">1</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #000">zoom</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Now we will implement second missing function - <em>CenterMap</em> . It will just use all calculated values to center the map. Moreover if distance is bigger than maximum distance, application will show popup with information that more pins was placed on the map.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 252px; top: 196px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Centers the map view.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">latitude</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">Latitude value.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">longitude</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">Longitude value.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">CenterMap</span><span style="color: #999">(</span><span style="color: #07A">double</span><span style="color: #BBBBBB"> </span><span style="color: #000">latitude</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">double</span><span style="color: #BBBBBB"> </span><span style="color: #000">longitude</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">_distance</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&gt;=</span><span style="color: #BBBBBB"> </span><span style="color: #000">MAX_DISTANCE_BETWEEN_MARKERS</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">_mapView</span><span style="color: #999">.</span><span style="color: #000">Map</span><span style="color: #999">.</span><span style="color: #000">Center</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">_recentlyReceivedCoordinates</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">FindMoreMarkersCommand</span><span style="color: #A67F59">?</span><span style="color: #999">.</span><span style="color: #DD4A68">Execute</span><span style="color: #999">(</span><span style="color: #905">null</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">else</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">_mapView</span><span style="color: #999">.</span><span style="color: #000">Map</span><span style="color: #999">.</span><span style="color: #000">Center</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Geocoordinates</span><span style="color: #999">(</span><span style="color: #000">latitude</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">longitude</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Now the whole functionality of centering and zooming map is done, you can test application.</p></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/13</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/642c4c04779a63be966fa6579cbe2e444ddde584">642c4c04779a63be966fa6579cbe2e444ddde584</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+

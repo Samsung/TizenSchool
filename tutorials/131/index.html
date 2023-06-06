@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/TizenSchool/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/TizenSchool/assets/images/favicon-32x32.png">
+    <title>[Kor] Getting started with Raspberry PI3</title>
+  <link rel="stylesheet" href="/TizenSchool/assets/aboutus.9016036b.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.013d619c.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="2r5SHS" component-url="/TizenSchool/Header.fde63186.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/TizenSchool/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      [Kor] Getting started with Raspberry PI3
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">본 강좌는 Raspberry PI 3 기반으로 Tizen IoT를 사용하고자 하는 개발자를 위한 입문 가이드입니다. 최신 Tizen 5.0을 기반으로 가장 쉽게 개발환경을 구축하는 방법을 가이드하고 있습니다.</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/TizenSchool/assets/images/iot-active.png">
+        <img src="/TizenSchool/assets/images/wearable-dimmed.png">
+        <img src="/TizenSchool/assets/images/mobile-dimmed.png">
+        <img src="/TizenSchool/assets/images/smart-tv-dimmed.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2019/04/21</span>
+            Modified
+            <span class="font-bold">2019/06/04</span>
+    </div>
+  </div><astro-island uid="1BW6wS" component-url="/TizenSchool/TextContent.c7f4d9de.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,8],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Overview\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. 준비물\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. 개발 환경 설치\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;4. SD 카드 플래싱(by IoT Setup Manager)\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;5. Raspberry Pi와 시리얼 통신하기 (by PuTTY)\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;6. Raspberry Pi WiFi 설정 (by PuTTY)\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;7. Tizen Studio와 Raspberry Pi 연결 (by SDB)\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;*Appendix\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/8</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="1-overview">1. Overview</h2>
+<p>*. If you need an English version, please use following a tutorial. <a href="https://samsung.github.io/TizenSchool/tutorial/137">https://samsung.github.io/TizenSchool/tutorial/137</a>.</p>
+<p>본 강좌는 Raspberry PI 3 기반으로 Tizen IoT를 사용하고자 하는 개발자를 위한 입문 가이드로 가장 쉽게 개발환경을 구축하는 방법을 기술하고 있습니다.</p>
+<p>본 강좌는 크게 아래와 같이 5가지 순서로 구성되어 있습니다.</p>
+<ol>
+<li>
+<p>개발 환경 설치</p>
+</li>
+<li>
+<p>SD 카드 플래싱(by IoT Setup Manager)</p>
+</li>
+<li>
+<p>Raspberry PI 부팅 (by PuTTY)</p>
+</li>
+<li>
+<p>Raspberry PI WiFi 설정 (by Putty)</p>
+</li>
+<li>
+<p>Tizen Studio와 Raspberry PI 연결 (by SDB)</p>
+</li>
+</ol>
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="2-준비물">2. 준비물</h2>
+<p><strong>설치 환경</strong></p>
+<p><strong>사전 준비물</strong></p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="3-개발-환경-설치">3. 개발 환경 설치</h2>
+<p><strong>1. Java SE Development Kit (JDK) 설치</strong></p>
+<p>TIZEN Studio 설치 전 JDK부터 설치합니다.&nbsp;<a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">[링크]</a></p>
+<img src="/TizenSchool/assets/images/tutorials/131/page3_1.png" style="height:346px; width:549px">
+<img src="/TizenSchool/assets/images/tutorials/131/page3_2_1195.png" style="undefined">
+<p>Java SE Development Kit (JDK) 설치 파일 다운 후 설치를 완료합니다.</p>
+<p>(JDK 8 Version을 추천합니다.)</p>
+<p><strong>2. JDK 환경변수 설정</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/131/page3_3_1195.png" style="undefined">
+<p>Java SE Development Kit (JDK)가 설치된 디렉토리에 들어가서 bin 폴더의 경로를 복사해둡니다.(예: C:\Program Files\Java\jdk1.8.0_191\bin)</p>
+<img src="/TizenSchool/assets/images/tutorials/131/page3_4_1195.png" style="undefined">
+제어판 - 시스템 및 보안 - 시스템’ 창에 들어갑니다.
+<ol>
+<li>
+<p>좌측 목록 중 고급 시스템 설정을 클릭</p>
+</li>
+<li>
+<p>상단 ‘고급’ 탭에서 환경 변수 클릭</p>
+</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/131/page3_5_1195.png" style="undefined">
+3. 시스템 변수 목록중 ‘Path’ 클릭
+<ol start="4">
+<li>
+<p>편집 버튼 클릭</p>
+</li>
+<li>
+<p>새로 만들기 버튼 클릭</p>
+</li>
+<li>
+<p>전에 복사해둔 Java SE Development Kit (JDK) 설치 경로 붙여넣기 후 확인</p>
+</li>
+</ol>
+<p><strong>3. Tizen Studio 설치</strong></p>
+<p>최신 버전의 Tizen Studio with IDE installer를 다운 받습니다.&nbsp;<a href="https://developer.tizen.org/development/tizen-studio/download">[링크]</a></p>
+<img src="/TizenSchool/assets/images/tutorials/131/page3_6.png" style="height:647px; width:1097px">
+<img src="/TizenSchool/assets/images/tutorials/131/page3_7_1195.png" style="undefined">
+<p>TIZEN Studio 설치 파일 실행 후 설치를 완료합니다.</p>
+<p><strong>4. IoT Package 설치</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/131/page3_8.png" style="height:645px; width:632px">
+<p>설치 완료와 동시에 TIZEN Studio Package 매니저가 실행됩니다.<br>Extension SDK 탭에서 ‘IoT Headed 5.0’, ‘IoT Headless 5.0’, 그리고 ‘IoT Setup Manager’를 선택하여 설치합니다.</p>
+<p><strong>5. 설치완료</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/131/page3_9_1195.png" style="height:727px; width:1195px">
+<p>TIZEN Studio 설치 과정이 완료되었습니다.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="4-sd-카드-플래싱by-iot-setup-manager">4. SD 카드 플래싱(by IoT Setup Manager)</h2>
+<p><strong>1. Micro SD 카드를 리더기에 삽입한뒤 컴퓨터와 연결</strong></p>
+<p><strong>Troubleshooting</strong></p>
+<p>이미 TIZEN이 설치된 SD 카드를 재활용하여 사용하는 경우, SD 카드를 리더기에 삽입하여 컴퓨터와 연결할 경우 디스크 포맷 팝업창이 뜨는 경우가 있습니다. 이 경우 다른 포맷 옵션을 선택하지 않은채 그대로 팝업창을 모두 닫아 주시면 됩니다.</p>
+<p><strong>2. IoT Setup Manager 실행</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/131/page4_1_1195.png" style="undefined">
+<p>윈도우 바 검색창에 ‘IoT Setup Manager’를 검색한 후 실행시켜 줍니다.<br>(또는 Tizen Studio 실행 후 상단에 있는 IoT 메뉴에서도 ‘IoT Setup Manager’ 실행가능합니다.<br>이후 Create 버튼을 눌러 새로운 프로파일을 생성합니다.</p>
+<p><strong>3. IoT Profile 설정</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/131/page4_2.png" style="height:639px; width:627px">
+<p>위 사진과 같이 생성할 프로필의 정보와 이미지들을 넣어줍니다.</p>
+<ol>
+<li>
+<p>Profile name: RPI3 (임의의 이름)</p>
+</li>
+<li>
+<p>Target: RPI3_HEADLESS</p>
+</li>
+<li>
+<p>Boot image: tizen-5.0-unified_20190316.1_iot-boot-arm64-rpi3.tar.gz&nbsp;<a href="http://download.tizen.org/releases/weekly/tizen/5.0-unified/tizen-5.0-unified_20190316.1/images/standard/iot-boot-arm64-rpi3/tizen-5.0-unified_20190316.1_iot-boot-arm64-rpi3.tar.gz">[링크]</a></p>
+</li>
+<li>
+<p>Platform image: tizen-5.0-unified_20190316.1_iot-headless-2parts-armv7l-rpi3.tar.gz&nbsp;<a href="http://download.tizen.org/releases/weekly/tizen/5.0-unified/tizen-5.0-unified_20190316.1/images/standard/iot-headless-2parts-armv7l-rpi3/tizen-5.0-unified_20190316.1_iot-headless-2parts-armv7l-rpi3.tar.gz">[링크]</a></p>
+</li>
+<li>
+<p>RPM bundles</p>
+</li>
+</ol>
+<p>Raspberry PI3에서 WiFi를 사용하기 위하여 플러그인 설치가 필요합니다.</p>
+<img src="/TizenSchool/assets/images/tutorials/131/page4_3.png" style="height:353px; width:996px">
+<p>삼성 개발자 사이트 하단의 ‘Raspberry Pi 3 (5.0) Plugin을 다운받습니다. <a href="https://developer.samsung.com/tizendevice/firmware">[링크]</a></p>
+<p>다운 받은 파일을 압축 해제 후 connectivity, system-info, update-control 폴더에 위치한 rpm 파일들을 별도의 디렉토리를 만들어 한곳에 복사합니다. RPM들을 저장한 디렉토리를 지정합니다.</p>
+<ol start="6">
+<li>WiFi / Ethernet 체크 해제</li>
+</ol>
+<p><strong>4. 이미지 생성 및 플래싱</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/131/page4_4.png" style="height:337px; width:562px">
+<p>다시 IoT Setup Manager 창에서 방금 전 생성한 ‘RPI3’ 프로파일을 선택합니다.<br>Select Drive에서 컴퓨터에서 인식된 Micro SD카드의 드라이브를 선택한뒤 Burn 버튼을 눌러줍니다.<br>진행바가 채워지며 하단에 ‘Done’ 메시지가 뜨면 TIZEN 이미지 플래싱이 완료된 것 입니다.</p>
+<p><strong>5. Raspberry PI 이미지 삽입</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/131/page4_5_1195.png" style="undefined">
+<p>리더기에서 SD 카드를 제거 한뒤, 라즈베리파이3 뒷면의 Micro SD 카드 슬롯에 넣어준 후 라즈베리파이3 전원을 켜면 부팅이 진행됩니다.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="5-raspberry-pi와-시리얼-통신하기-by-putty">5. Raspberry Pi와 시리얼 통신하기 (by PuTTY)</h2>
+<p>라즈베리파이3의 WiFi를 설정하기 위해 시리얼 통신으로 PC와 라즈베리파이3를 연결해야 합니다.</p>
+<p>라즈베리파이3와 시리얼 통신을 하기 위해서는 1)보드에 연결된 2)시리얼 포트를 3)PC에 연결하고, 연결된 PC에서 4)시리얼 터미널을 열어 로그인을 진행합니다. 로그인 후 4)시리얼 터미널을 통해 보드와의 통신이 가능합니다.</p>
+<img src="/TizenSchool/assets/images/tutorials/131/page5_1_1195.png" style="undefined">
+<p>위 과정을 진행하기 위해서 필요한 단계는 아래와 같습니다.</p>
+<p><strong>1. 시리얼 포트 (PL2303) 드라이버 설치</strong></p>
+<p>라즈베리파이3와 PC를 연결하는 시리얼 포트의 드라이버를 PC에 설치합니다. 본 실습에서는 PL2303 시리얼 포트를 사용하고 있기 때문에 PL2303 드라이버를 다운로드하여 설치합니다.</p>
+<img src="/TizenSchool/assets/images/tutorials/131/page5_2.png" style="height:381px; width:500px">
+<p>PL2303 Windows Driver 다운로드&nbsp;<a href="http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=225&amp;pcid=41">[링크]</a></p>
+<p><strong>2. 시리얼 터미널 (PuTTY) 설치</strong></p>
+<p>연결된 시리얼 포트를 통해 보드와 통신하는 시리얼 터미널을 PC에 설치합니다. 윈도우에서 주로 쓰이는 시리얼 터미널인 PuTTY 프로그램을 다운로드하여 설치합니다.</p>
+<img src="/TizenSchool/assets/images/tutorials/131/page5_3.png" style="height:387px; width:495px">
+<p>PuTTY 다운로드 사이트&nbsp;<a href="https://www.putty.org/">[링크]</a></p>
+<p><strong>3. 라즈베리파이3와 시리얼 포트 (PL2303) 연결</strong></p>
+<p>라즈베리파이3와 시리얼 포트를 연결하기 위해서는 간단한 시리얼 통신에 대한 이해가 필요합니다. 이 섹션에서 설명되는 내용은 아래 링크에서 많은 부분을 참고했습니다.시리얼 통신에 대해 좀 더 알고 싶으신 분은 아래 링크를 참고해주세요.</p>
+<p><a href="http://www.hardcopyworld.com/gnuboard5/bbs/board.php?bo_table=lecture_pract&amp;wr_id=93">시리얼 통신 상세 분석 (SERIAL COMMUNICATION)</a></p>
+<p>시리얼 버스는 보통 2개의 선으로 구성됩니다. 하나는 전송용(TX-Transmitter)이며 다른 하나는 수신용(RX-Receiver) 입니다. 시리얼 통신을 사용하는 모든 모듈은 이 두 핀을 가지고 있습니다.</p>
+<img src="/TizenSchool/assets/images/tutorials/131/page5_4.png" style="undefined">
+<p>위의 그림에서 보듯이 해당 실습에서 사용하는 라즈베리파이3와 PL2303 시리얼 포트도 이 두 핀을 가지고 있습니다. RX, TX 라는 이름은 자신의 입장에서 바라봤을 때 라인이 담당하는 역할입니다. 따라서 두 장치를 연결할 때는 위 그림처럼 TX-RX, RX-TX로 엇갈리게 연결되어야 합니다.</p>
+<p>UART Board RXD ↔ RPi3 TXD(8pin)<br>UART Board TXD ↔ RPi3 RXD(10pin)</p>
+<p>PL2303의 VCC는 전원 연결이 불가능할 때 USB를 통해 전원을 공급 받게 할 수 있는 핀으로 해당 실습에서는 전원은 따로 공급하기 때문에 VCC핀은 연결하지 않습니다. GND는 접지로 라즈베리파이3의 GND 핀에 해당하는 곳에 연결합니다.</p>
+<p>UART Board GND ↔ RPi3 Ground(6pint)</p>
+<p>핀 연결이 완료되면 시리얼 포트를 PC의 USB 포트에 꽂아주세요.</p>
+<p><strong>4. 시리얼 터미널 (PuTTY) 설정</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/131/page5_5.png" style="height:365px; width:748px">
+<p>위의 그림과 같이 [장치 관리자] 를 열어 USB Serial Port의 포트 번호를 알아냅니다.</p>
+<p>시리얼 포트가 인식되지 않으면 시리얼 포트 드라이버가 제대로 설치되었는지 다시 한 번 확인해주세요.</p>
+<p>PuTTY Configuration에 시리얼 번호 등을 입력하고 [Open]을 눌러 시리얼 터미널을 엽니다.</p>
+<p><strong>5. 라즈베리파이3 로그인</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/131/page5_6.png" style="height:418px; width:661px">
+<p>User ID : root / Password : tizen (패스워드 입력 시 패스워드는 보이지 않음)</p>
+<p>라즈베리파이3의 부팅이 끝나면 로그인 화면이 나타납니다. 오픈된 시리얼 터미널에서 위의 ID와 PW로 로그인을 합니다.<br>로그인을 완료하면 드디어 시리얼 터미널을 통해 라즈베리파이3와 통신할 수 있습니다.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="6-raspberry-pi-wifi-설정-by-putty">6. Raspberry Pi WiFi 설정 (by PuTTY)</h2>
+<p>앞서 오픈한 시리얼 터미널(PuTTY)를 통해 라즈베리파이3의 WiFi를 설정할 수 있습니다.</p>
+<p><strong>1. wifi_manager_test로 WiFi 연결하기</strong></p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">$ wifi_manager_test</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>시리얼 터미널에서 명령어를 실행한 뒤 엔터를 누르면 WiFi 설정을 할 수 있는 다음과 같은 화면이 나옵니다.</p>
+<img src="/TizenSchool/assets/images/tutorials/131/page6_1.png" style="height:470px; width:426px">
+<p>“1 &gt; 3 &gt; c” 을 차례대로 입력하여 WiFi를 연결합니다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">1. Wi-Fi Init and set callbacks</span></span>
+<span class="line"><span style="color: #BBBBBB">3. Activate Wi-Fi device</span></span>
+<span class="line"><span style="color: #BBBBBB">c. Connect </span><span style="color: #999">(</span><span style="color: #BBBBBB">AP name/password 입력</span><span style="color: #999">)</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<img src="/TizenSchool/assets/images/tutorials/131/page6_2.png" style="height:680px; width:674px">
+<p>“6” 을 입력하여 네트워크에 연결되었는지 확인합니다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">6. Get connection state</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>“0” 을 입력하여 WiFi 연결 설정을 종료합니다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">0. Exit</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>연결 설정 중 문제가 있으면 “0”은 눌러 연결 설정을 나갑니다. wifi_manager_test를 다시 실행하여 다시 WiFi를 연결해주세요.<br>여러 번 반복해도 WiFi 연결이 되지 않을 경우, 드라이버가 제대로 설치되지 않았을 수 있습니다.</p>
+<p><strong>2. 연결된 WiFi의 IP 주소 확인하기</strong></p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">$ ifconfig</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<img src="/TizenSchool/assets/images/tutorials/131/page6_3.png" style="height:362px; width:513px">
+<p>WiFi가 연결되면 라즈베리파이3는 고유한 IP 주소를 가지게 됩니다. 이후에는 IP 주소로 직접 디바이스에 연결하는 것도 가능합니다.<br>아래 SDB 연결시 위에서 파악한 라즈베리파이3의 IP 주소를 사용합니다.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="7-tizen-studio와-raspberry-pi-연결-by-sdb">7. Tizen Studio와 Raspberry Pi 연결 (by SDB)</h2>
+<p>타이젠 스튜디오와 라즈베리파이3는 SDB를 사용하여 연결합니다. SDB를 통해 타이젠 스튜디오로 빌드한 프로젝트들을 라즈베리파이3에 설치할 수 있습니다.</p>
+<p>SDB는 타이젠 스튜디오를 설치하면 &lt;TIZEN_STUDIO&gt;/tools/ 아래에 함께 설치되어 바로 사용 가능하지만, SDB를 편리하게 사용하기 위해서는 간단한 설정이 필요합니다. Appendix를 참고하세요</p>
+<p><a href="https://craftroom.tizen.org/getting-started-with-raspberry-pi3/#sdb-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0">Appendix &gt; SDB 환경 변수 설정하기</a></p>
+<p><strong>1. SDB 연결하기</strong></p>
+<p>위에서 설명했듯이 무선 네트워크에 연결되면 라즈베리파이3는 고유한 IP 주소를 가지게 됩니다. 이 IP 주소를 사용하여 SDB 연결을 진행합니다.</p>
+<p>라즈베리파이3와 타이젠 스튜디오는 sdb connect 명령어를 사용하여 연결할 수 있습니다. PC의 명령 프롬프트(CMD)에서 위 명령어를 사용하여 라즈베리파이3를 연결합니다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">$ sdb connect </span><span style="color: #A67F59">&lt;</span><span style="color: #BBBBBB">라즈베리파이3의 IP 주소</span><span style="color: #A67F59">&gt;</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<img src="/TizenSchool/assets/images/tutorials/131/page7_1.png" style="height:56px; width:483px">
+<p>주의 사항</p>
+<p>연결이 성공적으로 이루어지면 타이젠 스튜디오의 Device Manager에 연결된 라즈베리파이3의 정보가 출력됩니다.</p>
+<img src="/TizenSchool/assets/images/tutorials/131/page7_2.png" style="height:537px; width:750px">
+<p>연결이 제대로 되지 않으면</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">$ sdb devices</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<img src="/TizenSchool/assets/images/tutorials/131/page7_3.png" style="height:58px; width:483px">
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">$ sdb kill-server</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>2. SDB shell 실행하기</strong></p>
+<p>sdb sehll을 실행하기 위해서는 명령 프롬프트(CMD)에서 sdb shell 명령어를 실행합니다.<br>sdb shell은 sdb로 연결된 디바이스가 있어야 실행되므로 sdb devices로 미리 연결된 디바이스가 있는지 보고 sdb shell을 실행하는 것이 좋습니다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">$ sdb devices</span></span>
+<span class="line"><span style="color: #BBBBBB">$ sdb shell</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>root 권한으로 shell을 실행하는 것은 2가지 방법이 있습니다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">$ sdb root on</span></span>
+<span class="line"><span style="color: #BBBBBB">$ sdb shell</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">$ sdb shell</span></span>
+<span class="line"><span style="color: #BBBBBB">$ su</span></span>
+<span class="line"><span style="color: #BBBBBB">Password : tizen </span><span style="color: #999">(</span><span style="color: #BBBBBB">패스워드 타이핑 시에 패스워드는 보이지 않습니다.</span><span style="color: #999">)</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<img src="/TizenSchool/assets/images/tutorials/131/page7_4.png" style="height:333px; width:618px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="appendix">*Appendix</h2>
+<p><strong>SDB 환경 변수 설정하기</strong></p>
+<p>라즈베리파이3가 고유의 IP를 가지게 되면 해당 IP를 이용하여 PC와 SDB 통신이 가능합니다.<br>우분투에서는 터미널, 윈도우에서는 명령 프롬프트(CMD) 통해 SDB 통신을 할 수 있습니다.</p>
+<p><strong>1. SDB 실행하기</strong></p>
+<p>SDB는 Tizen Studio가 설치되면 &lt;TIZEN_STUDIO&gt;/tools/ 아래에 함께 설치됩니다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">$ cd </span><span style="color: #A67F59">&lt;</span><span style="color: #BBBBBB">TIZEN_STUDIO</span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB">/tools/</span></span>
+<span class="line"><span style="color: #BBBBBB">$ sdb</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>위의 경로에서 sdb를 실행 할 수 있습니다.</p>
+<p><strong>2. SDB 환경 변수로 설정하기</strong></p>
+<p>sdb를 좀 더 편리하게 실행하기 위해서 sdb를 환경 변수로 설정해줍니다. sdb를 환경 변수로 설정하면 경로 지정없이 어디서든 sdb를 사용할 수 있습니다.</p>
+<p><strong>Windows</strong></p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">1. </span><span style="color: #999">[</span><span style="color: #BBBBBB">내 컴퓨터</span><span style="color: #999">]</span><span style="color: #BBBBBB"> 우클릭 </span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB"> 속성 </span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #999">[</span><span style="color: #BBBBBB">고급 시스템 설정</span><span style="color: #999">]</span></span>
+<span class="line"><span style="color: #BBBBBB">2. </span><span style="color: #999">[</span><span style="color: #BBBBBB">환경 변수</span><span style="color: #999">]</span><span style="color: #BBBBBB"> 선택</span></span>
+<span class="line"><span style="color: #BBBBBB">3. 시스템 변수의 Path를 선택한 뒤 </span><span style="color: #999">[</span><span style="color: #BBBBBB">편집</span><span style="color: #999">]</span></span>
+<span class="line"><span style="color: #BBBBBB">4. Path에 </span><span style="color: #999">"</span><span style="color: #690">C:tizen-studiotools</span><span style="color: #999">"</span><span style="color: #BBBBBB"> 추가</span></span>
+<span class="line"><span style="color: #BBBBBB">5. 터미널 또는 명령 프롬프트</span><span style="color: #999">(</span><span style="color: #BBBBBB">CMD</span><span style="color: #999">)</span><span style="color: #BBBBBB"> 재실행</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>Ubuntu</strong></p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">1. vi </span><span style="color: #A67F59">~</span><span style="color: #BBBBBB">/.bashrc</span></span>
+<span class="line"><span style="color: #BBBBBB">2. </span><span style="color: #A67F59">~</span><span style="color: #BBBBBB">/.bashrc의 맨 아래에 </span><span style="color: #999">"</span><span style="color: #690">export PATH=~/tizen-studio/tools:</span><span style="color: #999">$</span><span style="color: #000">PATH</span><span style="color: #999">"</span><span style="color: #BBBBBB"> 추가</span></span>
+<span class="line"><span style="color: #BBBBBB">3. source </span><span style="color: #A67F59">~</span><span style="color: #BBBBBB">/.bashrc 명령어로 변경 사항 적용</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>SDB에 대한 보다 자세한 설명은 다음 링크에서 볼 수 있습니다.<br><a href="https://developer.tizen.org/development/tizen-studio/web-tools/running-and-testing-your-app/sdb?langredirect=1">Connecting Devices over Smart Development Bridge</a></p></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/8</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/642c4c04779a63be966fa6579cbe2e444ddde584">642c4c04779a63be966fa6579cbe2e444ddde584</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+

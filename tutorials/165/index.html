@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/TizenSchool/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/TizenSchool/assets/images/favicon-32x32.png">
+    <title>Native http server on Tizen IoT</title>
+  <link rel="stylesheet" href="/TizenSchool/assets/aboutus.9016036b.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.013d619c.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="2r5SHS" component-url="/TizenSchool/Header.fde63186.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/TizenSchool/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      Native http server on Tizen IoT
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">by J. Park</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/TizenSchool/assets/images/iot-active.png">
+        <img src="/TizenSchool/assets/images/wearable-dimmed.png">
+        <img src="/TizenSchool/assets/images/mobile-dimmed.png">
+        <img src="/TizenSchool/assets/images/smart-tv-dimmed.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2019/10/15</span>
+            Modified
+            <span class="font-bold">2019/10/19</span>
+    </div>
+  </div><astro-island uid="Z1SIYit" component-url="/TizenSchool/TextContent.c7f4d9de.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,10],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Native http server on Tizen IoT\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;REST(REpresentational State Transfer) API \\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;JSON(JavaScript Object Notation)\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;Background\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;libsoup\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;서버 만들기\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Rest API 만들기\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;비동기 메시지 처리\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;인증\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;HTTP server\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Multipart form data 처리\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Server dashboard example\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;Appendix\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/10</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="native-http-server-on-tizen-iot">Native http server on Tizen IoT</h2>
+<p>*_ 사전지식_</p>
+<p><a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+<img src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" style="height:31px; width:88px">
+</a></p>
+<p><em>이 저작물은&nbsp;<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">크리에이티브 커먼즈 저작자표시-비영리-동일조건변경허락 4.0 국제 라이선스</a>에 따라 이용할 수 있습니다.</em></p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="background">Background</h1><h2 id="restrepresentational-state-transfer-api">REST(REpresentational State Transfer) API&nbsp;</h2>
+<ul>
+<li><a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm">참고</a></li>
+</ul>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="background">Background</h1><h2 id="jsonjavascript-object-notation">JSON(JavaScript Object Notation)</h2>
+<img src="/TizenSchool/assets/images/tutorials/165/1.png" style="height:113px; width:598px">
+<img src="/TizenSchool/assets/images/tutorials/165/2.png" style="height:278px; width:598px">
+<img src="/TizenSchool/assets/images/tutorials/165/3.png" style="height:113px; width:598px">
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">"</span><span style="color: #690">이름</span><span style="color: #999">"</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">홍길동</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">"</span><span style="color: #690">학과</span><span style="color: #999">"</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">컴퓨터공학과</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">"</span><span style="color: #690">수강과목</span><span style="color: #999">"</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #999">[</span><span style="color: #999">"</span><span style="color: #690">인공지능</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">알고리즘</span><span style="color: #999">"</span><span style="color: #999">],</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ul>
+<li><a href="http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf">참고</a><br></li>
+</ul>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="http-server">HTTP server</h1><h2 id="libsoup">libsoup</h2>
+<p>Libsoup은 GNOME 재단에서 개발 및 관리 중인 오픈소스 HTTP 서버/클라이언트 라이브러리<br></p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="http-server">HTTP server</h1><h2 id="서버-만들기">서버 만들기</h2>
+<p><strong>libsoup 서버 관련 APIs</strong></p>
+<p>libsoup은 서버/클라이언트 모두를 위한 API를 지원한다.</p>
+<p>여기서는 서버를 위한 API에 대해서만 간략히 설명하고자 한다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #000">SoupServer </span><span style="color: #A67F59">*</span><span style="color: #DD4A68">soup_server_new</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #07A">const</span><span style="color: #000"> </span><span style="color: #07A">char</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">optname1</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #999">...);</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>서버의 property&nbsp;이름과 value을 va_arg로 전달.&nbsp; (<a href="https://developer.gnome.org/libsoup/2.46/SoupServer.html#SOUP-SERVER-PORT:CAPS">property list</a>)<br></p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">soup_server_disconnect</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">SoupServer </span><span style="color: #A67F59">*</span><span style="color: #000">server</span><span style="color: #999">);</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">g_object_unref</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">gpointer object</span><span style="color: #999">);</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>soup_server_new()를 통해 획득한 server 객체는 GObject 이므로&nbsp;g_object_unref()를 이용하여 메모리 해제를 해야한다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">soup_server_run</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">SoupServer </span><span style="color: #A67F59">*</span><span style="color: #000">server</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">soup_server_run_async</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">SoupServer </span><span style="color: #A67F59">*</span><span style="color: #000">server</span><span style="color: #999">);</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">soup_server_quit</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">SoupServer </span><span style="color: #A67F59">*</span><span style="color: #000">server</span><span style="color: #999">);</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>HTTP server 구현</strong></p>
+<p>이 프로젝트의 http 서버는 libsoup의 API를 조금 더 쉽게 사용할 수 있는 wrapper 함수를 제공한다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">http_server_create</span><span style="color: #999">(</span><span style="color: #07A">const</span><span style="color: #000"> </span><span style="color: #07A">char</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">name</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #07A">unsigned</span><span style="color: #000"> </span><span style="color: #07A">int</span><span style="color: #000"> port</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">	SoupServer </span><span style="color: #A67F59">*</span><span style="color: #000">s </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	s </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">soup_server_new</span><span style="color: #999">(</span><span style="color: #000">SOUP_SERVER_SERVER_HEADER</span><span style="color: #999">,</span><span style="color: #000"> name</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">						SOUP_SERVER_PORT</span><span style="color: #999">,</span><span style="color: #000"> port</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	g_server </span><span style="color: #A67F59">=</span><span style="color: #000"> s</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">return</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>http-server.c 에서는 soup_server_new()함수를 이용해 생성한 server 객체를 singleton으로 유지하고, 함수로만 접근 가능하도록 구현되어 있다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">http_server_destroy</span><span style="color: #999">(</span><span style="color: #07A">void</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">soup_server_disconnect</span><span style="color: #999">(</span><span style="color: #000">g_server</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">g_object_unref</span><span style="color: #999">(</span><span style="color: #000">g_server</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">	g_server </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">http_server_start</span><span style="color: #999">(</span><span style="color: #07A">void</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">soup_server_run_async</span><span style="color: #999">(</span><span style="color: #000">g_server</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">return</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">http_server_stop</span><span style="color: #999">(</span><span style="color: #07A">void</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">soup_server_quit</span><span style="color: #999">(</span><span style="color: #000">g_server</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">return</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000"> </span><span style="color: #DD4A68">SERVER_NAME</span><span style="color: #000"> </span><span style="color: #999">"</span><span style="color: #690">http-server-app</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000"> </span><span style="color: #DD4A68">SERVER_PORT</span><span style="color: #000"> </span><span style="color: #905">8080</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">static</span><span style="color: #000"> </span><span style="color: #07A">bool</span><span style="color: #000"> </span><span style="color: #DD4A68">service_app_create</span><span style="color: #999">(</span><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">data</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">    </span><span style="color: #DD4A68">http_server_create</span><span style="color: #999">(</span><span style="color: #000">SERVER_NAME</span><span style="color: #999">,</span><span style="color: #000"> SERVER_PORT</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">    </span><span style="color: #DD4A68">http_server_start</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">return</span><span style="color: #000"> </span><span style="color: #905">true</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">static</span><span style="color: #000"> </span><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">service_app_terminate</span><span style="color: #999">(</span><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">data</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">http_server_destroy</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">return</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>참고 :&nbsp;<a href="https://developer.gnome.org/libsoup/2.46/libsoup-server-howto.html">libsoup server how-to</a></p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="http-server">HTTP server</h1><h2 id="rest-api-만들기">Rest API 만들기</h2>
+<p><strong>libsoup route handle API</strong></p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">void</span></span>
+<span class="line"><span style="color: #DD4A68">soup_server_add_handler</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">SoupServer </span><span style="color: #A67F59">*</span><span style="color: #000">server</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">                         </span><span style="color: #07A">const</span><span style="color: #000"> </span><span style="color: #07A">char</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">path</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">                         SoupServerCallback callback</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">                         gpointer user_data</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">                         GDestroyNotify destroy</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">void</span></span>
+<span class="line"><span style="color: #999">(</span><span style="color: #A67F59">*</span><span style="color: #000">SoupServerCallback</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">SoupServer </span><span style="color: #A67F59">*</span><span style="color: #000">server</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">                       SoupMessage </span><span style="color: #A67F59">*</span><span style="color: #000">msg</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">                       </span><span style="color: #07A">const</span><span style="color: #000"> </span><span style="color: #07A">char</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">path</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">                       GHashTable </span><span style="color: #A67F59">*</span><span style="color: #000">query</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">                       SoupClientContext </span><span style="color: #A67F59">*</span><span style="color: #000">client</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">                       gpointer user_data</span><span style="color: #999">);</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>soup_server_handler_add() 함수의 path 인자가 Rest API의&nbsp;request 경로로 사용될 수 있다.</p>
+<p>클라이언트가 특정 경로로 request를 보내면 해당 경로의 핸들러 콜백 함수</p>
+<p>(SoupServerCallback으로 정의된&nbsp;함수)&nbsp;가 호출되어 request를 처리할 수 있다.</p>
+<p>해당 경로의 핸들러 콜백 함수가 없는 경우 root path(”/“)의 핸들러 콜백함수가 호출되고,</p>
+<p>root path의 핸들러 콜백 함수가 정의되지 않은 경우 서버는 아무런 동작도 하지 않는다.</p>
+<p>핸들러 콜백 함수(SoupServerCallback)의 msg 인자를 통해 해당 경로에 대한 request정보 확인하고</p>
+<p>response 메시지 생성하여 클라이언트에게 돌려 줄 수 있다.</p>
+<p>(<a href="https://developer.gnome.org/libsoup/2.46/SoupMessage.html">SoupMessage</a>,&nbsp;<a href="https://developer.gnome.org/libsoup/2.46/SoupMessageHeaders.html">SoupMessageHeaders</a>,&nbsp;<a href="https://developer.gnome.org/libsoup/2.46/SoupMessageBody.html">SoupMessageBody</a>&nbsp;API 참고)</p>
+<p>이 프로젝트에서는 server 객체가 핸들러 콜백 함수에 노출되는 것을 막기 위해 http_server_route_handler_add() 함수가</p>
+<p>soup_server_add_handler() 함수를 대체 하도록 구현하였다. (http-server-route.h 참조)</p>
+<p>원하는 path에 대하여&nbsp;http_server_route_handler_add()를 호출하고,</p>
+<p>http_server_route_callback() 함수가 메시지를 처리하도록 구현하면 Rest API가 완성된다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">http_server_route_handler_add</span><span style="color: #999">(</span><span style="color: #07A">const</span><span style="color: #000"> </span><span style="color: #07A">char</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">path</span><span style="color: #999">,</span><span style="color: #000"> http_server_route_callback callback</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">						gpointer user_data</span><span style="color: #999">,</span><span style="color: #000"> GDestroyNotify destroy</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">void</span></span>
+<span class="line"><span style="color: #999">(</span><span style="color: #A67F59">*</span><span style="color: #000">http_server_route_callback</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">SoupMessage </span><span style="color: #A67F59">*</span><span style="color: #000">msg</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">                               </span><span style="color: #07A">const</span><span style="color: #000"> </span><span style="color: #07A">char</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">path</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">						       GHashTable </span><span style="color: #A67F59">*</span><span style="color: #000">query</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">                               SoupClientContext </span><span style="color: #A67F59">*</span><span style="color: #000">client</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">						       gpointer user_data</span><span style="color: #999">);</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>아래와 같은 조건을 가진 Rest API를 구현하고 있는,&nbsp;hs-route-api-storage.c을 통해 API 구현에 대하여 살펴 보자.</p>
+<ul>
+<li>
+<p>HTTP Request<br>&nbsp; &nbsp;GET https://{target_ip}:8080/api/storage</p>
+</li>
+<li>
+<p>Response codes<br>&nbsp; &nbsp;200 (Successfully getting information, storage information is&nbsp;in the response body as JSON)</p>
+</li>
+<li>
+<p>Response<br>&nbsp; {<br>&nbsp; &nbsp; “storageInfoList”: [<br>&nbsp; &nbsp; &nbsp; {<br>&nbsp; &nbsp; &nbsp; &nbsp; “id”:0,<br>&nbsp; &nbsp; &nbsp; &nbsp; “type”:“Internal”,<br>&nbsp; &nbsp; &nbsp; &nbsp; “state”:“Mounted”,<br>&nbsp; &nbsp; &nbsp; &nbsp; “path”:“/opt/usr/home/owner/media”,<br>&nbsp; &nbsp; &nbsp; &nbsp; “totalSpace”:11518360,<br>&nbsp; &nbsp; &nbsp; &nbsp; “availSpace”:11250448<br>&nbsp; &nbsp; &nbsp; }<br>&nbsp; &nbsp; ]<br>&nbsp; }</p>
+</li>
+</ul>
+<p>코드&nbsp;예제 (hs-route-api-storage.c)</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">static</span><span style="color: #000"> </span><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">route_api_storage_callback</span><span style="color: #999">(</span><span style="color: #000">SoupMessage </span><span style="color: #A67F59">*</span><span style="color: #000">msg</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">					</span><span style="color: #07A">const</span><span style="color: #000"> </span><span style="color: #07A">char</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">path</span><span style="color: #999">,</span><span style="color: #000"> GHashTable </span><span style="color: #A67F59">*</span><span style="color: #000">query</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">					SoupClientContext </span><span style="color: #A67F59">*</span><span style="color: #000">client</span><span style="color: #999">,</span><span style="color: #000"> gpointer user_data</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">int</span><span style="color: #000"> ret </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">char</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">response_msg </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	gsize resp_msg_size </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">msg</span><span style="color: #999">-&gt;</span><span style="color: #000">method </span><span style="color: #A67F59">!=</span><span style="color: #000"> SOUP_METHOD_GET</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #DD4A68">soup_message_set_status</span><span style="color: #999">(</span><span style="color: #000">msg</span><span style="color: #999">,</span><span style="color: #000"> SOUP_STATUS_NOT_IMPLEMENTED</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">return</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #708090">	</span><span style="color: #999">/*</span><span style="color: #708090"> 생략 : Tizen API를 이용하여 storage 정보 획득, json 메시지 생성 </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #000">	response_msg </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">util_json_generate_str</span><span style="color: #999">(</span><span style="color: #000">builder</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #A67F59">&amp;</span><span style="color: #000">resp_msg_size</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">soup_message_body_append</span><span style="color: #999">(</span><span style="color: #000">msg</span><span style="color: #999">-&gt;</span><span style="color: #000">response_body</span><span style="color: #999">,</span><span style="color: #000"> SOUP_MEMORY_COPY</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">					response_msg</span><span style="color: #999">,</span><span style="color: #000"> resp_msg_size</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">g_clear_pointer</span><span style="color: #999">(</span><span style="color: #A67F59">&amp;</span><span style="color: #000">response_msg</span><span style="color: #999">,</span><span style="color: #000"> g_free</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">soup_message_headers_set_content_type</span><span style="color: #999">(</span></span>
+<span class="line"><span style="color: #000">						msg</span><span style="color: #999">-&gt;</span><span style="color: #000">response_headers</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #999">"</span><span style="color: #690">application/json</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">soup_message_set_status</span><span style="color: #999">(</span><span style="color: #000">msg</span><span style="color: #999">,</span><span style="color: #000"> SOUP_STATUS_OK</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">hs_route_api_storage_init</span><span style="color: #999">(</span><span style="color: #07A">void</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">return</span><span style="color: #000"> </span><span style="color: #DD4A68">http_server_route_handler_add</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">/api/storage</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">				route_api_storage_callback</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>API(/api/storage)&nbsp;경로에 대한 request를 처리하는 핸들러 콜백 함수(route_api_storage_callback() 함수)를 등록하고,</p>
+<p>핸들러 콜백 함수에서&nbsp;API response를 위한 정보 획득 및 처리 후 message body에 response를 담아 처리하면 된다.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="http-server">HTTP server</h1><h2 id="비동기-메시지-처리">비동기 메시지 처리</h2>
+<p><strong>비동기 메시지 처리는 왜 필요할까?</strong></p>
+<p>libsoup은 mainloop에서 event(특정 경로에 대한 클라이언트의 request 등)에 따라</p>
+<p>핸들러 콜백 함수를&nbsp;호출하여 메시지(SoupMessage)를 전달하고, 처리된 메시지를</p>
+<p>이용해 응답하도록 구현되어있다.</p>
+<p>메시지 처리가 오래 걸리는 경우, 메시지를 처리하는 시간 동안 mainloop이 다른 event를</p>
+<p>처리 할 수 없게되므로 서버가 다른 클라이언트의 요청을 처리할 수 없다.</p>
+<p>따라서 메시지를 비동기적으로 처리하여&nbsp;mainloop이 원할히 돌 수 있도록 해야 한다.</p>
+<p><strong>libsoup 비동기 메시지 처리 API</strong></p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">void</span></span>
+<span class="line"><span style="color: #DD4A68">soup_server_pause_message</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">SoupServer </span><span style="color: #A67F59">*</span><span style="color: #000">server</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">                           SoupMessage </span><span style="color: #A67F59">*</span><span style="color: #000">msg</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">void</span></span>
+<span class="line"><span style="color: #DD4A68">soup_server_unpause_message</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">SoupServer </span><span style="color: #A67F59">*</span><span style="color: #000">server</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">                             SoupMessage </span><span style="color: #A67F59">*</span><span style="color: #000">msg</span><span style="color: #999">);</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>메시지 처리가 오래 걸리는 경우에&nbsp;soup_server_pause_message()를 호출하고</p>
+<p>thread 등을 이용하여 별도의 process에서 메시지 처리 진행하도고 구현해야 한다.</p>
+<p>메시지 처리가 완료되어 soup_server_unpause_message() 호출하면&nbsp;server가 해당 메시지에 대한</p>
+<p>response를 클라이언트로 보낸다.</p>
+<p>이 프로젝트에서는 server 객체가 핸들러 콜백 함수에 노출되는 것을 막기 위해 아래의 함수로</p>
+<p>pause/unpause 함수를 대체하도록 구현하였다. (http-server-route.h 참조)</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">http_server_pause_message</span><span style="color: #999">(</span><span style="color: #000">SoupMessage </span><span style="color: #A67F59">*</span><span style="color: #000">msg</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">http_server_unpause_message</span><span style="color: #999">(</span><span style="color: #000">SoupMessage </span><span style="color: #A67F59">*</span><span style="color: #000">msg</span><span style="color: #999">);</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>비동기 메시지 처리 예제</strong> (hs-route-api-applist.c)</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000"> </span><span style="color: #DD4A68">ASYNC_RESPONSE</span><span style="color: #000"> </span><span style="color: #905">1</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">static</span><span style="color: #000"> </span><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">app_info_response_append</span><span style="color: #999">(</span><span style="color: #000">SoupMessage </span><span style="color: #A67F59">*</span><span style="color: #000">msg</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">char</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">response_msg </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	gsize resp_msg_size </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	JsonBuilder </span><span style="color: #A67F59">*</span><span style="color: #000">builder </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #708090">	</span><span style="color: #999">/*</span><span style="color: #708090"> 생략 : Tizen API를 이용하여 application 정보 획득 및 json 메시지 생성 </span><span style="color: #999">*/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	response_msg </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">util_json_generate_str</span><span style="color: #999">(</span><span style="color: #000">builder</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #A67F59">&amp;</span><span style="color: #000">resp_msg_size</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">g_clear_pointer</span><span style="color: #999">(</span><span style="color: #A67F59">&amp;</span><span style="color: #000">builder</span><span style="color: #999">,</span><span style="color: #000"> g_object_unref</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">soup_message_body_append</span><span style="color: #999">(</span><span style="color: #000">msg</span><span style="color: #999">-&gt;</span><span style="color: #000">response_body</span><span style="color: #999">,</span><span style="color: #000"> SOUP_MEMORY_COPY</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">					response_msg</span><span style="color: #999">,</span><span style="color: #000"> resp_msg_size</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">g_clear_pointer</span><span style="color: #999">(</span><span style="color: #A67F59">&amp;</span><span style="color: #000">response_msg</span><span style="color: #999">,</span><span style="color: #000"> g_free</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">soup_message_headers_set_content_type</span><span style="color: #999">(</span></span>
+<span class="line"><span style="color: #000">						msg</span><span style="color: #999">-&gt;</span><span style="color: #000">response_headers</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #999">"</span><span style="color: #690">application/json</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">soup_message_set_status</span><span style="color: #999">(</span><span style="color: #000">msg</span><span style="color: #999">,</span><span style="color: #000"> SOUP_STATUS_OK</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #DD4A68">ASYNC_RESPONSE</span></span>
+<span class="line"><span style="color: #07A">static</span><span style="color: #000"> gboolean </span><span style="color: #DD4A68">__handle_message_finished</span><span style="color: #999">(</span><span style="color: #000">gpointer data</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">	SoupMessage </span><span style="color: #A67F59">*</span><span style="color: #000">msg </span><span style="color: #A67F59">=</span><span style="color: #000"> data</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">http_server_unpause_message</span><span style="color: #999">(</span><span style="color: #000">msg</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">return</span><span style="color: #000"> </span><span style="color: #905">FALSE</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">static</span><span style="color: #000"> gpointer </span><span style="color: #DD4A68">app_info_thread</span><span style="color: #999">(</span><span style="color: #000">gpointer data</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">	SoupMessage </span><span style="color: #A67F59">*</span><span style="color: #000">msg </span><span style="color: #A67F59">=</span><span style="color: #000"> data</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">app_info_response_append</span><span style="color: #999">(</span><span style="color: #000">msg</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">g_idle_add</span><span style="color: #999">(</span><span style="color: #000">__handle_message_finished</span><span style="color: #999">,</span><span style="color: #000"> msg</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">return</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">endif</span><span style="color: #708090"> </span><span style="color: #999">/*</span><span style="color: #708090"> ASYNC_RESPONSE </span><span style="color: #999">*/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">static</span><span style="color: #000"> </span><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">route_api_applist_callback</span><span style="color: #999">(</span><span style="color: #000">SoupMessage </span><span style="color: #A67F59">*</span><span style="color: #000">msg</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">					</span><span style="color: #07A">const</span><span style="color: #000"> </span><span style="color: #07A">char</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">path</span><span style="color: #999">,</span><span style="color: #000"> GHashTable </span><span style="color: #A67F59">*</span><span style="color: #000">query</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">					SoupClientContext </span><span style="color: #A67F59">*</span><span style="color: #000">client</span><span style="color: #999">,</span><span style="color: #000"> gpointer user_data</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">msg</span><span style="color: #999">-&gt;</span><span style="color: #000">method </span><span style="color: #A67F59">!=</span><span style="color: #000"> SOUP_METHOD_GET</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #DD4A68">soup_message_set_status</span><span style="color: #999">(</span><span style="color: #000">msg</span><span style="color: #999">,</span><span style="color: #000"> SOUP_STATUS_NOT_IMPLEMENTED</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">return</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #DD4A68">ASYNC_RESPONSE</span></span>
+<span class="line"><span style="color: #000">	GThread </span><span style="color: #A67F59">*</span><span style="color: #000">thread </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">g_thread_try_new</span><span style="color: #999">(</span><span style="color: #905">NULL</span><span style="color: #999">,</span><span style="color: #000"> app_info_thread</span><span style="color: #999">,</span><span style="color: #000"> msg</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #A67F59">!</span><span style="color: #000">thread</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #DD4A68">_E</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">failed to create thread</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #DD4A68">soup_message_set_status</span><span style="color: #999">(</span><span style="color: #000">msg</span><span style="color: #999">,</span><span style="color: #000"> SOUP_STATUS_INTERNAL_SERVER_ERROR</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">return</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">http_server_pause_message</span><span style="color: #999">(</span><span style="color: #000">msg</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">else</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">app_info_response_append</span><span style="color: #999">(</span><span style="color: #000">msg</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">endif</span><span style="color: #708090"> </span><span style="color: #999">/*</span><span style="color: #708090"> ASYNC_RESPONSE </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">hs_route_api_applist_init</span><span style="color: #999">(</span><span style="color: #07A">void</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">return</span><span style="color: #000"> </span><span style="color: #DD4A68">http_server_route_handler_add</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">/api/applicationList</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">				route_api_applist_callback</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>app_info_response_append() 함수의 수행시간이 매우 오래 걸린다고 가정하면,</p>
+<p>핸들러 콜백 함수에서 직접 호출하는 경우 서버의 동작이 멈추므로&nbsp;&nbsp;비동기 처리가 필요하다.</p>
+<p>위 코드의 ASYNC_RESPONSE 매크로를 1로 정의하면 비동기 메시지 처리 코드가 동작한다.</p>
+<p>app_info_thread를 생성(55 line)하고, http_server_pause_message()를 호출(61 line)하여</p>
+<p>서버가 다른 처리를 할 수 있도록 함수를 리턴한다.</p>
+<p>app_info_thread의 동작을 완료한 다음,&nbsp;http_server_unpause_message() 호출(29 line)하여</p>
+<p>서버가 해당 메시지에 대한 response를 클라이언트에게 보낸다.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="http-server">HTTP server</h1><h2 id="인증">인증</h2>
+<p>http 서버에서 많이 사용하는 방법은 아래와 같이 3가지이다.</p>
+<p>“https”를 사용가능한 환경이면 대부분 1 또는 3번을 이용해 인증을 구현하고 있다.</p>
+<p>하지만,&nbsp;1 또는 3 번의 방법은 “http” 환경에서는 인증 정보(id, pw)가 네트워크 상에</p>
+<p>plain text로 노출되므로 사용하는 것이 위험하다.</p>
+<p>libsoup은 아래 링크의 API들을 통해 HTTP 표준인 1, 2 번 방법을 지원한다.</p>
+<p><a href="https://developer.gnome.org/libsoup/2.46/SoupAuthDomain.html">SoupAuthDomain</a> — Server-side authentication</p>
+<p><a href="https://developer.gnome.org/libsoup/2.46/SoupAuthDomainBasic.html">SoupAuthDomainBasic</a> — Server-side “Basic” authentication</p>
+<p><a href="https://developer.gnome.org/libsoup/2.46/SoupAuthDomainDigest.html">SoupAuthDomainDigest</a> — Server-side “Digest” authentication</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">void</span></span>
+<span class="line"><span style="color: #DD4A68">soup_auth_domain_add_path</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">SoupAuthDomain </span><span style="color: #A67F59">*</span><span style="color: #000">domain</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">                           </span><span style="color: #07A">const</span><span style="color: #000"> </span><span style="color: #07A">char</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">path</span><span style="color: #999">);</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>위 API를 이용해 특정 path를 지정하면 해당 경로의 하위 경로를 포함한 경로에</p>
+<p>클라이언트가 접근할 경우 http 표준 인증 절차가 진행된다.</p>
+<p>이 프로젝트에서는 “default”라는 이름의&nbsp;realm을 초기값으로 하고 이 realm에</p>
+<p>digest 인증을 적용하는 함수를 구현하였다.(http-server-route.h)</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">http_server_auth_default_realm_path_add</span><span style="color: #999">(</span><span style="color: #07A">const</span><span style="color: #000"> </span><span style="color: #07A">char</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">path</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">http_server_auth_default_realm_path_remove</span><span style="color: #999">(</span><span style="color: #07A">const</span><span style="color: #000"> </span><span style="color: #07A">char</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">path</span><span style="color: #999">);</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>root 경로 핸들러 등록 전,&nbsp;&nbsp;root 경로에 인증을 적용하여 서버의 모든 경로에 접근 할 경우</p>
+<p>인증이 필요하도록 구현되어 있다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">hs_route_root_init</span><span style="color: #999">(</span><span style="color: #07A">void</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">int</span><span style="color: #000"> ret </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">http_server_auth_default_realm_path_add</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">/</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">retv_if</span><span style="color: #999">(</span><span style="color: #000">ret</span><span style="color: #999">,</span><span style="color: #000"> ret</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">return</span><span style="color: #000"> </span><span style="color: #DD4A68">http_server_route_handler_add</span><span style="color: #999">(</span><span style="color: #905">NULL</span><span style="color: #999">,</span><span style="color: #000"> route_root_callback</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>*참고</strong></p>
+<p>http digest authentication을 위해서는 MD5를 이용한 digest 생성하여 서버가 저장해야 함.</p>
+<p>이 프로젝트에는&nbsp;res/auth-data/auth-passwd.dat에 digest를 저장하고 있음</p>
+<p>예를 들어, 사용자 정보가 아래와 같다면,</p>
+<p>username=Mufasa</p>
+<p>realm=<a href="mailto:myhost@testrealm.com">myhost@testrealm.com</a></p>
+<p>password=Circle Of Life</p>
+<p><a href="https://tools.ietf.org/html/rfc2617#section-3.2.2.4">http 표준</a>에 따라 아래와 같은 형식으로 저장되어 있음.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">[</span><span style="color: #BBBBBB">myhost@testrealm.com</span><span style="color: #999">]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">Mufasa</span><span style="color: #BBBBBB"> </span><span style="color: #999">=</span><span style="color: #BBBBBB"> H(Mufasa:myhost@testrealm.com:Circle Of Life)</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>실제 res/auth-data/auth-passwd.dat 파일의 내용</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">[</span><span style="color: #BBBBBB">default</span><span style="color: #999">]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">admin</span><span style="color: #999">=</span><span style="color: #BBBBBB">9af7338e5fd4372f751ac58c69934aaa</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>ID와&nbsp; PW를 바꾸고 싶으시면,&nbsp;<a href="https://github.com/jay4peace/digest_gen">https://github.com/jay4peace/digest_gen</a>의&nbsp;digest_gen.py 이용<br></p>
+<p>* 사용 방법</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">$ python digest_gen.py -u {Your_ID} -p {Your_PW} -f tizen</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>출력된 결과물을 복사하여 res/auth-data/auth-passwd.dat 에서 수정</p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="appendix">Appendix</h1><h2 id="multipart-form-data-처리">Multipart form data 처리</h2>
+<p>libsoup 은 Multipart form data 처리를 위하여 아래 링크의 API를 제공하고 있다.</p>
+<p><a href="https://developer.gnome.org/libsoup/2.46/libsoup-2.4-HTML-Form-Support.html">HTML Form Support</a> — HTML form handling</p>
+<p>soup_form_decode_multipart() API가&nbsp; 메시지(SoupMessage)에 포함된 form data를</p>
+<p>hash table에 담아 리턴해준다.</p>
+<p>hash table에서 form data내의 각 item data를 조회 할 수 있다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #000">GHashTable </span><span style="color: #A67F59">*</span></span>
+<span class="line"><span style="color: #DD4A68">soup_form_decode_multipart</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">SoupMessage </span><span style="color: #A67F59">*</span><span style="color: #000">msg</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">                            </span><span style="color: #07A">const</span><span style="color: #000"> </span><span style="color: #07A">char</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">file_control_name</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">                            </span><span style="color: #07A">char</span><span style="color: #000"> </span><span style="color: #A67F59">**</span><span style="color: #000">filename</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">                            </span><span style="color: #07A">char</span><span style="color: #000"> </span><span style="color: #A67F59">**</span><span style="color: #000">content_type</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">                            SoupBuffer </span><span style="color: #A67F59">**</span><span style="color: #000">file</span><span style="color: #999">);</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>form data에 파일이 첨부되어 있을 경우,&nbsp;file_control_name인자로 form ID를 전달하면</p>
+<p>filename,&nbsp;ontent_type,&nbsp;file 인자로 해당 파일의 정보 및 데이터가 전달된다.</p>
+<p>이 프로젝트의&nbsp;hs-route-api-image-upload.c 파일에서 아래와 같이 이미지 파일이 포함된</p>
+<p>form data 를 처리하고 있다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">static</span><span style="color: #000"> </span><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">route_api_image_upload_callback</span><span style="color: #999">(</span><span style="color: #000">SoupMessage </span><span style="color: #A67F59">*</span><span style="color: #000">msg</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">					</span><span style="color: #07A">const</span><span style="color: #000"> </span><span style="color: #07A">char</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">path</span><span style="color: #999">,</span><span style="color: #000"> GHashTable </span><span style="color: #A67F59">*</span><span style="color: #000">query</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">					SoupClientContext </span><span style="color: #A67F59">*</span><span style="color: #000">client</span><span style="color: #999">,</span><span style="color: #000"> gpointer user_data</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">char</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">filename </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">char</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">type </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	SoupBuffer </span><span style="color: #A67F59">*</span><span style="color: #000">buffer </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	GHashTable </span><span style="color: #A67F59">*</span><span style="color: #000">part_hash </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">msg</span><span style="color: #999">-&gt;</span><span style="color: #000">method </span><span style="color: #A67F59">!=</span><span style="color: #000"> SOUP_METHOD_POST</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #DD4A68">soup_message_set_status</span><span style="color: #999">(</span><span style="color: #000">msg</span><span style="color: #999">,</span><span style="color: #000"> SOUP_STATUS_NOT_IMPLEMENTED</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">return</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	part_hash </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">soup_form_decode_multipart</span><span style="color: #999">(</span><span style="color: #000">msg</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #999">"</span><span style="color: #690">imageFile</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">						</span><span style="color: #A67F59">&amp;</span><span style="color: #000">filename</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #A67F59">&amp;</span><span style="color: #000">type</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #A67F59">&amp;</span><span style="color: #000">buffer</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">_D</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">filename : %s, type : %s, file size : %d</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">		filename</span><span style="color: #999">,</span><span style="color: #000"> type</span><span style="color: #999">,</span><span style="color: #000"> buffer</span><span style="color: #999">-&gt;</span><span style="color: #000">length</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>브라우저에서 http://{target_ip}:8080/image.html 에 접속하면 image file을 업로드 하는 페이지 확인 가능</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="appendix">Appendix</h1><h2 id="server-dashboard-example">Server dashboard example</h2>
+<p>Tizen studio - Project - Run as 실행</p>
+<p>브라우저에서 http://{target_ip}:8080</p>
+<img src="/TizenSchool/assets/images/tutorials/165/tizeniot-httpserver.png" style="height:866px; width:1009px"></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/10</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/642c4c04779a63be966fa6579cbe2e444ddde584">642c4c04779a63be966fa6579cbe2e444ddde584</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+

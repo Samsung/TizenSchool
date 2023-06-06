@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/TizenSchool/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/TizenSchool/assets/images/favicon-32x32.png">
+    <title>C# Wearable App Development (1/3)</title>
+  <link rel="stylesheet" href="/TizenSchool/assets/aboutus.9016036b.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.013d619c.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="2r5SHS" component-url="/TizenSchool/Header.fde63186.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/TizenSchool/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      C# Wearable App Development (1/3)
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">This tutorial describes how to set an environment to develop Tizen C# applications You can build and run a basic app on your Galaxy Watch with this tutorial.</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/TizenSchool/assets/images/iot-dimmed.png">
+        <img src="/TizenSchool/assets/images/wearable-active.png">
+        <img src="/TizenSchool/assets/images/mobile-dimmed.png">
+        <img src="/TizenSchool/assets/images/smart-tv-dimmed.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2018/06/20</span>
+            Modified
+            <span class="font-bold">2022/06/05</span>
+    </div>
+  </div><astro-island uid="ZGahnY" component-url="/TizenSchool/TextContent.c7f4d9de.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,23],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[]\&quot;],\&quot;chapter\&quot;:[0,\&quot;\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Installing Visual Studio Tools for Tizen\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Visual Studio Tools for Tizen Installation\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Setting the Tizen Baseline SDK Path\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Summary\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;I. Environment Setup\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Creating and Configuring the Emulator\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Managing the Emulator\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Emulator Standard Applications\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Additional Controls\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;II. Creating an Emulator\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Connecting to the Network\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Device Configuration\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;III. Connecting to a wearable device\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Generating Samsung Certificates\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Generating Tizen Certificates\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;IV. Generating Certificates\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Create an Account\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Store Overview\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Publication of a New Application in Samsung Galaxy Apps\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Application Status\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;V. Application Publication in Samsung Galaxy Apps\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Create Project using Visual Studio\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Building Your Application\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Deploying and Running your Application\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;VI. Create and Run the First Application\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Entry Point in Tizen Application\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;System Events\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Application lifecycle\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;VII. Application lifecycle\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Main Modules of Tizen .Net\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;VIII. Tizen .net\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/23</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id="i-environment-setup">I. Environment Setup</h1><h2 id="installing-visual-studio-tools-for-tizen">Installing Visual Studio Tools for Tizen</h2>
+<p>You need the following components on top of Visual Studio to make Visual Studio Tools for Tizen work:</p>
+<p><strong>Prerequisites</strong></p>
+<p>To work with Visual Studio Tools for Tizen, your computer must have:</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_1_image001.png" style="height:96px; width:824px">
+<p><strong>Emulator Requirements</strong></p>
+<p>The Tizen emulator for Visual Studio has the same requirements as the emulator in the Tizen Studio. To check the detailed hardware and software requirements for the Tizen emulator, see&nbsp;<a href="https://developer.tizen.org/development/tizen-studio/download/installing-tizen-studio/prerequisites">Emulator Requirements</a>.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="i-environment-setup">I. Environment Setup</h1><h2 id="visual-studio-tools-for-tizen-installation">Visual Studio Tools for Tizen Installation</h2>
+<p>To use the Tizen SDK tools, you must install the Visual Studio Tools for Tizen extension and the baseline SDK.</p>
+<p><strong>Note</strong> : if the Tizen Studio is already installed in your computer, simply&nbsp;<a href="https://samsung.github.io/TizenSchool/tutorial/116/contents/3">set the Tizen baseline SDK path</a>&nbsp;to the existing SDK instead of reinstalling it.</p>
+<p><strong>Installing the Extension</strong></p>
+<p>The Visual Studio Tools for Tizen extension is registered in the Visual Studio Marketplace. You can install extensions from the Visual Studio Marketplace in the Visual Studio IDE.</p>
+<p>The installation starts.</p>
+<p>Alternatively, you can download the Visual Studio Tools for Tizen extension from the&nbsp;<a href="https://marketplace.visualstudio.com/items?itemName=tizen.VisualStudioToolsforTizen">Visual Studio Marketplace Web site</a>.</p>
+<p><strong>Installing the Tizen Baseline SDK</strong></p>
+<p>After installing the Visual Studio Tools for Tizen extension, you must set up the Tizen baseline SDK:</p>
+<p>The Tizen SDK installer will be downloaded and the baseline SDK will be installed automatically.</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_1_image008.png" style="height:500px; width:800px">
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_1_image009.png" style="height:487px; width:694px">
+<p>Finally, the Tizen Package Manager installs the Tizen SDK tools.</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_1_image010.png" style="height:653px; width:642px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="i-environment-setup">I. Environment Setup</h1><h2 id="setting-the-tizen-baseline-sdk-path">Setting the Tizen Baseline SDK Path</h2>
+<p><strong>Note</strong> : Please skip this step if you recently downloaded and installed Visual Studio Tools for Tizen extension from Visual Studio Marketplace.</p>
+<p>You can use the Tizen Package Manager to set up the Tizen baseline SDK path or each tool path directly:</p>
+<p><strong>Note:</strong> If the installer gives a warning about your Tizen Studio version being too low, update the Tizen Studio by using&nbsp;the Tizen Package Manager after setting the tool path.</p>
+<p><strong>Installing Emulator Images</strong></p>
+<p>If you do not have a real device, you can run applications in the Tizen emulator.</p>
+<p>To download emulator images, you can use the Tizen Package Manager or the Tizen Emulator Manager:</p>
+<p><strong>Troubleshooting</strong></p>
+<p>If you encounter problems with the installation:</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="i-environment-setup">I. Environment Setup</h1><h2 id="summary">Summary</h2>
+<p>Following is the summary of the Environment setup:</p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-creating-an-emulator">II. Creating an Emulator</h1><h2 id="creating-and-configuring-the-emulator">Creating and Configuring the Emulator</h2>
+<p>In this lesson we will talk about creating a standard emulator for wearable devices, managing it and about its standard applications.</p>
+<p><strong>Important:</strong> &nbsp;To create&nbsp; <strong>Tizen</strong> &nbsp;emulator, use emulator manager. This should be installed via <strong>Visual Studio</strong> &nbsp;package manager. Make sure that you have the package&nbsp; <strong>Tizen SDK tools</strong> &nbsp;→&nbsp; <strong>Emulator manager</strong> &nbsp;installed in your computer. We talked about this in the lesson&nbsp; <strong>Environment Setup</strong> .</p>
+<p><strong>Run emulator manager</strong></p>
+<p>This can be done in several ways. The first one is to search for an application with the name&nbsp; <strong>Emulator Manager</strong> &nbsp;directly in your operating system. The second way is to launch the manager straight from&nbsp; <strong>Visual Studio</strong> . Let’s see how to use the second one. The button for launching the manager can be found in Visual studio, in the&nbsp; <strong>Tools</strong> → <strong>Tizen</strong> → <strong>Tizen Emulator Manager</strong> window.</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_2_image001.png" style="height:455px; width:1000px">
+<p>To create a new emulator, click the&nbsp; <strong>Create</strong> &nbsp;button.&nbsp;<br><br>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_2_image002.png" style="undefined"></p>
+<p>Select platform (Mobile or Wearable) and platform version (5.0 or 4.0) to create an emulator.<br><br>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_2_image003.png" style="undefined"></p>
+<p>Select the version in dependence with the device that you want to emulate. In this case, the target device is&nbsp; <strong>Gear S3</strong> , which, at the moment (July, 2018), runs on the&nbsp; <strong>tizen-5.0</strong> &nbsp;platform and has a round display, so select&nbsp; <strong>wearable-5.0-circle</strong> &nbsp;(basic).</p>
+<p>Click ‘Next’.</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_2_image004.png" style="undefined">
+<p>Select standard template, or create customize template with respect to your requirement. Templates configuration specifies device name, resolution, size, screen, camera, sensor, and connectivity parameter.</p>
+<p>Click the ”+” button to create a customize emulator template.<br><br>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_2_image005.png" style="undefined"></p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_2_image006.png" style="height:600px; width:402px">
+<p>Select standard or customize template and click&nbsp; <strong>Next</strong> to configure emulator properties.</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_2_image007.png" style="height:684px; width:728px">
+<p>Specify parameters such as: name of the emulator, the number of processors, and so on. Select <strong>Device</strong> &nbsp;or&nbsp; <strong>HW Support</strong> &nbsp;category, to configure the simulations availability of the various sensors that are present in the selected template. After the configuration is complete, click <strong>Finish</strong> and the emulator is created.&nbsp;<br><br>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_2_image008.png" style="undefined"></p>
+<p>The emulator created in last step should appear in the list of available emulators. Select it and click <strong>Launch</strong> **** to launch the Emulator.</p>
+<p>You can use multiple emulators to test your application’s functionality on various screen extensions, with different sensor configurations.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-creating-an-emulator">II. Creating an Emulator</h1><h2 id="managing-the-emulator">Managing the Emulator</h2>
+<p>Let’s consider management of the emulator of a portable device with a round display.&nbsp;<br><br>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_2_image009.png" style="undefined"></p>
+<p>This emulator has three hardware controllers: bezel, back button, home/ power button.</p>
+<p><strong>Bezel</strong> &nbsp;is a rotating ring around the display. To start the rotation, move the cursor to any place on the ring, hold down the left mouse button and move the cursor in any direction. Bezel imitates two signals: clockwise and counterclockwise rotation.</p>
+<p>The&nbsp; <strong>Back</strong> &nbsp;button is the top button on the emulator, which is used to return to the previous screen. Swapping across the screen from top to bottom is an alternative action replacing the Back button. This action works on the device as well.</p>
+<p><strong>Important:</strong> &nbsp;Since the swap on the top of the screen is used as an alternative to the Back button, in your application try to avoid putting controlling elements that work on the swap action at the very top of the display.</p>
+<hr>
+<p><strong>Home / Power button</strong> &nbsp;- the lower button on the emulator. It is used to return to the main screen (the screen with the dial). If you are already on the main screen, this button will perform the lock/unlock action of the screen. When you hold down the button for a couple of seconds, appears a message, which suggests you to turn off the power of the device. Perhaps in your application, you will use a display multiple touch, for example, to scale the displayed items, pinch-zoom action.&nbsp;<br><br>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_2_image010.png" style="undefined"></p>
+<p>The device emulator allows you to emulate multiple presses on the display. To do so, press&nbsp; <strong>Shift</strong> &nbsp;on the keyboard and use the mouse cursor. When the cursor is pressed, the display will show circles indicating the current location of each cursor. Now you can drag these circles to emulate the movement of your fingers during a multiple tap. The maximum number of cursors depends on the device. On this emulator only 2 cursors are allowed.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-creating-an-emulator">II. Creating an Emulator</h1><h2 id="emulator-standard-applications">Emulator Standard Applications</h2>
+<p>The standard emulator contains three main screens:</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-creating-an-emulator">II. Creating an Emulator</h1><h2 id="additional-controls">Additional Controls</h2>
+<p>To call the context menu with additional available actions, click on the emulator with right mouse button.</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_2_image014.png" style="undefined">
+<p><strong>A bit about this menu:</strong></p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-connecting-to-a-wearable-device">III. Connecting to a wearable device</h1><h2 id="connecting-to-the-network">Connecting to the Network</h2>
+<p>In this lesson we will talk about, how to setting up a real device, in our case this is&nbsp; <strong>Samsung Gear S3</strong> , and how to work with it via&nbsp; <strong>Visual Studio</strong> , using&nbsp; <strong>Wi-Fi</strong> &nbsp;connection.</p>
+<p>To connect to the device, first of all, you should enable the debugging mode. Go to&nbsp; <strong>Settings → Gear Info → USB debugging</strong> &nbsp;flag should be on.<br><br>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_3_image001.png" style="undefined"></p>
+<p>Follow the above red signs in the above images to configure the device. Then, restart the device.</p>
+<p>Now, connect the wearable device to a&nbsp; <strong>wireless</strong> &nbsp;network. The PC, in which visual studio is installed should also be connected to same wireless network.</p>
+<p>In the wearable device “turn on” the&nbsp; <strong>Wi-Fi</strong> :&nbsp; <strong>Settings → Connections → Wi-Fi</strong></p>
+<p>Next, from the displayed list, choose the targeted network and connect to it.<br><br>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_3_image002.png" style="undefined"></p>
+<p>After following the steps represented by red signs, you can connect to the targeted network from the Wi-Fi networks in options.&nbsp;<br><br>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_3_image003.png" style="undefined"></p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_3_image004.png" style="height:210px; width:660px">
+<p>Press Home button&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Select Settings&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Scroll to Connections</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_3_image005.png" style="height:210px; width:660px">
+ &nbsp;
+<p>Select Connections&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Select WiFi&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; Select Always on</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_3_image007.png" style="height:210px; width:660px">
+<p>Press OK&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Select Target Network&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Select Connect</p>
+<p>These are the stepwise images of device following the procedure for connecting to target network.</p>
+<p><strong>Important:</strong> Your system with visual studio and wearable device must be connected to same network.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-connecting-to-a-wearable-device">III. Connecting to a wearable device</h1><h2 id="device-configuration">Device Configuration</h2>
+<p>Visual studio can be connected to wearable device by using “Remote device manager”. It is located in top left corner of visual studio.</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_3_image008.png" style="height:124px; width:566px">
+<p>If this option is not visible, go to <strong>View</strong> &gt; <strong>Toolbars</strong> &gt; <strong>Tizen</strong></p>
+<p>Now Tizen toolbar with “Remote Device Manager” will be visible in your IDE.</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_3_image009.png" style="height:667px; width:1000px">
+<p><strong>Configuration steps:</strong></p>
+<p>Device name, IP address and port number will be display in visual studio.&nbsp;<br><br>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_3_image14.png" style="undefined"></p>
+<p>Application can install, run or debug using established connection. But application must be signed with the correct certificate before it can be installed in the device. We will see “How to generate a certificate in next lesson”.</p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iv-generating-certificates">IV. Generating Certificates</h1><h2 id="generating-samsung-certificates">Generating Samsung Certificates</h2>
+<p>The certificate can be generated directly from&nbsp; <strong>Tizen Studio</strong> . Go to the&nbsp; <strong>Tizen</strong> &nbsp;update manager and install the&nbsp; <strong>Extras package → Samsung Certificate Extension</strong> . If for testing you are going to use a real&nbsp; <strong>Samsung</strong> &nbsp;device, you should generate a special certificate; otherwise applications cannot be installed on the targeted device. If you are going to test your application only on the emulator, then a simple&nbsp; <strong>Tizen</strong> certificate is enough, and you can skip this subsection and proceed to the next one.</p>
+<p>We will consider how to generate a distributor certificate. First of all, specify the devices, on which will be allowed to install your applications. Since, without this procedure, the installation will be forbidden. To add devices automatically during the generation, connect to the watch via Tizen Studio. Refer lesson 3 “Connecting to a Wearable Device”, to connect wearable device to tizen studio.</p>
+<p>Open the certificates generation window:&nbsp; <strong>Tools → Certificate Manager</strong> &nbsp;or use the keyboard shortcut&nbsp; <strong>Shift + Alt + C</strong> . In the opened window, click the&nbsp; <strong>”+”</strong> &nbsp;button.</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_4_image001.png" style="undefined">
+<p>For Samsung target device <strong>Samsung Gear S3</strong> , choose&nbsp; <strong>Samsung</strong> &nbsp;certificates category.</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_4_image002.png" style="undefined">
+<p>Select type of the target device:&nbsp; <strong>Mobile/Wearable</strong> &nbsp;and click Next.</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_4_image003.png" style="undefined">
+<p>Enter a name of the certificate profile and click&nbsp; <strong>Next</strong> . In the following window, select options&nbsp;“ <strong>Create a new author certificate”</strong> , here you can also create author certificate from an already existing certificate.</p>
+<p>Click&nbsp; <strong>Next</strong> .</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_4_image004.png" style="undefined">
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_4_image005.png" style="undefined">
+<p>Enter author’s name and password. In this window, you can also enter additional data (country, organization, etc.) that will be reflected in the author certificate. If you want to use a different password for the distributor certificate, turn off the&nbsp; <strong>Apply the same password for the distributor certificate</strong> &nbsp;flag, if not - leave the default settings.</p>
+<p>Click&nbsp; <strong>Next</strong> .</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_4_image006.png" style="height:475px; width:695px">
+<p>Here you will be asked to log into&nbsp; <strong>Samsung</strong> &nbsp;account, if you do not have one, you can create account directly in this window.</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_4_image007.png" style="undefined">
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_4_image008.png" style="height:567px; width:520px">
+<p>Log in to your account and fill in the details for the distributor certificate. You will be asked to specify the path, where the backup copy of the certificates will be stored.</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_4_image009.png" style="undefined">
+<p><strong>Very important:</strong> &nbsp;If your application is registered in the app store with particular certificate, you will be able to update it only with the same certificate that is why, author.p12 file, as well as the password to it, must be saved. In the app store the application can be updated with different distributor certificates, but the author certificate must be the same. Otherwise, the only way to update the application is to delete it and then make re-registration..</p>
+<p>Click&nbsp; <strong>Next</strong> .</p>
+<p>In this menu, you can choose to create a new certificate or to use an existing one. Make no changes and click&nbsp; <strong>Next</strong> .</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_4_image010.png" style="height:474px; width:697px">
+<p>In the last window you may change the password for the distributor certificate and add to the certificate the devices on which you can install applications from&nbsp; <strong>Tizen Studio</strong> . Maximum number of such devices is 10.</p>
+<p>Click&nbsp; <strong>Next</strong> .</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_4_image011.png" style="undefined">
+<p>Notification is shown that the distributor certificate has been successfully generated and that now you can install the applications on&nbsp; <strong>Samsung</strong> &nbsp;devices.</p>
+<p>Click&nbsp; <strong>Finish</strong> .</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_4_image012.png" style="undefined">
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_4_image013.png" style="height:461px; width:697px">
+<p>Certificates and profiles are generated and used by default, now application can install on the target devices via the current profile.</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_4_image014.png" style="undefined">
+<p>You can create multiple profiles for different purposes, and then just switch between them.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iv-generating-certificates">IV. Generating Certificates</h1><h2 id="generating-tizen-certificates">Generating Tizen Certificates</h2>
+<p>If you use only device emulator for testing, then&nbsp; <strong>Tizen</strong> &nbsp;certificate is enough. It can be generated quickly than&nbsp; <strong>Samsung’s</strong> &nbsp;certificate.</p>
+<p>Open the certificates generation window:&nbsp; <strong>Tools → Certificate Manager</strong> &nbsp;or use the keyboard shortcut&nbsp; <strong>Shift + Alt + C</strong> . In the opened window, click the&nbsp; <strong>”+”</strong> &nbsp;button.</p>
+<p>Select&nbsp; <strong>Tizen</strong> &nbsp;certificates category. Enter a name for the new certificate profile. Click&nbsp; <strong>Next</strong> .</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_4_image015.png" style="height:567px; width:707px">
+<p>In the next window, select options&nbsp; <strong>Create a new author certificate</strong> , here you can also create author certificate from an already existing certificate.</p>
+<p>Click&nbsp; <strong>Next</strong> .</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_4_image016.png" style="undefined">
+<p>Enter the file name with the key, as well as author’s name and password. In this window, you can also enter additional data (country, organization, etc.) that will be reflected in the author certificate.</p>
+<p>Click&nbsp; <strong>Next</strong> .</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_4_image017.png" style="height:463px; width:687px">
+<p>You can use Tizen distributor certificate or you can change default settings and choose some certificate among those that were used for another application store. Select the certificate and click&nbsp; <strong>Finish</strong> .</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_4_image018.png" style="undefined">
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_4_image019.png" style="undefined">
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_4_image020.png" style="undefined">
+<p>Certificates and profiles are generated and used by default mode, applications can be build and install on the emulators.</p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="v-application-publication-in-samsung-galaxy-apps">V. Application Publication in Samsung Galaxy Apps</h1><h2 id="create-an-account">Create an Account</h2>
+<p>In this lesson we will look at the features of application publication for&nbsp; <strong>Samsung Gear S2/S3</strong> . Currently such application can be published only via&nbsp; <strong>Samsung Galaxy Apps</strong> , (further “store”), which is available at the following link:&nbsp;<a href="http://seller.samsungapps.com/">http://seller.samsungapps.com</a>.</p>
+<p><strong>Create an Account</strong></p>
+<p>Click at the link to open the login window:</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_5_image001.png" style="height:382px; width:624px">
+<p>The store interface language can be selected in the upper right corner of the screen. At the moment, there are three available languages: English, Korean and Chinese.</p>
+<p>To enter the store, create an account. Click Sign up Now. In the opened form, fill in the basic information.</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_5_image002.png" style="height:455px; width:484px">
+<p>Specify:</p>
+<p>Click Next button to open the window with conditions of publications and the store rules. Put check mark after each description block or just click on Agree to All at the bottom of the page, to confirm that the submitted rules have been carefully read and fully accepted.</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_5_image003.png" style="height:568px; width:517px">
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_5_image004.png" style="height:415px; width:517px">
+<p>Click&nbsp; <strong>Next</strong> &nbsp;to open the form for filling in basic information.</p>
+<p><strong>Basic Information</strong> : specify&nbsp; <strong>email</strong> , password and personal information.</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_5_image005.png" style="height:355px; width:536px">
+<p><strong>Information for Seller Page</strong> &nbsp;– information about publisher of the application. This data will be available to users in the store.</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_5_image006.png" style="height:381px; width:472px">
+<p><strong>Important:<br>Basic Information</strong> &nbsp;section must be filled in English.<br> <strong>Fields marked with a red * asterisk are required.</strong></p>
+<p>On&nbsp; <strong>Confirm</strong> &nbsp;button click, a confirmation letter will be sent to the specified email address. It is necessary to open this letter and go to the indicated link. Registration is complete.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="v-application-publication-in-samsung-galaxy-apps">V. Application Publication in Samsung Galaxy Apps</h1><h2 id="store-overview">Store Overview</h2>
+<p>For authorization, on the login screen, go to the&nbsp; <strong>Sign In</strong> &nbsp;section, enter the&nbsp; <strong>email and password</strong> that were specified during account creation, and click the&nbsp; <strong>Sign In</strong> &nbsp;button. The main store page will be opened.</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_5_image007.png" style="height:365px; width:482px">
+<p>There is such basic information on the main screen:</p>
+<p><strong>Add New Application</strong> &nbsp;button, located on the top left corner of the screen, opens publication form for the new application.</p>
+<p>The&nbsp; <strong>Change</strong> &nbsp;button, located on the left side of the screen, allows changing the profile.</p>
+<p>Button&nbsp; <strong>Request Commercial Status</strong> &nbsp;- request to change status in the account, it authorizes publishing paid applications.</p>
+<p>The&nbsp; <strong>Guide</strong> &nbsp;button, located on the upper right corner of the screen, contains links to documentation that describes all the features and the store terms of use.</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_5_image008.png" style="height:418px; width:556px">
+<p><strong>Important:</strong> &nbsp;Documents in the Guide section are very informative. If you have any questions, it should be your first place for seeking answers.</p>
+<p>On the top of the main page you can find links to other sections of the store:</p>
+<p><strong>Important:</strong> The sections&nbsp; <strong>Buyer Comments, Accounting, Statistics and Assistance</strong> &nbsp;allow you to download reports in Excel format. Data can be filtered. In addition, in the&nbsp; <strong>Statistics section → Applications</strong> , directly in the store; you can build informative graphics to see applications download statistics.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="v-application-publication-in-samsung-galaxy-apps">V. Application Publication in Samsung Galaxy Apps</h1><h2 id="publication-of-a-new-application-in-samsung-galaxy-apps">Publication of a New Application in Samsung Galaxy Apps</h2>
+<p>To publish a new application, click <strong>Add New Application</strong> in the top-left corner of the screen.</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_5_image009.png" style="height:255px; width:506px">
+<p>In the appeared window, select&nbsp; <strong>Samsung Gear</strong> &nbsp;and specify the main language of the application (English is recommended). Click&nbsp; <strong>Next</strong> &nbsp;to open a form for filling information about the application.</p>
+<p>The following sections are available (located on the left side):</p>
+<p><strong>Important:</strong> &nbsp;Fields marked with a red * asterisk are required.</p>
+<p>In the sections&nbsp; <strong>App Information, Binary and Country &amp; Price</strong> , you can switch between&nbsp; <strong>simple</strong> and&nbsp; <strong>advanced</strong> &nbsp;modes for adding advanced information.</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_5_image010.png" style="height:322px; width:526px">
+<p>In the&nbsp;App Information section, you should specify:</p>
+<p>In the&nbsp; <strong>advanced</strong> &nbsp;mode of the&nbsp; <strong>App Information</strong> &nbsp;section, you can also add: title, description, and screenshots in languages that are not the main for the application ( <strong>”+ Add”</strong> &nbsp;button). You can also specify the brand name, 5 tags (they will be used for finding the application in the store), and a number of external links to the materials related to the application, for example, a link to a video on&nbsp; <strong>YouTube</strong> .</p>
+<p><strong>Important:</strong> &nbsp;When filling out information in any of the sections, it is recommended to use the&nbsp; <strong>Save</strong> &nbsp;button (located at the top or at the very bottom of the page), as often as possible. It helps prevent loss of entered data. Also, if you do not make some action for a while (do not press the buttons and do not switch between the sections of the store) the session will be ended and all not saved data will be lost.</p>
+<p><strong>Binary</strong> &nbsp;section can be conditionally divided into 2 parts. The first one is for loading the executable module; the second one is for specifying information about closed beta testing. The application can be published without this testing, and if it is the case, fields in this section do not have to be filled in.</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_5_image011.png" style="height:224px; width:534px">
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_5_image012.png" style="height:392px; width:526px">
+<p>Click the&nbsp; <strong>Add Binary</strong> &nbsp;button, to open dialog window for loading the executable module.</p>
+<p><strong>Specify</strong> :</p>
+<p><strong>Important:</strong> &nbsp;In the&nbsp; <strong>Validation</strong> &nbsp;section, make sure you specify all required for testing information. It is recommended to describe in detail main ways of application use as well as provide all data for tests, including the account on which the application can be tested. Note that testing will be performed by the store and can be conducted by people, who know nothing about the published application or the service that it provides.</p>
+<p>After entering and saving all information, the&nbsp; <strong>Submit</strong> &nbsp;button will become active. Click it to send application to the store for review and publication. To send the application for closed beta testing, use&nbsp; <strong>the Submit Beta Test</strong> &nbsp;button.</p>
+<p><br>​​​​​</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="v-application-publication-in-samsung-galaxy-apps">V. Application Publication in Samsung Galaxy Apps</h1><h2 id="application-status">Application Status</h2>
+<p>After submitting the application, all specified information and application performance will be tested on the side of the store. Usually the process of verification and final publication takes up to 5 working days. There are several stages that can be traced on the applications page&nbsp; <strong>Applications → My Applications. Application Created → Ready to Pre-Validation → Ready to Pre-Reviews → Under Pre-Reviews → Under Content Review → Under Device Test → Under Test Confirmation → Ready for Change → For Sale.</strong></p>
+<p>Note that the publication process can be canceled at any time.</p>
+<p><strong>Important:</strong> &nbsp;You can see full list of changes of application status by clicking on the date in the last column&nbsp; <strong>Last Updated.</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_5_image015.png" style="height:389px; width:425px">
+<p>If all the specified information is correct and the application is functioning properly, after checking it receives&nbsp; <strong>For Sale</strong> &nbsp;status and becomes available in the store. But if some problems were found during the verification, the application will be declined and it receives&nbsp; <strong>Rejected</strong> &nbsp;status. In this case, to get detailed information about detected problems, you should click on the status and download the archive, which usually contains problems description in the text format and, if necessary, screenshots, video or other information. To fix the problems, you should return the application into&nbsp; <strong>Re-Register</strong> &nbsp;status and edit the necessary information or download the corrected executable module. The process of updating or re-registering the application is practically the same as the registration process, except that all fields have been filled.</p>
+<p>Note that the distribution of the published application can be suspended; the application can be updated or removed from the store. The most convenient way to do this is through the list of all applications, using the&nbsp; <strong>Update, Suspend, and Delete</strong> &nbsp;buttons in the&nbsp; <strong>Applications</strong> &nbsp;section -&gt;&nbsp; <strong>My Applications</strong> .</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_5_image016.png" style="height:493px; width:471px">
+<p><strong>Important:</strong> In case you have questions or need clarifications, concerning the found problems, you may refer to the technical support of the store, by using the&nbsp; <strong>Assistance</strong> &nbsp;section →&nbsp; <strong>My question</strong> , click the&nbsp; <strong>Contact us</strong> &nbsp;button and fill in the opened form.</p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="vi-create-and-run-the-first-application">VI. Create and Run the First Application</h1><h2 id="create-project-using-visual-studio">Create Project using Visual Studio</h2>
+<p>In this lesson we will learn how to create a project for wearable device using Visual studio. For guidance how to install the environment, go to <a href="https://samsung.github.io/TizenSchool/tutorial/116/contents/1">lesson </a><a href="https://samsung.github.io/TizenSchool/tutorial/114/contents/1">1</a>.</p>
+<p>To create a new Tizen.NET project:</p>
+<p>If you select the&nbsp; <strong>Common</strong> &nbsp;profile, you cannot select&nbsp; <strong>Mobile</strong> ,&nbsp; <strong>TV</strong> , or&nbsp; <strong>Wearable</strong> .<br><br>A solution with 2 to 4 projects is created based on the options you choose and shown in the&nbsp; <strong>Solution Explorer</strong> &nbsp;view:</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_6_image004.png" style="height:667px; width:537px">
+<p>If you are already familiar with Xamarin.Forms, this project has the same structure as a Xamarin.Forms portable application. The&nbsp; <strong><projectname></projectname></strong> &nbsp;project is the portable class library and the others are the platform-specific projects; however, in Tizen .NET, only the Tizen platform-specific project is generated.</p>
+<p>The&nbsp;.cs&nbsp;file in the portable project already contains simple Xamarin.Forms code that makes a basic UI.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="vi-create-and-run-the-first-application">VI. Create and Run the First Application</h1><h2 id="building-your-application">Building Your Application</h2>
+<p>After you have created the application project, you can implement the required features. In this example, only the default features from the project template are used, and no code changes are required.</p>
+<p>When your application code is ready, build the application. The building process performs a validation check and compiles your files. You must sign the application package with an author certificate when building the application. If you have not yet registered a Tizen certificate in Visual Studio, see <a href="https://samsung.github.io/TizenSchool/tutorial/116/contents/11">lesson 4</a>.</p>
+<p>There are 2 different ways to build the application:</p>
+<p>Tizen .NET applications are always deployed as installed packages. The package files have the&nbsp;.tpk&nbsp;file extension, and the package generation is controlled by the manifest file. The Visual Studio template generates the manifest file (tizen-manifest.xml) to the top level of the <projectname>.Tizen project (if you create projects with mobile, TV and wearable profiles, a separate manifest file is generated for each profile).</projectname></p>
+<p>For this example application, the default manifest is sufficient. If you want to make any changes in the application, such as changing the application icon or installing resources that are used by the application at runtime, see&nbsp;Packaging Your Application.</p>
+<p>After you have built the application, deploy and run it.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="vi-create-and-run-the-first-application">VI. Create and Run the First Application</h1><h2 id="deploying-and-running-your-application">Deploying and Running your Application</h2>
+<p>To run the application, you must first deploy it to the target: either a device or an emulator. Deploying means transferring the package file (.tpk) to the target and invoking the Tizen package manager to install it.</p>
+<p>To deploy and run the application on the emulator:</p>
+<p>Visual Studio uses the Smart Development Bridge (SDB) to communicate with the target device or emulator. If you encounter problems with detecting the device in Visual Studio, you can check the SDB manually:</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_6_image009.png" style="height:324px; width:578px">
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="vii-application-lifecycle">VII. Application lifecycle</h1><h2 id="entry-point-in-tizen-application">Entry Point in Tizen Application</h2>
+<p>In this lesson we will see the structure of an application code, look at virtual function that can be overridden to handle application lifecycle on the example template created in <a href="https://samsung.github.io/TizenSchool/tutorial/116/contents/17">lesson 6</a>.</p>
+<p>In this example, A&nbsp; <em><code>Program</code></em> class is created, which inherits
+<code> *Xamarin.Forms.Platform.Tizen.FormsApplication*  class</code>
+. This class can override various functions to get the system events and control application lifecycle.</p>
+<p>Initially, in <em><code>Main</code></em> (),&nbsp; <em><code>Init</code></em> method is called to initialize <em>Xamarin.Forms</em> framework. This causes the Tizen-specific implementation of <em>Xamarin.Forms</em> to be loaded in the application before our application is loaded.</p>
+<p>Now framework Invokes
+<code> *OnCreate* ()</code>
+function of <em>Program</em> class. Here we can load the portable library (PCL) by calling
+<code>*LoadApplication()*</code>
+.</p>
+<p><em><code>LoadApplication()</code></em> loads the <em>App</em> class and calls
+<code>*onCreate()* </code>
+of <em><code>App</code></em> class.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">MyfirstApplication</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">Program</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">global</span><span style="color: #999">::</span><span style="color: #000">Xamarin</span><span style="color: #999">.</span><span style="color: #000">Forms</span><span style="color: #999">.</span><span style="color: #000">Platform</span><span style="color: #999">.</span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">FormsApplication</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">protected</span><span style="color: #BBBBBB"> </span><span style="color: #07A">override</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnCreate</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">base</span><span style="color: #999">.</span><span style="color: #DD4A68">OnCreate</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">LoadApplication</span><span style="color: #999">(</span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">App</span><span style="color: #999">());</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">static</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Main</span><span style="color: #999">(</span><span style="color: #07A">string</span><span style="color: #999">[]</span><span style="color: #BBBBBB"> </span><span style="color: #000">args</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">app</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Program</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">            global</span><span style="color: #999">:</span><span style="color: #BBBBBB">:</span><span style="color: #000">Xamarin</span><span style="color: #999">.</span><span style="color: #000">Forms</span><span style="color: #999">.</span><span style="color: #000">Platform</span><span style="color: #999">.</span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">Forms</span><span style="color: #999">.</span><span style="color: #DD4A68">Init</span><span style="color: #999">(</span><span style="color: #000">app</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">app</span><span style="color: #999">.</span><span style="color: #DD4A68">Run</span><span style="color: #999">(</span><span style="color: #000">args</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="vii-application-lifecycle">VII. Application lifecycle</h1><h2 id="system-events">System Events</h2>
+<p><em><code>Xamarin.Forms.Platform.Tizen.FormsApplication</code></em> class provides addition virtual functions. You can override them to handle various behaviors. For example the low battery or low memory can be handled as follows:</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">MyfirstApplication</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">Program</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">global</span><span style="color: #999">::</span><span style="color: #000">Xamarin</span><span style="color: #999">.</span><span style="color: #000">Forms</span><span style="color: #999">.</span><span style="color: #000">Platform</span><span style="color: #999">.</span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">FormsApplication</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">protected</span><span style="color: #BBBBBB"> </span><span style="color: #07A">override</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnCreate</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">base</span><span style="color: #999">.</span><span style="color: #DD4A68">OnCreate</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">LoadApplication</span><span style="color: #999">(</span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">App</span><span style="color: #999">());</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">static</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Main</span><span style="color: #999">(</span><span style="color: #07A">string</span><span style="color: #999">[]</span><span style="color: #BBBBBB"> </span><span style="color: #000">args</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">app</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Program</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">            global</span><span style="color: #999">:</span><span style="color: #BBBBBB">:</span><span style="color: #000">Xamarin</span><span style="color: #999">.</span><span style="color: #000">Forms</span><span style="color: #999">.</span><span style="color: #000">Platform</span><span style="color: #999">.</span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">Forms</span><span style="color: #999">.</span><span style="color: #DD4A68">Init</span><span style="color: #999">(</span><span style="color: #000">app</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">app</span><span style="color: #999">.</span><span style="color: #DD4A68">Run</span><span style="color: #999">(</span><span style="color: #000">args</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        //</span><span style="color: #708090">Override this method if you want to execute some functionality in  case of low battery</span></span>
+<span class="line"><span style="color: #BBBBBB">    	</span><span style="color: #07A">protected</span><span style="color: #BBBBBB"> </span><span style="color: #07A">override</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnLowBattery</span><span style="color: #999">(</span><span style="color: #000">LowBatteryEventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">	      </span><span style="color: #000">Log</span><span style="color: #999">.</span><span style="color: #DD4A68">Debug</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">LOG_TAG</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">LowBatteryStatus</span><span style="color: #999">.</span><span style="color: #DD4A68">ToString</span><span style="color: #999">());</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        //</span><span style="color: #708090">Override this method if you want to execute some functionality in case of low memory</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">protected</span><span style="color: #BBBBBB"> </span><span style="color: #07A">override</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnLowMemory</span><span style="color: #999">(</span><span style="color: #000">LowMemoryEventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #000">Log</span><span style="color: #999">.</span><span style="color: #DD4A68">Debug</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">LOG_TAG</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">LowMemoryStatus</span><span style="color: #999">.</span><span style="color: #DD4A68">ToString</span><span style="color: #999">());</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="vii-application-lifecycle">VII. Application lifecycle</h1><h2 id="application-lifecycle">Application lifecycle</h2>
+<p>The Tizen Application lifecycle is set of states of the application which are executed in ordered sequence.</p>
+<p>An UI Application can be in one of the several states:</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_7_image001.png" style="height:322px; width:539px">
+<p><strong>“ <em>Xamarin.forms.</em></strong> <strong><em>Application</em> ”</strong> class</p>
+<p>The “ <em>Application</em> ” base class offers the lifecycle methods. It provides three virtual methods that can be overridden to handle lifecycle methods.</p>
+<p>There is no method for application termination. In the normal scenario (i.e. when there is no crash), the application terminates from OnSleep state without any additional notification to the code.</p>
+<p>To understand the calling of these methods, implement “Log.Debug” call in each function and test.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Collections</span><span style="color: #BBBBBB">.</span><span style="color: #000">Generic</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Linq</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Text</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #BBBBBB">.</span><span style="color: #000">Applications</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">MyfirstApplication</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">App</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #999">.</span><span style="color: #000">Forms</span><span style="color: #999">.</span><span style="color: #000">Application</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">App</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">            ///</span><span style="color: #708090"> Root page of your application</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">MainPage</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">ContentPage</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">Content</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">StackLayout</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #000">VerticalOptions</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">LayoutOptions</span><span style="color: #999">.</span><span style="color: #000">Center</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #000">Children</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                        </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Label</span></span>
+<span class="line"><span style="color: #BBBBBB">                        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                            </span><span style="color: #000">HorizontalTextAlignment</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">TextAlignment</span><span style="color: #999">.</span><span style="color: #000">Center</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">                            </span><span style="color: #000">Text</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Welcome to Xamarin</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">};</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">        //</span><span style="color: #708090">Lifecycle methods</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">protected</span><span style="color: #BBBBBB"> </span><span style="color: #07A">override</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnStart</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">Log</span><span style="color: #999">.</span><span style="color: #DD4A68">Debug</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">LOG_TAG</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Onstart called</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">protected</span><span style="color: #BBBBBB"> </span><span style="color: #07A">override</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnSleep</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">Log</span><span style="color: #999">.</span><span style="color: #DD4A68">Debug</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">LOG_TAG</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">onsleep called</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">protected</span><span style="color: #BBBBBB"> </span><span style="color: #07A">override</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnResume</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">Log</span><span style="color: #999">.</span><span style="color: #DD4A68">Debug</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">LOG_TAG</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">OnResume called</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>In the next lesson, we will see the main modules of <em>tizen.net</em></p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="viii-tizen-net">VIII. Tizen .net</h1><h2 id="main-modules-of-tizen-net">Main Modules of Tizen .Net</h2>
+<p>Tizen .NET enables you to build .NET applications with <em>Xamarin.Forms</em> and the Tizen .NET framework. <em>Xamarin.Forms</em> allows you to easily create a user interface, and the <em>TizenFX</em> API provides numerous interfaces to much of the hardware that is found in modern TV, mobile, wearable and IoT devices.</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_8_image001.png" style="height:225px; width:562px">
+<p>Tizen .NET consists of the following main components:</p>
+<p>In the next lesson we will show you where to start in UI applications creations, we’ll look at the main elements of the screen, and will analyze the user interface of the template, created in the&nbsp;<a href="https://samsung.github.io/TizenSchool/tutorial/116/contents/17">Lesson 6</a>.</p></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/23</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/642c4c04779a63be966fa6579cbe2e444ddde584">642c4c04779a63be966fa6579cbe2e444ddde584</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+

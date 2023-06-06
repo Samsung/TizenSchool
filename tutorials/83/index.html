@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/TizenSchool/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/TizenSchool/assets/images/favicon-32x32.png">
+    <title>[Gear Maze] Implement BLACKHOLE item using Barometer sensor</title>
+  <link rel="stylesheet" href="/TizenSchool/assets/aboutus.9016036b.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.013d619c.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="2r5SHS" component-url="/TizenSchool/Header.fde63186.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/TizenSchool/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      [Gear Maze] Implement BLACKHOLE item using Barometer sensor
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">This lecture is about how to get barometer sensor data through Tizen Web API and implement BLACKHOLE item of Gear Maze.</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/TizenSchool/assets/images/iot-dimmed.png">
+        <img src="/TizenSchool/assets/images/wearable-active.png">
+        <img src="/TizenSchool/assets/images/mobile-dimmed.png">
+        <img src="/TizenSchool/assets/images/smart-tv-dimmed.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2017/09/11</span>
+            Modified
+            <span class="font-bold">2019/03/23</span>
+    </div>
+  </div><astro-island uid="H3eJn" component-url="/TizenSchool/TextContent.c7f4d9de.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,13],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;What is BLACKHOLE of Gear Maze?\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Mission of BLACKHOLE\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;How to check the difference of heights?\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;1. Introduction of BLACK HOLE\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Tizen Sensor API\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;How to use barometer sensor of Tizen-(1)\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;How to use barometer sensor of Tizen-(2)\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;How to use barometer sensor of Tizen-(3)\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;2. Tizen Barometer Sensor\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Looking at the logic of BLACKHOLE\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Understanding BLACKHOLE logic-(1)\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Understanding BLACKHOLE logic-(2)\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Understanding BLACKHOLE logic-(3)\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;3. Implementation of BLACKHOLE\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Summary\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Reference\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;4. Epilogue\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/13</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id="1-introduction-of-black-hole">1. Introduction of BLACK HOLE</h1><h2 id="what-is-blackhole-of-gear-maze">What is BLACKHOLE of Gear Maze?</h2>
+<p>First of all, you should know about Tizen Sensor API for using Tizen barometer sensor.</p>
+<p>The lecture uses especially Tizen Sensor API for Tizen wearable version 2.3.1.</p>
+<p>You can find the reference of Tizen Sensor API for 2.3.1 version through below link.</p>
+<p>Tizen developer site explains about the sensor API like below:</p>
+<p>The Sensor API defines interfaces and methods to manage sensor data from various sensors on the device.</p>
+<p>The following sensor functionality is provided:</p>
+<p>Since:&nbsp;2.3</p>
+<p>Then, what kinds of sensors are provided by Tizen Sensor API?</p>
+<p>Tizen Sensor API defines several sensorType like below.
+enum SensorType { “LIGHT”, “MAGNETIC”, “PRESSURE”, “PROXIMITY”, “ULTRAVIOLET”, “HRM_RAW” };</p>
+<p>Tizen 3.0 wearable sensor API provides more sensor types like below&nbsp;so deverlopers using Tizen 3.0 wearable sensor API have more choice for development.</p>
+<p>( <em>GRAVITY</em> ,&nbsp; <em>GYROSCOPE</em> ,&nbsp; <em>GYROSCOPE_ROTATION_VECTOR</em> &nbsp;,&nbsp; <em>LINEAR ACCELERATION</em> )</p>
+<p>The next page is going to talk about how to use barometer(pressure)&nbsp;sensor of Tizen.</p>
+<reference>
+<h2 id="mission-of-blackhole">Mission of BLACKHOLE</h2>
+<p>First of all, you need Healthinfo Privilege for using Tizen Sensor API.</p>
+<p>The Healthinfo Privilege presents the right for the application to access and get device sensor data.</p>
+<p>This privilege should be defined in config.xml like below.</p>
+<pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">http://tizen.org/privilege/healthinfo</span></span></code></pre>
+<p>Next, you could add some features to your application. (It’s optional.)</p>
+<p>For example, if you register the barometer feature to your application,&nbsp;users should allow the right to use this&nbsp;feature&nbsp;when downloading from Samsung App Store.</p>
+<p>Registering features would be also able to do in config.xml.</p>
+<pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">http://tizen.org/feature/sensor.barometer</span></span></code></pre>
+<reference>
+<h2 id="how-to-check-the-difference-of-heights">How to check the difference of heights?</h2>
+<p>We took a look at the common interface&nbsp;for all types of sensors and now on we are going to check the pressure sensor more.</p>
+<p>The pressure sensor provides only one method called getPressureSensorData which is for getting the sensor data.</p>
+<pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">getPressureSensorData</span><span style="color: #999">(</span><span style="color: #000">SensorDataSuccessCallback successCallback</span><span style="color: #999">,</span><span style="color: #000"> optional ErrorCallback</span><span style="color: #A67F59">?</span><span style="color: #000"> errorCallback)</span><span style="color: #999">;</span></span></code></pre>
+<p>So, you should call the start method first and then call the getPressureSensorData method in turn.</p>
+<p>The parameters of the getPressureSensorData method are successCallback and&nbsp;ErrorCallback. As you know, the ErrorCallback is optional.</p>
+<p>I’d like to summarize the usage of barometer sensor of Tizen before going on to the next step.</p>
+<ol>
+<li>Getting the object of pressure(barometer) sensor</li>
+</ol>
+<p><highlight>1</highlight></p>
+<pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">pressureSensor</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">tizen</span><span style="color: #999">.</span><span style="color: #000">sensorservice</span><span style="color: #999">.</span><span style="color: #DD4A68">getDefaultSensor</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">PRESSURE</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">onGetSuccessCB</span><span style="color: #999">(</span><span style="color: #000">sensorData</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">console</span><span style="color: #999">.</span><span style="color: #DD4A68">log</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">pressure : </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">sensorData</span><span style="color: #999">.</span><span style="color: #000">pressure</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">onerrorCB</span><span style="color: #999">(</span><span style="color: #000">error</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">console</span><span style="color: #999">.</span><span style="color: #DD4A68">log</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">error occurs</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">onsuccessCB</span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">console</span><span style="color: #999">.</span><span style="color: #DD4A68">log</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">sensor start</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">pressureSensor</span><span style="color: #999">.</span><span style="color: #DD4A68">getPressureSensorData</span><span style="color: #999">(</span><span style="color: #000">onGetSuccessCB</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">onerrorCB</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">pressureSensor</span><span style="color: #999">.</span><span style="color: #DD4A68">start</span><span style="color: #999">(</span><span style="color: #000">onsuccessCB</span><span style="color: #999">);</span></span></code></pre>
+<ol start="2">
+<li>Starting the presssure(barometer) sensor and registering the SuccessCallback callback function</li>
+</ol>
+<p><highlight>16</highlight></p>
+<pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">pressureSensor</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">tizen</span><span style="color: #999">.</span><span style="color: #000">sensorservice</span><span style="color: #999">.</span><span style="color: #DD4A68">getDefaultSensor</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">PRESSURE</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">onGetSuccessCB</span><span style="color: #999">(</span><span style="color: #000">sensorData</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">console</span><span style="color: #999">.</span><span style="color: #DD4A68">log</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">pressure : </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">sensorData</span><span style="color: #999">.</span><span style="color: #000">pressure</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">onerrorCB</span><span style="color: #999">(</span><span style="color: #000">error</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">console</span><span style="color: #999">.</span><span style="color: #DD4A68">log</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">error occurs</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">onsuccessCB</span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">console</span><span style="color: #999">.</span><span style="color: #DD4A68">log</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">sensor start</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">pressureSensor</span><span style="color: #999">.</span><span style="color: #DD4A68">getPressureSensorData</span><span style="color: #999">(</span><span style="color: #000">onGetSuccessCB</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">onerrorCB</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">pressureSensor</span><span style="color: #999">.</span><span style="color: #DD4A68">start</span><span style="color: #999">(</span><span style="color: #000">onsuccessCB</span><span style="color: #999">);</span></span></code></pre>
+<ol start="3">
+<li>Calling the getPressureSensorData</li>
+</ol>
+<p><highlight>13</highlight></p>
+<pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">pressureSensor</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">tizen</span><span style="color: #999">.</span><span style="color: #000">sensorservice</span><span style="color: #999">.</span><span style="color: #DD4A68">getDefaultSensor</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">PRESSURE</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">onGetSuccessCB</span><span style="color: #999">(</span><span style="color: #000">sensorData</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">console</span><span style="color: #999">.</span><span style="color: #DD4A68">log</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">pressure : </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">sensorData</span><span style="color: #999">.</span><span style="color: #000">pressure</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">onerrorCB</span><span style="color: #999">(</span><span style="color: #000">error</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">console</span><span style="color: #999">.</span><span style="color: #DD4A68">log</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">error occurs</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">onsuccessCB</span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">console</span><span style="color: #999">.</span><span style="color: #DD4A68">log</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">sensor start</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">pressureSensor</span><span style="color: #999">.</span><span style="color: #DD4A68">getPressureSensorData</span><span style="color: #999">(</span><span style="color: #000">onGetSuccessCB</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">onerrorCB</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">pressureSensor</span><span style="color: #999">.</span><span style="color: #DD4A68">start</span><span style="color: #999">(</span><span style="color: #000">onsuccessCB</span><span style="color: #999">);</span></span></code></pre>
+<ol start="4">
+<li>Getting the real pressure(barometer)&nbsp;sensor data</li>
+</ol>
+<p><highlight>4</highlight></p>
+<pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">pressureSensor</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">tizen</span><span style="color: #999">.</span><span style="color: #000">sensorservice</span><span style="color: #999">.</span><span style="color: #DD4A68">getDefaultSensor</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">PRESSURE</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">onGetSuccessCB</span><span style="color: #999">(</span><span style="color: #000">sensorData</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">console</span><span style="color: #999">.</span><span style="color: #DD4A68">log</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">pressure : </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">sensorData</span><span style="color: #999">.</span><span style="color: #000">pressure</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">onerrorCB</span><span style="color: #999">(</span><span style="color: #000">error</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">console</span><span style="color: #999">.</span><span style="color: #DD4A68">log</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">error occurs</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">onsuccessCB</span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">console</span><span style="color: #999">.</span><span style="color: #DD4A68">log</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">sensor start</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">pressureSensor</span><span style="color: #999">.</span><span style="color: #DD4A68">getPressureSensorData</span><span style="color: #999">(</span><span style="color: #000">onGetSuccessCB</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">onerrorCB</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">pressureSensor</span><span style="color: #999">.</span><span style="color: #DD4A68">start</span><span style="color: #999">(</span><span style="color: #000">onsuccessCB</span><span style="color: #999">);</span></span></code></pre>
+<p>Is it simpler than you expect?</p>
+<p>For the next chapter, we are going to how implement BLACKHOLE of GearMaze using pressure(barometer) sensor data.</p>
+<reference>
+<h1 id="2-tizen-barometer-sensor">2. Tizen Barometer Sensor</h1>
+<h2 id="tizen-sensor-api">Tizen Sensor API</h2>
+<h2 id="how-to-use-barometer-sensor-of-tizen-1">How to use barometer sensor of Tizen-(1)</h2>
+<p>We learned how to set the environment in config.xml for using Tizen Sensor API so far and we are going to access to the real sensor data.</p>
+<p>First of all, You can get the sensor object from getDefaultSensor method of Tizen sensorservice.</p>
+<p>The getDefaultSensor method defines like below.</p>
+<pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #000">Sensor </span><span style="color: #DD4A68">getDefaultSensor</span><span style="color: #999">(</span><span style="color: #000">SensorType type</span><span style="color: #999">);</span></span></code></pre>
+<p>The parameter of&nbsp;getDefaultSensor represents sensorType which we already saw in the previous page and you should type in what you want.</p>
+<p>(sensorType : LIGHT,&nbsp;MAGNETIC, PRESSURE, PROXIMITY, ULTRAVIOLET”, HRM_RAW)</p>
+<p>The return value of getDefaultSensor method is the&nbsp;sensor object and we are going to get sensor data from this object.</p>
+<p>All of sensors provide&nbsp;basically the same methods list like below through interface.</p>
+<pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #000"> </span><span style="color: #999">[</span><span style="color: #000">NoInterfaceObject</span><span style="color: #999">]</span><span style="color: #000"> interface Sensor </span><span style="color: #999">{</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">        readonly attribute SensorType sensorType</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">        </span><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">start</span><span style="color: #999">(</span><span style="color: #000">SuccessCallback successCallback</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">                                optional ErrorCallback</span><span style="color: #A67F59">?</span><span style="color: #000"> errorCallback) </span><span style="color: #DD4A68">raises</span><span style="color: #999">(</span><span style="color: #000">WebAPIException</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">        </span><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">stop</span><span style="color: #999">()</span><span style="color: #000"> </span><span style="color: #DD4A68">raises</span><span style="color: #999">(</span><span style="color: #000">WebAPIException</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">        </span><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">setChangeListener</span><span style="color: #999">(</span><span style="color: #000">SensorDataSuccessCallback successCallback</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #DD4A68">raises</span><span style="color: #999">(</span><span style="color: #000">WebAPIException</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">        </span><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">unsetChangeListener</span><span style="color: #999">()</span><span style="color: #000"> </span><span style="color: #DD4A68">raises</span><span style="color: #999">(</span><span style="color: #000">WebAPIException</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">    }</span><span style="color: #999">;</span></span></code></pre>
+<p>I’m going to briefly explain each method of Sensor Interface.</p>
+<p>The start method has&nbsp;SuccessCallback and&nbsp;ErrorCallback as parameters.&nbsp;ErrorCallback is optional.</p>
+<p>The start method is for&nbsp;starting a sensor as its plain meaning.</p>
+<pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">start</span><span style="color: #999">(</span><span style="color: #000">SuccessCallback successCallback</span><span style="color: #999">,</span><span style="color: #000"> optional ErrorCallback</span><span style="color: #A67F59">?</span><span style="color: #000"> errorCallback)</span><span style="color: #999">;</span></span></code></pre>
+<p>The stop method is for stopping a sensor and it doesn’t need any parameter.</p>
+<pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">stop</span><span style="color: #999">();</span></span></code></pre>
+<p>The setChangeListener method calls a callback function&nbsp;when there are changes on&nbsp;sensor data.</p>
+<p>As you imagine, the setChangeListener method shoud have callback function as a parameter.</p>
+<p>If the start method wasn’t called, there’s no changes on sensor data. That’s same as you imagine.</p>
+<pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">setChangeListener</span><span style="color: #999">(</span><span style="color: #000">SensorDataSuccessCallback successCallback</span><span style="color: #999">);</span></span></code></pre>
+<p>On the other hand, the unsetChangeLister method is for unregistering checking the changes.</p>
+<pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">unsetChangeListener</span><span style="color: #999">();</span></span></code></pre>
+<reference>
+<h2 id="how-to-use-barometer-sensor-of-tizen-2">How to use barometer sensor of Tizen-(2)</h2>
+<p>How about taking a look at the core part related to handling pressure(barometer) sensor data in balck-hole-item.js of GearMaze application?</p>
+<pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">/*</span><span style="color: #708090"> black-hole-item.js </span><span style="color: #999">*/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> ...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #000">BLACK_HOLE_MISSION_CRITERIA</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">6</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> ...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">itemMetadata</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">pressureSensor</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">sensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> []</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #A67F59">typeof</span><span style="color: #BBBBBB"> </span><span style="color: #000">tizen</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">!==</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">undefined</span><span style="color: #999">"</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">pressureSensor</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">tizen</span><span style="color: #999">.</span><span style="color: #000">sensorservice</span><span style="color: #999">.</span><span style="color: #DD4A68">getDefaultSensor</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">PRESSURE</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> ...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">onSuccess</span><span style="color: #999">(</span><span style="color: #000">sensorData</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">maxSensorOutput</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">minSensorOutput</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">sensorOutput</span><span style="color: #999">.</span><span style="color: #DD4A68">push</span><span style="color: #999">(</span><span style="color: #000">sensorData</span><span style="color: #999">.</span><span style="color: #000">pressure</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">*</span><span style="color: #BBBBBB"> </span><span style="color: #905">100</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">maxSensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Math</span><span style="color: #999">.</span><span style="color: #000">max</span><span style="color: #999">.</span><span style="color: #DD4A68">apply</span><span style="color: #999">(</span><span style="color: #07A">null</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">sensorOutput</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">minSensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Math</span><span style="color: #999">.</span><span style="color: #000">min</span><span style="color: #999">.</span><span style="color: #DD4A68">apply</span><span style="color: #999">(</span><span style="color: #07A">null</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">sensorOutput</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">maxSensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">-</span><span style="color: #BBBBBB"> </span><span style="color: #000">minSensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">BLACK_HOLE_MISSION_CRITERIA</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&amp;&amp;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">sensorOutput</span><span style="color: #BBBBBB">[</span><span style="color: #905">0</span><span style="color: #BBBBBB">] </span><span style="color: #A67F59">-</span><span style="color: #BBBBBB"> </span><span style="color: #000">minSensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #905">1</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #DD4A68">blackHoleSuccess</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">onError</span><span style="color: #999">(</span><span style="color: #000">error</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">console</span><span style="color: #999">.</span><span style="color: #DD4A68">log</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">error occurs: </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">error</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">onTimerTick</span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">pressureSensor</span><span style="color: #999">.</span><span style="color: #DD4A68">getPressureSensorData</span><span style="color: #999">(</span><span style="color: #000">onSuccess</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">onError</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">startGame</span><span style="color: #999">(</span><span style="color: #000">gameFailureTime</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">TIMER_TICK</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">10</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">pressureSensor</span><span style="color: #999">.</span><span style="color: #DD4A68">start</span><span style="color: #999">(</span><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">Router</span><span style="color: #999">.</span><span style="color: #DD4A68">registerRouteRule</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">item</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">playing</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">timerTick</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #000">handler</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">onTimerTick</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">});</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">Timer</span><span style="color: #999">.</span><span style="color: #DD4A68">addTimer</span><span style="color: #999">(</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">timer-black-hole</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">gameFailureTime</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">TIMER_TICK</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">blackHoleFailure</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> ...</span></span></code></pre>
+<p>The source code above is a part of black-hole-item.js.</p>
+<p>I think you can see some familiar source code which we talked about usage of pressure(barometer) sensor data&nbsp;in Chapter 2.</p>
+<p>You would find some lines containing friendly words like “tizen” and “pressure”.</p>
+<p>We just glanced at the key part related to pressure(barometer) sensor data in this page and we’re going to understand the source code in detail from the next page.</p>
+<h2 id="how-to-use-barometer-sensor-of-tizen-3">How to use barometer sensor of Tizen-(3)</h2>
+<p>First of all, we are going to look at the part of using Tizen pressure(barometer) sensor data in black-hole-item.js</p>
+<p>a. Getting the object of pressure(barometer) sensor of Tizen</p>
+<p><highlight>11-13</highlight></p>
+<pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">/*</span><span style="color: #708090"> black-hole-item.js </span><span style="color: #999">*/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> ...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #000">BLACK_HOLE_MISSION_CRITERIA</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">6</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> ...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">pressureSensor</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #A67F59">typeof</span><span style="color: #BBBBBB"> </span><span style="color: #000">tizen</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">!==</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">undefined</span><span style="color: #999">"</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">pressureSensor</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">tizen</span><span style="color: #999">.</span><span style="color: #000">sensorservice</span><span style="color: #999">.</span><span style="color: #DD4A68">getDefaultSensor</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">PRESSURE</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> ...</span></span></code></pre>
+<p>We checked first whether the Tizen object exists or not and then assign the Tizen pressure sensor object to the&nbsp;pressureSensor variable.</p>
+<p>b. Starting the presssure(barometer) sensor</p>
+<p><highlight>16-19</highlight></p>
+<pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">/*</span><span style="color: #708090"> black-hole-item.js </span><span style="color: #999">*/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> ...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">pressureSensor</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #A67F59">typeof</span><span style="color: #BBBBBB"> </span><span style="color: #000">tizen</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">!==</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">undefined</span><span style="color: #999">"</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">pressureSensor</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">tizen</span><span style="color: #999">.</span><span style="color: #000">sensorservice</span><span style="color: #999">.</span><span style="color: #DD4A68">getDefaultSensor</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">PRESSURE</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> ...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">startGame</span><span style="color: #999">(</span><span style="color: #000">gameFailureTime</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">TIMER_TICK</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">10</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">pressureSensor</span><span style="color: #999">.</span><span style="color: #DD4A68">start</span><span style="color: #999">(</span><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">Router</span><span style="color: #999">.</span><span style="color: #DD4A68">registerRouteRule</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">item</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">playing</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">timerTick</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #000">handler</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">onTimerTick</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">});</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">Timer</span><span style="color: #999">.</span><span style="color: #DD4A68">addTimer</span><span style="color: #999">(</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">timer-black-hole</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">gameFailureTime</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">TIMER_TICK</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">blackHoleFailure</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> ...</span></span></code></pre>
+<p>As you see at 16&nbsp;line, the Tizen pressure(barometer) sensor starts using the start method of&nbsp;the pressureSensor object.</p>
+<p>The successCallback is necessary as a parameter and the errorCallback is a optional paramter.</p>
+<p>We made the successCallback as an anonymous function and registered a routeRule at 17 and 18 line.</p>
+<p>As for the router in this source code, it is for handling events which occurs in GearMaze project and it is not an important part for this lecture. So you don’t have to understand the router in detail here.</p>
+<p>The most important thing that you keep in mind is that the onTimerTick function is going to be executed&nbsp;when the successCallback function is called.</p>
+<p>c. Ready to getting sensor data by the getPressureSensorData method of&nbsp;pressureSensor</p>
+<p><highlight>19-21</highlight></p>
+<pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">/*</span><span style="color: #708090"> black-hole-item.js </span><span style="color: #999">*/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> ...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #000">BLACK_HOLE_MISSION_CRITERIA</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">6</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> ...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">itemMetadata</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">pressureSensor</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">sensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> []</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #A67F59">typeof</span><span style="color: #BBBBBB"> </span><span style="color: #000">tizen</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">!==</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">undefined</span><span style="color: #999">"</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">pressureSensor</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">tizen</span><span style="color: #999">.</span><span style="color: #000">sensorservice</span><span style="color: #999">.</span><span style="color: #DD4A68">getDefaultSensor</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">PRESSURE</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> ...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">onTimerTick</span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">pressureSensor</span><span style="color: #999">.</span><span style="color: #DD4A68">getPressureSensorData</span><span style="color: #999">(</span><span style="color: #000">onSuccess</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">onError</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">startGame</span><span style="color: #999">(</span><span style="color: #000">gameFailureTime</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">TIMER_TICK</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">10</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">pressureSensor</span><span style="color: #999">.</span><span style="color: #DD4A68">start</span><span style="color: #999">(</span><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">Router</span><span style="color: #999">.</span><span style="color: #DD4A68">registerRouteRule</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">item</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">playing</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">timerTick</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #000">handler</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">onTimerTick</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">});</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">Timer</span><span style="color: #999">.</span><span style="color: #DD4A68">addTimer</span><span style="color: #999">(</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">"</span><span style="color: #690">timer-black-hole</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">gameFailureTime</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">TIMER_TICK</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">blackHoleFailure</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> ...</span></span></code></pre>
+<p>The sensor got started and we should prepare for receiving the real pressure sensor data.</p>
+<p>We execute&nbsp;the getPressureSensorData method with the successCallback and&nbsp;errorCallback as parameters.</p>
+<p>We are ready to get sensor data!</p>
+<h1 id="3-implementation-of-blackhole">3. Implementation of BLACKHOLE</h1>
+<h2 id="looking-at-the-logic-of-blackhole">Looking at the logic of BLACKHOLE</h2>
+<p>d. Accessing&nbsp;the pressure&nbsp;sensor date</p>
+<p><highlight>9-20</highlight></p>
+<pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">/*</span><span style="color: #708090"> black-hole-item.js </span><span style="color: #999">*/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> ...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #000">BLACK_HOLE_MISSION_CRITERIA</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">6</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">pressureSensor</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">sensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> []</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> ...</span></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">onSuccess</span><span style="color: #999">(</span><span style="color: #000">sensorData</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">maxSensorOutput</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">minSensorOutput</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">sensorOutput</span><span style="color: #999">.</span><span style="color: #DD4A68">push</span><span style="color: #999">(</span><span style="color: #000">sensorData</span><span style="color: #999">.</span><span style="color: #000">pressure</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">*</span><span style="color: #BBBBBB"> </span><span style="color: #905">100</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">maxSensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Math</span><span style="color: #999">.</span><span style="color: #000">max</span><span style="color: #999">.</span><span style="color: #DD4A68">apply</span><span style="color: #999">(</span><span style="color: #07A">null</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">sensorOutput</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">minSensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Math</span><span style="color: #999">.</span><span style="color: #000">min</span><span style="color: #999">.</span><span style="color: #DD4A68">apply</span><span style="color: #999">(</span><span style="color: #07A">null</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">sensorOutput</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">maxSensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">-</span><span style="color: #BBBBBB"> </span><span style="color: #000">minSensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">BLACK_HOLE_MISSION_CRITERIA</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&amp;&amp;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">sensorOutput</span><span style="color: #BBBBBB">[</span><span style="color: #905">0</span><span style="color: #BBBBBB">] </span><span style="color: #A67F59">-</span><span style="color: #BBBBBB"> </span><span style="color: #000">minSensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #905">1</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #DD4A68">blackHoleSuccess</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> ...</span></span></code></pre>
+<p>We are able to get the raw pressure sensor data from onSuccess function which is a callback function and is registered as the&nbsp;successCallback of getPressureSensorData.</p>
+<p>The raw pressure sensor data is stored in the pressure property of the sensorData which is received from onSuccess as a parameter and the sensor data is received until the pressure sensor stops.</p>
+<p>So, what does BLACKHOLE of GearMaze apply this pressure sensor data to implement itself? We are going to talk about it as&nbsp;the last topic and then end up this lecture.</p>
+<h2 id="understanding-blackhole-logic-1">Understanding BLACKHOLE logic-(1)</h2>
+<p>Gear Maze is a game that you escape from the invisible and virtual maze with a wearable device.</p>
+<p>Gear Maze is available for Gear S2/S3 and you can download it from Samsung AppStore.</p>
+<p>If you want to know about Gear Maze, you can check it out from below link.</p>
+<p>Or, if&nbsp; you are playing it now on your wearable device.</p>
+<p>In this lecture, we are going to talk about the BLACKHOLE item which is one of interesting items of Gear Maze.</p>
+<p>First of all, those items which Gear Maze provides are helpful or annoying contents&nbsp;when you escape from the virtual maze.</p>
+<img src="/TizenSchool/assets/images/tutorials/72/item-open.png" style="height:240px; width:240px">
+<p>&lt;Screenhost 1 : opening item&gt;</p>
+<p>It’s up to you whether opening the item or not.</p>
+<p>When you meet the helpful items, it’s going to do in some positive ways, such as showing the walls around you for a while.</p>
+<p>However, as for the negative items, you should fulfill a mission. If you don’t pass it, you should go back to the starting point of the maze and it makes you feel harder to get out of it.</p>
+<p>What do you imagine Black hole?</p>
+<img src="/TizenSchool/assets/images/tutorials/72/blackhole.png" style="height:240px; width:240px">
+<p>&lt;Screenshot 2 : Finding BLACKHOLE&gt;</p>
+<p>Don’t you think that you would become&nbsp;sucked into somewhere? BLACKHOLE is the&nbsp;negative item bothering you as you guess.</p>
+<p>So, the mission of BLACKHOLE is to escape from a virtual Black hole.</p>
+<p>How do you pass this mission?</p>
+<p>We are going to figure out this&nbsp;mission in the next page in detail.</p>
+<p>In addition, if you want to know the implementation of another items, please refer&nbsp;the links below.</p>
+<reference>
+<h2 id="understanding-blackhole-logic-2">Understanding BLACKHOLE logic-(2)</h2>
+<p>The mission of BLACKHOLE is “escaping from BLACKHOLE by jumping higher”.</p>
+<p>Actually, if you meet the real Black hole, you never get out of it with your jumping.</p>
+<p>However, GearMaze is just a game and I believe that you understand and admit this mission.</p>
+<img src="/TizenSchool/assets/images/tutorials/72/blackhole-ready.png" style="height:240px; width:240px">
+<p>&lt;Screenshot 3&nbsp;: guide of BLACKHOLE mission&gt;</p>
+<p>As you see above screenshot, the guide explains the mission as “seat&nbsp;and jump&nbsp;then get out of BLACKHOLE”.</p>
+<p>If you need more to understand this mission, let’s take a look at the picture&nbsp;performing this mission.</p>
+<img src="/TizenSchool/assets/images/tutorials/72/jump.jpg" style="height:711px; width:400px">
+<picture :="" performing="" blackhole="" mission="">
+<p>Can you see that the player do jump his best to pass the mission?</p>
+<p>Unfortunately, even though you do your best, you can fail the mission.</p>
+<p>The next page is going to explain the reason.</p>
+<h2 id="understanding-blackhole-logic-3">Understanding BLACKHOLE logic-(3)</h2>
+<p>Before checking out the reason, let’s check one thing first. How can the wearable device know whether the player jumps?</p>
+<p>The answer is that the wearable device measures&nbsp;the height&nbsp;from the ground and calculates the difference between values.</p>
+<p>Unfortunately, Gear 2 or 3 doesn’t have the sensor which measures the height from the ground as I mentioned before.</p>
+<p>However, Gear has the sensor for air pressure.</p>
+<p>The sensor is called barometer.</p>
+<p>It measures the air pressure and you can estimate the height.</p>
+<p>Let’s see the skeleton model below.</p>
+<img src="/TizenSchool/assets/images/tutorials/72/height.png" style="height:357px; width:600px">
+<p>We assume that a player stands on the ground and&nbsp;player’s legs are straight.</p>
+<p>In this condition, player puts wearable devices on wrist (position 1)&nbsp;and ankle (position2).</p>
+<p>And then, we measure the air pressure of&nbsp;each&nbsp;wearable device using barometer sensor.</p>
+<p>The wearable device of position 2 places&nbsp;closer to the ground than one of position 1 so the former’s air pressure would be greater than the latter. (in the condition which there doesn’t exist another restriction related to environment)</p>
+<p>In result, we can figure out the&nbsp;height by the gap of air pressure between different poistions.</p>
+<p>The mission of BLACKHOLE item uses this feature.</p>
+<p>Then, How to use barometer sensor for measuring air pressure?</p>
+<p>Chapter 2 is going to deal with barometer sensor.</p>
+<h1 id="4-epilogue">4. Epilogue</h1>
+<h2 id="summary">Summary</h2>
+<p>e. Collecting the pressure sensor data</p>
+<p><highlight>15</highlight></p>
+<pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">/*</span><span style="color: #708090"> black-hole-item.js </span><span style="color: #999">*/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> ...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #000">BLACK_HOLE_MISSION_CRITERIA</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">6</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">pressureSensor</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">sensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> []</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> ...</span></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">onSuccess</span><span style="color: #999">(</span><span style="color: #000">sensorData</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">maxSensorOutput</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">minSensorOutput</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">sensorOutput</span><span style="color: #999">.</span><span style="color: #DD4A68">push</span><span style="color: #999">(</span><span style="color: #000">sensorData</span><span style="color: #999">.</span><span style="color: #000">pressure</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">*</span><span style="color: #BBBBBB"> </span><span style="color: #905">100</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">maxSensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Math</span><span style="color: #999">.</span><span style="color: #000">max</span><span style="color: #999">.</span><span style="color: #DD4A68">apply</span><span style="color: #999">(</span><span style="color: #07A">null</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">sensorOutput</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">minSensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Math</span><span style="color: #999">.</span><span style="color: #000">min</span><span style="color: #999">.</span><span style="color: #DD4A68">apply</span><span style="color: #999">(</span><span style="color: #07A">null</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">sensorOutput</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">maxSensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">-</span><span style="color: #BBBBBB"> </span><span style="color: #000">minSensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">BLACK_HOLE_MISSION_CRITERIA</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&amp;&amp;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">sensorOutput</span><span style="color: #BBBBBB">[</span><span style="color: #905">0</span><span style="color: #BBBBBB">] </span><span style="color: #A67F59">-</span><span style="color: #BBBBBB"> </span><span style="color: #000">minSensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #905">1</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #DD4A68">blackHoleSuccess</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> ...</span></span></code></pre>
+<p>Whenever the pressure sensor data is received, the onSuccess function is going to be called.</p>
+<p>Then we are going to collect the data to detect changes and calculate the difference of heights.</p>
+<p>So, we push the sensor data&nbsp;to the sensorOutput array&nbsp;in onSuccess.</p>
+<p>At this time, we multiply the raw data by 100 because the difference of raw sensor is small before storing it.</p>
+<p>f. Cacluating the maximum and minimun of sensorOutput</p>
+<p><highlight>17,18</highlight></p>
+<pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">/*</span><span style="color: #708090"> black-hole-item.js </span><span style="color: #999">*/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> ...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #000">BLACK_HOLE_MISSION_CRITERIA</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">6</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">pressureSensor</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">sensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> []</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> ...</span></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">onSuccess</span><span style="color: #999">(</span><span style="color: #000">sensorData</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">maxSensorOutput</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">minSensorOutput</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">sensorOutput</span><span style="color: #999">.</span><span style="color: #DD4A68">push</span><span style="color: #999">(</span><span style="color: #000">sensorData</span><span style="color: #999">.</span><span style="color: #000">pressure</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">*</span><span style="color: #BBBBBB"> </span><span style="color: #905">100</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">maxSensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Math</span><span style="color: #999">.</span><span style="color: #000">max</span><span style="color: #999">.</span><span style="color: #DD4A68">apply</span><span style="color: #999">(</span><span style="color: #07A">null</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">sensorOutput</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">minSensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Math</span><span style="color: #999">.</span><span style="color: #000">min</span><span style="color: #999">.</span><span style="color: #DD4A68">apply</span><span style="color: #999">(</span><span style="color: #07A">null</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">sensorOutput</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">maxSensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">-</span><span style="color: #BBBBBB"> </span><span style="color: #000">minSensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">BLACK_HOLE_MISSION_CRITERIA</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&amp;&amp;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">sensorOutput</span><span style="color: #BBBBBB">[</span><span style="color: #905">0</span><span style="color: #BBBBBB">] </span><span style="color: #A67F59">-</span><span style="color: #BBBBBB"> </span><span style="color: #000">minSensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #905">1</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #DD4A68">blackHoleSuccess</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> ...</span></span></code></pre>
+<p>We update the maximum and minimum value in&nbsp;sensorOutput array whenever storing the data using the max and min method of Javascript Math library.</p>
+<p>The Math.min() function returns the smallest value otherwise Math.min() function returns the greatest value.</p>
+<p>g. Checking the success criteria</p>
+<p><highlight>20-22</highlight></p>
+<pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">/*</span><span style="color: #708090"> black-hole-item.js </span><span style="color: #999">*/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> ...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #000">BLACK_HOLE_MISSION_CRITERIA</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">6</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">pressureSensor</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">sensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> []</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> ...</span></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">onSuccess</span><span style="color: #999">(</span><span style="color: #000">sensorData</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">maxSensorOutput</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">minSensorOutput</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">sensorOutput</span><span style="color: #999">.</span><span style="color: #DD4A68">push</span><span style="color: #999">(</span><span style="color: #000">sensorData</span><span style="color: #999">.</span><span style="color: #000">pressure</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">*</span><span style="color: #BBBBBB"> </span><span style="color: #905">100</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">maxSensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Math</span><span style="color: #999">.</span><span style="color: #000">max</span><span style="color: #999">.</span><span style="color: #DD4A68">apply</span><span style="color: #999">(</span><span style="color: #07A">null</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">sensorOutput</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">minSensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Math</span><span style="color: #999">.</span><span style="color: #000">min</span><span style="color: #999">.</span><span style="color: #DD4A68">apply</span><span style="color: #999">(</span><span style="color: #07A">null</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">sensorOutput</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">maxSensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">-</span><span style="color: #BBBBBB"> </span><span style="color: #000">minSensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">BLACK_HOLE_MISSION_CRITERIA</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&amp;&amp;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">sensorOutput</span><span style="color: #BBBBBB">[</span><span style="color: #905">0</span><span style="color: #BBBBBB">] </span><span style="color: #A67F59">-</span><span style="color: #BBBBBB"> </span><span style="color: #000">minSensorOutput</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #905">1</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #DD4A68">blackHoleSuccess</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090"> ...</span></span></code></pre>
+<p>In BLACKHOLE logic, we actually don’t calculate the difference of heights.</p>
+<p>We thought it succeeded when there exists a defined difference of pressure given that the difference of pressure changes consistently in relation to the difference of heights.</p>
+<p>According to this algorithm, the maxSensorOutput represents the closest state to&nbsp;the ground and the&nbsp;minSensorOutput indicates the greatest distance away from the ground.</p>
+<p>We need to check whether the wearable device moves upward over a defined degree like&nbsp;20&nbsp;line.</p>
+<p>If a&nbsp;player is tall, he could be&nbsp;able to pass this mission by moving simply the device downward.</p>
+<p>So, we add the defending code for preventing from this unintentional case in 21 line.</p>
+<reference>
+<h2 id="reference">Reference</h2>
+<p>I am going to finish the lecture.</p>
+<p>The lecture dealt with BLACKHOLE of GearMaze.</p>
+<p>Especially, we learned the usage of Tizen pressure(barometer) sensor to implement BLACKHOLE and&nbsp;understood the logic also.</p>
+<p>I hope you realize that it is not difficult to use Tizen sensors from this lecture.</p>
+<p>As I mentioned before,&nbsp;there are six sensor types in the wearable sensor(v.2.3.1).</p>
+<p>In addition, you can use additional four sensor types in Tizen wearable v3.0.</p>
+<p>I hope you develop awesome your own applications using various Tizne sensors.</p></reference></picture></reference></reference></reference></reference></reference></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/13</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/642c4c04779a63be966fa6579cbe2e444ddde584">642c4c04779a63be966fa6579cbe2e444ddde584</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+

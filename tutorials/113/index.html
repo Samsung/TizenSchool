@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/TizenSchool/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/TizenSchool/assets/images/favicon-32x32.png">
+    <title>How to create Pulsometer (Heart Rate)</title>
+  <link rel="stylesheet" href="/TizenSchool/assets/aboutus.9016036b.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.013d619c.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="2r5SHS" component-url="/TizenSchool/Header.fde63186.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/TizenSchool/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      How to create Pulsometer (Heart Rate)
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">You can learn how simple is to expand on your watch&#39;s existing features to track your health and workouts in even greater detail.</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/TizenSchool/assets/images/iot-dimmed.png">
+        <img src="/TizenSchool/assets/images/wearable-active.png">
+        <img src="/TizenSchool/assets/images/mobile-dimmed.png">
+        <img src="/TizenSchool/assets/images/smart-tv-dimmed.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2018/08/16</span>
+            Modified
+            <span class="font-bold">2020/02/30</span>
+    </div>
+  </div><astro-island uid="Z2u0Coj" component-url="/TizenSchool/TextContent.c7f4d9de.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,9],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[]\&quot;],\&quot;chapter\&quot;:[0,\&quot;\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Overview\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. Setting up the environment\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;I. Introduction\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Preparing the area\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. Adding the assets\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. Creating the view\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;4. Handling privileges for using Sensor\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;5. Performing the measurment\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;6. Customizing the life cycle\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;7. Testing the application\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;II. Application development\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/9</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id="i-introduction">I. Introduction</h1><h2 id="1-overview">1. Overview</h2>
+<p>With this tutorial, you can learn how simple is to expand on Galaxy Watch’s existing features to track your health and workouts in even greater detail. We will teach you how to create a simple pulsometer application.</p>
+<img src="/TizenSchool/assets/images/tutorials/113/hrm-final.png" style="height:544px; width:400px">
+<p>The code of this tutorial is under <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a> license.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="i-introduction">I. Introduction</h1><h2 id="2-setting-up-the-environment">2. Setting up the environment</h2>
+<p>To build the Tizen application for the wearable, the environment should be downloaded and installed.</p>
+<p>To test the application, following devices are required:</p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-application-development">II. Application development</h1><h2 id="1-preparing-the-area">1. Preparing the area</h2>
+<p>Open <strong>Visual Studio IDE</strong> to create a new <strong>Tizen Wearable App</strong> .</p>
+<img src="/TizenSchool/assets/images/tutorials/113/preparing-the-area-1.png" style="height:146px; margin-left:50px; margin-right:50px; width:633px">
+<img src="/TizenSchool/assets/images/tutorials/113/preparing-the-area-2_updated4.png" style="height:691px; width:1000px">
+<img src="/TizenSchool/assets/images/tutorials/113/preparing-the-area-3_updated.png" style="height:384px; width:510px">
+<hr>
+<p>※.&nbsp;If you are using the <strong>Visual Studio 2019</strong> and find the following error, please open the Pulsometer.csproj in “C:\project\Pulsometer\Pulsometer” and add the following code.</p>
+<img src="/TizenSchool/assets/images/tutorials/113/vs2019_error.png" style="height:75px; width:1000px">
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 56px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;</span><span style="color: #905">Project</span><span style="color: #BBBBBB"> </span><span style="color: #690">Sdk</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">Microsoft.NET.Sdk</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">&lt;</span><span style="color: #905">PropertyGroup</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">OutputType</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB">Exe</span><span style="color: #999">&lt;/</span><span style="color: #905">OutputType</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">TargetFramework</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB">tizen40</span><span style="color: #999">&lt;/</span><span style="color: #905">TargetFramework</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">TargetFrameworkIdentifier</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB">Tizen</span><span style="color: #999">&lt;/</span><span style="color: #905">TargetFrameworkIdentifier</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">TargetFrameworkVersion</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB">v4.0</span><span style="color: #999">&lt;/</span><span style="color: #905">TargetFrameworkVersion</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">&lt;/</span><span style="color: #905">PropertyGroup</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-application-development">II. Application development</h1><h2 id="2-adding-the-assets">2. Adding the assets</h2>
+<p>Step 1: Download and unpack <a href="https://tizenschool.org/assets/images/tutorials/113/asset.zip">the assets</a>&nbsp;for the application.</p>
+<p>The assets pack consists of two folders …</p>
+<img src="/TizenSchool/assets/images/tutorials/113/adding-the-assets-1.png" style="height:43px; margin-left:50px; margin-right:50px; width:60px">
+<p>… which contain following set of images</p>
+<img src="/TizenSchool/assets/images/tutorials/113/background.png" style="border-style:solid; border-width:1px; height:360px; margin-left:50px; margin-right:50px; width:360px">
+<img src="/TizenSchool/assets/images/tutorials/113/heart.png" style="height:34px; margin-left:50px; margin-right:50px; width:38px">
+<img src="/TizenSchool/assets/images/tutorials/113/HeartRateMonitorSDC.png" style="height:117px; margin-left:50px; margin-right:50px; width:117px">
+<p>Step 2: Select and copy the unpacked folders and paste them directly to the <strong><em>Pulsometer</em></strong> project.</p>
+<img src="/TizenSchool/assets/images/tutorials/113/adding-the-assets-2_updated.png" style="height:597px; width:297px">
+<p>Step 3: Confirm following pop-ups to replace the content of the <strong>res</strong> and <strong>shared</strong> folders of the project.</p>
+<img src="/TizenSchool/assets/images/tutorials/113/adding-the-assets-3.png" style="height:182px; margin-left:50px; margin-right:50px; width:503px">
+<img src="/TizenSchool/assets/images/tutorials/113/adding-the-assets-4.png" style="height:182px; margin-left:50px; margin-right:50px; width:503px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-application-development">II. Application development</h1><h2 id="3-creating-the-view">3. Creating the view</h2>
+<p>Step 1: Go to <strong><em>Solution Explorer</em></strong> window, right-click on the project and select <strong><em>Add &gt; New Item</em></strong> from the context menu.</p>
+<img src="/TizenSchool/assets/images/tutorials/113/additem.png" style="height:431px; width:575px">
+<p>Step 2: The <strong><em>“Add New Item”</em></strong> window will appear. Create <strong><em>MainPage.xaml</em></strong> file:<br></p>
+<img src="/TizenSchool/assets/images/tutorials/113/creating-the-view-1_updated.png" style="height:660px; width:955px">
+<p>Step 3: Open <strong><em>MainPage.xaml</em></strong> file. Add an XML namespace for <strong><em>Tizen.Circular.UI</em></strong> library and replace the <strong><em>ContentPage</em></strong> with a <strong>CirclePage</strong> from the <strong>cui</strong> namespace.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 28px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 84px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 308px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 336px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;?</span><span style="color: #905">xml</span><span style="color: #690"> version</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1.0</span><span style="color: #999">"</span><span style="color: #690"> encoding</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">utf-8</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">?&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;</span><span style="color: #905">cui</span><span style="color: #999">:</span><span style="color: #905">CirclePage</span><span style="color: #BBBBBB"> </span><span style="color: #690">xmlns</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://xamarin.com/schemas/2014/forms</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">x</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://schemas.microsoft.com/winfx/2009/xaml</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">cui</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">clr-namespace:Tizen.Wearable.CircularUI.Forms;assembly=Tizen.Wearable.CircularUI.Forms</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Class</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Pulsometer.MainPage</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">cui</span><span style="color: #999">:</span><span style="color: #905">CirclePage.Content</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">StackLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Label</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Welcome to Xamarin.Forms!</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">VerticalOptions</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">CenterAndExpand</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">HorizontalOptions</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">CenterAndExpand</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;/</span><span style="color: #905">StackLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">cui</span><span style="color: #999">:</span><span style="color: #905">CirclePage.Content</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;/</span><span style="color: #905">cui</span><span style="color: #999">:</span><span style="color: #905">CirclePage</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 4: Replace the content of the page with three elements positioned in absolute layout:</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 532px; top: 168px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;?</span><span style="color: #905">xml</span><span style="color: #690"> version</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1.0</span><span style="color: #999">"</span><span style="color: #690"> encoding</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">utf-8</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">?&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;</span><span style="color: #905">cui</span><span style="color: #999">:</span><span style="color: #905">CirclePage</span><span style="color: #BBBBBB"> </span><span style="color: #690">xmlns</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://xamarin.com/schemas/2014/forms</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">x</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://schemas.microsoft.com/winfx/2009/xaml</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">cui</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">clr-namespace:Tizen.Wearable.CircularUI.Forms;assembly=Tizen.Wearable.CircularUI.Forms</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Class</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Pulsometer.MainPage</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">cui</span><span style="color: #999">:</span><span style="color: #905">CirclePage.Content</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">AbsoluteLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Image</span><span style="color: #BBBBBB"> </span><span style="color: #690">AbsoluteLayout.LayoutFlags</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">All</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0, 0, 1, 1</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">Source</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">background.png</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Image</span><span style="color: #BBBBBB"> </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Name</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">measuringIndicator</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">AbsoluteLayout.LayoutFlags</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">None</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">155, 64, 50, 44</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">Source</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">heart.png</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">IsVisible</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">False</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Label</span><span style="color: #BBBBBB"> </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Name</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">hrValue</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">TextColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">#454545</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">FontSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">20</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">AbsoluteLayout.LayoutFlags</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">None</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">127, 169, 104, 48</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">HorizontalTextAlignment</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Center</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;/</span><span style="color: #905">AbsoluteLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">cui</span><span style="color: #999">:</span><span style="color: #905">CirclePage.Content</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;/</span><span style="color: #905">cui</span><span style="color: #999">:</span><span style="color: #905">CirclePage</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 5: Add an <strong><em>ActionButton</em></strong> element to the page. It will be starting and stopping the heart rate measurement.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 168px; top: 728px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;?</span><span style="color: #905">xml</span><span style="color: #690"> version</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1.0</span><span style="color: #999">"</span><span style="color: #690"> encoding</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">utf-8</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">?&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;</span><span style="color: #905">cui</span><span style="color: #999">:</span><span style="color: #905">CirclePage</span><span style="color: #BBBBBB"> </span><span style="color: #690">xmlns</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://xamarin.com/schemas/2014/forms</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">x</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://schemas.microsoft.com/winfx/2009/xaml</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">cui</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">clr-namespace:Tizen.Wearable.CircularUI.Forms;assembly=Tizen.Wearable.CircularUI.Forms</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Class</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Pulsometer.MainPage</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">cui</span><span style="color: #999">:</span><span style="color: #905">CirclePage.Content</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">AbsoluteLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Image</span><span style="color: #BBBBBB"> </span><span style="color: #690">AbsoluteLayout.LayoutFlags</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">All</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0, 0, 1, 1</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">Source</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">background.png</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Image</span><span style="color: #BBBBBB"> </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Name</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">measuringIndicator</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">AbsoluteLayout.LayoutFlags</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">None</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">155, 64, 50, 44</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">Source</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">heart.png</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">IsVisible</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">False</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Label</span><span style="color: #BBBBBB"> </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Name</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">hrValue</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">TextColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">#454545</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">FontSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">20</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">AbsoluteLayout.LayoutFlags</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">None</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">127, 169, 104, 48</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">HorizontalTextAlignment</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Center</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;/</span><span style="color: #905">AbsoluteLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">cui</span><span style="color: #999">:</span><span style="color: #905">CirclePage.Content</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">cui</span><span style="color: #999">:</span><span style="color: #905">CirclePage.ActionButton</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">cui</span><span style="color: #999">:</span><span style="color: #905">ActionButtonItem</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">MEASURE</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                              </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Name</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">actionButton</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                              </span><span style="color: #690">Clicked</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">OnActionButtonClicked</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">cui</span><span style="color: #999">:</span><span style="color: #905">CirclePage.ActionButton</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;/</span><span style="color: #905">cui</span><span style="color: #999">:</span><span style="color: #905">CirclePage</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 6: Open the <strong><em>MainPage.xaml.cs</em></strong> file (code behind file of the <strong><em>MainPage.xaml</em></strong> file). Add an <strong><em>using</em></strong> statement for the <strong><em>Tizen.CircularUI</em></strong> library and replace base class of the page with the <strong><em>CirclePage</em></strong> .</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 252px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 392px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Collections</span><span style="color: #BBBBBB">.</span><span style="color: #000">Generic</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Linq</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Text</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Threading</span><span style="color: #BBBBBB">.</span><span style="color: #000">Tasks</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #BBBBBB">.</span><span style="color: #000">Xaml</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #BBBBBB">.</span><span style="color: #000">Wearable</span><span style="color: #BBBBBB">.</span><span style="color: #000">CircularUI</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">Pulsometer</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">[</span><span style="color: #000">XamlCompilation</span><span style="color: #999">(</span><span style="color: #000">XamlCompilationOptions</span><span style="color: #999">.</span><span style="color: #000">Compile</span><span style="color: #999">)]</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">partial</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">MainPage</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">CirclePage</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">MainPage</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">InitializeComponent</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 7: Add an empty click handler to the action button we created earlier.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 84px; top: 196px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">partial</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">MainPage</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">CirclePage</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">MainPage</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #DD4A68">InitializeComponent</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnActionButtonClicked</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">EventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 8: Open the <strong><em>App.cs</em></strong> file. Replace the <strong><em>MainPage</em></strong> property assignment with new instance of the class we created earlier.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">App</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">Application</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">App</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">        //</span><span style="color: #708090"> The root page of your application</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">MainPage</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">MainPage</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">protected</span><span style="color: #BBBBBB"> </span><span style="color: #07A">override</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnStart</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">        //</span><span style="color: #708090"> Handle when your app starts</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">protected</span><span style="color: #BBBBBB"> </span><span style="color: #07A">override</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnSleep</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">        //</span><span style="color: #708090"> Handle when your app sleeps</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">protected</span><span style="color: #BBBBBB"> </span><span style="color: #07A">override</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnResume</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">        //</span><span style="color: #708090"> Handle when your app resumes</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>To build and run this application on the device, follow the steps below:</p>
+<p>The application should now look like the one below.</p>
+<img src="/TizenSchool/assets/images/tutorials/113/hrm-final-start.png" style="height:544px; margin-left:50px; margin-right:50px; width:400px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-application-development">II. Application development</h1><h2 id="4-handling-privileges-for-using-sensor">4. Handling privileges for using Sensor</h2>
+<p>Step 1: Open <strong><em>tizen-manifest.xml</em></strong> file (configuration editor should appear):<br></p>
+<p>If you want to know more about available privileges in .NET , please refer to below url. You’ll have to consider to request permission on and which sensors are available with the&nbsp;public permission.</p>
+<p><a href="https://developer.tizen.org/development/training/.net-application/security-and-api-privileges">https://developer.tizen.org/development/training/.net-application/security-and-api-privileges</a></p>
+<p><strong>Note</strong> : do not forget to save the file ( <strong><em>File &gt; Save Selected Items</em></strong> ).</p>
+<img src="/TizenSchool/assets/images/tutorials/113/handling-privileges-1.png" style="height:446px; margin-left:50px; margin-right:50px; width:804px">
+<p>You can find the code about privileges at tizen-manifest.xml</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 84px; top: 84px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">splash-screens</span><span style="color: #BBBBBB"> /&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">ui-application</span><span style="color: #BBBBBB">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">shortcut-list</span><span style="color: #BBBBBB"> /&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">privileges</span><span style="color: #BBBBBB">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">privilege</span><span style="color: #BBBBBB">&gt;</span><span style="color: #000">http</span><span style="color: #A67F59">://</span><span style="color: #000">tizen</span><span style="color: #999">.</span><span style="color: #000">org</span><span style="color: #A67F59">/</span><span style="color: #BBBBBB">privilege</span><span style="color: #A67F59">/</span><span style="color: #BBBBBB">healthinfo</span><span style="color: #999">&lt;/</span><span style="color: #905">privilege</span><span style="color: #BBBBBB">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">privileges</span><span style="color: #BBBBBB">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">provides-appdefined-privileges</span><span style="color: #BBBBBB"> /&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;/</span><span style="color: #905">manifest</span><span style="color: #BBBBBB">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 2: Open the <strong><em>MainPage.xaml.cs</em></strong> file. Add an <strong><em>using</em></strong> statement for the <strong><em>Tizen.Security</em></strong> namespace.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 280px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Collections</span><span style="color: #BBBBBB">.</span><span style="color: #000">Generic</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Linq</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Text</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Threading</span><span style="color: #BBBBBB">.</span><span style="color: #000">Tasks</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #BBBBBB">.</span><span style="color: #000">Xaml</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #BBBBBB">.</span><span style="color: #000">Wearable</span><span style="color: #BBBBBB">.</span><span style="color: #000">CircularUI</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #BBBBBB">.</span><span style="color: #000">Security</span><span style="color: #999">;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 3:&nbsp; Create the <strong><em>CheckPrivileges</em></strong> method and two callbacks - <strong><em>OnPrivilegesGranted</em></strong> and <strong><em>OnPrivilegesDenied</em></strong> . Call the method in the page constructor.</p>
+<p>The <strong><em>CheckPrivileges</em></strong> method checks the status of user’s approval for the <strong><em>”<a href="http://tizen.org/privilege/healthinfo">http://tizen.org/privilege/healthinfo</a>”</em></strong> privilege. It may get the status instantly (user already allowed or denied granting the privilege and their choice was remembered) or have to ask the user before proceeding. It calls one of two callbacks - <strong><em>OnPrivilegesGranted</em></strong> and <strong><em>OnPrivilegesDenied</em></strong> .</p>
+<p>The <strong><em>OnPrivilegesGranted</em></strong> callback is empty for now and will be implemented later.</p>
+<p>The <strong><em>OnPrivilegesDenied</em></strong> callback closes the application because the measurement cannot be done.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 1288px; top: 224px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">partial</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">MainPage</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">CirclePage</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">MainPage</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #DD4A68">InitializeComponent</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #DD4A68">CheckPrivileges</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">CheckPrivileges</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">        //</span><span style="color: #708090"> check permission status (allow, deny, ask) to determine action which has to be taken</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">privilege</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">http://tizen.org/privilege/healthinfo</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">CheckResult</span><span style="color: #BBBBBB"> </span><span style="color: #000">result</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">PrivacyPrivilegeManager</span><span style="color: #999">.</span><span style="color: #DD4A68">CheckPermission</span><span style="color: #999">(</span><span style="color: #000">privilege</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">result</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">==</span><span style="color: #BBBBBB"> </span><span style="color: #000">CheckResult</span><span style="color: #999">.</span><span style="color: #000">Allow</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">OnPrivilegesGranted</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">else</span><span style="color: #BBBBBB"> </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">result</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">==</span><span style="color: #BBBBBB"> </span><span style="color: #000">CheckResult</span><span style="color: #999">.</span><span style="color: #000">Deny</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">OnPrivilegesDenied</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">else</span><span style="color: #BBBBBB"> </span><span style="color: #999">//</span><span style="color: #708090"> the user must be asked about granting the privilege</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">PrivacyPrivilegeManager</span><span style="color: #999">.</span><span style="color: #DD4A68">GetResponseContext</span><span style="color: #999">(</span><span style="color: #000">privilege</span><span style="color: #999">).</span><span style="color: #DD4A68">TryGetTarget</span><span style="color: #999">(</span><span style="color: #07A">out</span><span style="color: #BBBBBB"> </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">context</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">context</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">!=</span><span style="color: #BBBBBB"> </span><span style="color: #905">null</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">context</span><span style="color: #999">.</span><span style="color: #000">ResponseFetched</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">cause</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">==</span><span style="color: #BBBBBB"> </span><span style="color: #000">CallCause</span><span style="color: #999">.</span><span style="color: #000">Answer</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&amp;&amp;</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">result</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">==</span><span style="color: #BBBBBB"> </span><span style="color: #000">RequestResult</span><span style="color: #999">.</span><span style="color: #000">AllowForever</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                        </span><span style="color: #DD4A68">OnPrivilegesGranted</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #07A">else</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                        </span><span style="color: #DD4A68">OnPrivilegesDenied</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #999">};</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">PrivacyPrivilegeManager</span><span style="color: #999">.</span><span style="color: #DD4A68">RequestPermission</span><span style="color: #999">(</span><span style="color: #000">privilege</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnPrivilegesGranted</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnPrivilegesDenied</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">        //</span><span style="color: #708090"> close the application</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">Applications</span><span style="color: #999">.</span><span style="color: #000">Application</span><span style="color: #999">.</span><span style="color: #000">Current</span><span style="color: #999">.</span><span style="color: #DD4A68">Exit</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnActionButtonClicked</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">EventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-application-development">II. Application development</h1><h2 id="5-performing-the-measurment">5. Performing the measurment</h2>
+<p>Step 1: Open the <strong><em>MainPage.xaml.cs</em></strong> file. Add an <strong><em>using</em></strong> statement for the <strong><em>Tizen.Sensor</em></strong> namespace.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 308px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Collections</span><span style="color: #BBBBBB">.</span><span style="color: #000">Generic</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Linq</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Text</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Threading</span><span style="color: #BBBBBB">.</span><span style="color: #000">Tasks</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #BBBBBB">.</span><span style="color: #000">Xaml</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #BBBBBB">.</span><span style="color: #000">Wearable</span><span style="color: #BBBBBB">.</span><span style="color: #000">CircularUI</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #BBBBBB">.</span><span style="color: #000">Security</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #BBBBBB">.</span><span style="color: #000">Sensor</span><span style="color: #999">;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 2: Add two private fields. The first one stores an instance of the <strong><em>HeartRateMonitor</em></strong> class, while the second one is a flag indicating if there is ongoing measurement.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 56px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">partial</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">MainPage</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">CirclePage</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">HeartRateMonitor</span><span style="color: #BBBBBB"> </span><span style="color: #000">_monitor</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">bool</span><span style="color: #BBBBBB"> </span><span style="color: #000">_measuring</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">false</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">MainPage</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #DD4A68">InitializeComponent</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #DD4A68">CheckPrivileges</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">    //</span><span style="color: #708090"> (...)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 3: Create and configure an instance of the monitor (in <strong><em>OnPrivilegesGranted</em></strong> method).</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 112px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnPrivilegesGranted</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">    //</span><span style="color: #708090"> create an instance of the monitor</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_monitor</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">HeartRateMonitor</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #999">    //</span><span style="color: #708090"> specify frequency of the sensor data event by setting the interval value (in milliseconds)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_monitor</span><span style="color: #999">.</span><span style="color: #000">Interval</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">1000</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 4: Add <strong><em>OnMonitorDataUpdated</em></strong> callback method. It will handle <strong><em>DataUpdated</em></strong> event of the monitor by updating the label displaying current heart rate value. We will use it in the next step.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 140px; top: 168px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnPrivilegesDenied</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">    //</span><span style="color: #708090"> close the application</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">Applications</span><span style="color: #999">.</span><span style="color: #000">Application</span><span style="color: #999">.</span><span style="color: #000">Current</span><span style="color: #999">.</span><span style="color: #DD4A68">Exit</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnMonitorDataUpdated</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">HeartRateMonitorDataUpdatedEventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">    //</span><span style="color: #708090"> update displayed value</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">hrValue</span><span style="color: #999">.</span><span style="color: #000">Text</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">HeartRate</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #905">0</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">?</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">HeartRate</span><span style="color: #999">.</span><span style="color: #DD4A68">ToString</span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">:</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">0</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 5: Add methods responsible for starting and stopping the measurement.</p>
+<p>If the measurement needs to be started:</p>
+<p>If the measurement needs to be stopped:</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 588px; top: 168px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnMonitorDataUpdated</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">HeartRateMonitorDataUpdatedEventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">    //</span><span style="color: #708090"> update displayed value</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">hrValue</span><span style="color: #999">.</span><span style="color: #000">Text</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">HeartRate</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #905">0</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">?</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">HeartRate</span><span style="color: #999">.</span><span style="color: #DD4A68">ToString</span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">:</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">0</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">StartMeasurement</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_monitor</span><span style="color: #999">.</span><span style="color: #000">DataUpdated</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">OnMonitorDataUpdated</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_monitor</span><span style="color: #999">.</span><span style="color: #DD4A68">Start</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_measuring</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">true</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">    //</span><span style="color: #708090"> update the view</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">actionButton</span><span style="color: #999">.</span><span style="color: #000">Text</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">STOP</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">measuringIndicator</span><span style="color: #999">.</span><span style="color: #000">IsVisible</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">true</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">StopMeasurement</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_monitor</span><span style="color: #999">.</span><span style="color: #000">DataUpdated</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">-=</span><span style="color: #BBBBBB"> </span><span style="color: #000">OnMonitorDataUpdated</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_monitor</span><span style="color: #999">.</span><span style="color: #DD4A68">Stop</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_measuring</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">false</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">    //</span><span style="color: #708090"> update the view</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">actionButton</span><span style="color: #999">.</span><span style="color: #000">Text</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">MEASURE</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">measuringIndicator</span><span style="color: #999">.</span><span style="color: #000">IsVisible</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">false</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 6: Implement the action button click handler. It starts or stops the measurement depending on the current state ( <strong><em>_measuring</em></strong> flag).</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 224px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnActionButtonClicked</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">EventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">_measuring</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #DD4A68">StopMeasurement</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">else</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #DD4A68">StartMeasurement</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><br>&nbsp;</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-application-development">II. Application development</h1><h2 id="6-customizing-the-life-cycle">6. Customizing the life cycle</h2>
+<p>The last thing we want to do, is <strong>stopping the measurement when the application goes into the background</strong> (home button is pressed).</p>
+<p>Step 1: Open the <strong><em>App.cs</em></strong> file. We will use <strong><em>MessagingCenter</em></strong> class to notify other modules that the application enters the sleeping state.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 84px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">protected</span><span style="color: #BBBBBB"> </span><span style="color: #07A">override</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnSleep</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">    //</span><span style="color: #708090"> Handle when your app sleeps</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">MessagingCenter</span><span style="color: #999">.</span><span style="color: #DD4A68">Send</span><span style="color: #999">&lt;</span><span style="color: #000">Application</span><span style="color: #999">&gt;(</span><span style="color: #07A">this</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">sleep</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 2: Go to the <strong><em>MainPage.xaml.cs</em></strong> file. Extend the <strong><em>OnPrivilegesGranted</em></strong> method by subscribing to message sent in the <strong><em>App.cs</em></strong> file. The handler will stop the measurement if it is necessary.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 196px; top: 196px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnPrivilegesGranted</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">    //</span><span style="color: #708090"> create an instance of the monitor</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_monitor</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">HeartRateMonitor</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #999">    //</span><span style="color: #708090"> specify frequency of the sensor data event by setting the interval value (in milliseconds)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_monitor</span><span style="color: #999">.</span><span style="color: #000">Interval</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">1000</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">    //</span><span style="color: #708090"> stop the measurement when the application goes background</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">MessagingCenter</span><span style="color: #999">.</span><span style="color: #DD4A68">Subscribe</span><span style="color: #999">&lt;</span><span style="color: #000">Application</span><span style="color: #999">&gt;(</span><span style="color: #07A">this</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">sleep</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">sender</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">_measuring</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">StopMeasurement</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">});</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-application-development">II. Application development</h1><h2 id="7-testing-the-application">7. Testing the application</h2>
+<p>Step 1: Connect the target device and select <strong><em>Build &gt; Build Solution</em></strong> &nbsp; or <strong>F6</strong> as a shortcut to build it and then select <strong><em>Debug &gt; Start Without Debugging</em></strong> &nbsp;from the Visual Studio menu or use <strong><em>Ctrl + F5</em></strong> shortcut to run on the target device.</p>
+<img src="/TizenSchool/assets/images/tutorials/113/testing-the-application-1.png" style="height:359px; margin-left:50px; margin-right:50px; width:776px">
+<p>The application should launch.</p>
+<img src="/TizenSchool/assets/images/tutorials/113/hrm-final-start.png" style="height:544px; margin-left:50px; margin-right:50px; width:400px">
+<p>Step 2: Put the watch on your hand and press the <strong>MEASURE</strong> button. Wait a while until the measurement is done.</p>
+<p><strong>Note</strong> : It may take about 10 seconds before the first result appears. Please be patient.</p>
+<img src="/TizenSchool/assets/images/tutorials/113/hrm-final.png" style="height:544px; margin-left:50px; margin-right:50px; width:400px">
+<p>Congratulation!! You have finished this tutorial completely. Thank you.</p></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/9</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/642c4c04779a63be966fa6579cbe2e444ddde584">642c4c04779a63be966fa6579cbe2e444ddde584</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+

@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/TizenSchool/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/TizenSchool/assets/images/favicon-32x32.png">
+    <title>Simple Calculator for multi platforms and devices</title>
+  <link rel="stylesheet" href="/TizenSchool/assets/aboutus.9016036b.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.013d619c.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="2r5SHS" component-url="/TizenSchool/Header.fde63186.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/TizenSchool/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      Simple Calculator for multi platforms and devices
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">This tutorial describe how to create a simple calculator using a Grid layout based on Xamarin.Forms - Written by Seoghyun Kang(Shawn)</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/TizenSchool/assets/images/iot-active.png">
+        <img src="/TizenSchool/assets/images/wearable-active.png">
+        <img src="/TizenSchool/assets/images/mobile-active.png">
+        <img src="/TizenSchool/assets/images/smart-tv-active.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2020/02/03</span>
+            Modified
+            <span class="font-bold">2020/03/13</span>
+    </div>
+  </div><astro-island uid="ZomgMs" component-url="/TizenSchool/TextContent.c7f4d9de.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,6],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Overview\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. Creating a Project\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. Creating a View\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;4. Creating a ViewModel\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;5. Implementing commands\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;6. Optimizing for Watch\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/6</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="1-overview">1. Overview</h2>
+<p><strong>This tutorial shows how simple it is to develop a application for multi platforms and profiles.</strong></p>
+<p>ex) Android, iOS, UWP and Tizen /&nbsp;Mobile, Watch,&nbsp;Desktop and IoT</p>
+<p>And you can learn the following things from this tutorial.</p>
+<p>※. Because this&nbsp;is a just simple sample, it does not support all features for calculator.</p>
+<img src="/TizenSchool/assets/images/tutorials/175/android.png" style="height:740px; width:400px">
+&nbsp;&nbsp;
+<img src="/TizenSchool/assets/images/tutorials/175/tizen.png" style="height:544px; width:400px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="2-creating-a-project">2. Creating a Project</h2>
+<p>First of all, let’s create a new project based on Xamarin.Forms.</p>
+<p>Then let’s add the UWP(Windows) project and Tizen project. (Optional)</p>
+<p>1)&nbsp;Open&nbsp; <strong>Visual Studio IDE</strong> &nbsp;to create a new project</p>
+<img src="/TizenSchool/assets/images/tutorials/112/File_New_Project_Selection.png" style="undefined">
+<p>2)&nbsp;Select a <strong>Mobile App (Xamarin.Forms)</strong> &nbsp;as a project template</p>
+<img src="/TizenSchool/assets/images/tutorials/175/1.png" style="height:693px; width:1000px">
+<p>3)&nbsp;In the&nbsp; <strong><em>New Project</em></strong> &nbsp; window, specify the project&nbsp; <strong>*Name</strong> . (ex)&nbsp; <strong>Calculator*</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/175/2.png" style="height:693px; width:1000px">
+<p>4)&nbsp;Select the ” <strong>Blank</strong> ” as a template</p>
+<img src="/TizenSchool/assets/images/tutorials/175/3.png" style="height:403px; width:741px">
+<p><a href="https://tizenschool.org/tutorial/173/contents/3">https://tizenschool.org/tutorial/173/contents/3</a></p>
+<img src="/TizenSchool/assets/images/tutorials/175/4.png" style="height:316px; width:660px">
+<ol start="5">
+<li>At this point, the project structure in the&nbsp; <strong><em>Solution Explorer</em></strong> window should look as follows:</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/175/5.png" style="height:299px; width:395px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="3-creating-a-view">3. Creating a View</h2>
+<p>Let’s create a UI for our calculator application.</p>
+<p>1)&nbsp;Open the <strong>Calculator/MainPage.xaml</strong> file.</p>
+<p>2)&nbsp;Remove <strong>StackLayout codes</strong> and add&nbsp; <strong>Grid Layout</strong> with 7 rows and 4 columns</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 504px; top: 224px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;?</span><span style="color: #905">xml</span><span style="color: #690"> version</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1.0</span><span style="color: #999">"</span><span style="color: #690"> encoding</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">utf-8</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">?&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;</span><span style="color: #905">ContentPage</span><span style="color: #BBBBBB"> </span><span style="color: #690">xmlns</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://xamarin.com/schemas/2014/forms</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">x</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://schemas.microsoft.com/winfx/2009/xaml</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">d</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://xamarin.com/schemas/2014/forms/design</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">mc</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://schemas.openxmlformats.org/markup-compatibility/2006</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">mc</span><span style="color: #999">:</span><span style="color: #690">Ignorable</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">d</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Class</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Calculator.MainPage</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">Grid</span><span style="color: #BBBBBB"> </span><span style="color: #690">Margin</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">8,10,8,30</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Grid.RowDefinitions</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">RowDefinition</span><span style="color: #BBBBBB"> </span><span style="color: #690">Height</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">*</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">RowDefinition</span><span style="color: #BBBBBB"> </span><span style="color: #690">Height</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">*</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">RowDefinition</span><span style="color: #BBBBBB"> </span><span style="color: #690">Height</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">*</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">RowDefinition</span><span style="color: #BBBBBB"> </span><span style="color: #690">Height</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">*</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">RowDefinition</span><span style="color: #BBBBBB"> </span><span style="color: #690">Height</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">*</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">RowDefinition</span><span style="color: #BBBBBB"> </span><span style="color: #690">Height</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">*</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">RowDefinition</span><span style="color: #BBBBBB"> </span><span style="color: #690">Height</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">*</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;/</span><span style="color: #905">Grid.RowDefinitions</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Grid.ColumnDefinitions</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">ColumnDefinition</span><span style="color: #BBBBBB"> </span><span style="color: #690">Width</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">*</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">ColumnDefinition</span><span style="color: #BBBBBB"> </span><span style="color: #690">Width</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">*</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">ColumnDefinition</span><span style="color: #BBBBBB"> </span><span style="color: #690">Width</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">*</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">ColumnDefinition</span><span style="color: #BBBBBB"> </span><span style="color: #690">Width</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">*</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;/</span><span style="color: #905">Grid.ColumnDefinitions</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">Grid</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">&lt;/</span><span style="color: #905">ContentPage</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>3)&nbsp;Add a label for displaying the&nbsp;title</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 196px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;/</span><span style="color: #905">Grid.ColumnDefinitions</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Label</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Calculator</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #690">Grid.ColumnSpan</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">4</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #690">HorizontalTextAlignment</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Center</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #690">VerticalTextAlignment</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Center</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #690">FontSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Large</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #690">FontAttributes</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Bold</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">Grid</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>4)&nbsp;Add a label for displaying inputed texts</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 252px; top: 0px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Frame</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #690">Grid.ColumnSpan</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">4</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #690">BorderColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Gray</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #690">Padding</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">5,0</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Label</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">123456789</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">FontSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Large</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">HorizontalTextAlignment</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">End</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">VerticalTextAlignment</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Center</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;/</span><span style="color: #905">Frame</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">Grid</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ol start="5">
+<li>Add the buttons</li>
+</ol>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 588px; top: 0px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Del</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">/</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">*</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">-</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">3</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">7</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">3</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">8</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">3</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">9</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">3</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">+</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">3</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">3</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.RowSpan</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">4</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">4</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">5</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">4</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">6</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">4</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">5</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">5</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">3</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">5</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">=</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">5</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">3</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.RowSpan</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">6</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.ColumnSpan</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">.</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">6</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">Grid</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>To build and run this application on the device, follow the steps below:</p>
+<img src="/TizenSchool/assets/images/tutorials/175/3p.png" style="undefined">
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="4-creating-a-viewmodel">4. Creating a ViewModel</h2>
+<p>To follow MVVM&nbsp;pattern, first create a ViewModel file ** in our ***Calculator*** project.</p>
+<ol>
+<li>Right-click on the&nbsp; <strong><em>Calculator</em></strong> project, <strong><em>Add &gt; New Item…</em></strong> from the context menu,&nbsp;choose type&nbsp; <strong><em>Class</em></strong> and name it&nbsp; <strong><em>MainPageViewModel.cs</em></strong> <em>.</em></li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/175/6.png" style="height:611px; width:555px">
+<img src="/TizenSchool/assets/images/tutorials/175/7.png" style="height:555px; width:800px">
+<ol start="2">
+<li>Use <strong>INotifyPropertyChanged</strong> Interface in&nbsp; <strong><em>MainPageViewModel.cs</em></strong></li>
+</ol>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 476px; top: 0px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">ComponentModel</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Runtime</span><span style="color: #BBBBBB">.</span><span style="color: #000">CompilerServices</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">Calculator</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">MaingPageViewModel</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">INotifyPropertyChanged</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">event</span><span style="color: #BBBBBB"> </span><span style="color: #000">PropertyChangedEventHandler</span><span style="color: #BBBBBB"> </span><span style="color: #000">PropertyChanged</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">protected</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnPropertyChanged</span><span style="color: #999">([</span><span style="color: #000">CallerMemberName</span><span style="color: #999">]</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">propertyName</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">null</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">PropertyChanged</span><span style="color: #A67F59">?</span><span style="color: #999">.</span><span style="color: #DD4A68">Invoke</span><span style="color: #999">(</span><span style="color: #07A">this</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">PropertyChangedEventArgs</span><span style="color: #999">(</span><span style="color: #000">propertyName</span><span style="color: #999">));</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ol start="3">
+<li>Add properties</li>
+</ol>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 644px; top: 252px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">ComponentModel</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Runtime</span><span style="color: #BBBBBB">.</span><span style="color: #000">CompilerServices</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">Calculator</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">MaingPageViewModel</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">INotifyPropertyChanged</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">_displayText</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">""</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">DisplayText</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">get</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #000">_displayText</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">set</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #07A">if</span><span style="color: #999">(</span><span style="color: #000">_displayText</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">!=</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #000">_displayText</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #DD4A68">OnPropertyChanged</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #BBBBBB"> </span><span style="color: #000">AddCharCommand</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #BBBBBB"> </span><span style="color: #000">DelCharCommand</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #BBBBBB"> </span><span style="color: #000">OperationCommand</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #BBBBBB"> </span><span style="color: #000">CalcCommand</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">MaingPageViewModel</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">DisplayText</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">event</span><span style="color: #BBBBBB"> </span><span style="color: #000">PropertyChangedEventHandler</span><span style="color: #BBBBBB"> </span><span style="color: #000">PropertyChanged</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">protected</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnPropertyChanged</span><span style="color: #999">([</span><span style="color: #000">CallerMemberName</span><span style="color: #999">]</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">propertyName</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">null</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">PropertyChanged</span><span style="color: #A67F59">?</span><span style="color: #999">.</span><span style="color: #DD4A68">Invoke</span><span style="color: #999">(</span><span style="color: #07A">this</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">PropertyChangedEventArgs</span><span style="color: #999">(</span><span style="color: #000">propertyName</span><span style="color: #999">));</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ol start="4">
+<li>Binding Context</li>
+</ol>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 84px; top: 224px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;?</span><span style="color: #905">xml</span><span style="color: #690"> version</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1.0</span><span style="color: #999">"</span><span style="color: #690"> encoding</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">utf-8</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">?&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;</span><span style="color: #905">ContentPage</span><span style="color: #BBBBBB"> </span><span style="color: #690">xmlns</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://xamarin.com/schemas/2014/forms</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">x</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://schemas.microsoft.com/winfx/2009/xaml</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">d</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://xamarin.com/schemas/2014/forms/design</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">mc</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://schemas.openxmlformats.org/markup-compatibility/2006</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">local</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">clr-namespace:Calculator</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">mc</span><span style="color: #999">:</span><span style="color: #690">Ignorable</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">d</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Class</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Calculator.MainPage</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">ContentPage.BindingContext</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">local</span><span style="color: #999">:</span><span style="color: #905">MaingPageViewModel</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">ContentPage.BindingContext</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ol start="5">
+<li>Setting binding</li>
+</ol>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 336px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 1540px; top: 504px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Label</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Calculator</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #690">Grid.ColumnSpan</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">4</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #690">HorizontalTextAlignment</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Center</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #690">VerticalTextAlignment</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Center</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #690">FontSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Large</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #690">FontAttributes</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Bold</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Frame</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #690">Grid.ColumnSpan</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">4</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #690">BorderColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Gray</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #690">Padding</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">5,0</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Label</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding DisplayText}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">FontSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Large</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">HorizontalTextAlignment</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">End</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">VerticalTextAlignment</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Center</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;/</span><span style="color: #905">Frame</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Del</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding DelCharCommand}</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">/</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding OperationCommand}</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">CommandParameter</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">/</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">*</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding OperationCommand}</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">CommandParameter</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">*</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">-</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">3</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding OperationCommand}</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">CommandParameter</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">-</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">7</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">3</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding AddCharCommand}</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">CommandParameter</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">7</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">8</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">3</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding AddCharCommand}</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">CommandParameter</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">8</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">9</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">3</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding AddCharCommand}</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">CommandParameter</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">9</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">+</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">3</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">3</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.RowSpan</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding OperationCommand}</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">CommandParameter</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">+</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">4</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">4</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding AddCharCommand}</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">CommandParameter</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">4</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">5</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">4</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding AddCharCommand}</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">CommandParameter</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">5</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">6</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">4</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding AddCharCommand}</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">CommandParameter</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">6</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">5</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding AddCharCommand}</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">CommandParameter</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">5</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding AddCharCommand}</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">CommandParameter</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">3</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">5</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding AddCharCommand}</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">CommandParameter</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">3</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">=</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">5</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">3</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.RowSpan</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding CalcCommand}</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">6</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.ColumnSpan</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding AddCharCommand}</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">CommandParameter</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">.</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">6</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding AddCharCommand}</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">CommandParameter</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">.</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">Grid</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">&lt;/</span><span style="color: #905">ContentPage</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ol start="6">
+<li>Launch the Project. You can find the “0” text instead of “123456789”.</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/175/4p.png" style="height:820px; width:443px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="5-implementing-commands">5. Implementing commands</h2>
+<p>Let’s implement a business logic for each commands.</p>
+<ol>
+<li>Implement&nbsp; <strong>AddCharCommand</strong> in&nbsp; <strong><em>MainPageViewModel.cs</em></strong></li>
+</ol>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 112px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">MaingPageViewModel</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">AddCharCommand</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #999">&lt;</span><span style="color: #07A">string</span><span style="color: #999">&gt;((</span><span style="color: #000">key</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">DisplayText</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">key</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">});</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ol start="2">
+<li>Implement <strong>DelCharCommand</strong> in&nbsp; <strong><em>MainPageViewModel.cs</em></strong></li>
+</ol>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 252px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">DisplayText</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">get</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #000">_displayText</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">set</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">if</span><span style="color: #999">(</span><span style="color: #000">_displayText</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">!=</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">_displayText</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">OnPropertyChanged</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">DelCharCommand</span><span style="color: #999">.</span><span style="color: #DD4A68">ChangeCanExecute</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 252px; top: 196px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">MaingPageViewModel</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">AddCharCommand</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #999">&lt;</span><span style="color: #07A">string</span><span style="color: #999">&gt;((</span><span style="color: #000">key</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">DisplayText</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">key</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">DelCharCommand</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #999">(</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">DisplayText</span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DisplayText</span><span style="color: #999">.</span><span style="color: #DD4A68">Substring</span><span style="color: #999">(</span><span style="color: #905">0</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">DisplayText</span><span style="color: #999">.</span><span style="color: #000">Length</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">-</span><span style="color: #BBBBBB"> </span><span style="color: #905">1</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">},</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #000">DisplayText</span><span style="color: #999">.</span><span style="color: #000">Length</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">});</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>3)&nbsp;Implement&nbsp; <strong>OperationCommand</strong> in&nbsp; <strong><em>MainPageViewModel.cs</em></strong></p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 84px; top: 0px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 168px; top: 588px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">Op</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">double</span><span style="color: #BBBBBB"> </span><span style="color: #000">Op1</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">double</span><span style="color: #BBBBBB"> </span><span style="color: #000">Op2</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">MaingPageViewModel</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">AddCharCommand</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #999">&lt;</span><span style="color: #07A">string</span><span style="color: #999">&gt;((</span><span style="color: #000">key</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">DisplayText</span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">key</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">DelCharCommand</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #999">(</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">DisplayText</span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DisplayText</span><span style="color: #999">.</span><span style="color: #DD4A68">Substring</span><span style="color: #999">(</span><span style="color: #905">0</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">DisplayText</span><span style="color: #999">.</span><span style="color: #000">Length</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">-</span><span style="color: #BBBBBB"> </span><span style="color: #905">1</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">},</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #000">DisplayText</span><span style="color: #999">.</span><span style="color: #000">Length</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">OperationCommand</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #999">&lt;</span><span style="color: #07A">string</span><span style="color: #999">&gt;((</span><span style="color: #000">key</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">Op1</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Convert</span><span style="color: #999">.</span><span style="color: #DD4A68">ToDouble</span><span style="color: #999">(</span><span style="color: #000">DisplayText</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">Op</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">key</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">DisplayText</span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">""</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">});</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>4)&nbsp;Implement&nbsp; <strong>CalcCommand</strong> in&nbsp; <strong><em>MainPageViewModel.cs</em></strong></p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 560px; top: 196px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #000">OperationCommand</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Command</span><span style="color: #999">&lt;</span><span style="color: #07A">string</span><span style="color: #999">&gt;((</span><span style="color: #000">key</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">Op1</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Convert</span><span style="color: #999">.</span><span style="color: #DD4A68">ToDouble</span><span style="color: #999">(</span><span style="color: #000">DisplayText</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">Op</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">key</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">DisplayText</span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">""</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">CalcCommand</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Command</span><span style="color: #999">(()</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">Op2</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Convert</span><span style="color: #999">.</span><span style="color: #DD4A68">ToDouble</span><span style="color: #999">(</span><span style="color: #000">DisplayText</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">switch</span><span style="color: #999">(</span><span style="color: #000">Op</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">case</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">+</span><span style="color: #999">"</span><span style="color: #999">:</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">DisplayText</span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">Op1</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">Op2</span><span style="color: #999">).</span><span style="color: #DD4A68">ToString</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">break</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">case</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">-</span><span style="color: #999">"</span><span style="color: #999">:</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">DisplayText</span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">Op1</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">-</span><span style="color: #BBBBBB"> </span><span style="color: #000">Op2</span><span style="color: #999">).</span><span style="color: #DD4A68">ToString</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">break</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">case</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">*</span><span style="color: #999">"</span><span style="color: #999">:</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">DisplayText</span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">Op1</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">*</span><span style="color: #BBBBBB"> </span><span style="color: #000">Op2</span><span style="color: #999">).</span><span style="color: #DD4A68">ToString</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">break</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">case</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">/</span><span style="color: #999">"</span><span style="color: #999">:</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">DisplayText</span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">Op1</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">/</span><span style="color: #BBBBBB"> </span><span style="color: #000">Op2</span><span style="color: #999">).</span><span style="color: #DD4A68">ToString</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">break</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">});</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ol start="5">
+<li>If you launch the Project,&nbsp;you can use operations.(＋.－, ×, ÷)</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/175/android.png" style="height:740px; width:400px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="6-optimizing-for-watch">6. Optimizing for Watch</h2>
+<p>If you launch this application on a watch, some texts are&nbsp;trimmed because of the circular UI.</p>
+<p>ex) 123456789 =&gt; 9 is trimmed.</p>
+<img src="/TizenSchool/assets/images/tutorials/175/6p.png" style="height:544px; width:400px">
+<p>Let’s fix it in <strong>MainPage.xaml</strong> file for the watch.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 168px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 280px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 392px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;</span><span style="color: #905">Label</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Calculator</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">Grid.ColumnSpan</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">4</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">HorizontalTextAlignment</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Center</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">VerticalTextAlignment</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Center</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">FontAttributes</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Bold</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">FontSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{OnIdiom Watch=Small, Phone=Large}</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">&lt;</span><span style="color: #905">Frame</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">Grid.ColumnSpan</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">4</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">Margin</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{OnIdiom Watch='40,0'}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">BorderColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Gray</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">Padding</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">5,0</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">Label</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding DisplayText}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">           </span><span style="color: #690">FontSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{OnIdiom Watch=Small, Phone=Large}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">           </span><span style="color: #690">HorizontalTextAlignment</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">End</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">           </span><span style="color: #690">VerticalTextAlignment</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Center</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;/</span><span style="color: #905">Frame</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>The&nbsp; <strong><code>OnIdiom</code></strong> allows you to customize UI appearance based on the idiom of the device the application is running on. If you want to know more infomration, please visite the following url.</p>
+<p><a href="https://docs.microsoft.com/xamarin/xamarin-forms/xaml/markup-extensions/consuming#onidiom">https://docs.microsoft.com/xamarin/xamarin-forms/xaml/markup-extensions/consuming#onidiom</a></p>
+<p>Congratulations! Our application is finished.</p>
+<p>When you launch your application on the watch, the proper UI is displayed.</p>
+<img src="/TizenSchool/assets/images/tutorials/175/tizen.png" style="height:544px; width:400px"></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/6</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/642c4c04779a63be966fa6579cbe2e444ddde584">642c4c04779a63be966fa6579cbe2e444ddde584</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+

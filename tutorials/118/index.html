@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/TizenSchool/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/TizenSchool/assets/images/favicon-32x32.png">
+    <title>C# Wearable App Development (3/3)</title>
+  <link rel="stylesheet" href="/TizenSchool/assets/aboutus.9016036b.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.013d619c.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="2r5SHS" component-url="/TizenSchool/Header.fde63186.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/TizenSchool/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      C# Wearable App Development (3/3)
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">This tutorial describes extra features such as how to get the information of applications by Package Manager and Application Manager, deal with WatchFace and save data using Preferences.</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/TizenSchool/assets/images/iot-dimmed.png">
+        <img src="/TizenSchool/assets/images/wearable-active.png">
+        <img src="/TizenSchool/assets/images/mobile-dimmed.png">
+        <img src="/TizenSchool/assets/images/smart-tv-dimmed.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2018/06/18</span>
+            Modified
+            <span class="font-bold">2018/10/12</span>
+    </div>
+  </div><astro-island uid="27wqfQ" component-url="/TizenSchool/TextContent.c7f4d9de.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,11],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Package Manager\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Using the Package Manager in the Demo\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;I. Application Package Manager\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Information about Installed and Running apps\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;II. Application Manager\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Brief Description of the Module\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Launch Request\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Explicit Launch Request\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Implicit Launch Request\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;III. Launching Third Party Applications\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Watch Application\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Preparing the Watch App for the Demo Application\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;VI. Watch Application\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Module Description\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Saving the Data\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;V. App Preferences\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/11</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id="i-application-package-manager">I. Application Package Manager</h1><h2 id="package-manager">Package Manager</h2>
+<p>In this lesson we’ll look at the package manager, its main functions and data types. We will show you how to make changes to the application by adding information about packages installed to the device.</p>
+<p><strong>Basic Functionality of the Package Manager</strong></p>
+<p>The package manager is used to retrieve detailed information of the installed packages on the device. This information includes the package name, label, and path to the icon image, version etc.</p>
+<p>To use the methods and properties of the <em>PackageManager</em> class, include the <em>Tizen.Applications</em> namespace in your application:</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #BBBBBB">.</span><span style="color: #000">Applications</span><span style="color: #999">;</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Also to be able to get the information about packages, add the following privilege to&nbsp; <em>tizen-manifest.xml</em> &nbsp;file:</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #A67F59">&lt;</span><span style="color: #000">privilege</span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB">http</span><span style="color: #999">:</span><span style="color: #999">//</span><span style="color: #708090">tizen.org/privilege/packagemanager.info&lt;/privilege&gt;</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>The main features of the&nbsp; <em>Tizen.Applications.PackageManager</em> &nbsp;class include:</p>
+<p><strong>Retrieving all installed packages</strong></p>
+<p>To retrieve all package information for installed packages:</p>
+<p><strong>Retrieving Specific Package Information</strong></p>
+<p><strong>Monitoring Package Events</strong></p>
+<p>To detect package-related events, such as installation, uninstallation, and updates:</p>
+<p>The following example implements the installation event handler</p>
+<p><strong>Dependency Service</strong></p>
+<p>Package manager APIs are tizen device specific APIs, so to access this we need to use <em>DependencyService</em> provided by .netcore.</p>
+<p><em>DependencyService</em> allows apps to call into platform-specific functionality from shared code. This functionality enables <em>Xamarin.Forms</em> apps to do anything that a native app can do.</p>
+<p><em>DependencyService</em> is a dependency resolver. In practice, an interface is defined and <em>DependencyService</em> finds the correct implementation of that interface from the various platform projects.</p>
+<p><em>Xamarin.Forms</em> apps need four components to use <em>DependencyService</em> :</p>
+<p><strong>Interface</strong></p>
+<p>The interface you design will define how you interact with platform-specific functionality. Ex. To get the package List we can create an interface like below</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">interface</span><span style="color: #BBBBBB"> </span><span style="color: #000">IInterface</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">MyPackageInfo</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">GetPackageList</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>Implementation per Platform</strong></p>
+<p>Once a suitable interface has been designed, that interface must be implemented in the project for each platform that you are targeting. For example, the following class implements the&nbsp;IInterface interface on Tizen.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">PlatformAPI</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">IInterface</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">MyPackageInfo</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">GetPackageList</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">MyPackageInfo</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">myPackages</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">MyPackageInfo</span><span style="color: #999">&gt;();</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #000">IEnumerable</span><span style="color: #999">&lt;</span><span style="color: #000">Package</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">packageList</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">PackageManager</span><span style="color: #999">.</span><span style="color: #DD4A68">GetPackages</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">foreach</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">Package</span><span style="color: #BBBBBB"> </span><span style="color: #000">package</span><span style="color: #BBBBBB"> </span><span style="color: #07A">in</span><span style="color: #BBBBBB"> </span><span style="color: #000">packageList</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #000">MyPackageInfo</span><span style="color: #BBBBBB"> </span><span style="color: #000">packageInfo</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">MyPackageInfo</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #000">packageInfo</span><span style="color: #999">.</span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">package</span><span style="color: #999">.</span><span style="color: #000">Label</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #000">packageInfo</span><span style="color: #999">.</span><span style="color: #000">Version</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">package</span><span style="color: #999">.</span><span style="color: #000">Version</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #000">packageInfo</span><span style="color: #999">.</span><span style="color: #000">Icon</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">package</span><span style="color: #999">.</span><span style="color: #000">IconPath</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #000">myPackages</span><span style="color: #999">.</span><span style="color: #DD4A68">Add</span><span style="color: #999">(</span><span style="color: #000">packageInfo</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #000">myPackages</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>Registration</strong></p>
+<p>Each implementation of the interface needs to be registered with&nbsp; <em>DependencyService</em> . The following code registers the implementation for Tizen:</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">[</span><span style="color: #07A">assembly</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #999">.</span><span style="color: #000">Forms</span><span style="color: #999">.</span><span style="color: #000">Dependency</span><span style="color: #999">(</span><span style="color: #07A">typeof</span><span style="color: #999">(</span><span style="color: #000">PlatformAPI</span><span style="color: #999">))]</span></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">WearableLesson_23</span><span style="color: #999">.</span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">Wearable</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">PlatformAPI</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">IInterface</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>Call to DependencyService</strong></p>
+<p>Once the project has been set up with a common interface and implementations for needed platform use <em>DependencyService</em> to get the right implementation at runtime:</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #000">List</span><span style="color: #A67F59">&lt;</span><span style="color: #000">MyPackageInfo</span><span style="color: #A67F59">&gt;</span><span style="color: #000">packages</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DependencyService</span><span style="color: #999">.</span><span style="color: #DD4A68">Get</span><span style="color: #999">&lt;</span><span style="color: #000">IInterface</span><span style="color: #999">&gt;().</span><span style="color: #DD4A68">GetPackageList</span><span style="color: #999">();</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="i-application-package-manager">I. Application Package Manager</h1><h2 id="using-the-package-manager-in-the-demo">Using the Package Manager in the Demo</h2>
+<p>Now we will move on to the practical part by adding the above listed functions to the application and look at the results. Here we will try to create an Application which maintains a list of all the installed packages on the device and displays its information.</p>
+<p>Add the following privilege to&nbsp; <em>tizen-manifest.xml</em> &nbsp;file:</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #A67F59">&lt;</span><span style="color: #000">privilege</span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB">http</span><span style="color: #999">:</span><span style="color: #999">//</span><span style="color: #708090">tizen.org/privilege/packagemanager.info&lt;/privilege&gt;</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Add <em>Tizen.Applications</em> namespace in your application:</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #BBBBBB">.</span><span style="color: #000">Applications</span><span style="color: #999">;</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>To store the package info, we will create a separate class and some property like below.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">MyPackageInfo</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">Version</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">Icon</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>To access platform API, create dependency service, as discussed above. Final interface implementation looks like below.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">[</span><span style="color: #07A">assembly</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #999">.</span><span style="color: #000">Forms</span><span style="color: #999">.</span><span style="color: #000">Dependency</span><span style="color: #999">(</span><span style="color: #07A">typeof</span><span style="color: #999">(</span><span style="color: #000">PlatformAPI</span><span style="color: #999">))]</span></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">WearableLesson_23</span><span style="color: #999">.</span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">Wearable</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">PlatformAPI</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">IInterface</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">MyPackageInfo</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">GetPackageList</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">MyPackageInfo</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">myPackages</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">MyPackageInfo</span><span style="color: #999">&gt;();</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">IEnumerable</span><span style="color: #999">&lt;</span><span style="color: #000">Package</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">packageList</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">PackageManager</span><span style="color: #999">.</span><span style="color: #DD4A68">GetPackages</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">foreach</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">Package</span><span style="color: #BBBBBB"> </span><span style="color: #000">package</span><span style="color: #BBBBBB"> </span><span style="color: #07A">in</span><span style="color: #BBBBBB"> </span><span style="color: #000">packageList</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">MyPackageInfo</span><span style="color: #BBBBBB"> </span><span style="color: #000">packageInfo</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">MyPackageInfo</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">packageInfo</span><span style="color: #999">.</span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">package</span><span style="color: #999">.</span><span style="color: #000">Label</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">packageInfo</span><span style="color: #999">.</span><span style="color: #000">Version</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">package</span><span style="color: #999">.</span><span style="color: #000">Version</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">packageInfo</span><span style="color: #999">.</span><span style="color: #000">Icon</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">package</span><span style="color: #999">.</span><span style="color: #000">IconPath</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">myPackages</span><span style="color: #999">.</span><span style="color: #DD4A68">Add</span><span style="color: #999">(</span><span style="color: #000">packageInfo</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #000">myPackages</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>By calling the interface method, we can get all the needed information.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #000">List</span><span style="color: #A67F59">&lt;</span><span style="color: #000">MyPackageInfo</span><span style="color: #A67F59">&gt;</span><span style="color: #000">packages</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DependencyService</span><span style="color: #999">.</span><span style="color: #DD4A68">Get</span><span style="color: #999">&lt;</span><span style="color: #000">IInterface</span><span style="color: #999">&gt;().</span><span style="color: #DD4A68">GetPackageList</span><span style="color: #999">();</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Use the same code and set the data.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">App</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #000">CirclePage</span><span style="color: #BBBBBB"> </span><span style="color: #000">circlePage</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">CirclePage</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">MyPackageInfo</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">packages</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DependencyService</span><span style="color: #999">.</span><span style="color: #DD4A68">Get</span><span style="color: #999">&lt;</span><span style="color: #000">IInterface</span><span style="color: #999">&gt;().</span><span style="color: #DD4A68">GetPackageList</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #07A">for</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #07A">int</span><span style="color: #BBBBBB"> </span><span style="color: #000">i</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #000">i</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&lt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">packages</span><span style="color: #999">.</span><span style="color: #000">Count</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #000">i</span><span style="color: #A67F59">++</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #000">CircleToolbarItem</span><span style="color: #BBBBBB"> </span><span style="color: #000">item</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">CircleToolbarItem</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #000">SubText</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">packages</span><span style="color: #999">[</span><span style="color: #000">i</span><span style="color: #999">].</span><span style="color: #000">Name</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #000">Icon</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">packages</span><span style="color: #999">[</span><span style="color: #000">i</span><span style="color: #999">].</span><span style="color: #000">Icon</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #000">Text</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">packages</span><span style="color: #999">[</span><span style="color: #000">i</span><span style="color: #999">].</span><span style="color: #000">Version</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #999">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #000">circlePage</span><span style="color: #999">.</span><span style="color: #000">ToolbarItems</span><span style="color: #999">.</span><span style="color: #DD4A68">Add</span><span style="color: #999">(</span><span style="color: #000">item</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #000">MainPage</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">circlePage</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Here is a sample application which retrieves information about all the installed Packages and displays them in a circular fashion. When a particular icon is focused, Package name and version is displayed at center.</p>
+<p><br><br> <strong>#V@<a href="https://tizenschool.org/assets/images/tutorials/114/WearableLesson_23.mp4#V@">https://tizenschool.org/assets/images/tutorials/114/WearableLesson_23.mp4#V@</a></strong></p>
+<p>The source code for this application is available <a href="https://tizenschool.org/assets/images/tutorials/114/WearableLesson_23.zip">here</a></p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-application-manager">II. Application Manager</h1><h2 id="information-about-installed-and-running-apps">Information about Installed and Running apps</h2>
+<p>In this lesson we’ll look at the application manager, to find out what information about the application we can get by using it. We will make some changes to the application by replacing package manager with an application manager.</p>
+<p>The application manager provides information about installed and running applications. It provides functions for obtaining the application name and absolute path to application’s public folder, and so on. To use functions and data types of the application manager, include following namespace in the application:</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #BBBBBB">.</span><span style="color: #000">Applications</span><span style="color: #999">;</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>It is necessary to distinguish the application manager from the package manager; the difference is that in application manager several applications can be placed in one package. So, the package is a larger entity. You can create 3 applications: ui-, widget- and service application, and then merge them into one package, which will be downloaded to the application store.</p>
+<p><strong>Getting information about the running application</strong></p>
+<p>If you want to use the functions for getting information about the running applications without using the application manager functions, you have to use <em>Tizen.Applications</em> namespace.</p>
+<p>Now, let’s looks at the important functions:</p>
+<p><strong>Getting Information about Installed Applications</strong></p>
+<p>To get information about all the installed applications, call the <em>GetInstalledApplicationsAsync()</em> **** method of the *ApplicationManager* class.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #000">Task</span><span style="color: #999">&lt;</span><span style="color: #000">IEnumerable</span><span style="color: #999">&lt;</span><span style="color: #000">ApplicationInfo</span><span style="color: #999">&gt;&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">task</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">ApplicationManager</span><span style="color: #999">.</span><span style="color: #DD4A68">GetInstalledApplicationsAsync</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #000">IEnumerable</span><span style="color: #999">&lt;</span><span style="color: #000">ApplicationInfo</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">count</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">await</span><span style="color: #BBBBBB"> </span><span style="color: #000">task</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Now we can retrieve the <em>ApplicationType, IconPath, ExecutablePath, ApplicationID</em> and much more.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">foreach</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">ApplicationInfo</span><span style="color: #BBBBBB"> </span><span style="color: #000">appInfo</span><span style="color: #BBBBBB"> </span><span style="color: #07A">in</span><span style="color: #BBBBBB"> </span><span style="color: #000">tt1</span><span style="color: #999">.</span><span style="color: #000">Result</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #000">Log</span><span style="color: #999">.</span><span style="color: #DD4A68">Debug</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Tag</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">applicationId: </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">appInfo</span><span style="color: #999">.</span><span style="color: #000">ApplicationId</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #000">Log</span><span style="color: #999">.</span><span style="color: #DD4A68">Debug</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Tag</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">packageId: </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">appInfo</span><span style="color: #999">.</span><span style="color: #000">PackageId</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #000">Log</span><span style="color: #999">.</span><span style="color: #DD4A68">Debug</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Tag</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">label: </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">appInfo</span><span style="color: #999">.</span><span style="color: #000">Label</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #000">Log</span><span style="color: #999">.</span><span style="color: #DD4A68">Debug</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Tag</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">executablePath: </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">appInfo</span><span style="color: #999">.</span><span style="color: #000">ExecutablePath</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #000">Log</span><span style="color: #999">.</span><span style="color: #DD4A68">Debug</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Tag</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">iconPath: </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">appInfo</span><span style="color: #999">.</span><span style="color: #000">IconPath</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #000">Log</span><span style="color: #999">.</span><span style="color: #DD4A68">Debug</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Tag</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">applicationType: </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">appInfo</span><span style="color: #999">.</span><span style="color: #000">ApplicationType</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #000">Log</span><span style="color: #999">.</span><span style="color: #DD4A68">Debug</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Tag</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">isNoDisplay: </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">appInfo</span><span style="color: #999">.</span><span style="color: #000">IsNoDisplay</span><span style="color: #999">.</span><span style="color: #DD4A68">ToString</span><span style="color: #999">());</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #000">Log</span><span style="color: #999">.</span><span style="color: #DD4A68">Debug</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Tag</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">isOnBoot: </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">appInfo</span><span style="color: #999">.</span><span style="color: #000">IsOnBoot</span><span style="color: #999">.</span><span style="color: #DD4A68">ToString</span><span style="color: #999">());</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #000">Log</span><span style="color: #999">.</span><span style="color: #DD4A68">Debug</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Tag</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">isPreload: </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">appInfo</span><span style="color: #999">.</span><span style="color: #000">IsPreload</span><span style="color: #999">.</span><span style="color: #DD4A68">ToString</span><span style="color: #999">());</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #000">Log</span><span style="color: #999">.</span><span style="color: #DD4A68">Debug</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Tag</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">sharedResourcePath: </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">appInfo</span><span style="color: #999">.</span><span style="color: #000">SharedResourcePath</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>Using the Application Manager in the Demo</strong></p>
+<p>Let’s move on to the practical part by adding the above listed functions to the application and look at the results. Here we will try to create an Application which maintains a list of all the installed application on the device and when any icon is clicked, we will display the details of the selected application.</p>
+<p>We need to replace only one function from our previous lesson i.e. instead of <em>GetPackageList()</em> , we will implement <em>GetApplicationList()</em> .</p>
+<p>Apart from this code is mostly same.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">async</span><span style="color: #BBBBBB"> </span><span style="color: #000">Task</span><span style="color: #999">&lt;</span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">AppsInfo</span><span style="color: #999">&gt;&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">GetApplicationList</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #000">ApplicationInfoFilter</span><span style="color: #BBBBBB"> </span><span style="color: #000">appInfoFilter</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">ApplicationInfoFilter</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #000">appInfoFilter</span><span style="color: #999">.</span><span style="color: #000">Filter</span><span style="color: #999">.</span><span style="color: #DD4A68">Add</span><span style="color: #999">(</span><span style="color: #000">ApplicationInfoFilter</span><span style="color: #999">.</span><span style="color: #000">Keys</span><span style="color: #999">.</span><span style="color: #000">NoDisplay</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">false</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">AppsInfo</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">myApps</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">AppsInfo</span><span style="color: #999">&gt;();</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #000">IEnumerable</span><span style="color: #999">&lt;</span><span style="color: #000">ApplicationInfo</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">task</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">await</span><span style="color: #BBBBBB"> </span><span style="color: #000">ApplicationManager</span><span style="color: #999">.</span><span style="color: #DD4A68">GetInstalledApplicationsAsync</span><span style="color: #999">(</span><span style="color: #000">appInfoFilter</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #07A">foreach</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">ApplicationInfo</span><span style="color: #BBBBBB"> </span><span style="color: #000">info</span><span style="color: #BBBBBB"> </span><span style="color: #07A">in</span><span style="color: #BBBBBB"> </span><span style="color: #000">task</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #000">AppsInfo</span><span style="color: #BBBBBB"> </span><span style="color: #000">appInfo</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">AppsInfo</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #000">appInfo</span><span style="color: #999">.</span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">info</span><span style="color: #999">.</span><span style="color: #000">Label</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #000">appInfo</span><span style="color: #999">.</span><span style="color: #000">AppId</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">info</span><span style="color: #999">.</span><span style="color: #000">ApplicationId</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #000">appInfo</span><span style="color: #999">.</span><span style="color: #000">Icon</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">info</span><span style="color: #999">.</span><span style="color: #000">IconPath</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #000">myApps</span><span style="color: #999">.</span><span style="color: #DD4A68">Add</span><span style="color: #999">(</span><span style="color: #000">appInfo</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #000">myApps</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Here we have also added one filter in the app list to add only those apps which have any graphical user interface.</p>
+<p>Here is a sample application which retrieves information about all the installed applications and when the icon is clicked, some of its details will be displayed.</p>
+<p><br> <strong>#V@<a href="https://tizenschool.org/assets/images/tutorials/114/WearableLesson_24.mp4#V@">https://tizenschool.org/assets/images/tutorials/114/WearableLesson_24.mp4#V@</a></strong></p>
+<p>The source code for this application is available <a href="https://tizenschool.org/assets/images/tutorials/114/WearableLesson_24.zip">here</a></p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-launching-third-party-applications">III. Launching Third Party Applications</h1><h2 id="brief-description-of-the-module">Brief Description of the Module</h2>
+<p>In this lesson we’ll look at the application management module, its main functions and data types, application launch types, and the ability to share application functionality with other applications.</p>
+<p>Also in this lesson we will finish 4th demo application, which was started in the <a href="https://samsung.github.io/TizenSchool/tutorial/118/contents/1">lesson 22</a>, by adding the ability to run the selected application.</p>
+<p><strong>Brief Description of the Module</strong></p>
+<p>An application control (app control) is a way of sharing an application’s functionality with other applications. Using another application’s features through application controls reduces the time and effort needed to develop your own application.</p>
+<p>For example, if you want to add to the application the option of telephone call to the required number, you can launch the device built-in application for calls. Don’t forget to indicate, which functionality you are interested in. The calling application can also get from the called application the result of the requested functionality execution if it is implemented in it.</p>
+<p>An application can be launched by the user from the launcher or by another application through the application control. The application control launch request describes either an action to be performed by other applications, or the results of that action. The application can also receive results from the launched application through an application control reply.</p>
+<p>The main application control features are:</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-launching-third-party-applications">III. Launching Third Party Applications</h1><h2 id="launch-request">Launch Request</h2>
+<p>To use the <em>AppControl</em> class, we need to add below namespace</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #BBBBBB">.</span><span style="color: #000">Applications</span><span style="color: #999">;</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>To use the functionality of this module in your application, add the following privilege to the manifest file.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">"</span><span style="color: #690">http://tizen.org/privilege/appmanager.launch</span><span style="color: #999">"</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>We need to create an instance of <em>AppControl</em> before calling any functions.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #000">AppControl</span><span style="color: #BBBBBB"> </span><span style="color: #000">appcontrol</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">AppControl</span><span style="color: #999">();</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>The following function is required for sending a request to the platform to run a customized application object:</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #000">AppControl</span><span style="color: #999">.</span><span style="color: #DD4A68">SendLaunchRequest</span><span style="color: #999">(</span><span style="color: #000">appcontrol</span><span style="color: #999">);</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>Launch Types(Theory):</strong></p>
+<p>Application can launch with an application control using 2 different launch types:</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-launching-third-party-applications">III. Launching Third Party Applications</h1><h2 id="explicit-launch-request">Explicit Launch Request</h2>
+<p>Add to the demo application the ability to run the selected application using the functions considered above. First, add to the manifest file the privilege to use the functions for launching the applications.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">"</span><span style="color: #690">http://tizen.org/privilege/appmanager.launch</span><span style="color: #999">"</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Make in the click event launch that particular application straightaway, we need to create another dependency service which will tell the tizen side to launch the particular application by passing the appId of the selected application.</p>
+<p>Below is code for launching the app for given appId</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">     </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">LaunchApp</span><span style="color: #999">(</span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">appId</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">AppControl</span><span style="color: #BBBBBB"> </span><span style="color: #000">control</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">AppControl</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">control</span><span style="color: #999">.</span><span style="color: #000">Operation</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">AppControlOperations</span><span style="color: #999">.</span><span style="color: #000">Default</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">control</span><span style="color: #999">.</span><span style="color: #000">ApplicationId</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">appId</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">AppControl</span><span style="color: #999">.</span><span style="color: #DD4A68">SendLaunchRequest</span><span style="color: #999">(</span><span style="color: #000">control</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Below is the code for handling the click event</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #000">item</span><span style="color: #999">.</span><span style="color: #000">Clicked</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Item_Clicked</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Item_Clicked</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">EventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">appId</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">sender</span><span style="color: #BBBBBB"> </span><span style="color: #07A">as</span><span style="color: #BBBBBB"> </span><span style="color: #000">CircleToolbarItem</span><span style="color: #999">).</span><span style="color: #000">Text</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #000">DependencyService</span><span style="color: #999">.</span><span style="color: #DD4A68">Get</span><span style="color: #999">&lt;</span><span style="color: #000">IInterface</span><span style="color: #999">&gt;().</span><span style="color: #DD4A68">LaunchApp</span><span style="color: #999">(</span><span style="color: #000">appId</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>After implementing our changes we should be able to launch the selected app:</p>
+<p>#V@<a href="https://tizenschool.org/assets/images/tutorials/114/WearableLesson_25.1.mp4#V@">https://tizenschool.org/assets/images/tutorials/114/WearableLesson_25.1.mp4#V@</a></p>
+<p>The source code of this tutorial is available <a href="https://tizenschool.org/assets/images/tutorials/114/WearableLesson_25_1.zip">here.</a></p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-launching-third-party-applications">III. Launching Third Party Applications</h1><h2 id="implicit-launch-request">Implicit Launch Request</h2>
+<p>The following example shows how to create an implicit launch request:</p>
+<p>To launch a viewer application with a specific operation, URI, and MIME type:</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #000">AppControl</span><span style="color: #BBBBBB"> </span><span style="color: #000">appcontrol</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">AppControl</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">appcontrol</span><span style="color: #999">.</span><span style="color: #000">Operation</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">AppControlOperations</span><span style="color: #999">.</span><span style="color: #000">View</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">appcontrol</span><span style="color: #999">.</span><span style="color: #000">Mime</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">image/*</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">appcontrol</span><span style="color: #999">.</span><span style="color: #000">Uri</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">file:///home/myhome/Photos/1_photo.jpg</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">AppControl</span><span style="color: #999">.</span><span style="color: #DD4A68">SendLauncherRequest</span><span style="color: #999">(</span><span style="color: #000">appcontrol</span><span style="color: #999">);</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Write a small sample application, demonstrating how to implicitly invoke any application based on our desired purpose, by using the above listed functions. We will try to add a single element to our rotary selector which when clicked should display the exact image we want to see.</p>
+<p>Let’s add a single element to our <strong>rotary selector</strong> widget. We will add an element to the <strong>rotary selector.</strong> When we click it, given image will be displayed in Gallary application.</p>
+<p>As done previously, add to the manifest file the privilege to use the functions for launching the applications.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">"</span><span style="color: #690">http://tizen.org/privilege/appmanager.launch</span><span style="color: #999">"</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Then add the single element to our rotary selector widget.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">   </span><span style="color: #000">CirclePage</span><span style="color: #BBBBBB"> </span><span style="color: #000">circlePage</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">CirclePage</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">   </span><span style="color: #000">CircleToolbarItem</span><span style="color: #BBBBBB"> </span><span style="color: #000">item</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">CircleToolbarItem</span></span>
+<span class="line"><span style="color: #BBBBBB">   </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">         </span><span style="color: #000">Text</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Tool1</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">         </span><span style="color: #000">SubText</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Select Images</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">         </span><span style="color: #000">Icon</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Default.jpg</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">   </span><span style="color: #999">};</span></span>
+<span class="line"><span style="color: #BBBBBB">   </span><span style="color: #000">item</span><span style="color: #999">.</span><span style="color: #000">Clicked</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Item_Clicked</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">   </span><span style="color: #000">circlePage</span><span style="color: #999">.</span><span style="color: #000">ToolbarItems</span><span style="color: #999">.</span><span style="color: #DD4A68">Add</span><span style="color: #999">(</span><span style="color: #000">item</span><span style="color: #999">);</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>A dependency service is also created in order to tell tizen side to launch our desired application.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Item_Clicked</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">EventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #000">DependencyService</span><span style="color: #999">.</span><span style="color: #DD4A68">Get</span><span style="color: #999">&lt;</span><span style="color: #000">IInterface</span><span style="color: #999">&gt;().</span><span style="color: #DD4A68">LaunchApp</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Now in the tizen side we decide which application to launch as per our requirements. To display an image we need to set the operation type as <em>AppControlOperations</em> .View and exact image path as <em>URI</em> .</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">LaunchApp</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #000">AppControl</span><span style="color: #BBBBBB"> </span><span style="color: #000">control</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">AppControl</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #000">control</span><span style="color: #999">.</span><span style="color: #000">Operation</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">AppControlOperations</span><span style="color: #999">.</span><span style="color: #000">View</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #000">control</span><span style="color: #999">.</span><span style="color: #000">Uri</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Application</span><span style="color: #999">.</span><span style="color: #000">Current</span><span style="color: #999">.</span><span style="color: #000">DirectoryInfo</span><span style="color: #999">.</span><span style="color: #000">SharedResource</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">img1.jpg</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #000">control</span><span style="color: #999">.</span><span style="color: #000">LaunchMode</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">AppControlLaunchMode</span><span style="color: #999">.</span><span style="color: #000">Group</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #000">AppControl</span><span style="color: #999">.</span><span style="color: #DD4A68">SendLaunchRequest</span><span style="color: #999">(</span><span style="color: #000">control</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Run the application. You will see a single element which when clicked will display the desired image in default gallery app.</p>
+<p>#V@<a href="https://tizenschool.org/assets/images/tutorials/114/WearableLesson_25.2.mp4#V@">https://tizenschool.org/assets/images/tutorials/114/WearableLesson_25.2.mp4#V@</a></p>
+<p>The full code for this example is available <a href="https://tizenschool.org/assets/images/tutorials/114/WearableLesson_25_2.zip">here</a>.</p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="vi-watch-application">VI. Watch Application</h1><h2 id="watch-application">Watch Application</h2>
+<p>Let’s start creating the 5th demo application. We will teach you how to create a watch application. We will prepare it for the demo application.</p>
+<p><strong>What is Watch Application?</strong></p>
+<p>Till this lesson, we’ve been talking about how to create UI applications in your demos, now we’ll show you how to create a watch application.</p>
+<p>From the name it can be assumed that the application should serve as a time indicator. Still this does not limit the functionality of this application. You can use it as a full-fledged app with interesting additional functions, whether it is a map displayed as a background or some other functional different from watch app. It may seem that there are some serious differences between UI and watch application, but in fact it is not.</p>
+<p>The watch application is created in the same way as regular applications with a user interface. There are some differences in creating a base window for the watch app, because it is in a special place in the graphical shell of the device, in the rest, this is usual application. Here you can use the same widgets, services and sensors (GPS, light sensor, etc.), cause the device to vibrate, send notifications and so on.</p>
+<p>In the watch application is a limitation on using the bezel and the Back button. In the following lessons, when we move on to the advance topics, we’ll show you how to get around this ban by creating an additional window.</p>
+<p><strong>Running Watch Applications</strong></p>
+<p>Unlike UI applications, which you have already created in previous lessons, watch applications do not run right after installation on the device or emulator. On current emulator version 5.0, the watch applications can be set via watch app through long press on watch application or going through settings app.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="vi-watch-application">VI. Watch Application</h1><h2 id="preparing-the-watch-app-for-the-demo-application">Preparing the Watch App for the Demo Application</h2>
+<p>First, we will create a normal application as discussed in previous lessons. Instead of <em>FormsApplication</em> , we will need <em>FormsWatchface</em> as a base class of our app. <em>FormsWatchface</em> class provides all the necessary functionality to implement watch application.</p>
+<p>To catch the change in time we can use the <em>OnTick()</em> method. The <em>Ontick()</em> method is triggered at least once per second. The watch application can get the current time from the <strong>time</strong> handle of the <em>Tizen.Applications.WatchTime</em> class to draw a normal watch. Platform can call this method even in the background state. So even if your watch app is in the background if this method is called, you need to update the UI.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">protected</span><span style="color: #BBBBBB"> </span><span style="color: #07A">override</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnTick</span><span style="color: #999">(</span><span style="color: #000">TimeEventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">time</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> Called at least once per second</span></span>
+<span class="line"><span style="color: #999">    ///</span><span style="color: #708090"> Draw a normal watch with the hour, minute, and second info</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">base</span><span style="color: #999">.</span><span style="color: #DD4A68">OnTick</span><span style="color: #999">(</span><span style="color: #000">time</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>We will also be using the ambient mode provided to us.</p>
+<p>Override the ambient mode methods of the&nbsp; <em>Tizen.Applications.WatchApplication</em> &nbsp;class to use the ambient mode:</p>
+<p>We can then access the <em>UtcTimestamp</em> method&nbsp;of <em>Watchtime</em> class to get the current time. Now the only thing remains is to diplay the time in form of UI.</p>
+<p>We can choose to display the time in any manner we desire to. Here we have simply created a <em>MainPage</em> and used <em>Stack Layout</em> , consisting of labels to display the time.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;</span><span style="color: #905">StackLayout</span><span style="color: #BBBBBB"> </span><span style="color: #690">VerticalOptions</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">CenterAndExpand</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">   </span><span style="color: #999">&lt;</span><span style="color: #905">Label</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #690">HorizontalOptions</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">CenterAndExpand</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding Mode}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #690">VerticalOptions</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">CenterAndExpand</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #999">&lt;</span><span style="color: #905">Label</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Name</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">TimeLabel</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #690">FontSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Large</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #690">HorizontalOptions</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">CenterAndExpand</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding Time, StringFormat='{0:hh\\:mm\\:ss}'}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #690">VerticalOptions</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">CenterAndExpand</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;/</span><span style="color: #905">StackLayout</span><span style="color: #999">&gt;</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Let’s install and run this application and see what happens.</p>
+<img src="/TizenSchool/assets/images/tutorials/114/lesson_26_image001.png" style="height:520px; width:492px">
+<p>#V@<a href="https://tizenschool.org/assets/images/tutorials/114/WearableLesson_26.mp4#V@">https://tizenschool.org/assets/images/tutorials/114/WearableLesson_26.mp4#V@</a></p>
+<p>The full code of this example is available for downloading <a href="https://tizenschool.org/assets/images/tutorials/114/WearableLesson_26.zip">here</a>.</p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="v-app-preferences">V. App Preferences</h1><h2 id="module-description">Module Description</h2>
+<p>Now knowing what&nbsp; <strong>App Preferences</strong> &nbsp;is, let’s look at how to integrate this feature into our applications.</p>
+<p>We will create an application which displays last set Name and age of a person. By clicking the change button, you can change the name and age of person. The last set data will be stored by using preference API and on application restart same data can be fetched.</p>
+<p>Below is the class to maintain the data.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">MyData</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">int</span><span style="color: #BBBBBB"> </span><span style="color: #000">Age</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>For simplicity we have maintained a list of only 4 people.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">MyData</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">personData</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">MyData</span><span style="color: #999">&gt;();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">for</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #07A">int</span><span style="color: #BBBBBB"> </span><span style="color: #000">i</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #000">i</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&lt;</span><span style="color: #BBBBBB"> </span><span style="color: #905">4</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #000">i</span><span style="color: #A67F59">++</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">     </span><span style="color: #000">personData</span><span style="color: #999">.</span><span style="color: #DD4A68">Add</span><span style="color: #999">(</span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">MyData</span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Name_</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">i</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">Age</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">20</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">i</span><span style="color: #BBBBBB"> </span><span style="color: #999">});</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Once the application is launched, we can change the name &amp; age by clicking the change button.</p>
+<p>We need to maintain a unique key which will store the currently selected index.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">PREF_KEY</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">org.tizen.myApp.myKey</span><span style="color: #999">"</span><span style="color: #999">;</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><br>&nbsp;</p>
+<p>Preference APIs are platform specific, so we need to use dependency service to access the APIs</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">T</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">GetPreference</span><span style="color: #999">&lt;</span><span style="color: #000">T</span><span style="color: #999">&gt;(</span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">key</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999"> //</span><span style="color: #708090">Returns the last saved data for given key</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #000">Preference</span><span style="color: #999">.</span><span style="color: #DD4A68">Get</span><span style="color: #999">&lt;</span><span style="color: #000">T</span><span style="color: #999">&gt;(</span><span style="color: #000">key</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">bool</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ContainsPreference</span><span style="color: #999">(</span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">key</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999"> //</span><span style="color: #708090">Returns true if the key was saved even once else false</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #000">Preference</span><span style="color: #999">.</span><span style="color: #DD4A68">Contains</span><span style="color: #999">(</span><span style="color: #000">key</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">SetPreference</span><span style="color: #999">(</span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">key</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999"> //</span><span style="color: #708090"> Save the data for given key</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #000">Preference</span><span style="color: #999">.</span><span style="color: #DD4A68">Set</span><span style="color: #999">(</span><span style="color: #000">key</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Below code is used to get the last saved index</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">DependencyService</span><span style="color: #999">.</span><span style="color: #DD4A68">Get</span><span style="color: #999">&lt;</span><span style="color: #000">IInterface</span><span style="color: #999">&gt;().</span><span style="color: #DD4A68">ContainsPreference</span><span style="color: #999">(</span><span style="color: #000">PREF_KEY</span><span style="color: #999">))</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">selectedIndex</span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DependencyService</span><span style="color: #999">.</span><span style="color: #DD4A68">Get</span><span style="color: #999">&lt;</span><span style="color: #000">IInterface</span><span style="color: #999">&gt;().</span><span style="color: #DD4A68">GetPreference</span><span style="color: #999">&lt;</span><span style="color: #07A">int</span><span style="color: #999">&gt;(</span><span style="color: #000">PREF_KEY</span><span style="color: #999">);</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>This is how our application looks.</p>
+<p>#V@<a href="https://tizenschool.org/assets/images/tutorials/114/WearableLesson_27.mp4#V@">https://tizenschool.org/assets/images/tutorials/114/WearableLesson_27.mp4#V@</a></p>
+<p>Project with source code is available <a href="https://tizenschool.org/assets/images/tutorials/114/WearableLesson_27.zip">here</a>.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="v-app-preferences">V. App Preferences</h1><h2 id="saving-the-data">Saving the Data</h2>
+<p>In this lesson, we will consider the necessity to save small sets of simple data between application restarts, by using the&nbsp; <strong>App Preference</strong> module.</p>
+<p>Using&nbsp; <strong>App Preference</strong> &nbsp;you may save information about the currently selected application, so when changing the app settings and return it back, the application will be loaded with the preferences, which was set during the last session.</p>
+<p><strong>Module Description</strong></p>
+<p>As it was already mentioned, this module is mainly used to save application settings (a small set of data). In general, if necessary, you can store any data.</p>
+<p>If you have several variables, values of which you want to save till the next application launch, there is no need to open the file for storing these values, and then open and read them. Using databases is not rational as well. All these options, requires implementing some functionality, and as a result spending additional time on it. Using the&nbsp; <strong>App Preference</strong> , you simply call the function to save the value, or the function to load a value. What can be easier? The value is stored in the operating system with reference to the package name of your application, registered in the manifest file, and the key that you specify for storing the variable. For example, if in your package, there are a service application and a ui application, then you can access same data from both of them. Another advantage is a possibility to create handlers for events of changing the variable, which are stored with the specified key.</p></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/11</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/642c4c04779a63be966fa6579cbe2e444ddde584">642c4c04779a63be966fa6579cbe2e444ddde584</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+

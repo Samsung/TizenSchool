@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/TizenSchool/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/TizenSchool/assets/images/favicon-32x32.png">
+    <title>Racing Car</title>
+  <link rel="stylesheet" href="/TizenSchool/assets/aboutus.9016036b.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.013d619c.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="2r5SHS" component-url="/TizenSchool/Header.fde63186.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/TizenSchool/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      Racing Car
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">How to make a car controlled by a tizen watch.</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/TizenSchool/assets/images/iot-active.png">
+        <img src="/TizenSchool/assets/images/wearable-dimmed.png">
+        <img src="/TizenSchool/assets/images/mobile-dimmed.png">
+        <img src="/TizenSchool/assets/images/smart-tv-dimmed.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2019/05/05</span>
+            Modified
+            <span class="font-bold">2019/07/02</span>
+    </div>
+  </div><astro-island uid="ZD7DMn" component-url="/TizenSchool/TextContent.c7f4d9de.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,6],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Prerequisites\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Source code\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Assembling a car\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Configuration of a car\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Car application\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Troubleshoting\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/6</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="prerequisites">Prerequisites</h2>
+<p><strong>HW Component</strong></p>
+<p><strong>Software OSs, apps and tools</strong></p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="source-code">Source code</h2>
+<p><a href="https://review.tizen.org/gerrit/#/q/project:apps/native/gear-racing-car">Source code of car application</a></p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="assembling-a-car">Assembling a car</h2>
+<p>Just follow the instruction, that you can find&nbsp;<a href="https://www.sunfounder.com/rpi-car.html">here</a>. If your kit is different than in the link, build it according to its manual.</p>
+<img src="/TizenSchool/assets/images/tutorials/134/20181116_151830.jpg" style="height:768px; width:1024px">
+<img src="/TizenSchool/assets/images/tutorials/134/20181116_153046.jpg" style="height:768px; width:1024px">
+<img src="/TizenSchool/assets/images/tutorials/134/20181116_160558.jpg" style="height:768px; width:1024px">
+<img src="/TizenSchool/assets/images/tutorials/134/20181116_162839.jpg" style="undefined">
+<img src="/TizenSchool/assets/images/tutorials/134/20181116_165223.jpg" style="height:768px; width:1024px">
+<p>Additionaly, you may connect one more component - reed switch. It is used to counter laps made by car. It is going to allow you laptime counting.</p>
+<p>Place it under car (you can do it like this):</p>
+<img src="/TizenSchool/assets/images/tutorials/134/ReedSwitch.jpg" style="height:768px; width:1024px">
+<p>And connect it to the board:</p>
+<img src="/TizenSchool/assets/images/tutorials/134/Car.jpg" style="height:1022px; width:1024px">
+<p>After connecting all of the components, you can flash Micro SD card with image avalible&nbsp;<a href="https://samsung.github.io/TizenSchool/tutorial/134/contents/2">here</a>. It has preinstalled our version of car application, however, in next parts there are instructions how to prepare your own version of this aplication.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="configuration-of-a-car">Configuration of a car</h2>
+<p>You need one more thing to configure your car - networking. To get into your car’s system, we going to use SSH (Secure shell). Connect your computer and Raspberry with cable.</p>
+<p>If you are working on Linux and you are using USB Ethernet Adapter, use this script to establish connection between your computer and Raspberry:</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">PC_INTERFACE=</span><span style="color: #999">"</span><span style="color: #690">eno1</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">USB_INTERFACE=</span><span style="color: #999">"</span><span style="color: #690">unset</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">USB_PC_IP=</span><span style="color: #999">"</span><span style="color: #690">10.0.0.1</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">USB_RPI3_IP=</span><span style="color: #999">"</span><span style="color: #690">10.0.0.2</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">NETMASK=</span><span style="color: #999">"</span><span style="color: #690">255.255.255.0</span><span style="color: #999">"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #DD4A68">readChar</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    stty -icanon -echo</span></span>
+<span class="line"><span style="color: #BBBBBB">    eval </span><span style="color: #999">"$</span><span style="color: #000">1</span><span style="color: #690">=</span><span style="color: #999">$(</span><span style="color: #690">dd bs=1 count=1 </span><span style="color: #A67F59">2&gt;</span><span style="color: #690">/dev/null</span><span style="color: #999">)"</span></span>
+<span class="line"><span style="color: #BBBBBB">    stty icanon echo</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #DD4A68">getUsbInterface</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">[</span><span style="color: #BBBBBB"> </span><span style="color: #999">"$</span><span style="color: #000">USB_INTERFACE</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB">  </span><span style="color: #999">"</span><span style="color: #690">unset</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">]</span><span style="color: #A67F59">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">then</span></span>
+<span class="line"><span style="color: #BBBBBB">        echo </span><span style="color: #999">"</span><span style="color: #690">setting usb interface variable</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">        USB_INTERFACE=</span><span style="color: #999">`</span><span style="color: #690">ip -o link show </span><span style="color: #A67F59">|</span><span style="color: #690"> awk -F </span><span style="color: #999">'</span><span style="color: #690">: </span><span style="color: #999">'</span><span style="color: #690"> </span><span style="color: #999">'</span><span style="color: #690">{print $2}</span><span style="color: #999">'</span><span style="color: #690"> </span><span style="color: #A67F59">|</span><span style="color: #690"> grep enx</span><span style="color: #999">`</span></span>
+<span class="line"><span style="color: #BBBBBB">        INTERFACE_COUNT=</span><span style="color: #999">`</span><span style="color: #690">echo </span><span style="color: #999">"$</span><span style="color: #000">USB_INTERFACE</span><span style="color: #999">"</span><span style="color: #690"> </span><span style="color: #A67F59">|</span><span style="color: #690"> wc -l</span><span style="color: #999">`</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">[</span><span style="color: #BBBBBB"> </span><span style="color: #999">"$</span><span style="color: #000">INTERFACE_COUNT</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">-ne</span><span style="color: #BBBBBB"> </span><span style="color: #999">'</span><span style="color: #690">1</span><span style="color: #999">'</span><span style="color: #BBBBBB"> </span><span style="color: #999">]</span><span style="color: #A67F59">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">then</span></span>
+<span class="line"><span style="color: #BBBBBB">            echo </span><span style="color: #999">"</span><span style="color: #690">Got </span><span style="color: #999">$</span><span style="color: #000">INTERFACE_COUNT</span><span style="color: #690"> interfaces</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">            echo </span><span style="color: #999">"$</span><span style="color: #000">USB_INTERFACE</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">            exit 1</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">fi</span></span>
+<span class="line"><span style="color: #BBBBBB">        echo </span><span style="color: #999">"</span><span style="color: #690">Got: </span><span style="color: #999">$</span><span style="color: #000">USB_INTERFACE</span><span style="color: #690"> interface. Is it correct?</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">        echo </span><span style="color: #999">"</span><span style="color: #690">(No case sensitive) Y-yes, N-no, E-exit: </span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">        readChar REPLY</span></span>
+<span class="line"><span style="color: #999">        #</span><span style="color: #708090">read -n 1 -r</span></span>
+<span class="line"><span style="color: #BBBBBB">        echo </span><span style="color: #999">""</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">case</span><span style="color: #BBBBBB"> </span><span style="color: #999">"$</span><span style="color: #000">REPLY</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #07A">in</span></span>
+<span class="line"><span style="color: #BBBBBB">            [eE]</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">                exit 2</span><span style="color: #999">;;</span></span>
+<span class="line"><span style="color: #BBBBBB">            [nN]</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">                exit 3</span><span style="color: #999">;;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">esac</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">fi</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #DD4A68">setupIpForwarding</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">[</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">-f</span><span style="color: #BBBBBB"> /proc/sys/net/ipv4/ip_forward </span><span style="color: #999">]</span><span style="color: #A67F59">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">then</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">[</span><span style="color: #BBBBBB"> </span><span style="color: #999">`</span><span style="color: #690">cat /proc/sys/net/ipv4/ip_forward</span><span style="color: #999">`</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">-eq</span><span style="color: #BBBBBB"> 0 </span><span style="color: #999">]</span><span style="color: #A67F59">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">then</span></span>
+<span class="line"><span style="color: #BBBBBB">            echo </span><span style="color: #999">"</span><span style="color: #690">Enabling routing</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">            sudo sysctl -w net.ipv4.ip_forward=1</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">else</span></span>
+<span class="line"><span style="color: #BBBBBB">            echo </span><span style="color: #999">"</span><span style="color: #690">Routing enabled</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">fi</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">else</span></span>
+<span class="line"><span style="color: #BBBBBB">        echo </span><span style="color: #999">"</span><span style="color: #690">file not exist: /proc/sys/net/ipv4/ip_forward</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">        sudo echo </span><span style="color: #999">"</span><span style="color: #690">1</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB"> /proc/sys/net/ipv4/ip_forward</span></span>
+<span class="line"><span style="color: #BBBBBB">        retval=</span><span style="color: #999">"$</span><span style="color: #000">?</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">[</span><span style="color: #BBBBBB"> </span><span style="color: #999">"$</span><span style="color: #000">retval</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">-ne</span><span style="color: #BBBBBB"> 0 </span><span style="color: #999">]</span><span style="color: #A67F59">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">then</span></span>
+<span class="line"><span style="color: #BBBBBB">            echo </span><span style="color: #999">"</span><span style="color: #690">Return code was not zero but </span><span style="color: #999">$</span><span style="color: #000">retval</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">            echo </span><span style="color: #999">"</span><span style="color: #690">Exiting</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">            exit 1</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">fi</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">fi</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #DD4A68">configureUsbInterface</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    echo </span><span style="color: #999">"</span><span style="color: #690">Configuring </span><span style="color: #999">$</span><span style="color: #000">USB_INTERFACE</span><span style="color: #690"> interface:</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">    sudo ifconfig </span><span style="color: #999">$</span><span style="color: #000">USB_INTERFACE</span><span style="color: #BBBBBB"> </span><span style="color: #999">$</span><span style="color: #000">USB_PC_IP</span><span style="color: #BBBBBB"> netmask </span><span style="color: #999">$</span><span style="color: #000">NETMASK</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #DD4A68">configureFirewall</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    echo </span><span style="color: #999">"</span><span style="color: #690">Configuring firewall:</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">    sudo iptables -A INPUT -i </span><span style="color: #999">$</span><span style="color: #000">USB_INTERFACE</span><span style="color: #BBBBBB"> -j ACCEPT</span></span>
+<span class="line"><span style="color: #BBBBBB">    sudo iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT</span></span>
+<span class="line"><span style="color: #BBBBBB">    sudo iptables -t nat -A POSTROUTING -o </span><span style="color: #999">$</span><span style="color: #000">PC_INTERFACE</span><span style="color: #BBBBBB"> -j MASQUERADE</span></span>
+<span class="line"><span style="color: #BBBBBB">    sudo iptables -A FORWARD -i </span><span style="color: #999">$</span><span style="color: #000">PC_INTERFACE</span><span style="color: #BBBBBB"> -o </span><span style="color: #999">$</span><span style="color: #000">USB_INTERFACE</span><span style="color: #BBBBBB"> -m state --state RELATED,ESTABLISHED -j ACCEPT</span></span>
+<span class="line"><span style="color: #BBBBBB">    sudo iptables -A FORWARD -i </span><span style="color: #999">$</span><span style="color: #000">USB_INTERFACE</span><span style="color: #BBBBBB"> -o </span><span style="color: #999">$</span><span style="color: #000">PC_INTERFACE</span><span style="color: #BBBBBB"> -j ACCEPT</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">getUsbInterface</span></span>
+<span class="line"><span style="color: #BBBBBB">setupIpForwarding</span></span>
+<span class="line"><span style="color: #BBBBBB">configureUsbInterface</span></span>
+<span class="line"><span style="color: #BBBBBB">configureFirewall</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Save it as rpi3_network.sh, go to catalog with rpi_network.sh file and run:</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">chmod +x rpi3_network.sh</span></span>
+<span class="line"><span style="color: #BBBBBB">./rpi3_network.sh</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>After that, to run a shell of car, use ssh (password is “tizen”):</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">ssh root@10.0.0.2</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>(optional) With Tizen Studio comes device manager - if you know IP address of Raspberry, you can connect it thorugh SDB (Smart Development Bridge). (Default address given in script is 10.0.0.2)</strong></p>
+<p>To do that, you need to add it do device manager:</p>
+<img src="/TizenSchool/assets/images/tutorials/134/DeviceManager1Cut-1.png" style="height:718px; width:1000px">
+<img src="/TizenSchool/assets/images/tutorials/134/DeviceManager2Cut-1.png" style="height:291px; width:403px">
+<img src="/TizenSchool/assets/images/tutorials/134/DeviceManager3Cut.png" style="height:243px; width:302px">
+<p>Now you can connect with</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">sdb shell</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>If you have more devices with tizen connected, use</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">//sdb -s </span><span style="color: #A67F59">&lt;</span><span style="color: #BBBBBB">ip address</span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB">:26101 shell</span></span>
+<span class="line"><span style="color: #BBBBBB">sdb -s 10.0.0.2:26101 shell</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>When you have an access to Raspberry shell, run</strong></p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">wifi_connection_mgr</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<img src="/TizenSchool/assets/images/tutorials/134/14312125-10-18.jpg" style="height:255px; width:592px">
+<p>Enter 1 to init WiFi manager.</p>
+<img src="/TizenSchool/assets/images/tutorials/134/14315925-10-18.jpg" style="undefined">
+<p>Enter 1 to go to “Public” section;</p>
+<img src="/TizenSchool/assets/images/tutorials/134/14321225-10-18.jpg" style="height:443px; width:589px">
+<p>Enter 6 to choose network to connect with.</p>
+<img src="/TizenSchool/assets/images/tutorials/134/14324925-10-18.jpg" style="height:260px; width:589px">
+<p>Enter 1.</p>
+<img src="/TizenSchool/assets/images/tutorials/134/14330225-10-18.jpg" style="height:225px; width:592px">
+<p>Enter 1 and after that enter the SSID of your network.</p>
+<img src="/TizenSchool/assets/images/tutorials/134/14333925-10-18.jpg" style="undefined">
+<p>Enter 2 and after that enter the passphrase of your network.</p>
+<img src="/TizenSchool/assets/images/tutorials/134/14340325-10-18.jpg" style="height:218px; width:591px">
+<img src="/TizenSchool/assets/images/tutorials/134/14344625-10-182.jpg" style="height:125px; width:585px">
+<p>Enter c to establish connection.</p>
+<img src="/TizenSchool/assets/images/tutorials/134/14352225-10-18.jpg" style="undefined">
+<p>After success, enter q to quit wifi_mgr_tool.</p>
+<p>You need to do one more thing - add server IP you config.</p>
+<p>You can get config.ini file from car’s repository. Change ip address to your server’s (computer which is going to host cloud) address.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">[</span><span style="color: #BBBBBB">cloud</span><span style="color: #999">]</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #708090">url=http://&lt;ip address&gt;:63687</span></span>
+<span class="line"><span style="color: #07A">url</span><span style="color: #999">=</span><span style="color: #BBBBBB">http://192.168.1.124:63687</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>You can change their name and id as well (both have to be shorter than 32 characters)</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">[</span><span style="color: #BBBBBB">Car</span><span style="color: #999">]</span></span>
+<span class="line"><span style="color: #07A">Id</span><span style="color: #999">=</span><span style="color: #BBBBBB">58ffcf38-b52c-4302-8847-526b0a548631</span></span>
+<span class="line"><span style="color: #07A">Name</span><span style="color: #999">=</span><span style="color: #BBBBBB">Cyjan Car</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>If you have more than one car, they have to have different Ids.</strong></p>
+<p>Next push it to Raspberry with scp</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">scp config.ini root@10.0.0.2:/home/owner/apps_rw/org.tizen.car-app/data/config.ini</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>or sdb</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">sdb push config.ini /home/owner/apps_rw/org.tizen.car-app/data/config.ini</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Congratulations, you configured your car. If you want to proceed, check out&nbsp;<a href="https://samsung.github.io/TizenSchool/tutorial/135">how to build an app for controller</a>. If you want to change default behaviour of car, you may follow this tutorial for additional informations.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="car-application">Car application</h2>
+<p>Due to native support for C for Tizen, we wrote our application in this language. Basic knowledge about it can be helpful in understanding this part of tutorial.</p>
+<p><strong>Steering</strong></p>
+<p>Config file looks like this</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">[</span><span style="color: #BBBBBB">Car</span><span style="color: #999">]</span></span>
+<span class="line"><span style="color: #07A">Id</span><span style="color: #999">=</span><span style="color: #BBBBBB">58ffcf38-b52c-4302-8847-526b0a548631 </span><span style="color: #999">#</span><span style="color: #708090">Unique car's ID</span></span>
+<span class="line"><span style="color: #07A">Name</span><span style="color: #999">=</span><span style="color: #BBBBBB">Cyjan Car </span><span style="color: #999">#</span><span style="color: #708090">Car name displayed on controller</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">[</span><span style="color: #BBBBBB">Steering</span><span style="color: #999">]</span></span>
+<span class="line"><span style="color: #07A">Center</span><span style="color: #999">=</span><span style="color: #BBBBBB">305 </span><span style="color: #999">#</span><span style="color: #708090">Servo value for going straight</span></span>
+<span class="line"><span style="color: #07A">Range</span><span style="color: #999">=</span><span style="color: #BBBBBB">110 </span><span style="color: #999">#</span><span style="color: #708090">Maximal deviation from center</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">[</span><span style="color: #BBBBBB">Camera</span><span style="color: #999">]</span></span>
+<span class="line"><span style="color: #07A">Azimuth.Center</span><span style="color: #999">=</span><span style="color: #BBBBBB">450</span></span>
+<span class="line"><span style="color: #07A">Azimuth.Range</span><span style="color: #999">=</span><span style="color: #BBBBBB">250</span></span>
+<span class="line"><span style="color: #07A">Elevation.Min</span><span style="color: #999">=</span><span style="color: #BBBBBB">200</span></span>
+<span class="line"><span style="color: #07A">Elevation.Max</span><span style="color: #999">=</span><span style="color: #BBBBBB">400</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">[</span><span style="color: #BBBBBB">Engine</span><span style="color: #999">]</span></span>
+<span class="line"><span style="color: #07A">Min</span><span style="color: #999">=</span><span style="color: #BBBBBB">-4095 </span><span style="color: #999">#</span><span style="color: #708090">Minimal value for engine (full speed of driving backwards)</span></span>
+<span class="line"><span style="color: #07A">Max</span><span style="color: #999">=</span><span style="color: #BBBBBB">4095 </span><span style="color: #999">#</span><span style="color: #708090">Maximal value for engine (full speed of going forward)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">[</span><span style="color: #BBBBBB">Rpi</span><span style="color: #999">]</span></span>
+<span class="line"><span style="color: #07A">Stering</span><span style="color: #999">=</span><span style="color: #BBBBBB">0 </span><span style="color: #999">#</span><span style="color: #708090">GPIO Pin for steering</span></span>
+<span class="line"><span style="color: #07A">Azimuth</span><span style="color: #999">=</span><span style="color: #BBBBBB">15 </span><span style="color: #999">#</span><span style="color: #708090">GPIO Pin for camera azimuth</span></span>
+<span class="line"><span style="color: #07A">Elevation</span><span style="color: #999">=</span><span style="color: #BBBBBB">14 </span><span style="color: #999">#</span><span style="color: #708090">GPIO Pin for camera elevation</span></span>
+<span class="line"><span style="color: #07A">1.forward</span><span style="color: #999">=</span><span style="color: #BBBBBB">5 </span><span style="color: #999">#</span><span style="color: #708090">First engine forward value pin</span></span>
+<span class="line"><span style="color: #07A">1.back</span><span style="color: #999">=</span><span style="color: #BBBBBB">17 </span><span style="color: #999">#</span><span style="color: #708090">First engine backward value pin</span></span>
+<span class="line"><span style="color: #07A">Channel.1</span><span style="color: #999">=</span><span style="color: #BBBBBB">5 </span><span style="color: #999">#</span><span style="color: #708090">First engine channel</span></span>
+<span class="line"><span style="color: #07A">2.forward</span><span style="color: #999">=</span><span style="color: #BBBBBB">6 </span><span style="color: #999">#</span><span style="color: #708090">Second engine forward value pin</span></span>
+<span class="line"><span style="color: #07A">2.back</span><span style="color: #999">=</span><span style="color: #BBBBBB">27 </span><span style="color: #999">#</span><span style="color: #708090">Second engine backward value pin</span></span>
+<span class="line"><span style="color: #07A">Channel.2</span><span style="color: #999">=</span><span style="color: #BBBBBB">4 </span><span style="color: #999">#</span><span style="color: #708090">Second engine channel</span></span>
+<span class="line"><span style="color: #07A">lap.counter</span><span style="color: #999">=</span><span style="color: #BBBBBB">26 </span><span style="color: #999">#</span><span style="color: #708090">Reed switch pin (for lap calculation)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">[</span><span style="color: #BBBBBB">Rpi.led</span><span style="color: #999">]</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #708090">GPIOs for RGB LED</span></span>
+<span class="line"><span style="color: #07A">rgb.gpio.use</span><span style="color: #999">=</span><span style="color: #BBBBBB">0  </span><span style="color: #999">#</span><span style="color: #708090">Boolean value for using RGB LED</span></span>
+<span class="line"><span style="color: #07A">rgb.gpio.red</span><span style="color: #999">=</span><span style="color: #BBBBBB">23</span></span>
+<span class="line"><span style="color: #07A">rgb.gpio.green</span><span style="color: #999">=</span><span style="color: #BBBBBB">24</span></span>
+<span class="line"><span style="color: #07A">rgb.gpio.blue</span><span style="color: #999">=</span><span style="color: #BBBBBB">25</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #708090">GPIOs for bicolor diode</span></span>
+<span class="line"><span style="color: #07A">bi.use</span><span style="color: #999">=</span><span style="color: #BBBBBB">0 </span><span style="color: #999">#</span><span style="color: #708090">Boolean value for using bicolor diode</span></span>
+<span class="line"><span style="color: #07A">bi.red</span><span style="color: #999">=</span><span style="color: #BBBBBB">20</span></span>
+<span class="line"><span style="color: #07A">bi.green</span><span style="color: #999">=</span><span style="color: #BBBBBB">21</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #708090">GPIOs for PWM controlled RGB LED</span></span>
+<span class="line"><span style="color: #07A">rgb.l2c.use</span><span style="color: #999">=</span><span style="color: #BBBBBB">1</span></span>
+<span class="line"><span style="color: #07A">rgb.l2c.red</span><span style="color: #999">=</span><span style="color: #BBBBBB">8</span></span>
+<span class="line"><span style="color: #07A">rgb.l2c.green</span><span style="color: #999">=</span><span style="color: #BBBBBB">9</span></span>
+<span class="line"><span style="color: #07A">rgb.l2c.blue</span><span style="color: #999">=</span><span style="color: #BBBBBB">10</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #708090">Colors</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #708090">Colors in values of 0-1 (using only GPIOs) and in values 0-255 (using PWM) in RGB convention</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #708090">Start values</span></span>
+<span class="line"><span style="color: #07A">3bit.init</span><span style="color: #999">=</span><span style="color: #BBBBBB">1</span><span style="color: #999">;</span><span style="color: #708090">1;0;</span></span>
+<span class="line"><span style="color: #07A">24bit.init</span><span style="color: #999">=</span><span style="color: #BBBBBB">255</span><span style="color: #999">;</span><span style="color: #708090">64;0;</span></span>
+<span class="line"><span style="color: #07A">bicolor.init</span><span style="color: #999">=</span><span style="color: #BBBBBB">0</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #708090">Ready to drive</span></span>
+<span class="line"><span style="color: #07A">3bit.ready</span><span style="color: #999">=</span><span style="color: #BBBBBB">0</span><span style="color: #999">;</span><span style="color: #708090">1;1;</span></span>
+<span class="line"><span style="color: #07A">24bit.ready</span><span style="color: #999">=</span><span style="color: #BBBBBB">0</span><span style="color: #999">;</span><span style="color: #708090">255;255;</span></span>
+<span class="line"><span style="color: #07A">bicolor.ready</span><span style="color: #999">=</span><span style="color: #BBBBBB">1</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #708090">First finish line</span></span>
+<span class="line"><span style="color: #07A">3bit.first.lap</span><span style="color: #999">=</span><span style="color: #BBBBBB">0</span><span style="color: #999">;</span><span style="color: #708090">0;1;</span></span>
+<span class="line"><span style="color: #07A">24bit.first.lap</span><span style="color: #999">=</span><span style="color: #BBBBBB">0</span><span style="color: #999">;</span><span style="color: #708090">0;255;</span></span>
+<span class="line"><span style="color: #07A">bicolor.first.lap</span><span style="color: #999">=</span><span style="color: #BBBBBB">-1</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #708090">Lap registered</span></span>
+<span class="line"><span style="color: #07A">3bit.lap</span><span style="color: #999">=</span><span style="color: #BBBBBB">0</span><span style="color: #999">;</span><span style="color: #708090">1;0;</span></span>
+<span class="line"><span style="color: #07A">24bit.lap</span><span style="color: #999">=</span><span style="color: #BBBBBB">0</span><span style="color: #999">;</span><span style="color: #708090">255;0;</span></span>
+<span class="line"><span style="color: #07A">bicolor.lap</span><span style="color: #999">=</span><span style="color: #BBBBBB">-1</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #708090">Connection failure</span></span>
+<span class="line"><span style="color: #07A">3bit.fail</span><span style="color: #999">=</span><span style="color: #BBBBBB">1</span><span style="color: #999">;</span><span style="color: #708090">0;0;</span></span>
+<span class="line"><span style="color: #07A">24bit.fail</span><span style="color: #999">=</span><span style="color: #BBBBBB">255</span><span style="color: #999">;</span><span style="color: #708090">0;0;</span></span>
+<span class="line"><span style="color: #07A">bicolor.fail</span><span style="color: #999">=</span><span style="color: #BBBBBB">0</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #708090">Use negation (different for catode and anode LED)</span></span>
+<span class="line"><span style="color: #07A">led.use.negative.colors</span><span style="color: #999">=</span><span style="color: #BBBBBB">true</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">[</span><span style="color: #BBBBBB">cloud</span><span style="color: #999">]</span></span>
+<span class="line"><span style="color: #07A">url</span><span style="color: #999">=</span><span style="color: #BBBBBB">http://192.168.1.124:63687 </span><span style="color: #999">#</span><span style="color: #708090">Server address</span></span>
+<span class="line"><span style="color: #07A">car</span><span style="color: #999">=</span><span style="color: #BBBBBB">/api/racing </span><span style="color: #999">#</span><span style="color: #708090">URL path for posting car</span></span>
+<span class="line"><span style="color: #07A">lap</span><span style="color: #999">=</span><span style="color: #BBBBBB">/api/lap </span><span style="color: #999">#</span><span style="color: #708090">URL path for posting laps</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>You can connect your diode to distinguish your cars or to get informations about current state of car.</p>
+<p><strong>Buiding and deploying app</strong></p>
+<p><strong>Note: If you want to change something in your applications, communication between car and controller is described in the next part of tutorial.</strong></p>
+<p>There are two ways to build an app:</p>
+<p><strong>Building with Tizen Studio</strong></p>
+<p>To build platform project with Tizen Studio, you need IoT-Headless package. To download and install it, you need to:</p>
+<p>After that, you can just click your project in Tizen Studio and click “Build Project”.</p>
+<p><strong>Building with GBS (Git Build System)</strong></p>
+<p>If you don’t have GBS installed, you can download it&nbsp;<a href="https://source.tizen.org/documentation/reference/git-build-system">here</a>.</p>
+<p>Building app with GBS is quite simple - just navigate to catalog of your cloned project and launch a command:</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">gbs build --arch armv7l --profile 4.0-unified_standard</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Now you can go to ~/GBS-ROOT/local/repos/4.0_unified_standard/armv7l/RPMS</p>
+<p>Copy the file org.tizen.car-app-0.0.1-1.armv7l.rpm to car (ie. to dir /tmp)</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">scp org.tizen.car-app-0.0.1-1.armv7l.rpm root@10.0.0.2:/tmp</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Use ssh to connect with car</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">ssh root@10.0.0.2</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>When you’re on car, launch these commands:</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">cd /tmp</span></span>
+<span class="line"><span style="color: #BBBBBB">rpm --force -i org.car-app-0.0.1-1.armv7l.rpm</span></span>
+<span class="line"><span style="color: #BBBBBB">app_laucher -s org.tizen.car-app</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="troubleshoting">Troubleshoting</h2>
+<p>If you have problem with file system on car (it says it’s read-only), use:</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">mount -o remount,rw /</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>Pay attention to the space between “rw” and “/” !</strong></p>
+<p>If you build often with GBS, you can add</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">--noinit</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>flag to make building faster</p></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/6</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/642c4c04779a63be966fa6579cbe2e444ddde584">642c4c04779a63be966fa6579cbe2e444ddde584</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+

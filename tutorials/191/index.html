@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/TizenSchool/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/TizenSchool/assets/images/favicon-32x32.png">
+    <title>Getting started with Raspberry PI 3&amp;4</title>
+  <link rel="stylesheet" href="/TizenSchool/assets/aboutus.9016036b.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.013d619c.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="2r5SHS" component-url="/TizenSchool/Header.fde63186.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/TizenSchool/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      Getting started with Raspberry PI 3&amp;4
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">This tutorial is a guide for developers who want to use Tizen IoT based on Raspberry PI3/4. It shows the easiest way to set up your development environment. - Written by 강석현(Shawn Kang)</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/TizenSchool/assets/images/iot-active.png">
+        <img src="/TizenSchool/assets/images/wearable-dimmed.png">
+        <img src="/TizenSchool/assets/images/mobile-dimmed.png">
+        <img src="/TizenSchool/assets/images/smart-tv-dimmed.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2020/05/09</span>
+            Modified
+            <span class="font-bold">2020/10/05</span>
+    </div>
+  </div><astro-island uid="Za3QKS" component-url="/TizenSchool/TextContent.c7f4d9de.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,16],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[]\&quot;],\&quot;chapter\&quot;:[0,\&quot;\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Overview\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;I. Overview\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Installing Visual Studio\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. Installing Tizen Extension\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. Installing Tizen Studio and Packages\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;4. Creating a Tizen Certificate\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;II. Setting Up Your Environment\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Downloading Image Files\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. Flashing SD card\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;III. Flashing Tizen Image\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Overview\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2-1. Using the Settings App\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2-2. Using Serial Communication\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. Connecting to your PC\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;IV. Setting up Raspberry Pi\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Overview\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. Creating Tizen C# UI App\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. Creating Tizen C Service App\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;V. Creating and Deploying a project\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Installing JDK\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. Installing WiFi Plugin\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;VI. Appendix\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/16</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id="i-overview">I. Overview</h1><h2 id="1-overview">1. Overview</h2>
+<p>This tutorial is a guide for developers who want to use Tizen IoT on Raspberry Pi3 or Raspberry Pi4</p>
+<p>If you want&nbsp;an Korean version, please use following tutorial. <a href="https://samsung.github.io/TizenSchool/tutorial/131">https://samsung.github.io/TizenSchool/tutorial/1</a><a href="https://samsung.github.io/TizenSchool/tutorial/194">94</a></p>
+<p>It shows the easiest way to set up your development environment. This course consists of the following 4&nbsp;steps.</p>
+<ol>
+<li>
+<p>Installing Visual Studio and Tizen Studio</p>
+</li>
+<li>
+<p>Flashing the SD card using&nbsp;IoT Setup Manager</p>
+</li>
+<li>
+<p>After setting&nbsp;up Wifi,&nbsp;Connecting PC&nbsp;and RPI</p>
+</li>
+</ol>
+<p>4.&nbsp;Creating and Deploying a project</p>
+<p><strong>Development environment</strong></p>
+<p><strong>Pre-order</strong></p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-setting-up-your-environment">II. Setting Up Your Environment</h1><h2 id="1-installing-visual-studio">1. Installing Visual Studio</h2>
+<ol>
+<li>Download Visual Studio Installer (&nbsp;<a href="https://visualstudio.microsoft.com/">https://visualstudio.microsoft.com/</a>&nbsp;)</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/191/21.png" style="height:554px; width:1000px">
+<ol start="2">
+<li>After launching Visual Studio Installer,&nbsp;install a <strong>“.NET desktop development”,&nbsp;“Mobile development with .NET”</strong> and ” <strong>.NET Core cross-platform development</strong> ” toolsets</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/191/vs_installer3.png" style="height:558px; width:1000px">
+<img src="/TizenSchool/assets/images/tutorials/191/23.png" style="height:558px; width:1000px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-setting-up-your-environment">II. Setting Up Your Environment</h1><h2 id="2-installing-tizen-extension">2. Installing Tizen Extension</h2>
+<p><strong>Visual Studio Tools for Tizen extension</strong> is registered in Visual Studio Marketplace.</p>
+<p>You can install extensions from the Visual Studio Marketplace in Visual Studio IDE.</p>
+<ol>
+<li>Launch Visual Studio 2019 and Click a ” <strong>Continue without code</strong> “.</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/191/2_21.png" style="height:693px; width:1000px">
+<ol start="2">
+<li>In Visual Studio IDE menu, go to <strong>Extensions &gt; Manage Extensions</strong> .</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/191/2_22.png" style="height:70px; width:767px">
+<ol start="3">
+<li>Search&nbsp;for ” <strong>tizen</strong> ” in the Online tab, download a ” <strong>Visual Studio Tools for Tizen</strong> ”</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/191/2_23.png" style="height:653px; width:941px">
+<ol start="4">
+<li>Close&nbsp;your Visual Studio for installing it.</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/191/2_24.png" style="height:653px; width:941px">
+<ol start="5">
+<li>After&nbsp;VSIX Installer is launched, Vistual Studio Tools for Tizen is installed.</li>
+</ol>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-setting-up-your-environment">II. Setting Up Your Environment</h1><h2 id="3-installing-tizen-studio-and-packages">3. Installing Tizen Studio and Packages</h2>
+<ol>
+<li>Launch Visual Studio 2019 and Click a ” <strong>Continue without code</strong> ”</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/191/2_31.png" style="height:693px; width:1000px">
+<ol start="2">
+<li>In Visual Studio IDE menu, go to <strong>Tools &gt; Tizen &gt; Tizen Package Manager</strong> .</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/191/2_32.png" style="height:431px; width:1000px">
+<ol start="3">
+<li>Select <strong>Install new Tizen SDK</strong> .</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/191/2_33.png" style="height:492px; width:784px">
+<ol start="4">
+<li>Enter the root directory path where you want to install and click <strong>Next</strong> .</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/191/2_34.png" style="height:492px; width:784px">
+<ol start="5">
+<li>After Baseline SDK Installer is launched, Tizen SDK is installed.</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/191/2_35.png" style="height:484px; width:696px">
+<ol start="6">
+<li>After Package Manager is launched,</li>
+</ol>
+<p>Select the&nbsp; <strong>Extension SDK</strong> &nbsp;tab and&nbsp; <strong>Extras</strong> .&nbsp; <strong>Extras</strong> &nbsp;includes&nbsp; <strong>IoT Setup Manager</strong> &nbsp;and&nbsp; <strong>IoT-Headed-5.5</strong> &nbsp;profiles.</p>
+<p>(If you want to use IoT-Headless, please select it.)</p>
+<img src="/TizenSchool/assets/images/tutorials/191/package_manager.png" style="height:645px; width:632px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-setting-up-your-environment">II. Setting Up Your Environment</h1><h2 id="4-creating-a-tizen-certificate">4. Creating a Tizen Certificate</h2>
+<p>You should create a Tizen Certificate before you install your application.</p>
+<p>If you do not havea certification, the following error is displayed..</p>
+<img src="/TizenSchool/assets/images/tutorials/149/4-1.jpg" style="border-style:solid; border-width:1px; height:220px; width:500px">
+<ol>
+<li>Before creating a new certificate profile close all currently running emulator instances.</li>
+</ol>
+<p>2.&nbsp;Go to <strong>Tools</strong> &gt; <strong>Tizen</strong> &gt; <strong>Tizen Certificate Manager</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/191/2_32.png" style="undefined">
+<p>3.&nbsp;If a “Migration for Certificate Profile” dialogue box opens, click “OK” to continue</p>
+<img src="/TizenSchool/assets/images/tutorials/149/4-3.jpg" style="height:366px; width:600px">
+<ol start="4">
+<li>Click the ‘+’ icon and select <strong>Tizen Certificate</strong></li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/149/4-4.jpg" style="height:481px; width:600px">
+<ol start="5">
+<li>Give a name for the certificate, then proceed to create a new author certificate.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+<img src="/TizenSchool/assets/images/tutorials/149/4-5.jpg" style="height:406px; width:600px"></li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/149/4-6.jpg" style="height:403px; width:600px">
+<img src="/TizenSchool/assets/images/tutorials/149/4-7.jpg" style="height:405px; width:600px">
+<ol start="6">
+<li>You should select a <strong>platform</strong> &nbsp;as the privilage level in the Distributor Certificate Level.</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/149/20190813_153342.png" style="height:406px; width:600px">
+<ol start="7">
+<li>Now that you’ve created a new certificate profile, you will be able to deploy your applications to devices.</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/149/4-9.jpg" style="height:481px; width:600px">
+<ol start="8">
+<li>Set the certificate in the Visual Studio</li>
+</ol>
+<ul>
+<li>Go to <strong>Tools</strong> &gt; <strong>Tizen</strong> &gt; <strong>Tizen Certificate Manager in the Visual Studio</strong></li>
+</ul>
+<img src="/TizenSchool/assets/images/tutorials/194/options.png" style="undefined">
+<ul>
+<li>Check the “Sign the .TPK file using the following option”</li>
+</ul>
+<img src="/TizenSchool/assets/images/tutorials/191/vs_cert.png" style="height:434px; width:744px">
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-flashing-tizen-image">III. Flashing Tizen Image</h1><h2 id="1-downloading-image-files">1. Downloading Image Files</h2>
+<p>For flashing Tizen image, download the image and Raspberry plugin files.</p>
+<p><strong>1. Download Tizen Image Files</strong></p>
+<ol>
+<li>
+<p>Boot Image&nbsp;: download the appropriate image for your board</p>
+</li>
+<li>
+<p>Platform Image: download the appropriate image according to the usage of display</p>
+</li>
+</ol>
+<p><strong>2. Download&nbsp;Raspberry Plugin</strong></p>
+<p>A plugin should be installed in order to use the Wifi module.</p>
+<p>Download the plugin file from the&nbsp; <strong>Raspberry Pi 3/4(5.5/6.0) Plugin</strong> &nbsp;section in&nbsp;<a href="http://developer.samsung.com/tizendevice/firmware">http://developer.samsung.com/tizendevice/firmware</a></p>
+<p>(The plugin is compatible with both RPI3 and RPI4.)</p>
+<img src="/TizenSchool/assets/images/tutorials/191/plugin_down.png" style="height:168px; width:775px">
+<p>After extracting the file,&nbsp;copy <strong>wlandrv-plugin-tizen-1.0.6-1.armv7l.rpm</strong> &nbsp;in the <strong>connectivity</strong> directory&nbsp;to a new&nbsp;empty directory.</p>
+<img src="/TizenSchool/assets/images/tutorials/191/plugin.png" style="height:335px; width:383px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-flashing-tizen-image">III. Flashing Tizen Image</h1><h2 id="2-flashing-sd-card">2. Flashing SD card</h2>
+<p><strong>1. Insert a Micro SD card into a reader and connect it to the computer</strong></p>
+<p><strong>[Troubleshooting]</strong></p>
+<p>When you connect an SD card that already has a Tizen image installed, the disk format popup window may appear. In such cases, close all pop-up windows without selecting any options.</p>
+<p><strong>2.&nbsp;Run&nbsp;IoT Setup Manager</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/191/iot_setup_manager.png" style="height:626px; width:1000px">
+<p>Search for ‘IoT Setup Manager’ from the Windows search bar and open it. &nbsp;<br>(Or you can run ‘IoT Setup Manager’&nbsp;from the IoT menu at the top of the Tizen Studio.</p>
+<p><br>Then, click ‘Create’ button to create a new profile.</p>
+<p><strong>[Troubleshooting]</strong></p>
+<p>If you can not launch “IoT Setup Manager”, install JDK by referring to the “Appendix (Installing JDK)”<a href="https://samsung.github.io/TizenSchool/tutorial/194/contents/15">[Link]</a>.</p>
+<p><strong>3. Set&nbsp;up an IoT Profile</strong></p>
+<p><strong><img src="/TizenSchool/assets/images/tutorials/137/page4_2.png" style="height:639px; width:627px"></strong></p>
+<p>Enter some information about the profile and add image files.</p>
+<p><strong>4. Create and Flash image</strong></p>
+<p><strong><img src="/TizenSchool/assets/images/tutorials/137/page4_4.png" style="height:337px; width:562px"></strong></p>
+<p>Select the profile that you just created in the IoT Setup Manager window.</p>
+<p><br>In the Select Drive section, select the drive of the Micro SD card recognized by the computer, and press the ‘Burn’ button.<br>When the progress bar fills up, and the message ‘Done’ appears at the bottom, TIZEN image flashing is complete.</p>
+<p><strong>[Troubleshooting]</strong></p>
+<p>If you can not complete to burn, please burn it&nbsp;without the RPM bundles.</p>
+<p>And install the RPM bundles by referring to the Appendix(Installing WiFi Plugin)<a href="https://samsung.github.io/TizenSchool/tutorial/194/contents/16">[Link]</a>.</p>
+<p><strong>5. Insert Raspberry PI image</strong></p>
+<p><strong><img src="/TizenSchool/assets/images/tutorials/131/page4_5_1195.png" style="height:409px; width:800px"></strong></p>
+<p>Remove the SD card from the reader, insert it into the Micro SD card slot on the back of the Raspberry Pi, and turn on the Raspberry Pi3 to boot.</p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iv-setting-up-raspberry-pi">IV. Setting up Raspberry Pi</h1><h2 id="1-overview-1">1. Overview</h2>
+<p>For installing your application on the Raspberry Pi board, you should connect your board to a PC.</p>
+<p>In order to do so, you need to find out the IP address of your board.</p>
+<p>There can be two ways according to your situation. Let’s find out!</p>
+<p><strong>1) Using the Settings App (Easy way)</strong></p>
+<p>: If you are using the <strong>headed image and a monitor</strong> , you can find out your IP address easily.</p>
+<p>You can use the settings app after booting.</p>
+<p>Please refer to the page IV-2-1<a href="https://samsung.github.io/TizenSchool/tutorial/194/contents/9">[Link]</a>.</p>
+<img src="/TizenSchool/assets/images/tutorials/191/4_24.png" style="border-style:solid; border-width:1px; height:450px; width:800px">
+<p><strong>2) Using Serial Communication</strong></p>
+<p>: If you are using the <strong>headless image</strong> or do not have a monitor, you should use serial communication.</p>
+<p>Please refer to the page IV-2-2<a href="https://samsung.github.io/TizenSchool/tutorial/194/contents/10">[Link]</a>.</p>
+<p><strong><img src="/TizenSchool/assets/images/tutorials/137/page5_6.png" style="height:418px; width:600px"></strong></p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iv-setting-up-raspberry-pi">IV. Setting up Raspberry Pi</h1><h2 id="2-1-using-the-settings-app">2-1. Using the Settings App</h2>
+<p>This is a guide for the case when you are using the headed image and a monitor.</p>
+<p>Otherwise, refer to the next page to use serial communication.</p>
+<p><strong>1. Open “Settings”</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/191/4_21.png" style="border-style:solid; border-width:1px; height:450px; width:800px">
+<p><strong>2. Move to “Wi-Fi” page</strong> <br>
+<img src="/TizenSchool/assets/images/tutorials/191/4_22.png" style="border-style:solid; border-width:1px; height:450px; width:800px"></p>
+<p><strong>3. Find the&nbsp;AP that the device is connected to. Then, click the information icon.</strong></p>
+<p>: If there is no existing connection, connect to a new AP after scanning.</p>
+<img src="/TizenSchool/assets/images/tutorials/191/4_24.png" style="border-style:solid; border-width:1px; height:450px; width:800px">
+<p><strong>4. Find the IP address</strong></p>
+<p>:&nbsp;You will use the IP address of Raspberry Pi&nbsp;when connecting to the PC.</p>
+<img src="/TizenSchool/assets/images/tutorials/191/4_23.png" style="border-style:solid; border-width:1px; height:450px; width:800px">
+<p>If you cannot find the IP address using the Settings application, refer to the next page to use serial communication.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iv-setting-up-raspberry-pi">IV. Setting up Raspberry Pi</h1><h2 id="2-2-using-serial-communication">2-2. Using Serial Communication</h2>
+<p>This is a guide for the case&nbsp;when you are using the headless&nbsp;image or when you do not have a&nbsp;monitor.</p>
+<p>This guide uses PL2303 serial port for the serial communication. You can use other products if you want.</p>
+<p>In order to connect Raspberry Pi&nbsp;to the serial port, you need to understand the serial communication.</p>
+<p>Refer to the links for more information about serial communication.&nbsp;<a href="http://www.hardcopyworld.com/gnuboard5/bbs/board.php?bo_table=lecture_pract&amp;wr_id=93">SERIAL COMMUNICATION</a></p>
+<p><strong>1. Install the serial port (PL2303) driver</strong></p>
+<p>Install the driver of the serial port that interconnects the Raspberry Pi&nbsp;and the PC.</p>
+<p>Since this guide is using PL2303 serial port, download and install the PL2303 driver.&nbsp;<a href="http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=225&amp;pcid=41">[Link]</a></p>
+<img src="/TizenSchool/assets/images/tutorials/137/page5_2.png" style="height:381px; width:500px">
+<p><strong>2. Install the serial terminal (PuTTY)</strong></p>
+<p>Install the serial terminal for communicating with the board through the connected serial port to the PC.</p>
+<p>Download and install the PuTTY program.&nbsp;<a href="https://www.putty.org/">[Link]</a></p>
+<img src="/TizenSchool/assets/images/tutorials/137/page5_3.png" style="height:387px; width:495px">
+<p><strong>3.&nbsp;Connect Raspberry Pi&nbsp;to Serial Port (PL2303)</strong></p>
+<p>As shown in the picture below, Raspberry Pi&nbsp;and PL2303 serial ports&nbsp;have these two pins. RX, TX are the role names they are responsible for. One is for transmission (TX-Transmitter) and the other is for reception (RX-Receiver). Therefore, when connecting two devices, they should be connected as TX-RX and RX-TX as shown below.&nbsp;GND shoud be connected to GND pin of Raspberry Pi.</p>
+<img src="/TizenSchool/assets/images/tutorials/137/page5_4.png" style="height:429px; width:1000px">
+<p>When the pin connection is finished, plug the serial port into the USB port of the PC.</p>
+<p><strong>4. Set&nbsp;up the serial terminal (PuTTY)</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/191/4_31.png" style="height:561px; width:872px">
+<p>Open the [Device Manager] to find the port number of the USB Serial Port as shown in the figure above.</p>
+<p>If the serial port is not recognized, check again that the serial port driver is properly installed.</p>
+<p>Enter the serial number in PuTTY Configuration and click [Open] to open the serial terminal.</p>
+<p><strong>5. Raspberry Pi&nbsp;Log in</strong></p>
+<p><strong><img src="/TizenSchool/assets/images/tutorials/137/page5_6.png" style="height:418px; width:661px"></strong></p>
+<p>When the Raspberry Pi&nbsp;booting is completed, the login prompt gets displayed.</p>
+<p>Log in using the&nbsp;following ID and password. ( <strong>User ID: root / Password: tizen</strong> )</p>
+<p><strong>6. Connecting to WiFi with wifi_manager_test</strong></p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">$ wifi_manager_test</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>When you enter ’ <strong>wifi_manager_test</strong> ’ command&nbsp;from the serial terminal, the following screen will appear where you can set the WiFi environment.</p>
+<img src="/TizenSchool/assets/images/tutorials/137/page6_1.png" style="height:470px; width:426px">
+<p>Type “1&gt; 3&gt; c” to connect WiFi. Then enter your AP name and password.</p>
+<img src="/TizenSchool/assets/images/tutorials/137/page6_2.png" style="height:680px; width:674px">
+<p>Enter “0” to end the WiFi connection setup.</p>
+<p><strong>7. Check the IP address of the connected WiFi</strong></p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">$ ifconfig</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<img src="/TizenSchool/assets/images/tutorials/137/page6_3.png" style="height:423px; width:600px">
+<p><br>You will use the IP address of Raspberry Pi&nbsp;when connecting to the PC.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iv-setting-up-raspberry-pi">IV. Setting up Raspberry Pi</h1><h2 id="3-connecting-to-your-pc">3. Connecting to your PC</h2>
+<p>PC&nbsp;and Raspberry Pi&nbsp;can be interconnected&nbsp;using Device Manager.</p>
+<p>1.&nbsp;Run&nbsp;Device Manager</p>
+<p>:&nbsp;Search for ‘Device Manager’ from the Windows search bar and open it. &nbsp;<br>(Or you can run ‘Device Manager’&nbsp;from the Tools &gt; Tizen&nbsp;menu at the top of the Visual Studio or Tizen Studio.)</p>
+<img src="/TizenSchool/assets/images/tutorials/191/4_41.png" style="height:449px; width:800px">
+<p>2.&nbsp;In the&nbsp; <strong>Device Manager</strong> &nbsp;window that appears, click ’ <strong>Remote Device Manager’&nbsp;button</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/191/4_42.png" style="border-style:solid; border-width:1px; height:432px; width:600px">
+<ol start="3">
+<li>To add a remote device, click&nbsp; <strong>’+’&nbsp;button</strong> .</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/191/4_43.png" style="border-style:solid; border-width:1px; height:287px; width:400px">
+<ol start="4">
+<li>In the&nbsp; <strong>Add Device</strong> &nbsp;dialog, enter the device name, the IP address of the RPI device&nbsp;and the port number.</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/191/4_44.png" style="border-style:solid; border-width:1px; height:243px; width:300px">
+<ol start="5">
+<li>Confirm the IP address and the port number of the remote device, and toggle the&nbsp; <strong>Connection</strong> &nbsp;switch to&nbsp; <strong>ON</strong> .</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/191/4_45.png" style="border-style:solid; border-width:1px; height:287px; width:400px">
+<ol start="6">
+<li>When the connection is established, the remote device appears in&nbsp; <strong>Device Manager.</strong></li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/191/4_46.png" style="border-style:solid; border-width:1px; height:243px; width:703px">
+<ol start="7">
+<li>You can also check the connection in Visual Studio or Tizen Studio.</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/191/4_47.png" style="height:64px; width:730px">
+<p>Now,&nbsp;you can install your applications on your RPI device.</p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="v-creating-and-deploying-a-project">V. Creating and Deploying a project</h1><h2 id="1-overview-2">1. Overview</h2>
+<p>For creating your application, you should decide on the language you will be developing with.</p>
+<p>There can be two ways according to your situation. Let’s find out!</p>
+<p><strong>1. Tizen C#</strong></p>
+<p>If you use Tizen C#, you can easily create an application.</p>
+<p>Especially, <strong>Xamarin.Forms</strong> UI Framework is supported for easy UI development.</p>
+<p>So, it is recommended to use C# when&nbsp;you create a <strong>UI application</strong> .</p>
+<p>You should use <strong>Visual&nbsp;Studio</strong> for creating a Tizen C# application.</p>
+<p>Please refer to page V-2<a href="https://samsung.github.io/TizenSchool/tutorial/194/contents/13">[Link]</a>.</p>
+<p><strong>2. Tizen C</strong></p>
+<p>If you use Tizen C, you can create an application that has a higher performance&nbsp;and uses less memory.</p>
+<p>So, it is recommended to use C&nbsp;when&nbsp;you create a <strong>service application</strong> .</p>
+<p>You should use <strong>Tizen Studio</strong> for creating a Tizen C application.</p>
+<p>Please refer to page V-3<a href="https://samsung.github.io/TizenSchool/tutorial/194/contents/14">[Link]</a>.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="v-creating-and-deploying-a-project">V. Creating and Deploying a project</h1><h2 id="2-creating-tizen-c-ui-app">2. Creating Tizen C# UI App</h2>
+<p>Let’s create a Tizen C# UI application and deploy it to your RPI board.</p>
+<p>1.&nbsp;In the <strong>Visual Studio</strong> menu, select&nbsp; <strong>File &gt; New &gt; Project</strong> .</p>
+<img src="/TizenSchool/assets/images/tutorials/191/5_22.png" style="height:120px; width:661px">
+<p>2.&nbsp;Select&nbsp; <strong>C#</strong> &nbsp;from languages and&nbsp; <strong>Tizen</strong> &nbsp;from platforms, select&nbsp; <strong>Tizen XAML App (Xamarin.Forms)</strong> &nbsp;template, and click a ” <strong>Next</strong> ” button.</p>
+<img src="/TizenSchool/assets/images/tutorials/191/5_23.png" style="border-style:solid; border-width:1px; height:598px; width:900px">
+<ol start="3">
+<li>Enter the&nbsp; <strong>project name</strong> ,&nbsp;and click the ” <strong>Create”</strong> &nbsp;button.</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/191/5_24.png" style="border-style:solid; border-width:1px; height:531px; width:800px">
+<p>4.&nbsp;Select <strong>Common</strong> &nbsp;from profile, and click the&nbsp;” <strong>OK</strong> ”&nbsp;button</p>
+<img src="/TizenSchool/assets/images/tutorials/191/5_25.png" style="border-style:solid; border-width:1px; height:316px; width:660px">
+<ol start="5">
+<li>Once the project has been created, the layout in the <strong>Solution explorer</strong> should look like this:</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/191/5_26.png" style="height:353px; width:290px">
+<ol start="6">
+<li>Confirm that the RPI board is connected to your PC.</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/191/5_27.png" style="height:64px; width:730px">
+<ol start="7">
+<li>To build and run this application on the device.</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/191/5_28.png" style="border-style:solid; border-width:1px; height:450px; width:800px">
+<p>If you want to know more about the Tizen IoT C# application, please refer to the following page.</p>
+<p><a href="https://docs.tizen.org/application/dotnet/get-started/iot/first-app/">https://docs.tizen.org/application/dotnet/get-started/iot/first-app/</a></p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="v-creating-and-deploying-a-project">V. Creating and Deploying a project</h1><h2 id="3-creating-tizen-c-service-app">3. Creating Tizen C Service App</h2>
+<p>Let’s create a Tizen C&nbsp;Service&nbsp;application and deploy it to your RPI board.</p>
+<p>1.&nbsp;In the <strong>Tizen Studio</strong> menu, select&nbsp; <strong>File &gt; New &gt; Tizen Project</strong> .</p>
+<img src="/TizenSchool/assets/images/tutorials/149/6-1.jpg" style="undefined">
+<ol start="2">
+<li>Select <strong>Template,</strong> and click the&nbsp;” <strong>Next</strong> ”&nbsp;button</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/149/6-2.jpg" style="height:653px; width:800px">
+<ol start="3">
+<li>Select <strong>Custom</strong> &nbsp;/&nbsp; <strong>Iot-headed&nbsp;v5.5,</strong> and click the&nbsp;” <strong>Next</strong> ”&nbsp;button</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/194/b1.png" style="undefined">
+<ol start="4">
+<li>Select <strong>Native Application,</strong> and click the&nbsp;” <strong>Next</strong> ”&nbsp;button</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/149/6-4.jpg" style="height:562px; width:800px">
+<ol start="5">
+<li>Select <strong>Service,</strong> and click the&nbsp;” <strong>Next</strong> ”&nbsp;button</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/194/b2.png" style="undefined">
+<ol start="6">
+<li>Enter the&nbsp; <strong>project name,</strong> and click the&nbsp;” <strong>Finish”</strong> &nbsp;button. ex) HelloWorld</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/149/6-6.jpg" style="undefined">
+<ol start="7">
+<li>Once the project has been created, the layout in the <strong>Project Explorer</strong> should look like this:</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/149/6_tizenstudio.jpg" style="border-style:solid; border-width:1px; height:650px; width:1200px">
+<p><strong>8.&nbsp;Insert the log code</strong></p>
+<p>After open the <strong>helloworld.c</strong> &nbsp;in the <strong>src</strong> folder and find the <strong>service_app_create</strong> function,</p>
+<p>insert the code in the 4th line below.</p>
+<p>[helloworld.c]</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 84px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">bool</span><span style="color: #000"> </span><span style="color: #DD4A68">service_app_create</span><span style="color: #999">(</span><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">data</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">    //</span><span style="color: #708090"> Todo: add your code here.</span></span>
+<span class="line"><span style="color: #000">    </span><span style="color: #DD4A68">dlog_print</span><span style="color: #999">(</span><span style="color: #000">DLOG_INFO</span><span style="color: #999">,</span><span style="color: #000"> LOG_TAG</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #999">"</span><span style="color: #690">Hello World</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">    </span><span style="color: #07A">return</span><span style="color: #000"> </span><span style="color: #905">true</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>※ LOG_TAG is defined in helloworld.h file.</p>
+<p>9.&nbsp;Confirm that the RPI board is connected to your PC.</p>
+<img src="/TizenSchool/assets/images/tutorials/149/6-99_.jpg" style="undefined">
+<ol start="10">
+<li>After right-click on the project name, start installation with&nbsp; <strong>Run As &gt; Tizen Native Application</strong> .</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/149/20190813_154500.png" style="height:554px; width:800px">
+<p><strong>11. Check the installation result</strong></p>
+<p>If ” <strong>Tizen application is successfully launched.</strong> ” is displayed in the console window, the installation is successful.</p>
+<img src="/TizenSchool/assets/images/tutorials/149/6-10.jpg" style="undefined">
+<ol start="12">
+<li><strong>Check the Log</strong> *<strong>* in **</strong> Tizen Studio &gt; Tools &gt; Device Manger</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/167/devicemgr.JPG" style="border-style:solid; border-width:1px; height:553px; width:800px">
+<p>If right-click on Tag and select LOG_TAG,&nbsp;only the log of the desired app are displayed. ex) helloworld</p>
+<img src="/TizenSchool/assets/images/tutorials/167/devicemgr_hello.JPG" style="border-style:solid; border-width:1px; height:551px; width:800px">
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="vi-appendix">VI. Appendix</h1><h2 id="1-installing-jdk">1. Installing JDK</h2>
+<p>For using&nbsp;” <strong>IoT Setup Manager</strong> ”, you should install JDK.</p>
+<p><strong>1. Download JDK</strong></p>
+<p>Download the Java SE Development Kit (JDK) installation file.&nbsp;<a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">[Link]</a><br>(Please use <strong>JDK 8</strong> &nbsp;version instead of the latest version.)</p>
+<img src="/TizenSchool/assets/images/tutorials/149/2-1.jpg" style="height:288px; width:1000px">
+<p><strong>2. Install JDK</strong></p>
+<ul>
+<li>Remember the path that JDK is installed.</li>
+</ul>
+<img src="/TizenSchool/assets/images/tutorials/149/2-2.jpg" style="undefined">
+<p><strong>3.&nbsp;Set&nbsp;up the JDK Environment Variables</strong></p>
+<ol>
+<li>Move <strong>Control Panel -&gt; System and Security -&gt; System</strong> window.</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/191/systemJDK1.png" style="border-style:solid; border-width:1px; height:298px; width:808px">
+<ol start="2">
+<li>
+<p>After click ” <strong>Advanced System Settings</strong> ” on left, click the ” <strong>Environment Variables</strong> ” button&nbsp;in the ” <strong>Advanced</strong> ” tab<br>
+<img src="/TizenSchool/assets/images/tutorials/191/systemJDK2_1.png" style="border-style:solid; border-width:1px; height:579px; width:1100px"></p>
+</li>
+<li>
+<p>After click the ” <strong>Path</strong> ” variable&nbsp;from the list of system variables, click the ” <strong>Edit</strong> ”&nbsp;button.</p>
+</li>
+</ol>
+<p>After click the ” <strong>New</strong> ”&nbsp;button, paste the Java SE Development Kit (JDK) installation path&nbsp;with ” <strong>\bin</strong> ”</p>
+<p>(ex)&nbsp; <strong>C:\Program Files\Java\jdk1.8.0_221\bin</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/191/systemJDK3_1.png" style="border-style:solid; border-width:1px; height:380px; width:600px">
+<p>4)&nbsp;After click the ” <strong>New</strong> ”&nbsp;button in <strong>system variables</strong> , add ” <strong>JAVA_HOME</strong> ” with the Java SE Development Kit (JDK) installation path.</p>
+<p>(ex)&nbsp; <strong>C:\Program Files\Java\jdk1.8.0_221</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/191/systemJDK4.png" style="height:368px; width:600px">
+<p><strong>4.&nbsp;Check the installed JDK</strong></p>
+<p>Search for ’ <strong>cmd</strong> ’ from the Windows search bar and open it.</p>
+<p>When you enter ” <strong>java –version</strong> ” on the command prompt, JDK information&nbsp;is&nbsp;displayed.</p>
+<img src="/TizenSchool/assets/images/tutorials/191/cmd.png" style="border-style:solid; border-width:1px; height:411px; width:250px">
+<img src="/TizenSchool/assets/images/tutorials/149/2-3.jpg" style="height:390px; width:600px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="vi-appendix">VI. Appendix</h1><h2 id="2-installing-wifi-plugin">2. Installing WiFi Plugin</h2>
+<ol>
+<li>
+<p>Copy the ” <strong>wlandrv-plugin-tizen-1.0.6-1.armv7l.rpm</strong> ” **** that you donwload at page III-1<a href="https://samsung.github.io/TizenSchool/tutorial/194/contents/6">[Link]</a> to a USB memory.</p>
+</li>
+<li>
+<p><strong>Log in</strong> &nbsp; <strong>Raspberry Pi</strong> by referring to page IV-2-2<a href="https://samsung.github.io/TizenSchool/tutorial/194/contents/10">[Link]</a>.</p>
+</li>
+</ol>
+<p><strong><img src="/TizenSchool/assets/images/tutorials/137/page5_6.png" style="height:418px; width:661px"></strong></p>
+<ol start="3">
+<li>
+<p>Connect the USB memory to Raspberry Pi</p>
+</li>
+<li>
+<p>Install ” <strong>wlandrv-plugin-tizen-1.0.6-1.armvmk7l.rpm</strong> ”</p>
+</li>
+</ol>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">mkdir /tmp/usb</span></span>
+<span class="line"><span style="color: #BBBBBB">mount /dev/sda1 /tmp/usb</span></span>
+<span class="line"><span style="color: #BBBBBB">cd /tmp/usb</span></span>
+<span class="line"><span style="color: #BBBBBB">mount -o remount rw /</span></span>
+<span class="line"><span style="color: #BBBBBB">rpm -ivh wlandrv-plugin-tizen-1.0.6-1.armv7l.rpm</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<img src="/TizenSchool/assets/images/tutorials/191/rpm_install.png" style="border-style:solid; border-width:1px; height:418px; width:661px"></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/16</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/642c4c04779a63be966fa6579cbe2e444ddde584">642c4c04779a63be966fa6579cbe2e444ddde584</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+

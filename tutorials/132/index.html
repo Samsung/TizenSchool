@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/TizenSchool/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/TizenSchool/assets/images/favicon-32x32.png">
+    <title>Smart Motion Light Basic</title>
+  <link rel="stylesheet" href="/TizenSchool/assets/aboutus.9016036b.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.013d619c.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="2r5SHS" component-url="/TizenSchool/Header.fde63186.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/TizenSchool/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      Smart Motion Light Basic
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">[본 문서는 서울 IoT 센터에서 진행할 교육을 위해 작성된 한글문서입니다.]
+[This document is currently written in Korean only for the purpose of being presented in the Seoul IoT tutorial.]</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/TizenSchool/assets/images/iot-dimmed.png">
+        <img src="/TizenSchool/assets/images/wearable-dimmed.png">
+        <img src="/TizenSchool/assets/images/mobile-dimmed.png">
+        <img src="/TizenSchool/assets/images/smart-tv-dimmed.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2019/05/04</span>
+            Modified
+            <span class="font-bold">2019/05/04</span>
+    </div>
+  </div><astro-island uid="Z1gdRiO" component-url="/TizenSchool/TextContent.c7f4d9de.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,5],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;준비물\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Hardware Setting\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;General Purpose Input/Output (GPIO)\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Code Implementation\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;최종 확인\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/5</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="준비물">준비물</h2>
+<p>HW Components</p>
+<p>Software OSs, apps and tools</p>
+<p><strong>Eagleye 530s</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/132/page1_image1.png" style="height:351px; width:352px">
+<p><br> <strong>Raspberry Pi</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/132/page1_image2.png" style="height:1024px; width:313px">
+<p>*이미지 출처:&nbsp;<a href="https://www.raspberrypi-spy.co.uk/">https://www.raspberrypi-spy.co.uk/</a></p>
+<p><strong>Infrared Motion Sensor (HC-SR501)</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/132/page1_image3-hc.png" style="height:294px; width:335px">
+<p><a href="https://www.mpja.com/download/31227sc.pdf">HC-SR501 사용자 매뉴얼</a></p>
+<p><a href="http://henrysbench.capnfatz.com/henrys-bench/arduino-sensors-and-input/arduino-hc-sr501-motion-sensor-tutorial/">Arduino HC-SR501 Motion Sensor Tutorial (Personal Blog)</a></p>
+<p><strong>LED Light &amp; Resistor</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/132/page1_image4.png" style="height:283px; width:229px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="hardware-setting">Hardware Setting</h2>
+<p><strong>Motion Sensor 세팅 변경</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/132/page2_image1.png" style="undefined">
+<p><strong>Motion Sensor 연결</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/132/page2_image2.png" style="height:236px; width:843px">
+<p><strong>LED Light &amp; Resistor 연결</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/132/page2_image3.png" style="height:302px; width:664px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="general-purpose-inputoutput-gpio">General Purpose Input/Output (GPIO)</h2>
+<p><strong>1. Binary input peripheral 상태 읽기/쓰기 가능한 Interface</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/132/page3_image1.png" style="undefined">
+<p><strong>2. GPIO APIs</strong></p>
+<p><a href="https://developer.tizen.org/development/iot-preview/iot-apis/tizen-peripheral-io-native-api/gpio">Tizen Peripheral IO Native APIs - GPIO 가이드</a></p>
+<p><strong>Opening and Closing a Handle</strong></p>
+<p>peripheral_gpio_open()<br>특정 pin 넘버의 Peripheral GPIO 핸들을 열어줌</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">int</span><span style="color: #000"> pin </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">26</span><span style="color: #999">;</span><span style="color: #708090"> </span><span style="color: #999">/*</span><span style="color: #708090"> ARTIK 530 : GPIO8, Raspberry Pi 3 : GPIO26 </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #000">peripheral_gpio_h gpio_h</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">Int ret </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_gpio_open</span><span style="color: #999">(</span><span style="color: #000">pin</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #A67F59">&amp;</span><span style="color: #000">gpio_h</span><span style="color: #999">);</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>peripheral_gpio_close()<br>더 이상 사용되지 않는 Peripheral GPIO 핸들을 닫아줌</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #DD4A68">peripheral_gpio_close</span><span style="color: #999">(</span><span style="color: #000">gpio_h</span><span style="color: #999">);</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>Setting the Data Direction</strong></p>
+<p>peripheral_gpio_set_direction()<br>데이터 전송 방향을 설정함</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #DD4A68">peripheral_gpio_set_direction</span><span style="color: #999">(</span><span style="color: #000">gpio_h</span><span style="color: #999">,</span><span style="color: #000"> PERIPHERAL_GPIO_DIRECTION_OUT_INITIALLY_LOW</span><span style="color: #999">);</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>Reading and Writing Binary Data</strong></p>
+<p>peripheral_gpio_read()<br>Peripheral 핸들로부터 binary 데이터 값을 읽어옴</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">uint32_t</span><span style="color: #000"> value</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #DD4A68">peripheral_gpio_read</span><span style="color: #999">(</span><span style="color: #000">gpio_h</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #A67F59">&amp;</span><span style="color: #000">value</span><span style="color: #999">);</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>peripheral_gpio_write()<br>Peripheral 핸들에 binary 데이터 값을 입력함</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">uint32_t</span><span style="color: #000"> value </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">1</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #DD4A68">peripheral_gpio_write</span><span style="color: #999">(</span><span style="color: #000">gpio_h</span><span style="color: #999">,</span><span style="color: #000"> value</span><span style="color: #999">);</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>3. GPIO Pin Number</strong></p>
+<p>보드에서의 Pin의 위치와 실제 Pin Map의 번호가 상이하여 코딩 시 아래 표의 Pin Param 참고</p>
+<p><strong>Eagleeye 530s</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/132/page3_image2_5300.png" style="height:120px; width:434px">
+<img src="/TizenSchool/assets/images/tutorials/132/page3_image3_5300.png" style="height:351px; width:194px">
+<p><strong>Raspberry Pi</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/132/page3_image4_pi300.png" style="height:353px; width:1195px">
+<p>*GPIO2 &amp; GPIO3은 미사용</p>
+<img src="/TizenSchool/assets/images/tutorials/132/page3_image5.png" style="height:631px; width:194px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="code-implementation">Code Implementation</h2>
+<p><strong>코드 준비</strong></p>
+<p><strong>1. Git Bash에서 rcc/smart-motion-light 코드 clone 받기</strong></p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">git clone https://git.tizen.org/cgit/apps/native/rcc -b smart-motion-light smart-motion-light</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<img src="/TizenSchool/assets/images/tutorials/132/page4_image1.png" style="height:242px; width:431px">
+<p><strong>2. Tizen Studio에서 motion-light-basic 프로젝트 불러오기</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/132/page4_image2.png" style="height:282px; width:595px">
+<img src="/TizenSchool/assets/images/tutorials/132/page4_image3.png" style="height:247px; width:380px">
+<img src="/TizenSchool/assets/images/tutorials/132/page4_image4_project.png" style="height:265px; width:407px">
+<p><strong>Privilege 추가</strong></p>
+<p>Peripheral IO API 사용을 위해 peripheralio privilege 추가</p>
+<img src="/TizenSchool/assets/images/tutorials/132/page4_image5_privi.png" style="height:265px; width:804px">
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">http://tizen.org/privilege/peripheralio</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<img src="/TizenSchool/assets/images/tutorials/132/page4_image6.png" style="height:246px; width:784px">
+<p><em>tizen-manifest.xml</em></p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;?</span><span style="color: #905">xml</span><span style="color: #690"> version</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1.0</span><span style="color: #999">"</span><span style="color: #690"> encoding</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">UTF-8</span><span style="color: #999">"</span><span style="color: #690"> standalone</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">no</span><span style="color: #999">"</span><span style="color: #999">?&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;</span><span style="color: #905">manifest</span><span style="color: #BBBBBB"> </span><span style="color: #690">xmlns</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://tizen.org/ns/packages</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">api-version</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">4.0</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">package</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">org.tizen.motionlight</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">version</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1.0.0</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">profile</span><span style="color: #BBBBBB"> </span><span style="color: #690">name</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">iot-headless</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">service-application</span><span style="color: #BBBBBB"> </span><span style="color: #690">appid</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">org.tizen.motionlight</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">auto-restart</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">false</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">exec</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">motionlight</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">multiple</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">false</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">nodisplay</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">true</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">on-boot</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">false</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">taskmanage</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">false</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">type</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">capp</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">label</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB">motionlight</span><span style="color: #999">&lt;/</span><span style="color: #905">label</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">icon</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB">motion-light.png</span><span style="color: #999">&lt;/</span><span style="color: #905">icon</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">service-application</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">privileges</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">privilege</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB">http://tizen.org/privilege/peripheralio</span><span style="color: #999">&lt;/</span><span style="color: #905">privilege</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">privileges</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;/</span><span style="color: #905">manifest</span><span style="color: #999">&gt;</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>Resource 코드 내 GPIO 설정 확인</strong></p>
+<p><em>src/resource/resource_infrared_motion_sensor.c</em></p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">#</span><span style="color: #07A">include</span><span style="color: #000"> </span><span style="color: #999">&lt;</span><span style="color: #690">peripheral_io.h</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">include</span><span style="color: #000"> </span><span style="color: #999">"</span><span style="color: #690">log.h</span><span style="color: #999">"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">static</span><span style="color: #000"> peripheral_gpio_h g_sensor_h </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">static</span><span style="color: #000"> </span><span style="color: #07A">int</span><span style="color: #000"> g_pin_num </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #A67F59">-</span><span style="color: #905">1</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">resource_read_infrared_motion_sensor</span><span style="color: #999">(</span><span style="color: #07A">int</span><span style="color: #000"> pin_num</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #07A">uint32_t</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">out_value</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">int</span><span style="color: #000"> ret </span><span style="color: #A67F59">=</span><span style="color: #000"> PERIPHERAL_ERROR_NONE</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #A67F59">!</span><span style="color: #000">g_sensor_h</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">		peripheral_gpio_h temp </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">		ret </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_gpio_open</span><span style="color: #999">(</span><span style="color: #000">pin_num</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #A67F59">&amp;</span><span style="color: #000">temp</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #DD4A68">retv_if</span><span style="color: #999">(</span><span style="color: #000">ret</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #A67F59">-</span><span style="color: #905">1</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">		ret </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_gpio_set_direction</span><span style="color: #999">(</span><span style="color: #000">temp</span><span style="color: #999">,</span><span style="color: #000"> PERIPHERAL_GPIO_DIRECTION_IN</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">ret</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">			</span><span style="color: #DD4A68">peripheral_gpio_close</span><span style="color: #999">(</span><span style="color: #000">temp</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">			</span><span style="color: #DD4A68">_E</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">peripheral_gpio_set_direction failed.</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">			</span><span style="color: #07A">return</span><span style="color: #000"> </span><span style="color: #A67F59">-</span><span style="color: #905">1</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">		g_sensor_h </span><span style="color: #A67F59">=</span><span style="color: #000"> temp</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">		g_pin_num </span><span style="color: #A67F59">=</span><span style="color: #000"> pin_num</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">g_pin_num </span><span style="color: #A67F59">!=</span><span style="color: #000"> pin_num</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #DD4A68">_E</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Invalid pin number.</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">return</span><span style="color: #000"> </span><span style="color: #A67F59">-</span><span style="color: #905">1</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	ret </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_gpio_read</span><span style="color: #999">(</span><span style="color: #000">g_sensor_h</span><span style="color: #999">,</span><span style="color: #000"> out_value</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">retv_if</span><span style="color: #999">(</span><span style="color: #000">ret </span><span style="color: #A67F59">&lt;</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #A67F59">-</span><span style="color: #905">1</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">return</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">resource_close_infrared_motion_sensor</span><span style="color: #999">(</span><span style="color: #07A">void</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #A67F59">!</span><span style="color: #000">g_sensor_h</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #07A">return</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">_I</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Infrared Motion Sensor is finishing...</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">peripheral_gpio_close</span><span style="color: #999">(</span><span style="color: #000">g_sensor_h</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	g_sensor_h </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	g_pin_num </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #A67F59">-</span><span style="color: #905">1</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><em>src/resource/resource_led.c</em></p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">#</span><span style="color: #07A">include</span><span style="color: #000"> </span><span style="color: #999">&lt;</span><span style="color: #690">peripheral_io.h</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">include</span><span style="color: #000"> </span><span style="color: #999">"</span><span style="color: #690">log.h</span><span style="color: #999">"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">static</span><span style="color: #000"> peripheral_gpio_h g_sensor_h </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">static</span><span style="color: #000"> </span><span style="color: #07A">int</span><span style="color: #000"> g_pin_num </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #A67F59">-</span><span style="color: #905">1</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">int</span><span style="color: #000"> </span><span style="color: #DD4A68">resource_write_led</span><span style="color: #999">(</span><span style="color: #07A">int</span><span style="color: #000"> pin_num</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #07A">int</span><span style="color: #000"> write_value</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">int</span><span style="color: #000"> ret </span><span style="color: #A67F59">=</span><span style="color: #000"> PERIPHERAL_ERROR_NONE</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #A67F59">!</span><span style="color: #000">g_sensor_h</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">		peripheral_gpio_h temp </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">		ret </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_gpio_open</span><span style="color: #999">(</span><span style="color: #000">pin_num</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #A67F59">&amp;</span><span style="color: #000">temp</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #DD4A68">retv_if</span><span style="color: #999">(</span><span style="color: #000">ret</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #A67F59">-</span><span style="color: #905">1</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">		ret </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_gpio_set_direction</span><span style="color: #999">(</span><span style="color: #000">temp</span><span style="color: #999">,</span><span style="color: #000"> PERIPHERAL_GPIO_DIRECTION_OUT_INITIALLY_LOW</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">ret</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">			</span><span style="color: #DD4A68">peripheral_gpio_close</span><span style="color: #999">(</span><span style="color: #000">temp</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">			</span><span style="color: #DD4A68">_E</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">peripheral_gpio_set_direction failed.</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">			</span><span style="color: #07A">return</span><span style="color: #000"> </span><span style="color: #A67F59">-</span><span style="color: #905">1</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">		g_sensor_h </span><span style="color: #A67F59">=</span><span style="color: #000"> temp</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">		g_pin_num </span><span style="color: #A67F59">=</span><span style="color: #000"> pin_num</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">g_pin_num </span><span style="color: #A67F59">!=</span><span style="color: #000"> pin_num</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #DD4A68">_E</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Invalid pin number.</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">return</span><span style="color: #000"> </span><span style="color: #A67F59">-</span><span style="color: #905">1</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	ret </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">peripheral_gpio_write</span><span style="color: #999">(</span><span style="color: #000">g_sensor_h</span><span style="color: #999">,</span><span style="color: #000"> write_value</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">retv_if</span><span style="color: #999">(</span><span style="color: #000">ret </span><span style="color: #A67F59">&lt;</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #A67F59">-</span><span style="color: #905">1</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">_I</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">LED Value : %s</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #000"> write_value </span><span style="color: #A67F59">?</span><span style="color: #000"> </span><span style="color: #999">"</span><span style="color: #690">ON</span><span style="color: #999">"</span><span style="color: #A67F59">:</span><span style="color: #999">"</span><span style="color: #690">OFF</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">return</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">resource_close_led</span><span style="color: #999">(</span><span style="color: #07A">void</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #A67F59">!</span><span style="color: #000">g_sensor_h</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #07A">return</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">_I</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">LED is finishing...</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">peripheral_gpio_close</span><span style="color: #999">(</span><span style="color: #000">g_sensor_h</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	g_sensor_h </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">NULL</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	g_pin_num </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #A67F59">-</span><span style="color: #905">1</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>Motion Sensor 값 읽어오기</strong></p>
+<p>Motion Sensor가 연결된 핀에 접근하여 Motion Sensor 값을 읽어옴</p>
+<p><em>src/controller.c</em></p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">#</span><span style="color: #07A">include</span><span style="color: #000"> </span><span style="color: #999">&lt;</span><span style="color: #690">unistd.h</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">include</span><span style="color: #000"> </span><span style="color: #999">&lt;</span><span style="color: #690">Ecore.h</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">include</span><span style="color: #000"> </span><span style="color: #999">&lt;</span><span style="color: #690">tizen.h</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">include</span><span style="color: #000"> </span><span style="color: #999">&lt;</span><span style="color: #690">service_app.h</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">include</span><span style="color: #000"> </span><span style="color: #999">"</span><span style="color: #690">log.h</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">include</span><span style="color: #000"> </span><span style="color: #999">"</span><span style="color: #690">resource/resource_infrared_motion_sensor.h</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">include</span><span style="color: #000"> </span><span style="color: #999">"</span><span style="color: #690">resource/resource_led.h</span><span style="color: #999">"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">static</span><span style="color: #000"> Eina_Bool </span><span style="color: #DD4A68">__read_motion_write_led</span><span style="color: #999">(</span><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">data</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">uint32_t</span><span style="color: #000"> value </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">int</span><span style="color: #000"> ret </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #A67F59">-</span><span style="color: #905">1</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #708090">	</span><span style="color: #999">/*</span><span style="color: #708090"> Gets value from motion sensor </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #999">	//</span><span style="color: #708090"> TODO: Read data from motion sensor</span></span>
+<span class="line"><span style="color: #000">	ret </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">resource_read_infrared_motion_sensor</span><span style="color: #999">(</span><span style="color: #905">46</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #A67F59">&amp;</span><span style="color: #000">value</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">ret </span><span style="color: #A67F59">!=</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #DD4A68">_E</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Cannot read sensor value</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">_D</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Detected motion value is: %d</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #000"> value</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #708090">	</span><span style="color: #999">/*</span><span style="color: #708090"> Sends value to LED light </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #999">	//</span><span style="color: #708090"> TODO: Send data to LED sensor</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">return</span><span style="color: #000"> ECORE_CALLBACK_RENEW</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>LED 값 변경하기</strong></p>
+<p>LED가 연결된 핀에 접근하여 LED Light 값을 변경함</p>
+<p><em>src/controller.c</em></p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">static</span><span style="color: #000"> Eina_Bool </span><span style="color: #DD4A68">__read_motion_write_led</span><span style="color: #999">(</span><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">data</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">uint32_t</span><span style="color: #000"> value </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">int</span><span style="color: #000"> ret </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #A67F59">-</span><span style="color: #905">1</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #708090">	</span><span style="color: #999">/*</span><span style="color: #708090"> Gets value from motion sensor </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #999">	//</span><span style="color: #708090"> TODO: Read data from motion sensor</span></span>
+<span class="line"><span style="color: #000">	ret </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">resource_read_infrared_motion_sensor</span><span style="color: #999">(</span><span style="color: #905">46</span><span style="color: #999">,</span><span style="color: #000"> </span><span style="color: #A67F59">&amp;</span><span style="color: #000">value</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">ret </span><span style="color: #A67F59">!=</span><span style="color: #000"> </span><span style="color: #905">0</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #DD4A68">_E</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Cannot read sensor value</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">_D</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Detected motion value is: %d</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #000"> value</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #708090">	</span><span style="color: #999">/*</span><span style="color: #708090"> Sends value to LED light </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #999">	//</span><span style="color: #708090"> TODO: Send data to LED sensor</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">resource_write_led</span><span style="color: #999">(</span><span style="color: #905">130</span><span style="color: #999">,</span><span style="color: #000"> value</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">return</span><span style="color: #000"> ECORE_CALLBACK_RENEW</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>타이머 설정하기 (app_create)</strong></p>
+<p>특정 주기(1.0f)마다 모션 센서 값을 불러오고 LED 값을 설정해주는 __read_motion_write_led 함수 호출</p>
+<p><em>src/controller.c</em></p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">typedef</span><span style="color: #000"> </span><span style="color: #07A">struct</span><span style="color: #000"> app_data_s </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">	Ecore_Timer </span><span style="color: #A67F59">*</span><span style="color: #000">getter_timer</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span><span style="color: #000"> app_data</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">static</span><span style="color: #000"> </span><span style="color: #07A">bool</span><span style="color: #000"> </span><span style="color: #DD4A68">service_app_create</span><span style="color: #999">(</span><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">data</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">	app_data </span><span style="color: #A67F59">*</span><span style="color: #000">ad </span><span style="color: #A67F59">=</span><span style="color: #000"> data</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">	/**</span></span>
+<span class="line"><span style="color: #708090">	 * Creates a timer to call the given function in the given period of time.</span></span>
+<span class="line"><span style="color: #708090">	 </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #999">	//</span><span style="color: #708090"> TODO: Add ecore timer which calls __read_motion_write_led() every 1 second</span></span>
+<span class="line"><span style="color: #000">	ad</span><span style="color: #999">-&gt;</span><span style="color: #000">getter_timer </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">ecore_timer_add</span><span style="color: #999">(</span><span style="color: #905">1.0</span><span style="color: #07A">f</span><span style="color: #999">,</span><span style="color: #000"> __read_motion_write_led</span><span style="color: #999">,</span><span style="color: #000"> ad</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #A67F59">!</span><span style="color: #000">ad</span><span style="color: #999">-&gt;</span><span style="color: #000">getter_timer</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #DD4A68">_E</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Failed to add infrared motion getter timer</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">return</span><span style="color: #000"> </span><span style="color: #905">false</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">return</span><span style="color: #000"> </span><span style="color: #905">true</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>리소스 정리하기 (app_terminate)</strong></p>
+<p>App 종료 시 App에서 사용하던 리소스 정리</p>
+<p><em>src/controller.c</em></p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">static</span><span style="color: #000"> </span><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #DD4A68">service_app_terminate</span><span style="color: #999">(</span><span style="color: #07A">void</span><span style="color: #000"> </span><span style="color: #A67F59">*</span><span style="color: #000">data</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">	app_data </span><span style="color: #A67F59">*</span><span style="color: #000">ad </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">app_data </span><span style="color: #A67F59">*</span><span style="color: #999">)</span><span style="color: #000">data</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">	/**</span></span>
+<span class="line"><span style="color: #708090">	 * Deletes all the resources and timers created for this app.</span></span>
+<span class="line"><span style="color: #708090">	 </span><span style="color: #999">*/</span></span>
+<span class="line"><span style="color: #999">	//</span><span style="color: #708090"> TODO: Delete timer</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #07A">if</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">ad</span><span style="color: #999">-&gt;</span><span style="color: #000">getter_timer</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #DD4A68">ecore_timer_del</span><span style="color: #999">(</span><span style="color: #000">ad</span><span style="color: #999">-&gt;</span><span style="color: #000">getter_timer</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">	//</span><span style="color: #708090"> TODO: Close infrared motion &amp; led resources</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">resource_close_infrared_motion_sensor</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">resource_close_led</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">	//</span><span style="color: #708090"> TODO: Free data resource</span></span>
+<span class="line"><span style="color: #000">	</span><span style="color: #DD4A68">free</span><span style="color: #999">(</span><span style="color: #000">ad</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>Tizen App 실행</strong></p>
+<p>Project Explorer 내 프로젝트 우클릭 &gt; Run As &gt; Tizen Native App</p>
+<img src="/TizenSchool/assets/images/tutorials/132/page4_image7.png" style="height:283px; width:520px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="최종-확인">최종 확인</h2>
+<p>Motion sensor 값에 따른 LED Light 변화 확인</p>
+<img src="/TizenSchool/assets/images/tutorials/132/page5_image1.png" style="height:365px; width:558px"></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/5</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/642c4c04779a63be966fa6579cbe2e444ddde584">642c4c04779a63be966fa6579cbe2e444ddde584</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+

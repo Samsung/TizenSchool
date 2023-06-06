@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/TizenSchool/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/TizenSchool/assets/images/favicon-32x32.png">
+    <title>How to use Accelerometer Sensor on Tizen IoT [I2C]</title>
+  <link rel="stylesheet" href="/TizenSchool/assets/aboutus.9016036b.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.013d619c.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="2r5SHS" component-url="/TizenSchool/Header.fde63186.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/TizenSchool/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      How to use Accelerometer Sensor on Tizen IoT [I2C]
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">본 강좌는 2021 서울 하드웨어 해커톤의 사전 워크샵 강의를 위하여 작성되었습니다. Tizen Peripheral I2C C# API를 사용법을 가이드하고 있습니다. Written by 이은영</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/TizenSchool/assets/images/iot-active.png">
+        <img src="/TizenSchool/assets/images/wearable-dimmed.png">
+        <img src="/TizenSchool/assets/images/mobile-dimmed.png">
+        <img src="/TizenSchool/assets/images/smart-tv-dimmed.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2021/06/28</span>
+            Modified
+            <span class="font-bold">2021/07/12</span>
+    </div>
+  </div><astro-island uid="1GvWsz" component-url="/TizenSchool/TextContent.c7f4d9de.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,13],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[]\&quot;],\&quot;chapter\&quot;:[0,\&quot;\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;실습 소개\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;준비물\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;프로젝트 생성\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;권한 등록\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;I. Overview\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;가속도센서란\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;ADXL345 개요\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;RPI4와 가속도센서 물리적 연결\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;가속도센서를 위한 I2C 프로토콜\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;II. 가속도센서와 I2C 프로토콜\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;UI 구현 : 버튼 및 텍스트\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;슬레이브 연결\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;데이터 쓰기\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;데이터 읽기\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;자원 해제\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;III. 가속도 측정\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/13</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id="i-overview">I. Overview</h1><h2 id="실습-소개">실습 소개</h2>
+<p>Tizen IoT에서 <strong>I2C 통신 방법</strong> 을 실습해보자.</p>
+<p>I2C는 <strong>두 개의 신호선(SDA, SCL)으로 다수의 디바이스와 데이터를 송/수신</strong> 할 수 있는 통신 방식이다.</p>
+<p>RPI4에 가속도&nbsp;센서를 연결하고, Tizen Peripheral I2C C# API를 사용하여 가속도 값을 실시간으로 확인할 수 있는 앱을 만들어보자.</p>
+<p>실습에 사용된 가속도&nbsp;센서(ADXL345)는 3축의 가속도 값을 측정할 수 있으므로, 아래 그림과 같이 <strong>x, y, z축의 가속도 값</strong> 을 모두 측정할 예정이다.</p>
+<img src="/TizenSchool/assets/images/tutorials/248/accel.PNG" style="height:395px; width:700px">
+<p>[그림] 가속도&nbsp;값을 측정하는 실습 앱 화면</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="i-overview">I. Overview</h1><h2 id="준비물">준비물</h2>
+<p><strong>Hardware Requirements</strong></p>
+<p><strong>Software Requirements</strong></p>
+<p><strong>Tizen Version</strong></p>
+<p><strong>Source code</strong></p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="i-overview">I. Overview</h1><h2 id="프로젝트-생성">프로젝트 생성</h2>
+<ol>
+<li><strong>Tizen NUI XAML Project</strong> 템플릿으로 새로운 프로젝트를 생성한다.</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/248/new2.PNG" style="height:462px; width:650px">
+<ol start="2">
+<li>프로젝트 생성이 완료되면서&nbsp;아래와 같은 파일이 자동 생성된다. 자동 생성된 파일을 그대로 사용해도 되고, 원하는 이름으로 변경해도 된다.</li>
+</ol>
+<p>다만 이름을 변경하는 경우, 파일 내에 자동 변환&nbsp;되지 않아서 수동으로 변경해야 하는 부분들이 있으니 주의해서 변경한다.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="i-overview">I. Overview</h1><h2 id="권한-등록">권한 등록</h2>
+<p>주변기기를 제어하기 위해서는 특별한 권한이 필요하다.&nbsp;코딩을 하기에 앞서&nbsp;tizen-manifest.xml에 <strong>peripheralio</strong> &nbsp;권한을 추가한다.</p>
+<p>1.&nbsp; <strong>tizen-manifest.xml</strong> &nbsp;파일 오픈 후&nbsp; <strong>Privileges</strong> 탭에서&nbsp; <strong>Add</strong> 버튼&nbsp;클릭</p>
+<img src="/TizenSchool/assets/images/tutorials/248/manifest2.PNG" style="height:399px; width:1183px">
+<ol start="2">
+<li><strong>Custom Privileges</strong> 를 선택&nbsp;후 <strong><a href="http://tizen.org/privilege/peripheralio">http://tizen.org/privilege/peripheralio</a></strong> &nbsp;입력하고&nbsp; <strong>OK</strong> 버튼 클릭</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/248/pri2.PNG" style="height:551px; width:517px">
+<p>3.&nbsp; <strong>파일 저장</strong> &nbsp;(Ctrl + S or 상단 File 메뉴에서&nbsp;Save&nbsp;tizen-manifest.xml )</p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-가속도센서와-i2c-프로토콜">II. 가속도센서와 I2C 프로토콜</h1><h2 id="가속도센서란">가속도센서란</h2>
+<p>가속도 센서는 말 그대로 <strong>가속도(Acceleration)를 측정</strong> 하는 센서라고 생각하면 된다.&nbsp;여기서 주의할 것은&nbsp;속도(Velocity)가 아닌, 가속도(Acceleration) 측정한다는 것이다.</p>
+<p>여러 가속도 중에 우리가 느끼지 못하지만&nbsp;항상 받고 있는 가속도는&nbsp; <strong>중력가속도(Gravity)</strong> 이다.</p>
+<p>이에 가속도&nbsp;센서는 기본적으로 중력 방향에 있을 때, 물체의 크기가 질량에 상관없이 중력 가속도 <strong>9.8 m/s^2(=1G)</strong> 를&nbsp;가리킨다.</p>
+<p>참고로 흔히 가속도 센서와 자이로스코프&nbsp;센서를 헷갈려하는데, 이 두 센서는 완전히 다른 센서로써 자이로 센서는 각속도(Degree per second)를 측정한다.</p>
+<p>가속도&nbsp;센서가 가장 많이 활용되는 분야는 <strong>화면 회전</strong> 이다.</p>
+<p>우리가 사용하고 있는 거의 대부분의 스마트폰에는 가속도&nbsp;센서가 내장되어 있으며,&nbsp; <strong>x축, y축, z축</strong> 정보를 처리하여 화면을 세로 또는 가로로 회전 시킨다.</p>
+<p>화면 회전 외에도 가속도&nbsp;센서를 이용하여 물체의 가속도, 진동, 충격 등 동적 힘을 측정할 수 있는데, 이를 이용하여 물체의 운동 상태에 따른 다양한 동작을 수행할 수 있다.</p>
+<img src="/TizenSchool/assets/images/tutorials/248/axis_device.png" style="height:359px; width:300px">
+<p>[그림1] 스마트폰에서 축의 방향 (출처 :&nbsp;<a href="https://developer.android.com/reference/android/hardware/SensorEvent">Android Developers Reference SensorEvent</a> 내)</p>
+<img src="/TizenSchool/assets/images/tutorials/248/xyz_2.PNG" style="height:360px; width:700px">
+<p>[그림2] 스마트폰의 방향에 따른 중력 가속도 영향</p>
+<p>위 그림에서 보는 것처럼 스마트폰을 <strong>세로</strong> 로 세워 놓으면 <strong>Y축</strong> 아래 방향으로 중력가속도가 측정 되고, <strong>가로</strong> 방향으로 놓으면 <strong>X축</strong> 방향으로 중력가속도가 측정 된다. 스마트폰을 <strong>눕히면 Z축</strong> 방향으로 중력가속도 영향을 받는다. 이렇게 가속도 값으로 스마트폰의 방향과 위치를 확인할 수 있다.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-가속도센서와-i2c-프로토콜">II. 가속도센서와 I2C 프로토콜</h1><h2 id="adxl345-개요">ADXL345 개요</h2>
+<p>가속도&nbsp;센서가 무엇인지 감이 잡혔다면&nbsp;우리가 사용할 <strong>ADXL345</strong> 라는 센서에 대해 좀 더 살펴볼 필요가 있다.</p>
+<p>검색해보면&nbsp;ADXL345가 내장된 다양한 가속도&nbsp;센서&nbsp;모듈을 볼 수 있다. 가격도 몇 천 원 대로 저렴한 편이다.</p>
+<p>그 중&nbsp;우리가 사용할 가속도계 센서 모듈은&nbsp;SZH-EK054이다.&nbsp;I2C와 SPI 인터페이스&nbsp;사용이&nbsp;가능하고, 3축(x, y, z)의 가속도를 측정할 수 있다. 실습에서는&nbsp;I2C를 사용하여 RPI4와 센서 간&nbsp;통신을 할 예정이다.</p>
+<img src="/TizenSchool/assets/images/tutorials/248/sensor_@.PNG" style="height:187px; width:350px">
+<p>[그림] ADXL345 가속도&nbsp;센서 모듈 :&nbsp;SZH-EK054</p>
+<p>ADXL345은 <strong>±2G에서 ±16G</strong> 까지 측정할 수 있는 가속도계 센서이다.&nbsp; <strong>디폴트로 ±2G까지&nbsp;측정</strong> 할 수 있고, 설정을 변경하면&nbsp;±16G까지 측정 가능하다.</p>
+<p>우리는 디폴트로 설정된 값을 그대로 사용할 예정이며&nbsp; <strong>±2G의 값은&nbsp;±512 정수</strong> 로&nbsp;표현된다. 즉, <strong>1G는 약&nbsp;±256 정수</strong> 로 표현&nbsp;된다.</p>
+<p>보통 ADXL345와 같은 센서들은&nbsp;I2C 통신을 하기 위한&nbsp; 주소가&nbsp;정해져 있다.&nbsp; ADXL345은 <strong>두 가지 타입의 주소</strong> 를&nbsp;가지고 있는데&nbsp; <strong>SDO에&nbsp;전압이 얼마나 들어가느냐</strong> 에 따라 주소 값이 결정된다. 이는 뒤에서 좀 더 자세하게 후술하겠다.</p>
+<p>위 내용은&nbsp;ADXL345의 Datasheet에서 발췌한 내용으로, 센서에 대해 좀 더 자세한 내용을 알고 싶다면 아래 링크의 Datasheet를&nbsp;참고하면 된다.</p>
+<p><a href="https://www.analog.com/media/en/technical-documentation/data-sheets/ADXL345.pdf">ADXL345 Datasheet</a></p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-가속도센서와-i2c-프로토콜">II. 가속도센서와 I2C 프로토콜</h1><h2 id="rpi4와-가속도센서-물리적-연결">RPI4와 가속도센서 물리적 연결</h2>
+<p>이제 가속도계 센서 모듈을&nbsp;RPI4에 연결해보자. I2C 통신을 위해 필요한 핀 5개를 RPI4 핀에 연결해보려 한다.&nbsp; <strong>각 핀에서 요구하는 전압</strong> 은 아래 표와 같다. 센서의 각 핀에서 요구하는 전압을 꼭 확인해야 한다. 만약 센서에서 요구하는 전압보다 낮은 값이 들어가면, 센서는 제대로 동작하지 않는다. 반대로 더 높은 경우에는 센서에 문제가 생길 수도 있다.</p>
+<img src="/TizenSchool/assets/images/tutorials/248/vcc1.PNG" style="height:184px; width:320px">
+<p>[그림1] ADXL345 센서의 전압 정보</p>
+<p>ADXL345이 동작하려면&nbsp; <strong>DC 2.0V ~ 3.6V</strong> &nbsp;범위 내의 전압이 필요하다.&nbsp;ADXL345 센서 모듈에 3V3핀이 있고, 다행스럽게도 RPI4도&nbsp;DC 3.3V의 전압을 제공하고 있다. 따라서 두 핀을 연결하면 ADXL345은 RPI4로부터 안정적으로&nbsp;전원을 공급 받을 수 있다.</p>
+<p>ADXL345의 SCL과 SDA 핀으로 데이터 통신을 하게 된다. 이 때 두 핀의 <strong>최대 허용 전압은 3.6V</strong> 이다. RPI4의 경우&nbsp;SCL과 SDA 핀은 0~3.3V의 전압 범위를 가지고 동작하고 있다. 따라서 ADXL345과 RPI4의 핀들도 상호 연결하여 사용할 수 있다.</p>
+<p>마지막으로 주소의 타입을 정할 수 있는 <strong>SDO&nbsp;핀에는 GND 혹은 Vcc 두 가지 값</strong> 을 줄 수 있다. 이 값들도 모두 허용전압에 포함되어 있다.</p>
+<img src="/TizenSchool/assets/images/tutorials/248/pinmap.jpg" style="height:388px; width:723px">
+<p>[그림2] RPI4의 핀맵</p>
+<p>RPI3에는 총 40개의 핀이 있다. 그 중 1번, 17번 핀이 센서에서 필요로 하는 3.3V 전압을 제공한다. 그리고 6번, 9번, 14번, 20번, 25번, 30번, 34번, 39번은 GND이다. SDA와 SCL 핀은 선택의 여지없이 각각 3번과 5번에 연결할 수 있다.</p>
+<img src="/TizenSchool/assets/images/tutorials/248/RPI2.PNG" style="height:465px; width:654px">
+<p>[그림3] ADXL345 센서와 RPI4 연결 모습</p>
+<p>최종적으로 위의 그림처럼&nbsp;RPI4와 가속도계 센서 모듈을 연결하면 된다.&nbsp;가속도계 센서 모듈&nbsp;핀을 기준으로 살펴보자.</p>
+<p>(위의 그림과 실제의 센서 모듈은 차이가 있으므로 핀에 집중해서 확인하길 바란다.)</p>
+<p><strong>GND는 RPI4의 20번</strong> GND와 연결되었다. <strong>SDA는 3번, SCL은 5번</strong> 에 연결되어 있다. 그리고 주소 타입을 결정하는 <strong>SDO는 39번</strong> GND에 연결했다.</p>
+<p>마지막으로 <strong>3V3 전압을&nbsp;17번</strong> 3V3에 연결한다.</p>
+<p>이제 모든 하드웨어 준비는 끝났다.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-가속도센서와-i2c-프로토콜">II. 가속도센서와 I2C 프로토콜</h1><h2 id="가속도센서를-위한-i2c-프로토콜">가속도센서를 위한 I2C 프로토콜</h2>
+<p><strong>1. SCL &amp; SDA</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/248/i2c.png" style="height:194px; width:551px">
+<p>[그림1]&nbsp;I2C 인터페이스 다이어그램 (출처 : 타이젠 공식 홈페이지)</p>
+<p>I2C 프로토콜은 SCL(Serial Clock Line)과 SDA(Serial Data Line) 핀만으로 다수의 노드를 제어할 수 있다. 다수의 노드는 위의 그림에서 볼 수 있듯, 마스터 노드와 슬레이브 노드역할로 나뉜다. 한 버스 단위에 마스터 역할의 노드는 여러 개 올 수 있다. 하지만, 이 구도에서는 <strong>RPI4만을 유일한 마스터</strong> 로 사용한다. 그에 반해 슬레이브 노드는 다수 존재한다.</p>
+<p>마스터의 SCL 선은 모든 슬레이브의 SCL과 동시에 연결된다.&nbsp; <strong>마스터 노드의 주역할은 모두를 동기화시키기 위한 클락을 생성</strong> 하는 데에 있다. 마스터 노드가 SCL 선으로 클락을 보내면, 모든 슬레이브가 동시에 클락신호를 받는다. 마스터의 클락신호에 맞춰서 슬레이브가 동작한다.</p>
+<p>마스터의 SDA 선 또한 모든 슬레이브의 SDA와 동시에 연결된다. 데이터 교환은 이 SDA 선을 타고 이뤄진다. 비트 단위의 데이터가 시리얼 방식으로 넘어가고 넘어온다. 데이터를 위한 선이 하나이기 때문에 마스터와 슬레이브가 동시에 데이터를 보낼 수는 없다. 마스터가 보낼 때는 슬레이브는 받고, 슬레이브가 보낼 때는 마스터가 받는다. 이러한 방식을 반이중 통신 혹은&nbsp; <strong>Half-duplex</strong> 라고 일컫는다.</p>
+<p><strong>2. 비트 단위 전달 : 시리얼</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/248/bit.png" style="height:140px; width:840px">
+<p>[그림2] I2C 버스의 비트 전달 (출처 : 위키피디아)</p>
+<ul>
+<li>
+<p>마스터가 클락을 제어한다.</p>
+</li>
+<li>
+<p>클락이 Low 신호일때, 마스터 혹은&nbsp;슬레이브는 데이터를 쓴다.</p>
+</li>
+<li>
+<p>클락이 High 신호일때, 슬레이브 혹은 마스터는 데이터를 읽는다.</p>
+</li>
+<li>
+<p>클락이 High 신호일때, 데이터를 쓰는 경우는 시작과 끝을 위해서만 사용한다.</p>
+</li>
+</ul>
+<p>위의 그림은 비트 단위로 데이터가 전달되는 추이를 나타낸다. 개략적으로 아래의 루틴으로 데이터가 전달된다.</p>
+<p>한 번에 한 비트씩 이동하니 속도가 느렸다. 최초에 I2C가 소개되었을 무렵에는 100kbit/s의 속도였다. 한 바이트가 8비트이니&nbsp; <strong>초당 12,500바이트</strong> &nbsp;정도의 데이터가 전달되는 것이다. 4메가짜리 MP3 파일을 전송하기 위해서는 327초가 필요하다. 하지만, 최근까지 버전업을 계속하여 이제는 초당 메가단위의 데이터를 전달한다.</p>
+<p><strong>3. 슬레이브 주소</strong></p>
+<p>위의 버스에는 다수의 슬레이브 중 하나를 선택하기 위한 선이 없다. 마스터가 SDA로 전달하는 데이터를 모든 슬레이브에서 받아볼 수 있다.&nbsp; <strong>그렇다면 어떻게 다수의 슬레이브 중 하나를 고를 수 있을까?</strong> &nbsp;마스터는 데이터를 수취할 대상의 <strong>주소</strong> 를 데이터와 함께 보내 한 번에 한 슬레이브와만 소통한다.</p>
+<p>사실 모든 슬레이브는 주소를 가지고 있다. 슬레이브의 주소는 제품 출시전부터 확정된다. 소프트웨어 개발자가 프로그래밍 과정에 슬레이브의 주소를 임의로 변경할 수 없다. 왜냐하면 슬레이브의 제조업체가 I2C 관리사와 협의하여 주소를 받기 때문이다. 그리고 그&nbsp; <strong>주소를 제품의 스펙에 명시</strong> 해둔다. 슬레이브를 사용하기 위해서는 스펙에 적혀져 있는 주소로만 접근해야 한다.</p>
+<p>주소는 무한정 존재하지 않는다. I2C의 주소체계는&nbsp; <strong>7비트 방식</strong> 과&nbsp; <strong>10비트 방식</strong> 이 있다. 7비트 방식을 기준으로 주소체계를 보면,&nbsp; <strong>2의 7승 128개의 주소</strong> 가 존재하는 것을 알 수 있다. 주소는 0번부터 127번까지이다. 그렇지만, 이 중 일부는 다른 용도로 예약되어 사용한다. 따라서 실질적으로는 총 112개의 주소만 사용할 수 있다.</p>
+<p><strong>4. ADXL345&nbsp;주소타입</strong></p>
+<p>앞에서 ADXL345에는 두 가지 타입의 주소가 있다고 언급하였다. 주소는&nbsp;SDO핀에 넣어주는 전압으로 결정된다. 만약 전압이&nbsp; <strong>0V라면 조도센서는 0x53</strong> 의 주소를 갖고, <strong>High level 전압이라면 0x1D</strong> 를 갖는다. 앞에서 가속도 센서의 SDO을 GND와 연결하였으니 가속도 센서&nbsp;슬레이브에 접근하기 위해서는 0x53&nbsp;주소를 사용해야 한다.</p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-가속도-측정">III. 가속도 측정</h1><h2 id="ui-구현--버튼-및-텍스트">UI 구현 : 버튼 및 텍스트</h2>
+<p>본격적으로 코딩을 시작한다. 먼저 UI부터 구성해보자.</p>
+<p>UI&nbsp;구성을&nbsp;위해&nbsp; <strong>Scene1Page.xaml</strong> 파일을 연다. 만들고자 하는 UI는 다음과 같다.</p>
+<img src="/TizenSchool/assets/images/tutorials/248/accel.PNG" style="height:452px; width:800px">
+<p><strong>1.&nbsp; Layout 재설정</strong></p>
+<p><strong>기본 템플릿 UI를 삭제</strong> 하고,&nbsp;Button과 TextLabel 간격 조절을 위한&nbsp;LinearLayout 내&nbsp; <strong>Cellpadding 추가</strong> 한다.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 252px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;?</span><span style="color: #905">xml</span><span style="color: #690"> version</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1.0</span><span style="color: #999">"</span><span style="color: #690"> encoding</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">UTF-8</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">?&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;</span><span style="color: #905">View</span><span style="color: #BBBBBB"> </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Class</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">AccelerometerI2C.Scene1Page</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #690">xmlns</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://tizen.org/Tizen.NUI/2018/XAML</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">x</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://schemas.microsoft.com/winfx/2009/xaml</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">local</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">clr-namespace:AccelerometerI2C</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #690">WidthSpecification</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Static LayoutParamPolicies.MatchParent}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #690">HeightSpecification</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Static LayoutParamPolicies.MatchParent}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #690">BackgroundColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">White</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">View.Layout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">LinearLayout</span><span style="color: #BBBBBB"> </span><span style="color: #690">LinearOrientation</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Vertical</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">LinearAlignment</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Center</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">CellPadding</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">20,20</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">View.Layout</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">&lt;/</span><span style="color: #905">View</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>2. 버튼 및 텍스트 구현</strong></p>
+<p>측정을 시작하고 멈추는 <strong>Start/Stop&nbsp;Button</strong> 과, 중력 가속도 값을 보여주는 <strong>TextLabel</strong> 을 입력한다.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 308px; top: 112px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">View.Layout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">LinearLayout</span><span style="color: #BBBBBB"> </span><span style="color: #690">LinearOrientation</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Vertical</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">LinearAlignment</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Center</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #690">CellPadding</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">20,20</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">View.Layout</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Start</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Stop</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">TextLabel</span><span style="color: #BBBBBB"> </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Name</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">myAccelValueX</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">X:000 (0.00G)</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #690">PixelSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">36</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">TextLabel</span><span style="color: #BBBBBB"> </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Name</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">myAccelValueY</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Y:000 (0.00G)</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #690">PixelSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">36</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">TextLabel</span><span style="color: #BBBBBB"> </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Name</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">myAccelValueZ</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Z:000 (0.00G)</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #690">PixelSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">36</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>3. 버튼 이벤트 추가</strong></p>
+<p>Button에 <strong>Clicked</strong> 이벤트를 추가한다.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 28px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 84px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Start</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #690">Clicked</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">ButtonStart</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Stop</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #690">Clicked</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">ButtonStop</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">TextLabel</span><span style="color: #BBBBBB"> </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Name</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">myAccelValueX</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">X:000 (0.00G)</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #690">PixelSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">36</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">TextLabel</span><span style="color: #BBBBBB"> </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Name</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">myAccelValueY</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Y:000 (0.00G)</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #690">PixelSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">36</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">TextLabel</span><span style="color: #BBBBBB"> </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Name</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">myAccelValueZ</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Z:000 (0.00G)</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #690">PixelSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">36</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ul>
+<li>
+<p>버튼을 만들었으니, (UI 구현은 아니지만) 버튼 클릭 시 호출 될 함수도 함께 구현해보자.</p>
+<p><strong>Scene1Page.xaml.cs</strong> 파일을 연다. (해당 파일이 보이지 않을 경우 Scene1Page.xaml 파일 왼쪽에 화살표를 클릭)</p>
+<p><strong>1. 이벤트 함수 등록</strong></p>
+</li>
+</ul>
+<p>버튼 클릭 시 호출되는&nbsp; <strong>ButtonStart,&nbsp;ButtonStop</strong> &nbsp;함수를&nbsp;추가한다.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 252px; top: 364px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #BBBBBB">.</span><span style="color: #000">NUI</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #BBBBBB">.</span><span style="color: #000">NUI</span><span style="color: #BBBBBB">.</span><span style="color: #000">BaseComponents</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #BBBBBB">.</span><span style="color: #000">NUI</span><span style="color: #BBBBBB">.</span><span style="color: #000">Components</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">AccelerometerI2C</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">partial</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">Scene1Page</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">View</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Scene1Page</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">InitializeComponent</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ButtonStart</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">ClickedEventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">            //</span><span style="color: #708090"> Start the data measurement</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ButtonStop</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">ClickedEventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">            //</span><span style="color: #708090"> Stop the data measurement</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>2. 텍스트&nbsp;리셋</strong></p>
+<p>Stop 버튼을 누를 때 TextLable의 가속도 측정 값이&nbsp; <strong>리셋</strong> 될 수 있도록 텍스트를 설정한다.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 84px; top: 112px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ButtonStop</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">ClickedEventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">	//</span><span style="color: #708090"> Stop the data measurement</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #000">myAccelValueX</span><span style="color: #999">.</span><span style="color: #000">Text</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">X:000 (0.00G)</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #000">myAccelValueY</span><span style="color: #999">.</span><span style="color: #000">Text</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Y:000 (0.00G)</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #000">myAccelValueZ</span><span style="color: #999">.</span><span style="color: #000">Text</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Z:000 (0.00G)</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-가속도-측정">III. 가속도 측정</h1><h2 id="슬레이브-연결">슬레이브 연결</h2>
+<p><strong>Scene1Page.xaml.cs</strong> 파일을 연다.</p>
+<p><strong>1. using Tizen.Peripheral.I2c 추가</strong></p>
+<p>Tizen.Peripheral.I2c를 추가하여&nbsp;I2C 관련 API를 사용하고자 한다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #BBBBBB">.</span><span style="color: #000">Peripheral</span><span style="color: #BBBBBB">.</span><span style="color: #000">I2c</span><span style="color: #999">;</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>2. I2C 슬레이브 장치 연결</strong></p>
+<p>START 버튼을 눌러 ButtonStart 이벤트가 시작되면 가속도 측정을 시작한다.&nbsp;먼저&nbsp;I2cDevice를 만들어 I2C 슬레이브 장치에 대한 연결을 열어 보자.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 56px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 420px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 140px; top: 756px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">partial</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">Scene1Page</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">View</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #07A">int</span><span style="color: #BBBBBB"> </span><span style="color: #000">Bus</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0x01</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #07A">int</span><span style="color: #BBBBBB"> </span><span style="color: #000">Address</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0x53</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">I2cDevice</span><span style="color: #BBBBBB"> </span><span style="color: #000">i2cDevice</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Scene1Page</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">InitializeComponent</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ButtonStart</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">ClickedEventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">            //</span><span style="color: #708090"> Start the data measurement</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">DataUpdateStart</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ButtonStop</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">ClickedEventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">            //</span><span style="color: #708090"> Stop the data measurement</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">myAccelValueX</span><span style="color: #999">.</span><span style="color: #000">Text</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">X:000 (0.00G)</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">myAccelValueY</span><span style="color: #999">.</span><span style="color: #000">Text</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Y:000 (0.00G)</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">myAccelValueZ</span><span style="color: #999">.</span><span style="color: #000">Text</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Z:000 (0.00G)</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">DataUpdateStart</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">            //</span><span style="color: #708090"> Open device</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">i2cDevice</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">I2cDevice</span><span style="color: #999">(</span><span style="color: #000">Bus</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">Address</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>첫 번째 인자인 bus는&nbsp; <strong>버스 번호</strong> 를 의미한다. 타이젠의 레퍼런스 디바이스인 라즈베리파이에는 버스가 하나 존재한다. 따라서 버스 번호는 통상 1을 입력해준다. 하지만, 차후에 다른 레퍼런스 보드가 추가되는 경우 1 외에 다른 값도 올 수 있다.</p>
+<p>두 번째 인자 address는&nbsp; <strong>슬레이브 노드에 접속하기 위한 주소</strong> 를 의미한다. 이 주소는 플랫폼 단에서 정하는 것이 아니다. 위에서 언급한 바와 같이 제조업체에 의해 디바이스가 생산되는 시점에 이미 정해져서 나온다. 앞에서 설명했듯이 SDO 핀을 GND 핀에 연결했으므로&nbsp;0x53 주소를&nbsp;쓰도록 한다.</p>
+<p><strong>3. 연결 해제</strong></p>
+<p>측정이&nbsp;끝나면 I2C 슬레이브 장치에 대한 <strong>연결을 해제</strong> 하는 것을 잊지 말자.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 84px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 112px; top: 448px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ButtonStop</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">ClickedEventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">            //</span><span style="color: #708090"> Stop the data measurement</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">DataUpdateStop</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">myAccelValueX</span><span style="color: #999">.</span><span style="color: #000">Text</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">X:000 (0.00G)</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">myAccelValueY</span><span style="color: #999">.</span><span style="color: #000">Text</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Y:000 (0.00G)</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">myAccelValueZ</span><span style="color: #999">.</span><span style="color: #000">Text</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Z:000 (0.00G)</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">DataUpdateStart</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">            //</span><span style="color: #708090"> Open device</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">i2cDevice</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">I2cDevice</span><span style="color: #999">(</span><span style="color: #000">Bus</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">Address</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">DataUpdateStop</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">i2cDevice</span><span style="color: #999">.</span><span style="color: #DD4A68">Close</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-가속도-측정">III. 가속도 측정</h1><h2 id="데이터-쓰기">데이터 쓰기</h2>
+<p>데이터 쓰기를 통해 측정을 시작할 준비를 한다.</p>
+<img src="/TizenSchool/assets/images/tutorials/248/write.PNG" style="height:71px; width:1279px">
+<p>위 그림은&nbsp;마스터가 데이터를 쓸 때의 비트의 흐름을 보여준다. 마스터는 시작 신호와 함께 슬레이브 주소와 쓰기 모드 설정 값을 보낸다. 슬레이브는 이를 잘 받았다는 Ack을 날린다. 마스터는 다시&nbsp; <strong>명령 코드</strong> 를 슬레이브에 전달한다. 슬레이브는 명령 코드를 받고 Ack을 보낸다. 최종적으로 마스터는 정지 신호로 마무리한다.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 56px; top: 84px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 392px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #07A">int</span><span style="color: #BBBBBB"> </span><span style="color: #000">Bus</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0x01</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #07A">int</span><span style="color: #BBBBBB"> </span><span style="color: #000">Address</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0x53</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #07A">byte</span><span style="color: #BBBBBB"> </span><span style="color: #000">POWER_CTL_REGISTER</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0x2D</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #07A">byte</span><span style="color: #BBBBBB"> </span><span style="color: #000">MEASURE_VALUE</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0x08</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">....</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">DataUpdateStart</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">    //</span><span style="color: #708090"> Open device</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">i2cDevice</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">I2cDevice</span><span style="color: #999">(</span><span style="color: #000">Bus</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">Address</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">    //</span><span style="color: #708090"> Start measurement</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">i2cDevice</span><span style="color: #999">.</span><span style="color: #DD4A68">WriteRegisterByte</span><span style="color: #999">(</span><span style="color: #000">POWER_CTL_REGISTER</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">MEASURE_VALUE</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>위 API로 손쉽게 위 흐름대로 I2C 슬레이브 장치에 단일 데이터를 쓸 수 있다.&nbsp;첫 번째 인자로 I2C 슬레이브 장치의 레지스터 주소를, 그리고 두 번째 인자로 데이터의&nbsp;크기를 넘겨준다.</p>
+<p>어떤 레지스터 주소를 사용해야 하는지는 스펙을 통해 확인할 수 있다. 스펙에 보면 여러 레지스터 정의가 있는데, 실습에서는 장치의 상태를 제어하는 레지스터의 주소인 0x2D를 사용한다.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-가속도-측정">III. 가속도 측정</h1><h2 id="데이터-읽기">데이터 읽기</h2>
+<p><strong>1. Timer 생성</strong></p>
+<p>가속도는&nbsp;300ms에 한 번&nbsp;주기적으로 측정하려고 한다. 0.3초로 설정한 특별한 이유는 없다, 사람눈으로 보기에 실시간으로 측정되는 것 같이 빠르게 보이면서도&nbsp;화면에 표기된 값을 읽기에 적당한 시간주기라고 생각되어서 설정하였다. 원한다면 더 빠르게 또는 더 느리게 설정 가능하다.</p>
+<p>이를 위해 먼저 타이머를 생성한다. 타이머를 생성하는 방법은 간단하다. <strong>원하는 interval의 타이머를 생성</strong> 한 뒤 <strong>Callback 함수를 등록</strong> 한다. 그 후에 <strong>Start</strong> 를 해주면 타이머가 실행된다.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 0px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 84px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 112px; top: 392px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 112px; top: 560px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #BBBBBB">.</span><span style="color: #000">NUI</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">Timer</span><span style="color: #BBBBBB"> </span><span style="color: #000">myTimer</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">DataUpdateStart</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #999">            //</span><span style="color: #708090"> Open device</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">i2cDevice</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">I2cDevice</span><span style="color: #999">(</span><span style="color: #000">Bus</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">Address</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">            //</span><span style="color: #708090"> Start measurement</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">i2cDevice</span><span style="color: #999">.</span><span style="color: #DD4A68">WriteRegisterByte</span><span style="color: #999">(</span><span style="color: #000">POWER_CTL_REGISTER</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">MEASURE_VALUE</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">            //</span><span style="color: #708090"> Create timer</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">myTimer</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Timer</span><span style="color: #999">(</span><span style="color: #905">300</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">myTimer</span><span style="color: #999">.</span><span style="color: #000">Tick</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">TickEvent</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">myTimer</span><span style="color: #999">.</span><span style="color: #DD4A68">Start</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">bool</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">TickEvent</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">source</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">NUI</span><span style="color: #999">.</span><span style="color: #000">Timer</span><span style="color: #999">.</span><span style="color: #000">TickEventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #905">true</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>2. Timer&nbsp;해제</strong></p>
+<p>Stop&nbsp;버튼을 누르면&nbsp;가속도 측정을 멈추기 때문에&nbsp;Stop&nbsp;버튼의 이벤트 함수인&nbsp;DataUpdateStop에서 timer를 dispose 한다.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">DataUpdateStop</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #000">myTimer</span><span style="color: #999">.</span><span style="color: #DD4A68">Dispose</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #000">i2cDevice</span><span style="color: #999">.</span><span style="color: #DD4A68">Close</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>3. 데이터 읽기</strong></p>
+<p>이제 데이터를 읽어올 환경이 갖추어 졌다. 타이머 Callback 함수 내에서 측정 값을 읽어 오도록 구현해보자.</p>
+<img src="/TizenSchool/assets/images/tutorials/248/read3.PNG" style="height:70px; width:1280px">
+<p>마스터 노드가 슬레이브 노드로부터 데이터를 읽으려면, 위와 같은 비트의 흐름을 거쳐야 한다. 우선 마스터 노드가 시작 신호에 이어 슬레이브 주소와 읽기모드 설정값을 보낸다.&nbsp;그러면 해당 주소의 슬레이브 노드는 받았다는 Ack을 보내고 연이어서 데이터의 상위바이트를 보낸다. 그러면 마스터는 상위바이트를 잘 받았다는 Ack을 보낸다. 그러면 슬레이브가 하위 바이트를 다시 보낸다. 마스터는 다시 Nack을 보내고 정지신호로 통신을 마친다.</p>
+<p>위의 흐름은 아래의 API를 사용하여 간단하게 해결 가능하다.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">ushort</span><span style="color: #BBBBBB"> </span><span style="color: #000">word</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">i2cDevice</span><span style="color: #999">.</span><span style="color: #DD4A68">ReadRegisterWord</span><span style="color: #999">(</span><span style="color: #000">register</span><span style="color: #999">);</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>먼저 가속도를 측정하는 <strong>GetAcceleration 함수</strong> 를 만들고, 그 함수를 타이머 Callback에 추가한다.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 0px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 392px; top: 112px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 588px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #07A">byte</span><span style="color: #BBBBBB"> </span><span style="color: #000">DATAX0_REGISTER</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0x32</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #07A">short</span><span style="color: #BBBBBB"> </span><span style="color: #000">x</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">short</span><span style="color: #BBBBBB"> </span><span style="color: #000">y</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">short</span><span style="color: #BBBBBB"> </span><span style="color: #000">z</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">GetAcceleration</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #07A">int</span><span style="color: #BBBBBB"> </span><span style="color: #000">Length</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">3</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #07A">short</span><span style="color: #999">[]</span><span style="color: #BBBBBB"> </span><span style="color: #000">rawData</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #07A">short</span><span style="color: #999">[</span><span style="color: #000">Length</span><span style="color: #999">];</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #07A">for</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #07A">int</span><span style="color: #BBBBBB"> </span><span style="color: #000">i</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #000">i</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&lt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">Length</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">++</span><span style="color: #000">i</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">byte</span><span style="color: #BBBBBB"> </span><span style="color: #000">register</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #07A">byte</span><span style="color: #999">)(</span><span style="color: #000">DATAX0_REGISTER</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">i</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">*</span><span style="color: #BBBBBB"> </span><span style="color: #905">2</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">ushort</span><span style="color: #BBBBBB"> </span><span style="color: #000">word</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">i2cDevice</span><span style="color: #999">.</span><span style="color: #DD4A68">ReadRegisterWord</span><span style="color: #999">(</span><span style="color: #000">register</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #000">rawData</span><span style="color: #999">[</span><span style="color: #000">i</span><span style="color: #999">]</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #07A">short</span><span style="color: #999">)</span><span style="color: #000">word</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">rawData</span><span style="color: #999">[</span><span style="color: #905">0</span><span style="color: #999">],</span><span style="color: #BBBBBB"> </span><span style="color: #000">rawData</span><span style="color: #999">[</span><span style="color: #905">1</span><span style="color: #999">],</span><span style="color: #BBBBBB"> </span><span style="color: #000">rawData</span><span style="color: #999">[</span><span style="color: #905">2</span><span style="color: #999">]);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">bool</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">TickEvent</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">source</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">NUI</span><span style="color: #999">.</span><span style="color: #000">Timer</span><span style="color: #999">.</span><span style="color: #000">TickEventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #999">(</span><span style="color: #07A">short</span><span style="color: #BBBBBB"> </span><span style="color: #000">x</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">short</span><span style="color: #BBBBBB"> </span><span style="color: #000">y</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">short</span><span style="color: #BBBBBB"> </span><span style="color: #000">z</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">GetAcceleration</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #905">true</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>GetAcceleration 함수를 자세히 보자. ADXL345 가속도센서는 <strong>0x32부터 0x37까지 각각 2바이트 씩 X, Y, Z축의 가속도 데이터</strong> 를 가지고 있다. 이 역시 스펙에서 확인할 수 있다. 이를 읽기 위해서 DATAX0_REGISTER를&nbsp;0x32로 설정하고 for 문을 통해 각각의 데이터를 읽어온다. 읽어온 데이터는 각각 X, Y, Z 축에서 받는 가속도 값을 보여준다.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 84px; top: 112px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 84px; top: 224px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">bool</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">TickEvent</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">source</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">NUI</span><span style="color: #999">.</span><span style="color: #000">Timer</span><span style="color: #999">.</span><span style="color: #000">TickEventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #999">(</span><span style="color: #07A">short</span><span style="color: #BBBBBB"> </span><span style="color: #000">x</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">short</span><span style="color: #BBBBBB"> </span><span style="color: #000">y</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">short</span><span style="color: #BBBBBB"> </span><span style="color: #000">z</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">GetAcceleration</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #07A">float</span><span style="color: #BBBBBB"> </span><span style="color: #000">cal_x</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #07A">float</span><span style="color: #999">)</span><span style="color: #000">x</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">/</span><span style="color: #BBBBBB"> </span><span style="color: #905">256</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #07A">float</span><span style="color: #BBBBBB"> </span><span style="color: #000">cal_y</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #07A">float</span><span style="color: #999">)</span><span style="color: #000">y</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">/</span><span style="color: #BBBBBB"> </span><span style="color: #905">256</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #07A">float</span><span style="color: #BBBBBB"> </span><span style="color: #000">cal_z</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #07A">float</span><span style="color: #999">)</span><span style="color: #000">z</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">/</span><span style="color: #BBBBBB"> </span><span style="color: #905">256</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #000">myAccelValueX</span><span style="color: #999">.</span><span style="color: #000">Text</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">String</span><span style="color: #999">.</span><span style="color: #DD4A68">Format</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">X:{0:000} ({1:0.00}G)</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">x</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">cal_x</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #000">myAccelValueY</span><span style="color: #999">.</span><span style="color: #000">Text</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">String</span><span style="color: #999">.</span><span style="color: #DD4A68">Format</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Y:{0:000} ({1:0.00}G)</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">y</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">cal_y</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #000">myAccelValueZ</span><span style="color: #999">.</span><span style="color: #000">Text</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">String</span><span style="color: #999">.</span><span style="color: #DD4A68">Format</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Z:{0:000} ({1:0.00}G)</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">z</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">cal_z</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #905">true</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>타이머 이벤트 함수에서 읽어온 x, y, z의 가속도 값을&nbsp;256으로 나눈다.&nbsp;이는 물체가 중력 방향에 있을 때 받는 <strong>중력 가속도 1G를 기준으로 얼마나 중력 가속도를 받고 있는지</strong> 쉽게 보기 위함이다.&nbsp;정수로 들어오는 데이터 값, 그리고&nbsp;256으로 나눈 값 모두&nbsp;TextLable의 텍스트로 설정하여 앱 화면에 출력될 수 있게 한다.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-가속도-측정">III. 가속도 측정</h1><h2 id="자원-해제">자원 해제</h2>
+<p><strong>Scene1.cs</strong> 파일 열어서 앱 종료 시 자원이 모두 해제 될 수 있도록 구현한다.</p>
+<p><strong>1. private 변수 생성</strong></p>
+<p>UI 클래스에 접근할 수 있도록 scene1Page를 별도 private 변수로&nbsp;저장한다.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 112px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 336px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 392px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">AccelerometerI2C</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">Scene1</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">NUIApplication</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">Scene1Page</span><span style="color: #BBBBBB"> </span><span style="color: #000">scene1Page</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">override</span><span style="color: #BBBBBB"> </span><span style="color: #07A">protected</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnCreate</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">base</span><span style="color: #999">.</span><span style="color: #DD4A68">OnCreate</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">            //</span><span style="color: #708090"> NOTE To use theme.xaml, uncomment below line.</span></span>
+<span class="line"><span style="color: #999">            //</span><span style="color: #708090"> ThemeManager.ApplyTheme(new Theme(Tizen.Applications.Application.Current.DirectoryInfo.Resource + "theme/theme.xaml"));</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">scene1Page</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Scene1Page</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">GetDefaultWindow</span><span style="color: #999">().</span><span style="color: #DD4A68">Add</span><span style="color: #999">(</span><span style="color: #000">scene1Page</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">GetDefaultWindow</span><span style="color: #999">().</span><span style="color: #000">KeyEvent</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">OnScene1KeyEvent</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>2. 자원 해제</strong></p>
+<p>앱 종료 시 사용된 자원이 해제 될 수 있도록 OnTerminate 함수에서 DataUpdateStop를 호출한다.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">override</span><span style="color: #BBBBBB"> </span><span style="color: #07A">protected</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnTerminate</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #000">scene1Page</span><span style="color: #999">.</span><span style="color: #DD4A68">DataUpdateStop</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #07A">base</span><span style="color: #999">.</span><span style="color: #DD4A68">OnTerminate</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/13</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/642c4c04779a63be966fa6579cbe2e444ddde584">642c4c04779a63be966fa6579cbe2e444ddde584</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+

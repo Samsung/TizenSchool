@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/TizenSchool/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/TizenSchool/assets/images/favicon-32x32.png">
+    <title>How to use Bluetooth in Tizen IoT</title>
+  <link rel="stylesheet" href="/TizenSchool/assets/aboutus.9016036b.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.013d619c.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="2r5SHS" component-url="/TizenSchool/Header.fde63186.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/TizenSchool/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      How to use Bluetooth in Tizen IoT
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">In this tutorial based on Notification Monitor application sample code you will learn how to use Bluetooth with Bluetooth.Network library. 
+You will learn how to use the Bluetooth adapter to pair, connect and receive data from other devices.</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/TizenSchool/assets/images/iot-active.png">
+        <img src="/TizenSchool/assets/images/wearable-dimmed.png">
+        <img src="/TizenSchool/assets/images/mobile-dimmed.png">
+        <img src="/TizenSchool/assets/images/smart-tv-dimmed.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2020/11/18</span>
+            Modified
+            <span class="font-bold">2021/00/08</span>
+    </div>
+  </div><astro-island uid="11fAK0" component-url="/TizenSchool/TextContent.c7f4d9de.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,16],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[]\&quot;],\&quot;chapter\&quot;:[0,\&quot;\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Overview\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Importing and building solution\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;The first launch of the application\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Starting Bluetooth on Tizen IoT\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Bluetooth devices page\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Notifications page\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Notification monitor service\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;Introduction\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Overview\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Adding privileges\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Checking bluetooth status\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Searching available Bluetooth devices\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Pairing with Bluetooth device\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;RFComm server\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Monitoring notifications\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Testing the NotificationMonitor\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;Implementation\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Summary\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;Summary\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/16</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id="introduction">Introduction</h1><h2 id="overview">Overview</h2>
+<p>In this tutorial based on Notification Monitor application sample code you will learn how to use Bluetooth with <a href="https://docs.tizen.org/application/dotnet/api/tizenfx/api/Tizen.Network.Bluetooth.html">Bluetooth.Network</a> library.</p>
+<p>You will learn how to use the Bluetooth adapter to pair, connect and receive data from other devices.</p>
+<p>The newly-created app will monitor and display notifications received via Bluetooth from an Android device.</p>
+<p>The example application for Android mobile will be available to download at the end of this tutorial.</p>
+<p>This tutorial consists of 3 chapters:</p>
+<p>The final effect is presented below.</p>
+<img src="/TizenSchool/assets/images/tutorials/223/deviceFound.png" style="height:360px; width:640px">
+<p>The content of this tutorial is under the <em>…</em> &nbsp;license.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="introduction">Introduction</h1><h2 id="importing-and-building-solution">Importing and building solution</h2>
+<p>Download source code from the <em><a href="https://tizenschool.org/assets/images/tutorials/223/NotificationsMonitor.zip">link</a>.</em></p>
+<p>If you need help with loading and building downloaded solution, please follow the tutorial <a href="https://tizenschool.org/tutorial/110/contents/1">“How to import project to Visual Studio”</a>. After that, the structure of the project should look similar to the image below:</p>
+<img src="/TizenSchool/assets/images/tutorials/223/Solution.png" style="height:480px; width:204px">
+<p>From now on the project is ready to run.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="introduction">Introduction</h1><h2 id="the-first-launch-of-the-application">The first launch of the application</h2>
+<p>If you don’t know how to start working with Tizen IoT and run it on your Raspberry Pi, please follow this tutorial:</p>
+<p><a href="https://tizenschool.org/tutorial/191/contents/1">https://tizenschool.org/tutorial/191/contents/1</a></p>
+<p>As soon as your Tizen IoT is ready on your Raspberry Pi, you are ready to run the application which you downloaded in the last step. Running application is described in the tutorial linked above.</p>
+<p>Started application should look as below.</p>
+<p><em><img src="/TizenSchool/assets/images/tutorials/223/bluetoothDisconnected.png" style="height:360px; width:640px"></em></p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="introduction">Introduction</h1><h2 id="starting-bluetooth-on-tizen-iot">Starting Bluetooth on Tizen IoT</h2>
+<p>Starting Bluetooth is required for the future tasks. Bluetooth API does not give possibility to start Bluetooth from code. You have to do it inside system settings.</p>
+<p>To enable Bluetooth, please go to System settings and choose Bluetooth. Next click on <strong>“Bluetooth”</strong> switch button.</p>
+<img src="/TizenSchool/assets/images/tutorials/223/settings_arrow.png" style="height:360px; width:640px">
+<img src="/TizenSchool/assets/images/tutorials/223/bluetooth_arrow.png" style="height:360px; width:640px">
+<p>From now on the Bluetooth is enabled.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="introduction">Introduction</h1><h2 id="bluetooth-devices-page">Bluetooth devices page</h2>
+<p>First page that appears after application is started is the BluetoothDevicesPage. On this page there will be a status displayedof the Bluetooth adapter.</p>
+<p>If the Bluetooth is disabled, then relevant information will be displayed.</p>
+<p>If the Bluetooth is enabled, then there will be possibility to run scanning for available Bluetooth devices. Available Bluetooth devices will be displayed on this page also.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="introduction">Introduction</h1><h2 id="notifications-page">Notifications page</h2>
+<p>On this page notifications received from the Android phone will be displayed. The page will occur after correct pairing with the Bluetooth device.</p>
+<p>Information from notifications which will be displayed are presented below:</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="introduction">Introduction</h1><h2 id="notification-monitor-service">Notification monitor service</h2>
+<p>This service is responsible for monitoring of coming notifications which were received by the BluetoothService.</p>
+<p>After receiving notification service convert it and add it to list which will be displayed by NotificationsPage.</p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="implementation">Implementation</h1><h2 id="overview-1">Overview</h2>
+<p>In this chapter you will program the login of the Bluetooth adapter support and all mechanisms of it that are required for Bluetooth connection.</p>
+<p>Here are the steps which you are going to take in the next pages of this tutorial:</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="implementation">Implementation</h1><h2 id="adding-privileges">Adding privileges</h2>
+<p>Before we dive into developing BluetoothAdapter, support privileges for Bluetooth needs to be added. In order to do this, you have to modify the <strong>tizen-manifest.xml</strong> file.</p>
+<p>Please open tizen-manifest.xaml in visual studio and go to <strong>“Privileges”</strong> tab. In this tab click <strong>“Add”</strong> and select privilege of the name ”<a href="http://tizen.org/privilege/bluetooth">http://tizen.org/privilege/bluetooth</a>”. After this step and building the project you should have a possibility to use Bluetooth adapter in Tizen IoT.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="implementation">Implementation</h1><h2 id="checking-bluetooth-status">Checking bluetooth status</h2>
+<p>At the beginning you have to check if the Bluetooth adapter is enabled. The communication via Bluetooth would not be possible without this. Enabling Bluetooth adapter from code is not possible, so if you want to use it in your application, you have to be sure that it is enabled.</p>
+<p>Please go to the file BluetoothService.cs and change the definition of the IsBluetoothEnabled property to :</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 84px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Gets a value indicating whether the bluetooth is enabled or not.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">bool</span><span style="color: #BBBBBB"> </span><span style="color: #000">IsBluetoothEnabled</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">BluetoothAdapter</span><span style="color: #999">.</span><span style="color: #000">IsBluetoothEnabled</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><a href="https://docs.tizen.org/application/dotnet/api/tizenfx/api/Tizen.Network.Bluetooth.BluetoothAdapter.html">BluetoothAdapter</a> class is responsible for controlling Bluetooth adapter and taking list of paired devices.</p>
+<p>Now after running the application, you should see the following image:</p>
+<img src="/TizenSchool/assets/images/tutorials/223/noDevice.png" style="height:360px; width:640px">
+<p>It happens because <strong>BluetoothDevicesPage</strong> using property <strong>IsBluetoothEnabled</strong> from <strong>BluetoothDevicesViewModel</strong> checks if the Bluetooth is enabled and it sets appropriate view according to this value.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="implementation">Implementation</h1><h2 id="searching-available-bluetooth-devices">Searching available Bluetooth devices</h2>
+<p>After learning that Bluetooth is enabled, you can start to use adapter in your application. For start let’s search for devices available to pair. Please go to asynchronous method <strong>StartSearching</strong> from BluetoothService.</p>
+<p>Add the following code to this method.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 392px; top: 196px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Starts searching for the available to pair bluetooth device.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">cancellationToken</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">Cancellation token.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">searchingPeriod</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">Amount of searching time.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">async</span><span style="color: #BBBBBB"> </span><span style="color: #000">Task</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">StartSearching</span><span style="color: #999">(</span><span style="color: #000">CancellationToken</span><span style="color: #BBBBBB"> </span><span style="color: #000">cancellationToken</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">int</span><span style="color: #BBBBBB"> </span><span style="color: #000">searchingPeriod</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">3000</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">try</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">BluetoothAdapter</span><span style="color: #999">.</span><span style="color: #DD4A68">StartDiscovery</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">await</span><span style="color: #BBBBBB"> </span><span style="color: #000">Task</span><span style="color: #999">.</span><span style="color: #DD4A68">Delay</span><span style="color: #999">(</span><span style="color: #000">searchingPeriod</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">cancellationToken</span><span style="color: #999">).</span><span style="color: #DD4A68">ConfigureAwait</span><span style="color: #999">(</span><span style="color: #905">false</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">catch</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">Exception</span><span style="color: #BBBBBB"> </span><span style="color: #000">ex</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">Log</span><span style="color: #999">.</span><span style="color: #DD4A68">Debug</span><span style="color: #999">(</span><span style="color: #000">Config</span><span style="color: #999">.</span><span style="color: #000">LogTag</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">$"{</span><span style="color: #000">ex</span><span style="color: #999">}"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">finally</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">BluetoothAdapter</span><span style="color: #999">.</span><span style="color: #DD4A68">StopDiscovery</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">Log</span><span style="color: #999">.</span><span style="color: #DD4A68">Debug</span><span style="color: #999">(</span><span style="color: #000">Config</span><span style="color: #999">.</span><span style="color: #000">LogTag</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Stop discovery</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>In the code above at the beginning the <strong>StartDiscovery</strong> method from BluetoothAdapter class is executed. Method <a href="https://docs.tizen.org/application/dotnet/api/tizenfx/api/Tizen.Network.Bluetooth.BluetoothAdapter.html#Tizen_Network_Bluetooth_BluetoothAdapter_StartDiscovery">StartDiscovery </a>starts scanning for available Bluetooth devices. After that, the method waits for the time defined in the <strong>searchingPeriod</strong> field. Finally, the discovery is stopped. If any device is found, the <a href="https://docs.tizen.org/application/dotnet/api/tizenfx/api/Tizen.Network.Bluetooth.BluetoothAdapter.html#Tizen_Network_Bluetooth_BluetoothAdapter_DiscoveryStateChanged">DiscoveryStateChanged</a> from class BluetoothAdapter will be invoked.</p>
+<p>That is why you have to subscribe this event as it is shown below:</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 196px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">try</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">BluetoothAdapter</span><span style="color: #999">.</span><span style="color: #000">DiscoveryStateChanged</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DiscoveryStateChanged</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">BluetoothAdapter</span><span style="color: #999">.</span><span style="color: #DD4A68">StartDiscovery</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">    ...</span></span>
+<span class="line"><span style="color: #07A">finally</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">BluetoothAdapter</span><span style="color: #999">.</span><span style="color: #000">DiscoveryStateChanged</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">-=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DiscoveryStateChanged</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #000">BluetoothAdapter</span><span style="color: #999">.</span><span style="color: #DD4A68">StopDiscovery</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">    ...</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Now you have to add <strong>DicoveryStateChanged</strong> method which will be raised with this event.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 336px; top: 0px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">DiscoveryStateChanged</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">DiscoveryStateChangedEventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">DiscoveryState</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">==</span><span style="color: #BBBBBB"> </span><span style="color: #000">BluetoothDeviceDiscoveryState</span><span style="color: #999">.</span><span style="color: #000">Found</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">Log</span><span style="color: #999">.</span><span style="color: #DD4A68">Debug</span><span style="color: #999">(</span><span style="color: #000">Config</span><span style="color: #999">.</span><span style="color: #000">LogTag</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Found device!!</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">DeviceFound</span><span style="color: #BBBBBB"> </span><span style="color: #07A">is</span><span style="color: #BBBBBB"> </span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&amp;&amp;</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">DeviceFound</span><span style="color: #999">.</span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #07A">is</span><span style="color: #BBBBBB"> </span><span style="color: #07A">object</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">_devices</span><span style="color: #999">.</span><span style="color: #DD4A68">Add</span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">DeviceFound</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">DeviceFound</span><span style="color: #A67F59">?</span><span style="color: #999">.</span><span style="color: #DD4A68">Invoke</span><span style="color: #999">(</span><span style="color: #07A">this</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">DeviceFound</span><span style="color: #999">.</span><span style="color: #000">Name</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>This method adds the device found into the <strong>_devices</strong> list and then invokes event <strong>DeviceFound</strong> . The method is subscribed by <strong>BluetoothDeviceViewModel</strong> , so the names of the available devices should show on the screen after running the search.</p>
+<p>The last step which is more <em>educational</em> than required is removing all currently paired devices from BluetoothAdapter.</p>
+<p>At the beginning of the <strong>StartSearching</strong> method add following instruction:</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">async</span><span style="color: #BBBBBB"> </span><span style="color: #000">Task</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">StartSearching</span><span style="color: #999">(</span><span style="color: #000">CancellationToken</span><span style="color: #BBBBBB"> </span><span style="color: #000">cancellationToken</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">int</span><span style="color: #BBBBBB"> </span><span style="color: #000">searchingPeriod</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">3000</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #DD4A68">DestroyBonds</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #07A">try</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        ...</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>And definition of <strong>DestronBonds</strong> method:</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 196px; top: 0px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">DestroyBonds</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">foreach</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">device</span><span style="color: #BBBBBB"> </span><span style="color: #07A">in</span><span style="color: #BBBBBB"> </span><span style="color: #000">BluetoothAdapter</span><span style="color: #999">.</span><span style="color: #DD4A68">GetBondedDevices</span><span style="color: #999">())</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">device</span><span style="color: #999">.</span><span style="color: #DD4A68">DestroyBond</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Searching for available devices is ready! Start the application and click the search button. If there is any Bluetooth device available to pair, the screen should look as below:</p>
+<img src="/TizenSchool/assets/images/tutorials/223/deviceFound.png" style="height:360px; width:640px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="implementation">Implementation</h1><h2 id="pairing-with-bluetooth-device">Pairing with Bluetooth device</h2>
+<p>Now it’s time to pair with another Bluetooth device. This will be required for creating connection between Bluetooth devices later. The connection will be established by the Android application.</p>
+<p>To pair with Bluetooth device, we have to add some code into the <strong>Pair</strong> method of the BluetoothService. Fill it as follows:</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 308px; top: 168px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Pairs with the device of the provided name.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">param</span><span style="color: #708090"> </span><span style="color: #690">name</span><span style="color: #999">=</span><span style="color: #999">"</span><span style="color: #690">deviceName</span><span style="color: #999">"</span><span style="color: #999">&gt;</span><span style="color: #708090">The name of the device to pair with.</span><span style="color: #999">&lt;/</span><span style="color: #905">param</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Pair</span><span style="color: #999">(</span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">deviceName</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">try</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">_boundedDevice</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">_devices</span><span style="color: #999">.</span><span style="color: #DD4A68">First</span><span style="color: #999">(</span><span style="color: #000">dev</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">dev</span><span style="color: #999">.</span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">==</span><span style="color: #BBBBBB"> </span><span style="color: #000">deviceName</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">_boundedDevice</span><span style="color: #999">.</span><span style="color: #000">BondCreated</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">OnBondCreated</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">_boundedDevice</span><span style="color: #999">.</span><span style="color: #DD4A68">CreateBond</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">catch</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">Exception</span><span style="color: #BBBBBB"> </span><span style="color: #000">ex</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">Log</span><span style="color: #999">.</span><span style="color: #DD4A68">Debug</span><span style="color: #999">(</span><span style="color: #000">Config</span><span style="color: #999">.</span><span style="color: #000">LogTag</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">$"{</span><span style="color: #000">ex</span><span style="color: #999">}"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">throw</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>As you can see, the method searches for the first device of the provided name. Then it subscribes the event BondCreated of this device and runs method <a href="https://docs.tizen.org/application/dotnet/api/tizenfx/api/Tizen.Network.Bluetooth.BluetoothDevice.html#Tizen_Network_Bluetooth_BluetoothDevice_CreateBond">CreateBond</a>. That method pairs our device with the device on which the method was called.</p>
+<p>Now, let’s add the method <strong>OnBondCreated</strong> which will be invoked by the BondCreated. Add the following definition to BluetoothService:</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 196px; top: 0px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnBondCreated</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">BondCreatedEventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #BBBBBB"> </span><span style="color: #07A">is</span><span style="color: #BBBBBB"> </span><span style="color: #07A">object</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">	    </span><span style="color: #000">Paired</span><span style="color: #A67F59">?</span><span style="color: #999">.</span><span style="color: #DD4A68">Invoke</span><span style="color: #999">(</span><span style="color: #07A">this</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">Device</span><span style="color: #999">.</span><span style="color: #000">Name</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>This method invokes Paired event to inform subscribers that the device has been paired.</p>
+<p>Now add bound destroyingwhen&nbsp; <strong>BluetoothService</strong> &nbsp;is closing as below</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 112px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Stops the RFComm server and destroys bound with the device.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Close</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">_boundedDevice</span><span style="color: #BBBBBB"> </span><span style="color: #07A">is</span><span style="color: #BBBBBB"> </span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&amp;&amp;</span><span style="color: #BBBBBB"> </span><span style="color: #000">_boundedDevice</span><span style="color: #999">.</span><span style="color: #000">IsPaired</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">_boundedDevice</span><span style="color: #999">.</span><span style="color: #DD4A68">DestroyBond</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Pairing is ready. Run the application and click Pair on some available device. If pairing is succeeded, then you should see the following message.</p>
+<img src="/TizenSchool/assets/images/tutorials/223/paired.png" style="height:360px; width:640px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="implementation">Implementation</h1><h2 id="rfcomm-server">RFComm server</h2>
+<p>If you don’t know what is RFComm serwer or SPP protocol, please visit this page <a href="https://docs.tizen.org/application/dotnet/guides/connectivity/bluetooth/">https://docs.tizen.org/application/dotnet/guides/connectivity/bluetooth/</a></p>
+<p>In this tutorial our application will be an RFComm server.</p>
+<p>To start with, we have to add UUID for our server. For SPP connection it is common to use <em>UUID = “00001101-0000-1000-8000-00805f9b34fb”</em> and this is exactly what we will set.</p>
+<p>Please define following&nbsp;field in BluetoothService class.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Provides all methods and properties to manage bluetooth connections and data transfer.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">sealed</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">BluetoothService</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">UUID</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">00001101-0000-1000-8000-00805f9b34fb</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>Remember that if you&nbsp; change UUID to something else, you have to change it also in the Android app! In the other case connection will not be possible!</strong></p>
+<p>Now go to method <strong>StartRFCommServer</strong> from class BluetoothService and add following code:</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 336px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Starts the RFComm server.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">StartRfcommServer</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">try</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">_serverSocket</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">BluetoothAdapter</span><span style="color: #999">.</span><span style="color: #DD4A68">CreateServerSocket</span><span style="color: #999">(</span><span style="color: #000">UUID</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">_serverSocket</span><span style="color: #999">.</span><span style="color: #DD4A68">Listen</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">_serverSocket</span><span style="color: #999">.</span><span style="color: #000">AcceptStateChanged</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">AcceptStateChanged</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">IsRfcommStarted</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">true</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">Log</span><span style="color: #999">.</span><span style="color: #DD4A68">Debug</span><span style="color: #999">(</span><span style="color: #000">Config</span><span style="color: #999">.</span><span style="color: #000">LogTag</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Server socket started</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">catch</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">InvalidOperationException</span><span style="color: #BBBBBB"> </span><span style="color: #000">ex</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">Log</span><span style="color: #999">.</span><span style="color: #DD4A68">Debug</span><span style="color: #999">(</span><span style="color: #000">Config</span><span style="color: #999">.</span><span style="color: #000">LogTag</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">$@"</span><span style="color: #690">Bluetooth is not enabled or the socket create\listen error occurs.\n</span><span style="color: #999">{</span><span style="color: #000">ex</span><span style="color: #999">}"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>At the beginning of this method, the instance of the RFComm server is created by the <a href="https://docs.tizen.org/application/dotnet/api/tizenfx/api/Tizen.Network.Bluetooth.BluetoothAdapter.html#Tizen_Network_Bluetooth_BluetoothAdapter_CreateServerSocket_System_String_">CreateServerSocet(uuid)</a> method.</p>
+<p>After correct creation of RFComm server, the method <a href="https://docs.tizen.org/application/dotnet/api/tizenfx/api/Tizen.Network.Bluetooth.BluetoothServerSocket.html#Tizen_Network_Bluetooth_BluetoothServerSocket_Listen">Listen</a> of this server is called. This method is responsible for listening for any connection coming via RFComm socket. After that we start subscribing AcceptStateChanged of this server. If this event is invoked, some device has established the Bluetooth connection with our device or has been disconnected. Please add definition of the method <strong>AcceptStateChanged</strong> to BluetothService:</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 364px; top: 0px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">AcceptStateChanged</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">AcceptStateChangedEventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">State</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">==</span><span style="color: #BBBBBB"> </span><span style="color: #000">BluetoothSocketState</span><span style="color: #999">.</span><span style="color: #000">Connected</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">_client</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">Connection</span><span style="color: #999">.</span><span style="color: #000">Client</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">Log</span><span style="color: #999">.</span><span style="color: #DD4A68">Debug</span><span style="color: #999">(</span><span style="color: #000">Config</span><span style="color: #999">.</span><span style="color: #000">LogTag</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Connected to client</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">else</span><span style="color: #BBBBBB"> </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">State</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">==</span><span style="color: #BBBBBB"> </span><span style="color: #000">BluetoothSocketState</span><span style="color: #999">.</span><span style="color: #000">Disconnected</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">_serverSocket</span><span style="color: #999">.</span><span style="color: #DD4A68">Dispose</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">IsRfcommStarted</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">false</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>When connection has been established, the method assigns connected client to _client field. When the connection ends (state disconnected), the server is disposed.</p>
+<p>Now add disposing server when&nbsp; <strong>BluetoothService</strong> is closing:</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 140px; top: 168px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> Stops the RFComm server and destroys bound with the device.</span></span>
+<span class="line"><span style="color: #999">///</span><span style="color: #708090"> </span><span style="color: #999">&lt;/</span><span style="color: #905">summary</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Close</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">   ...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">_serverSocket</span><span style="color: #BBBBBB"> </span><span style="color: #07A">is</span><span style="color: #BBBBBB"> </span><span style="color: #07A">object</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">_serverSocket</span><span style="color: #999">.</span><span style="color: #000">AcceptStateChanged</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">-=</span><span style="color: #BBBBBB"> </span><span style="color: #000">AcceptStateChanged</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">_serverSocket</span><span style="color: #999">.</span><span style="color: #DD4A68">Dispose</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>RFComm server should now start right after the device has been bound correctly. In the next section, you will learn how to receive data from the client.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="implementation">Implementation</h1><h2 id="monitoring-notifications">Monitoring notifications</h2>
+<p>Now you will implement receiving data which has been sent via Bluetooth from the client. The client which has been assigned in the last step provides <strong>DataReceived</strong> event. After the event has been invoked, we would like to get the data and print them on the screen. Add subscribing this event when the client is connecting with our server as follows:</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 112px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">State</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">==</span><span style="color: #BBBBBB"> </span><span style="color: #000">BluetoothSocketState</span><span style="color: #999">.</span><span style="color: #000">Connected</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_client</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">Connection</span><span style="color: #999">.</span><span style="color: #000">Client</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">Log</span><span style="color: #999">.</span><span style="color: #DD4A68">Debug</span><span style="color: #999">(</span><span style="color: #000">Config</span><span style="color: #999">.</span><span style="color: #000">LogTag</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Connected to client</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_client</span><span style="color: #999">.</span><span style="color: #000">DataReceived</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DataReceived</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Add also unsubscribing on disconnect</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 112px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 280px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">State</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">==</span><span style="color: #BBBBBB"> </span><span style="color: #000">BluetoothSocketState</span><span style="color: #999">.</span><span style="color: #000">Connected</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">_client</span><span style="color: #BBBBBB"> </span><span style="color: #07A">is</span><span style="color: #BBBBBB"> </span><span style="color: #07A">object</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">_client</span><span style="color: #999">.</span><span style="color: #000">DataReceived</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">-=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DataReceived</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    ...</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #000">else</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #BBBBBB">e.State == BluetoothSocketState.Disconnected</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_client</span><span style="color: #999">.</span><span style="color: #000">DataReceived</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">-=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DataReceived</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_serverSocket</span><span style="color: #999">.</span><span style="color: #DD4A68">Dispose</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Now define the <strong>DataReceived</strong> method which will invoke Received event. That event informs subscribers that data from client has been received. It also transmits the received data inside this event.</p>
+<p>The definition of this method should look as below.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 252px; top: 0px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">DataReceived</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">SocketDataReceivedEventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">e</span><span style="color: #A67F59">?</span><span style="color: #999">.</span><span style="color: #000">Data</span><span style="color: #BBBBBB"> </span><span style="color: #07A">is</span><span style="color: #BBBBBB"> </span><span style="color: #07A">object</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">Log</span><span style="color: #999">.</span><span style="color: #DD4A68">Debug</span><span style="color: #999">(</span><span style="color: #000">Config</span><span style="color: #999">.</span><span style="color: #000">LogTag</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Received</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">Received</span><span style="color: #A67F59">?</span><span style="color: #999">.</span><span style="color: #DD4A68">Invoke</span><span style="color: #999">(</span><span style="color: #07A">this</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">Data</span><span style="color: #999">.</span><span style="color: #000">ByteData</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>NotificationMonitorService subscribe Receive event after calling its <strong>Start</strong> method and stops after calling <strong>Stop</strong> method.</p>
+<p>NotificationMonitor is ready and now you can test it.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="implementation">Implementation</h1><h2 id="testing-the-notificationmonitor">Testing the NotificationMonitor</h2>
+<p>Please install Android Application from project which you can download from the following link.</p>
+<p><strong>Remember to give the application the access to the notifications!</strong></p>
+<p>After running the application, it should look as below:</p>
+<img src="/TizenSchool/assets/images/tutorials/223/screenshot.png" style="height:640px; width:332px">
+<p>Follow this steps:</p>
+<p>From now on the notifications from Android device should appear in the Tizen application!</p>
+<p>For the mobile notifications from above image the IoT app should look as below:</p>
+<img src="/TizenSchool/assets/images/tutorials/223/notifications.png" style="height:360px; width:640px">
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="summary">Summary</h1><h2 id="summary-1">Summary</h2>
+<p>This tutorial reaches the end. For more information about using Bluetooth Adapter in Tizen IoT, please go to the docs under the following links:</p>
+<p>You can also download finished application from our <strong>Github</strong> repository:</p>
+<p>I hope this tutorial was clear and helpful for you.</p>
+<p>Check our other tutorials which also use sensors built-in the wearable devices. Here are some of them:</p>
+<p>Thank you for your commitment. Have a great day.</p></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/16</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/642c4c04779a63be966fa6579cbe2e444ddde584">642c4c04779a63be966fa6579cbe2e444ddde584</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+

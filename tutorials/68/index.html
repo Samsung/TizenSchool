@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/TizenSchool/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/TizenSchool/assets/images/favicon-32x32.png">
+    <title>[Gear Maze] Implement SPIDER item using Accelerator sensor</title>
+  <link rel="stylesheet" href="/TizenSchool/assets/aboutus.9016036b.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.013d619c.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="2r5SHS" component-url="/TizenSchool/Header.fde63186.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/TizenSchool/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      [Gear Maze] Implement SPIDER item using Accelerator sensor
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">This lecture is about how to get accelerator sensor data and implement SPIDER item of Gear Maze using the sensor data.</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/TizenSchool/assets/images/iot-dimmed.png">
+        <img src="/TizenSchool/assets/images/wearable-active.png">
+        <img src="/TizenSchool/assets/images/mobile-dimmed.png">
+        <img src="/TizenSchool/assets/images/smart-tv-dimmed.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2017/09/10</span>
+            Modified
+            <span class="font-bold">2018/10/02</span>
+    </div>
+  </div><astro-island uid="ZeKTVm" component-url="/TizenSchool/TextContent.c7f4d9de.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,11],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;What is SPIDER of Gear Maze?\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Mission of SPIDER\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;How to check whether spiders off\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;1. Introduction of SPIDER\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;What is the acceleration?\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;How to use acceleration of Tizen\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;How to use acceleration of W3C\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;2. Acceleration\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Looking at the logic of SPIDER\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Understanding SPIDER logic-(1)\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Understanding SPIDER logic-(2)\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;3. Implementation of SPIDER\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Summary\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Reference\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;Epilogue\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/11</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id="1-introduction-of-spider">1. Introduction of SPIDER</h1><h2 id="what-is-spider-of-gear-maze">What is SPIDER of Gear Maze?</h2>
+<p>Gear Maze is a game that you escape from the invisible and virtual maze with a wearable device.</p>
+<p>Gear Maze is available for Gear S2/S3 and you can download it from Samsung AppStore.</p>
+<p>If you want to know about Gear Maze, you can check it out from below link.</p>
+<p>Or, if&nbsp; you are playing it now on your wearable device.</p>
+<p>In this lecture, we are going to talk about the SPIDER item which is one of interesting items of Gear Maze.</p>
+<p>First of all, those items which Gear Maze provides are helpful or annoying contents when you escape from the virtual maze. All of them&nbsp;are hidden and discovered&nbsp;randomly during playing Gear Maze. When you find&nbsp;the hidden item you are going to see the screen below.</p>
+<img src="/TizenSchool/assets/images/tutorials/68/item-open.png" style="height:240px; width:240px">
+<p>&lt;Screenhost 1 : opening item&gt;</p>
+<p>It’s up to you whether opening the item or not.</p>
+<p>When you meet the helpful items, it’s going to do in some positive ways, such as showing the walls around you for a while.</p>
+<p>However, as for the negative items, you should fulfill a mission. If you don’t pass it, you should go back to the starting point of the maze and it makes you feel harder to get out of it.</p>
+<p>In this lecture, we are going to talk about how to implement&nbsp;one of interesting item of Gear Maze, which is called “SPIDER” which uses the&nbsp;sensor data of wearable devices. When you have any plan to develop similar function&nbsp;like SPIDER, this lecture&nbsp;will help you as a reference.</p>
+<p>If you choose opening the&nbsp;item that you found and the item is SPIDER, your wearable device shows you the symbol of SPIDER like below.</p>
+<img src="/TizenSchool/assets/images/tutorials/68/spider-01.PNG" style="height:240px; width:240px">
+<p>&lt;Screenshot 2 : Finding SPIDER&gt;</p>
+<p>Does it seem to be ominous because of the warning message and scary spider image? SPIDER&nbsp;is the&nbsp;negative item bothering you as you guess.</p>
+<p>We are going to talk about what you do to pass the mission that SPIDER gives you in the next page.</p>
+<p>In addition, if you are interested in another exciting items of Gear Maze, please check links&nbsp;below.</p>
+<reference>
+<h2 id="mission-of-spider">Mission of SPIDER</h2>
+<p>The mission of SPIDER is “fling off spiders from your arm”</p>
+<p>There are eleven&nbsp;scary spiders sticking on your arm (actually on your Gear device). Of course, they are invisible and virtual creatures. What you do is shaking your arm with lots of force to fling off them.</p>
+<p>If you succeed,&nbsp;you can continue your journey. Otherwise, you should move back to&nbsp;the starting point of the maze immediately.</p>
+<img src="/TizenSchool/assets/images/tutorials/68/spider-ready.PNG" style="height:240px; width:240px">
+<p>&lt;Screenshot 3: guide of SPIDER&nbsp;mission&gt;</p>
+<p>In summary, you should remove eleven&nbsp;spiders from your arm(or wearable device) in the limited time&nbsp;when you meet SPIDER item.</p>
+<p>How? You should shake your arm(or wearable device) as fast as you can in order to take off spiders.</p>
+<p>You will discover it is not easy when you try it once. It needs&nbsp;a big effort for a short time because those spiders are very sticky on you and the time is also very tight&nbsp;to pass this mission.</p>
+<p>The next page is going to explain the reason.</p>
+<h2 id="how-to-check-whether-spiders-off">How to check whether spiders off</h2>
+<p>Before checking out the reason, let’s check one thing first. How usually do you do when you find there is creepy somthing on your body? Usually you do shake or move fast a lot for a shot time unconsciously. We focus on the accelerating force from the normal action when we face unexpected things.</p>
+<p>SPIDER item is using the acceleration sensor to detect whether each spider is on or off given the above factor. So, we design that a spider is torn off immediately whenever the degree&nbsp;of acceleration is over the predefined theshold. SPIDER also&nbsp;uses a timer to check whether all of spiders are removed in 5 seconds. Accorinding to this idea, Gear Maze designs SPIDER as&nbsp;you should rush to shake&nbsp;your arm (or wearable device) passionately.</p>
+<p>Before going on to the next, you have to check is whether&nbsp;your wearable device supports&nbsp;the&nbsp;acceleration sensor. If not, you would better stop here and think about whether your application&nbsp;is able to fulfill&nbsp;using other sensors or without sensors. How to check what your wearable device supports? You can check the sensor information on your device from the below table.</p>
+<img src="/TizenSchool/assets/images/tutorials/68/sensor-per-devices.jpg" style="height:216px; width:1087px">
+
+<p>reference : <a href="http://www.samsung.com/uk/wearables/all-wearables/">officially announced specification of Samsung wearable devices</a></p>
+<p>Gear Maze is developed by web languages. So, I am going to deal with Web APIs. You can get the sensor data of acceleration using Tizen Web API or W3C standard API. The important thing that you should know before development&nbsp;is that the availability of these APIs&nbsp;depends&nbsp;on the Tizen wearable API&nbsp;version and supported&nbsp;device types. Here is the table of&nbsp;the summary about&nbsp;Tizen wearable device types and supported API&nbsp;versions for web applications.</p>
+<img src="/TizenSchool/assets/images/tutorials/68/sensor-device-per-apis.jpg" style="height:326px; width:916px">
+<table 1.="" supported="" sensor="" types="" of="" wearable="" devices=""></table>
+<p>reference : <a href="https://developer.tizen.org/development/api-references/web-application?redirect=https://developer.tizen.org/dev-guide/3.0.0/org.tizen.web.apireference/html/device_api/wearable/tizen/sensor.html#SensorType">sensor types per wearable API version for web applications</a></p>
+<h1 id="2-acceleration">2. Acceleration</h1>
+<h2 id="what-is-the-acceleration">What is the acceleration?</h2>
+<p>As the basic knowledge, I recommend you to read this page to understand the&nbsp;acceleration concept.</p>
+<p>If you know the velocity in physics, you should be careful not be confused between acceleration and velocity.</p>
+<p>Take a look at the explanation of acceleration below.</p>
+<p><strong>What is acceleration?</strong></p>
+<p>Velocity describes how position changes; acceleration describes how velocity changes. Two layers of change!</p>
+<p>Compared to displacement and velocity, acceleration is like the angry, fire-breathing dragon of motion variables. It can be violent; some people are scared of it; and if it’s big, it forces you to take notice. That feeling you get when you’re sitting in a plane during take-off, or slamming on the brakes in a car, or turning a corner at a high speed in a go kart are all situations where you are accelerating.</p>
+<p>Acceleration&nbsp;is the name we give to any process where the velocity changes. Since velocity is a speed and a direction, there are only two ways for you to accelerate: change your speed or change your direction—or change both.</p>
+<img src="https://ka-perseus-images.s3.amazonaws.com/ee08cfdce4bdba3844612f517e4daf28803f3c46.png" style="undefined">
+<p>if you want to know more in detail, please visit to <a href="https://www.khanacademy.org/science/physics/one-dimensional-motion/acceleration-tutorial/a/acceleration-article">KHANACADEMY</a></p>
+<h2 id="how-to-use-acceleration-of-tizen">How to use acceleration of Tizen</h2>
+<p>As I mentioned before, you can choose between two types&nbsp;to get the sensor data&nbsp;of acceleration; Tizen Web API(for wearable devices)&nbsp;and W3C API.</p>
+<p>If you don’t&nbsp;know the supported ranges for your wearable devices, please refer the table in Chapter 1.</p>
+<p>Go To : ”<a href="/tutorial/68/contents/3">How to check whether spiders off</a>”&nbsp;in Chapter 1 and look at the Table 1 and 2</p>
+<p><strong>&lt;Case 1 : Acceleration of Tizen Web API&gt;</strong></p>
+<p>If you want to use acceleration of Tizen, the Tizen Web API version should be 3.0.0.</p>
+<p>As for the acceleration, Tizen supports sensor APIs for&nbsp;both of native and web applications. As Gear Maze implements in web language, we’re about to deal with only&nbsp;Tizen Web API here.</p>
+<p>There are serveral sensor types supported in Tizen Web API. We need LINEAR_ACCELERATION among these sensors.</p>
+<p>I would like to talk about the Tizen Web API version 3.0.0. because the acceleration sensor is introduced in the latest version.</p>
+<p>The sensorType specifies the sensor type available to the API.</p>
+<pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">enum</span><span style="color: #BBBBBB"> </span><span style="color: #000">SensorType</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">LIGHT</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">MAGNETIC</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">PRESSURE</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">PROXIMITY</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">ULTRAVIOLET</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">HRM_RAW</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">                  </span><span style="color: #999">"</span><span style="color: #690">GRAVITY</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">GYROSCOPE</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">GYROSCOPE_ROTATION_VECTOR</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">LINEAR_ACCELERATION</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">};</span></span>
+<span class="line"></span></code></pre>
+<p>The sensor types defined by this enumerator are:</p>
+<p><strong>Remark :&nbsp; <em>HRM_RAW</em> &nbsp;is supported since Tizen 2.3.1</strong></p>
+<p><strong>Remark :&nbsp; <em>GRAVITY</em> ,&nbsp; <em>GYROSCOPE</em> ,&nbsp; <em>GYROSCOPE_ROTATION_VECTOR</em> &nbsp;and&nbsp; <em>LINEAR ACCELERATION</em> &nbsp;are supported since Tizen 3.0</strong></p>
+<p>reference : <a href="https://developer.tizen.org/ko/development/api-references/web-application?redirect=/dev-guide/latest/org.tizen.web.apireference/html/device_api/wearable/tizen/sensor.html&amp;langredirect=1#typedefs-section">Tizen Sensor API (Tizen wearable 3.0.0) - Tizen developer site</a></p>
+<p>Especially, we would like to focus on the LinearAccelerationSensor API because it is our target to learn for today.</p>
+<p>The LinearAccelerationSensor interface provides methods to access linear acceleration sensor data.</p>
+<pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">[</span><span style="color: #000">NoInterfaceObject</span><span style="color: #BBBBBB">] </span><span style="color: #07A">interface</span><span style="color: #BBBBBB"> </span><span style="color: #000">LinearAccelerationSensor</span><span style="color: #BBBBBB"> : </span><span style="color: #000">Sensor</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #A67F59">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">getLinearAccelerationSensorData</span><span style="color: #999">(</span><span style="color: #000">SensorDataSuccessCallback</span><span style="color: #BBBBBB"> </span><span style="color: #000">successCallback</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">                     </span><span style="color: #000">optional</span><span style="color: #BBBBBB"> </span><span style="color: #000">ErrorCallback</span><span style="color: #A67F59">?</span><span style="color: #BBBBBB"> </span><span style="color: #000">errorCallback</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">raises</span><span style="color: #999">(</span><span style="color: #000">WebAPIException</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">};</span></span></code></pre>
+<p>Since:&nbsp;3.0</p>
+<p><strong>Methods</strong></p>
+<p><code>**getLinearAccelerationSensorData**</code></p>
+<p>Gets the current sensor data.</p>
+<pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #A67F59">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">getLinearAccelerationSensorData</span><span style="color: #999">(</span><span style="color: #000">SensorDataSuccessCallback</span><span style="color: #BBBBBB"> </span><span style="color: #000">successCallback</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">                                        </span><span style="color: #000">optional</span><span style="color: #BBBBBB"> </span><span style="color: #000">ErrorCallback</span><span style="color: #A67F59">?</span><span style="color: #BBBBBB"> </span><span style="color: #000">errorCallback</span><span style="color: #BBBBBB">);</span></span></code></pre>
+<p>Since:&nbsp;3.0</p>
+<p><br>The&nbsp; <em>ErrorCallback</em> &nbsp;method is launched with these error types:</p>
+<p>The start method is one of common methods supported by&nbsp;all of Tizen sensor API. If you want to know another common methods, refer the page that explains them.</p>
+<p>reference :&nbsp;<a href="/tutorial/83/contents/6">How to use barometer sensor of Tizen-(2)</a></p>
+<p>Parameters:</p>
+<p>Exceptions:</p>
+<p>Code example:</p>
+<p><highlight>1,3,6-8,19,22</highlight></p>
+<pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">​</span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">linearAccelerationSensor</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">tizen</span><span style="color: #999">.</span><span style="color: #000">sensorservice</span><span style="color: #999">.</span><span style="color: #DD4A68">getDefaultSensor</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">LINEAR_ACCELERATION</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">onGetSuccessCB</span><span style="color: #999">(</span><span style="color: #000">sensorData</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">   </span><span style="color: #000">console</span><span style="color: #999">.</span><span style="color: #DD4A68">log</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">######## Get the linear acceleration sensor data ########</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">   </span><span style="color: #000">console</span><span style="color: #999">.</span><span style="color: #DD4A68">log</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">x: </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">sensorData</span><span style="color: #999">.</span><span style="color: #000">x</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">   </span><span style="color: #000">console</span><span style="color: #999">.</span><span style="color: #DD4A68">log</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">y: </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">sensorData</span><span style="color: #999">.</span><span style="color: #000">y</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">   </span><span style="color: #000">console</span><span style="color: #999">.</span><span style="color: #DD4A68">log</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">z: </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">sensorData</span><span style="color: #999">.</span><span style="color: #000">z</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">onerrorCB</span><span style="color: #999">(</span><span style="color: #000">error</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">   </span><span style="color: #000">console</span><span style="color: #999">.</span><span style="color: #DD4A68">log</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">error occurred</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">onsuccessCB</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">   </span><span style="color: #000">console</span><span style="color: #999">.</span><span style="color: #DD4A68">log</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">linear acceleration sensor start</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">   </span><span style="color: #000">linearAccelerationSensor</span><span style="color: #999">.</span><span style="color: #DD4A68">getLinearAccelerationSensorData</span><span style="color: #999">(</span><span style="color: #000">onGetSuccessCB</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">onerrorCB</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">linearAccelerationSensor</span><span style="color: #999">.</span><span style="color: #DD4A68">start</span><span style="color: #999">(</span><span style="color: #000">onsuccessCB</span><span style="color: #999">);</span></span>
+<span class="line"></span></code></pre>
+<p>You should use getDefaultSensor method of sensorservice object to get acceleration sensor object in line 1.</p>
+<p>Then you should call the start method in line 22 to activate&nbsp;the acceleration sensor.</p>
+<p>When the acceleration sensor data is received the onsuccessCB function is called as a callback function in line 16 because it is registered as parameter of start method in line 22.</p>
+<p>The sensor got started and we should prepare for receiving the real pressure sensor data.</p>
+<p>We execute the getPressureSensorData method with the successCallback and errorCallback as parameters in the onsuccessCB function in line 19.</p>
+<p>The real sensor data is received from the parameter of onGetSuccessCB function which is registered in getLinearAccelerationSensorData method in line 3.</p>
+<p>Finally, we can access the real sensor data from&nbsp;x, y and z property of sensorData which is the delivered&nbsp;parameter of onGetSuccessCB in line 6.</p>
+<p>Output example:</p>
+<pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">linear acceleration sensor start</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #708090">####### Get the linear acceleration sensor data ########</span></span>
+<span class="line"><span style="color: #BBBBBB">x: 7.639427</span></span>
+<span class="line"><span style="color: #BBBBBB">y: -2.909304</span></span>
+<span class="line"><span style="color: #BBBBBB">z: -3.379018</span></span></code></pre>
+<p>reference :&nbsp;<a href="https://developer.tizen.org/ko/development/api-references/web-application?redirect=/dev-guide/latest/org.tizen.web.apireference/html/device_api/wearable/tizen/sensor.html&amp;langredirect=1#typedefs-section">Tizen Sensor API (Tizen wearable 3.0.0) - Tizen developer site</a></p>
+<h2 id="how-to-use-acceleration-of-w3c">How to use acceleration of W3C</h2>
+<p>So far, we dealt with how to get the sensor data of acceleration from Tizen Web API or W3C API and now let’s take a look how to implement SPIDER item using W3C API. The following&nbsp;source code is the part of handling acceleratoin sensor data in&nbsp;SPIDER.<br></p>
+<p><highlight>80</highlight></p>
+<pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #000">window</span><span style="color: #999">.</span><span style="color: #000">SpiderItem</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">const</span><span style="color: #BBBBBB"> </span><span style="color: #000">NAME</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">SP</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">name</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">NAME</span><span style="color: #999">,</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #DD4A68">create</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">itemUI</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">itemMetadata</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">missionSuccessCount</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">0</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">shuffleNumArr</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">playing</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">false</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #999">/*</span><span style="color: #708090"> part of handling additional metadata </span><span style="color: #999">*/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">onGamePageLoad</span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #DD4A68">startGame</span><span style="color: #999">(</span><span style="color: #905">5000</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">startGame</span><span style="color: #999">(</span><span style="color: #000">gameFailureTime</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">TIMER_TICK</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">10</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">shuffleNumArr</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">shuffleNumArray</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">Timer</span><span style="color: #999">.</span><span style="color: #DD4A68">addTimer</span><span style="color: #999">(</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #999">"</span><span style="color: #690">timer-spider</span><span style="color: #999">"</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #000">gameFailureTime</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #000">TIMER_TICK</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #000">spiderFailure</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">spiderMotionHandler</span><span style="color: #999">(</span><span style="color: #000">event</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">deadSpiders</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #000">Math</span><span style="color: #999">.</span><span style="color: #DD4A68">abs</span><span style="color: #999">(</span><span style="color: #000">event</span><span style="color: #999">.</span><span style="color: #000">acceleration</span><span style="color: #999">.</span><span style="color: #000">x</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&gt;=</span><span style="color: #BBBBBB"> </span><span style="color: #905">3.0</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">||</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #000">Math</span><span style="color: #999">.</span><span style="color: #DD4A68">abs</span><span style="color: #999">(</span><span style="color: #000">event</span><span style="color: #999">.</span><span style="color: #000">acceleration</span><span style="color: #999">.</span><span style="color: #000">y</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&gt;=</span><span style="color: #BBBBBB"> </span><span style="color: #905">3.0</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">||</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #000">Math</span><span style="color: #999">.</span><span style="color: #DD4A68">abs</span><span style="color: #999">(</span><span style="color: #000">event</span><span style="color: #999">.</span><span style="color: #000">acceleration</span><span style="color: #999">.</span><span style="color: #000">z</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&gt;=</span><span style="color: #BBBBBB"> </span><span style="color: #905">3.0</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #000">missionSuccessCount</span><span style="color: #A67F59">++</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">missionSuccessCount</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">%</span><span style="color: #BBBBBB"> </span><span style="color: #905">10</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">===</span><span style="color: #BBBBBB"> </span><span style="color: #905">0</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">deadSpiders</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Math</span><span style="color: #999">.</span><span style="color: #DD4A68">floor</span><span style="color: #999">(</span><span style="color: #000">missionSuccessCount</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">/</span><span style="color: #BBBBBB"> </span><span style="color: #905">10</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">deadSpiders</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">===</span><span style="color: #BBBBBB"> </span><span style="color: #905">11</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">              </span><span style="color: #DD4A68">spiderSuccess</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">$</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">#icon-spider-</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">shuffleNumArr</span><span style="color: #BBBBBB">[</span><span style="color: #000">deadSpiders</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">-</span><span style="color: #BBBBBB"> </span><span style="color: #905">1</span><span style="color: #BBBBBB">]</span><span style="color: #999">).</span><span style="color: #DD4A68">addClass</span><span style="color: #999">(</span></span>
+<span class="line"><span style="color: #BBBBBB">              </span><span style="color: #999">"</span><span style="color: #690">dead</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">deadSpiders</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&lt;=</span><span style="color: #BBBBBB"> </span><span style="color: #905">11</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&amp;&amp;</span><span style="color: #BBBBBB"> </span><span style="color: #000">deadSpiders</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">%</span><span style="color: #BBBBBB"> </span><span style="color: #905">2</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">===</span><span style="color: #BBBBBB"> </span><span style="color: #905">1</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">              </span><span style="color: #DD4A68">$</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">#spider-dead-sound</span><span style="color: #999">"</span><span style="color: #999">).</span><span style="color: #DD4A68">trigger</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">play</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">spiderSuccess</span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">Timer</span><span style="color: #999">.</span><span style="color: #DD4A68">removeTimer</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">timer-spider</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">itemUI</span><span style="color: #999">.</span><span style="color: #DD4A68">hideItemPlay</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">itemUI</span><span style="color: #999">.</span><span style="color: #DD4A68">showMissionSuccess</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">spiderFailure</span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">Router</span><span style="color: #999">.</span><span style="color: #DD4A68">deleteRouteRule</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">item</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">playing</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">invokeMotion</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">itemUI</span><span style="color: #999">.</span><span style="color: #DD4A68">hideItemPlay</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">itemUI</span><span style="color: #999">.</span><span style="color: #DD4A68">showMissionFailure</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #999">/*</span><span style="color: #708090"> creating different sized spiders for this mission </span><span style="color: #999">*/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">routeTable</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #000">opened</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">play</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">state</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">playing</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">controller</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">item</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">method</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">play</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">},</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #999">},</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #000">playing</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">success</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">view</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">stage</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">state</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">item</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">event</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">disable</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">},</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">fail</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">view</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">stage</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">state</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">item</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">event</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">resetPlayer</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">},</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">invokeMotion</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">handler</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">spiderMotionHandler</span><span style="color: #BBBBBB"> </span><span style="color: #999">},</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #999">},</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">},</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #DD4A68">showOpened</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #000">itemUI</span><span style="color: #999">.</span><span style="color: #DD4A68">showItemIntro</span><span style="color: #999">(</span><span style="color: #000">itemMetadata</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">1000</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">          Promise</span><span style="color: #999">.</span><span style="color: #DD4A68">delay</span><span style="color: #999">(</span><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">itemUI</span><span style="color: #999">.</span><span style="color: #DD4A68">showItemInfo</span><span style="color: #999">(</span><span style="color: #000">itemMetadata</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">2000</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #999">},</span><span style="color: #BBBBBB"> </span><span style="color: #905">1000</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">},</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #DD4A68">play</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #000">itemUI</span><span style="color: #999">.</span><span style="color: #DD4A68">hideItemOpened</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #000">itemUI</span><span style="color: #999">.</span><span style="color: #DD4A68">showItemPlay</span><span style="color: #999">(</span><span style="color: #000">NAME</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">onGamePageLoad</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">},</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #999">};</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">},</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">};</span></span>
+<span class="line"><span style="color: #999">})();</span></span></code></pre>
+<p>When you meet the hidden SPIDER item, you’ll see the screen&nbsp;whether openning item or not as you see in Chapter 1 (<a href="/tutorial/68/contents/1">What is SPIDER of Gear Maze?</a>).</p>
+<p>If you click OK, the showOpened function will be called by Router callback function in the source code, line 80. (We are not going to&nbsp;deal with Router here becauase it does not directly associate&nbsp;with&nbsp;handling sensor data. Router is a mechanism about how to transfer the states given user interaction in Gear Maze.)</p>
+<p>Then, the screen shows the remained spiders and time to&nbsp;pass the mission.</p>
+<p>Now, it’s time for you to shake your wearable device as fast as you can. Whenever you remove a&nbsp;spider, it&nbsp;becomes pale to indicate the removed&nbsp;state.</p>
+<p>At this moment, the acceleration sensor data is received and the key part of below source code are from line 27 to line 41.</p>
+<p>We are going to&nbsp;talk about the key part&nbsp;step by step in the next page.</p>
+<h1 id="3-implementation-of-spider">3. Implementation of SPIDER</h1>
+<h2 id="looking-at-the-logic-of-spider">Looking at the logic of SPIDER</h2>
+<p>a. Registering an event of acceleration in window object.</p>
+<p>When GearMaze starts, DeviceMotionEvent is&nbsp;registered by window.addEventListener because the acceleration sensor data is used for walking&nbsp;on Maze also in line 2.</p>
+<p>Then, in line 6, it&nbsp;transfers acceleration sensor data to the proper module by Router which is defined in&nbsp;Gear Maze. The proper module could be walking&nbsp;or SPIDER module&nbsp;according to the current state. Then SPIDER is activated, the acceleration sensor data is delivered through the invokeMotion&nbsp;of Router. You don’t have to think about it more because it is not associated with acceleration sensor and it is related to the mechanism of Gear Maze operation.</p>
+<p><highlight>2,6</highlight></p>
+<pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">addMotionHandler</span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">window</span><span style="color: #999">.</span><span style="color: #DD4A68">addEventListener</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">devicemotion</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">fireInvokeMotion</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">fireInvokeMotion</span><span style="color: #999">(</span><span style="color: #000">event</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #000">Router</span><span style="color: #999">.</span><span style="color: #DD4A68">fire</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">invokeMotion</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> [</span><span style="color: #000">event</span><span style="color: #BBBBBB">]</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+<p>The next page is going to discuss about how to access the data and caculate acceleration sensor data for&nbsp;implementation of SPIDER.</p>
+<h2 id="understanding-spider-logic-1">Understanding SPIDER logic-(1)</h2>
+<p>That’s all what I’d like to deliver how to handle acceleration sensor data in&nbsp;SPIDER&nbsp;of&nbsp;GearMaze.</p>
+<p>We dealt with the general knowledge about acceleration concept and two ways&nbsp;to get the sensor data using&nbsp;Tizen Web API or W3C API.</p>
+<p>And then we talked about how to use and adjust the acceleration sensor data&nbsp;for&nbsp;SPIDER.</p>
+<p>I hope this lecture would help you when you develop your own amazing applications.</p>
+<h2 id="understanding-spider-logic-2">Understanding SPIDER logic-(2)</h2>
+<p><strong><case2 :="" acceleration="" of="" w3c="" api=""></case2></strong></p>
+<p>There are two JavaScript events that handle orientation. The first one is the&nbsp;<a href="https://developer.mozilla.org/en-US/docs/Web/API/DeviceOrientationEvent">
+<code>DeviceOrientationEvent</code>
+</a>, which is sent when the accelerometer detects a change to the orientation of the device. By receiving and processing the data reported by these orientation events, it’s possible to interactively respond to rotation and elevation changes caused by the user moving the device.</p>
+<p>The second event is the&nbsp;<a href="https://developer.mozilla.org/en-US/docs/Web/API/DeviceMotionEvent">
+<code>DeviceMotionEvent</code>
+</a>, which is sent when a change in acceleration was added. It is different from the&nbsp;<a href="https://developer.mozilla.org/en-US/docs/Web/API/DeviceOrientationEvent">
+<code>DeviceOrientationEvent</code>
+</a>&nbsp;because it is listening for changes in acceleration as opposed to orientation. Sensors that are commonly capable of detecting&nbsp;<a href="https://developer.mozilla.org/en-US/docs/Web/API/DeviceMotionEvent">
+<code>DeviceMotionEvent</code>
+</a>&nbsp;include sensors in laptops to protect moving storage devices.&nbsp;<a href="https://developer.mozilla.org/en-US/docs/Web/API/DeviceOrientationEvent">
+<code>DeviceOrientationEvent</code>
+</a>are more commonly found in mobile devices.</p>
+<p>refernce :&nbsp;<a href="https://developer.mozilla.org/en-US/docs/Web/API/Detecting_device_orientation">Detecting device orientation</a></p>
+<p>SPIDER of GearMaze&nbsp;uses DeviceMotionEvent instead of DeviceOrientationEvent because SPIDER&nbsp;doesn’t care the changes of orientation but changes of acceleration.&nbsp;The DeviceMotionEvent is fired at a defined interval and indicates the amount of physical force of acceleration the device receiving at that time. It also provides information about the rate of rotation, if available.</p>
+<p>All you need to do in order to start receiving orientation change is to listen to the&nbsp;
+<code>[DeviceMotionEvent](https://developer.mozilla.org/en-US/docs/Web/API/DeviceMotionEvent)</code>
+&nbsp;event and it must fire on the Window object.</p>
+<p><highlight>1,10</highlight></p>
+<pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">handleMotionEvent</span><span style="color: #999">(</span><span style="color: #000">event</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">x</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">event</span><span style="color: #999">.</span><span style="color: #000">acceleration</span><span style="color: #999">.</span><span style="color: #000">x</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">y</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">event</span><span style="color: #999">.</span><span style="color: #000">acceleration</span><span style="color: #999">.</span><span style="color: #000">y</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">z</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">event</span><span style="color: #999">.</span><span style="color: #000">acceleration</span><span style="color: #999">.</span><span style="color: #000">z</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">  //</span><span style="color: #708090"> Do something awesome.</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #000">window</span><span style="color: #999">.</span><span style="color: #DD4A68">addEventListener</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">devicemotion</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">handleMotionEvent</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">true</span><span style="color: #999">);</span></span></code></pre>
+<p>Actually, GearMaze uses this API because Tizen didn’t support acceleration sensor API when GearMaze was launched. GearMaze is based on 2.3.1 Tizen Web API. We don’t have alternative way except acceleration of W3C at that time. In terms of that, if you are going to develop a web application with W3C acceleration, our apporach will help you a lot.</p>
+<p>Reference</p>
+<h1 id="epilogue">Epilogue</h1>
+<h2 id="summary">Summary</h2>
+<p>b. Getting acceleration sensor data</p>
+<p><br>When the SPIDER&nbsp;mission starts, it tranfer the sensor data as the event parameter of spiderMotionHandler function.</p>
+<p>This event indicates DeviceMotionEvent object and it provides&nbsp;the sensor data on three axis, x, y and z. During the mission, SPIDER measures how far and fast the wearable device moves upon each axis in from line 9 to 12. That is the key&nbsp;part for accessing sensor data. It is&nbsp;so simple that you can apply it to your source code easily.</p>
+<p>The wearable device is sensitive so we have to adjust the data to make it practical data and the deadSpiders variable is used for it in line&nbsp;16.</p>
+<p>Whenever the number of deadSpiders reach odd numbers, the effect sound plays every time in line&nbsp;26. If deadSpiders become&nbsp;eleven&nbsp;within five&nbsp;seconds, the mission ends up successfully in from line 18 to 20.</p>
+<p><highlight>9-12,16,18-20,26</highlight></p>
+<pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">/*</span><span style="color: #708090"> initializing variables and metadata </span><span style="color: #999">*/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">/*</span><span style="color: #708090"> setting timer to show remained time </span><span style="color: #999">*/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">function</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">spiderMotionHandler</span><span style="color: #999">(</span><span style="color: #000">event</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">deadSpiders</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">Math</span><span style="color: #999">.</span><span style="color: #DD4A68">abs</span><span style="color: #999">(</span><span style="color: #000">event</span><span style="color: #999">.</span><span style="color: #000">acceleration</span><span style="color: #999">.</span><span style="color: #000">x</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&gt;=</span><span style="color: #BBBBBB"> </span><span style="color: #905">3.0</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">||</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">Math</span><span style="color: #999">.</span><span style="color: #DD4A68">abs</span><span style="color: #999">(</span><span style="color: #000">event</span><span style="color: #999">.</span><span style="color: #000">acceleration</span><span style="color: #999">.</span><span style="color: #000">y</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&gt;=</span><span style="color: #BBBBBB"> </span><span style="color: #905">3.0</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">||</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">Math</span><span style="color: #999">.</span><span style="color: #DD4A68">abs</span><span style="color: #999">(</span><span style="color: #000">event</span><span style="color: #999">.</span><span style="color: #000">acceleration</span><span style="color: #999">.</span><span style="color: #000">z</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&gt;=</span><span style="color: #BBBBBB"> </span><span style="color: #905">3.0</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">missionSuccessCount</span><span style="color: #A67F59">++</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">missionSuccessCount</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">%</span><span style="color: #BBBBBB"> </span><span style="color: #905">10</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">===</span><span style="color: #BBBBBB"> </span><span style="color: #905">0</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #000">deadSpiders</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Math</span><span style="color: #999">.</span><span style="color: #DD4A68">floor</span><span style="color: #999">(</span><span style="color: #000">missionSuccessCount</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">/</span><span style="color: #BBBBBB"> </span><span style="color: #905">10</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">deadSpiders</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">===</span><span style="color: #BBBBBB"> </span><span style="color: #905">11</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #DD4A68">spiderSuccess</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #DD4A68">$</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">#icon-spider-</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #000">shuffleNumArr</span><span style="color: #BBBBBB">[</span><span style="color: #000">deadSpiders</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">-</span><span style="color: #BBBBBB"> </span><span style="color: #905">1</span><span style="color: #BBBBBB">]</span><span style="color: #999">).</span><span style="color: #DD4A68">addClass</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">dead</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">deadSpiders</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&lt;=</span><span style="color: #BBBBBB"> </span><span style="color: #905">11</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">&amp;&amp;</span><span style="color: #BBBBBB"> </span><span style="color: #000">deadSpiders</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">%</span><span style="color: #BBBBBB"> </span><span style="color: #905">2</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">===</span><span style="color: #BBBBBB"> </span><span style="color: #905">1</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #DD4A68">$</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">#spider-dead-sound</span><span style="color: #999">"</span><span style="color: #999">).</span><span style="color: #DD4A68">trigger</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">play</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">/*</span><span style="color: #708090"> handing when the mission succeeds or fails </span><span style="color: #999">*/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">/*</span><span style="color: #708090"> defining routing table to communicate with modules </span><span style="color: #999">*/</span></span></code></pre>
+<h2 id="reference">Reference</h2><table 2.="" supported="" sensor and="" device="" types="" of wearable="" api="" versions="" for="" web="" applications=""></table></reference></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/11</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/642c4c04779a63be966fa6579cbe2e444ddde584">642c4c04779a63be966fa6579cbe2e444ddde584</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+

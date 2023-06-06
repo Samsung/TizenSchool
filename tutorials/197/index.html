@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/TizenSchool/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/TizenSchool/assets/images/favicon-32x32.png">
+    <title>Tizen C# Xamarin.Forms Application 개발 (HTTP 통신 연계)</title>
+  <link rel="stylesheet" href="/TizenSchool/assets/aboutus.9016036b.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.013d619c.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="2r5SHS" component-url="/TizenSchool/Header.fde63186.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/TizenSchool/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      Tizen C# Xamarin.Forms Application 개발 (HTTP 통신 연계)
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">This tutorial guides how to use the data from web service APIs using Xamarin.Forms.</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/TizenSchool/assets/images/iot-active.png">
+        <img src="/TizenSchool/assets/images/wearable-dimmed.png">
+        <img src="/TizenSchool/assets/images/mobile-dimmed.png">
+        <img src="/TizenSchool/assets/images/smart-tv-dimmed.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2020/06/06</span>
+            Modified
+            <span class="font-bold">2021/06/27</span>
+    </div>
+  </div><astro-island uid="HyndT" component-url="/TizenSchool/TextContent.c7f4d9de.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,15],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[]\&quot;],\&quot;chapter\&quot;:[0,\&quot;\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Overview\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;I. Overview\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. 목표\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. 프로젝트 생성\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. UI 구현\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;4. 기능 구현\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;5. 권한 등록\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;6. 실행\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;II. My IP (입문 프로젝트)\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. 목표\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. 프로젝트 생성\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. 프로젝트 구조\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;4. Model 구현\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;5. ViewModel 구현\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;6. View 구현\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;7. 권한등록\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;8. 실행\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;III. World Corona (기본 프로젝트)\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/15</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id="i-overview">I. Overview</h1><h2 id="overview">Overview</h2>
+<p>Tizen C# UI Application (With Xamarin.Forms) 개발에 익숙해 질 수 있도록 간단한 2개 프로젝트를 만들어 봅시다.</p>
+<p>2개 프로젝트 모두 Web Server API가 제공하는&nbsp;데이터를 가져와서&nbsp;보여주는 프로그램입니다.</p>
+<p><strong>1. My IP (입문&nbsp;프로젝트)</strong></p>
+<ul>
+<li>
+<p>개요 : 자신의 IP 주소를 출력하는&nbsp;프로젝트</p>
+</li>
+<li>
+<p>방법 : 디자인 패턴 사용 없이, 가장 간단한 개발 방법을 가이드</p>
+</li>
+</ul>
+<p>간단한 프로젝트에는 적합하지만, 규모가 큰 프로젝트에는 적합하지 않은&nbsp;방법</p>
+<img src="/TizenSchool/assets/images/tutorials/197/dump_screen.png" style="border-style:solid; border-width:1px; height:450px; width:800px">
+<p><strong>2. World Corona&nbsp;(기본 프로젝트)</strong></p>
+<ul>
+<li>
+<p>개요 :&nbsp;코로나 정보를 제공하는&nbsp;API를 활용하여, 전세계 코로나 상황을 출력하는 프로젝트</p>
+</li>
+<li>
+<p>방법 :&nbsp;MVVM 디자인 패턴을 사용하는 개발 방법 가이드 (단, 강의 편의상 예외처리는 배제)</p>
+</li>
+</ul>
+<img src="/TizenSchool/assets/images/tutorials/197/corona_screenshot.png" style="border-style:solid; border-width:1px; height:450px; width:800px">
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-my-ip-입문-프로젝트">II. My IP (입문 프로젝트)</h1><h2 id="1-목표">1. 목표</h2>
+<p>이번 프로젝트는 자신의 <strong>IP 주소를 간단히 출력해보는</strong> 기본&nbsp;튜토리얼입니다.</p>
+<ul>
+<li>
+<p>IP 주소는&nbsp; <strong><a href="https://api.ipify.org%C2%A0API">https://api.ipify.org&nbsp;API</a></strong> &nbsp;사용하여 조회</p>
+</li>
+<li>
+<p>화면 UI는 가장 손쉽게 사용할 수 있는 <strong>Absolute Layout</strong> &nbsp;사용하여 구현</p>
+</li>
+<li>
+<p>MVVM 패턴 미사용</p>
+</li>
+</ul>
+<img src="/TizenSchool/assets/images/tutorials/197/dump_screen.png" style="border-style:solid; border-width:1px; height:450px; width:800px">
+<p>*. 프로젝트 규모에 따라 쉬운 유지보수를 위하여</p>
+<p>MVVM 패턴을 사용하는 III. 기본 프로젝트&nbsp;방식도&nbsp;참고하기를 추천합니다.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-my-ip-입문-프로젝트">II. My IP (입문 프로젝트)</h1><h2 id="2-프로젝트-생성">2. 프로젝트 생성</h2>
+<p>1.&nbsp; <strong>Visual Studio</strong> &nbsp;메뉴에서&nbsp; <strong>File &gt; New &gt; Project</strong> &nbsp;선택</p>
+<img src="/TizenSchool/assets/images/tutorials/191/5_22.png" style="border-style:solid; border-width:1px">
+<ol start="2">
+<li>언어에서 <strong>C#</strong> , 플랫폼에서 <strong>Tizen</strong> 선택 후,&nbsp; <strong>Tizen XAML App (Xamarin.Forms)</strong> &nbsp;템플릿을 선택하고&nbsp;” <strong>Next</strong> ” 버튼을 누릅니다.</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/191/5_23.png" style="border-style:solid; border-width:1px">
+<ol start="3">
+<li><strong>프로젝트명</strong> &nbsp;입력 후 ” <strong>Create”</strong> &nbsp;버튼을 누릅니다. 예) MyIP</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/197/a1.png" style="border-style:solid; border-width:1px; height:664px; width:1000px">
+<p>4.&nbsp;Profile에서&nbsp; <strong>Common</strong> &nbsp;을 선택한&nbsp;후&nbsp;” <strong>OK</strong> ” 버튼을 누릅니다. 버전 선택 창에서는 <strong>6.0</strong> 을 선택합니다.</p>
+<img src="/TizenSchool/assets/images/tutorials/197/a2.png" style="border-style:solid; border-width:1px; height:316px; width:660px">
+<ol start="5">
+<li>프로젝트 생성이 마무리 되면, <strong>Solution explorer</strong> 에 다음과 같이 표시됩니다.</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/197/a3.png" style="border-style:solid; border-width:1px; height:331px; width:354px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-my-ip-입문-프로젝트">II. My IP (입문 프로젝트)</h1><h2 id="3-ui-구현">3. UI 구현</h2>
+<p>UI&nbsp;구성을&nbsp;위해&nbsp; <strong>MainPage.xaml</strong> 파일을 오픈합니다.</p>
+<p>만들고자 하는 UI는 다음과 같습니다. (중앙 텍스트 및 버튼 2개)</p>
+<img src="/TizenSchool/assets/images/tutorials/197/I_21.png" style="border-style:solid; border-width:1px; height:340px; width:640px">
+<p><strong>1. AbsoluteLayout 사용</strong></p>
+<ul>
+<li>기존 StackLayout 부분을 삭제하고 AbsoluteLayout으로 변경합니다.</li>
+</ul>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 84px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;?</span><span style="color: #905">xml</span><span style="color: #690"> version</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1.0</span><span style="color: #999">"</span><span style="color: #690"> encoding</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">utf-8</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">?&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;</span><span style="color: #905">ContentPage</span><span style="color: #BBBBBB"> </span><span style="color: #690">xmlns</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://xamarin.com/schemas/2014/forms</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">x</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://schemas.microsoft.com/winfx/2009/xaml</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Class</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">MyIP.MainPage</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">ContentPage.Content</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">AbsoluteLayout</span><span style="color: #BBBBBB"> </span><span style="color: #690">BackgroundColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">White</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;/</span><span style="color: #905">AbsoluteLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">ContentPage.Content</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;/</span><span style="color: #905">ContentPage</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>*. AbsoluteLayout은 좌측상단 좌표를 기점으로 하여 원하는 위치에 View(버튼, 텍스트)등을 배치할 수 있는 레이아웃입니다.</p>
+<p><a href="https://docs.microsoft.com/ko-kr/xamarin/xamarin-forms/user-interface/layouts/absolute-layout">https://docs.microsoft.com/ko-kr/xamarin/xamarin-forms/user-interface/layouts/absolute-layout</a></p>
+<p><strong>2.</strong> IP 주소를 표시하는&nbsp; <strong>Lable</strong> 을 추가합니다. 기본값은 0.0.0.0 입니다.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 196px; top: 28px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;</span><span style="color: #905">AbsoluteLayout</span><span style="color: #BBBBBB"> </span><span style="color: #690">BackgroundColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">White</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">Label</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0.0.0.0</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Name</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">myIP</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #690">FontSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Large</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #690">AbsoluteLayout.LayoutFlags</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">All</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0.5,0.4,1,0.25</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #690">HorizontalTextAlignment</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Center</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #690">VerticalTextAlignment</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Center</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;/</span><span style="color: #905">AbsoluteLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>*.&nbsp;AbsoluteLayout.LayoutFlags : “None”인 경우 좌표나 크기 모두 절대좌표를 사용합니다.</p>
+<img src="/TizenSchool/assets/images/tutorials/197/absolute.png" style="height:366px; width:854px">
+<p><strong>3. Button 2개를 추가합니다. (Load &amp; Reset)</strong></p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 252px; top: 224px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;</span><span style="color: #905">AbsoluteLayout</span><span style="color: #BBBBBB"> </span><span style="color: #690">BackgroundColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">White</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">Label</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0.0.0.0</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Name</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">myIP</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #690">FontSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Large</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #690">AbsoluteLayout.LayoutFlags</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">All</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0.5,0.4,1,0.25</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #690">HorizontalTextAlignment</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Center</span><span style="color: #999">"</span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Load</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #690">Clicked</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Button_Load</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #690">AbsoluteLayout.LayoutFlags</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">All</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0.25,0.75,0.25,0.10</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Reset</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #690">Clicked</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Button_Reset</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #690">AbsoluteLayout.LayoutFlags</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">All</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0.75,0.75,0.25,0.10</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;/</span><span style="color: #905">AbsoluteLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-my-ip-입문-프로젝트">II. My IP (입문 프로젝트)</h1><h2 id="4-기능-구현">4. 기능 구현</h2>
+<p>기능 구현을 위하여&nbsp; <strong>MainPage.xaml.cs</strong> 파일을 오픈합니다.</p>
+<p>(해당 파일이 보이지 않을 경우 MainPage.xaml 파일 왼쪽에 화살표를 클릭)</p>
+<p><strong>1. 버튼 클릭시 호출될 이벤트 메소드 추가</strong></p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 252px; top: 476px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Collections</span><span style="color: #BBBBBB">.</span><span style="color: #000">Generic</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Linq</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Text</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #BBBBBB">.</span><span style="color: #000">Xaml</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">MyIP</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">[</span><span style="color: #000">XamlCompilation</span><span style="color: #999">(</span><span style="color: #000">XamlCompilationOptions</span><span style="color: #999">.</span><span style="color: #000">Compile</span><span style="color: #999">)]</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">partial</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">MainPage</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">ContentPage</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">MainPage</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">InitializeComponent</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Button_Reset</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">EventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Button_Load</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">EventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>2. Reset 버튼 기능 구현</strong></p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Button_Reset</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">EventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">myIP</span><span style="color: #999">.</span><span style="color: #000">Text</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">0.0.0.0</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>3. IP Load 버튼 기능 구현</strong></p>
+<ul>
+<li>
+<p>IP 주소를 얻기 위하여 <a href="https://api.ipify.org/API">https://api.ipify.org/API</a> 사용</p>
+</li>
+<li>
+<p>HTTP 통신을 위하여 ” <strong>using System.Net.Http;</strong> ” 입력</p>
+</li>
+<li>
+<p>IP 주소 값은&nbsp;값이 즉시 리턴되지 않기&nbsp;때문에 <strong>Async</strong> 형태로 구현</p>
+</li>
+</ul>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 84px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 112px; top: 672px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Collections</span><span style="color: #BBBBBB">.</span><span style="color: #000">Generic</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Linq</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Net</span><span style="color: #BBBBBB">.</span><span style="color: #000">Http</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Text</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Threading</span><span style="color: #BBBBBB">.</span><span style="color: #000">Tasks</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #BBBBBB">.</span><span style="color: #000">Xaml</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">MyIP</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">[</span><span style="color: #000">XamlCompilation</span><span style="color: #999">(</span><span style="color: #000">XamlCompilationOptions</span><span style="color: #999">.</span><span style="color: #000">Compile</span><span style="color: #999">)]</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">partial</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">MainPage</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">ContentPage</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">MainPage</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">InitializeComponent</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Button_Reset</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">EventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">myIP</span><span style="color: #999">.</span><span style="color: #000">Text</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">0.0.0.0</span><span style="color: #999">"</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">async</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Button_Load</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">EventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">myIP</span><span style="color: #999">.</span><span style="color: #000">Text</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">await</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">HttpClient</span><span style="color: #999">().</span><span style="color: #DD4A68">GetStringAsync</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">https://api.ipify.org/</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-my-ip-입문-프로젝트">II. My IP (입문 프로젝트)</h1><h2 id="5-권한-등록">5. 권한 등록</h2>
+<p>프로그램에서 외부 인터넷에 접근하기 위해서는 Privilege를 선언해 주어야 합니다.</p>
+<ol>
+<li><strong>tizen-manifest.xml</strong> 파일 오픈 후 <strong>Privileges</strong> 탭에서 <strong>Add</strong> 버튼&nbsp;클릭</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/197/privilege.png" style="border-style:solid; border-width:1px; height:341px; width:1000px">
+<ol start="2">
+<li><strong>internet</strong> 검색 후 목록에서 <strong><a href="http://tizen.org/privilege/internet">http://tizen.org/privilege/internet</a></strong> 선택하고 <strong>OK</strong> 버튼 클릭</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/197/I_42.png" style="border-style:solid; border-width:1px; height:572px; width:504px">
+<ol start="3">
+<li><strong>파일 저장</strong> (Ctrl + S or 상단 File 메뉴에서&nbsp;Save&nbsp;tizen-manifest.xml )</li>
+</ol>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-my-ip-입문-프로젝트">II. My IP (입문 프로젝트)</h1><h2 id="6-실행">6. 실행</h2>
+<ol>
+<li>프로그램을 설치할 디바이스가 연결되어 있는지 확인합니다.</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/191/5_27.png" style="border-style:solid; border-width:1px">
+<p>*. 연결되어 있지 않으면&nbsp;<a href="https://samsung.github.io/TizenSchool/tutorial/194/contents/8">https://samsung.github.io/TizenSchool/tutorial/194/contents/8</a>&nbsp;가이드를 참고해서 연결합니다.</p>
+<ol start="2">
+<li><strong>Ctrl-F5</strong> 로 설치 및 실행합니다.</li>
+</ol>
+<p>설치 후 Load 버튼을 클릭하여 IP 주소가 제대로 출력되는지 확인합니다.</p>
+<img src="/TizenSchool/assets/images/tutorials/197/dump_screen.png" style="border-style:solid; border-width:1px; height:450px; width:800px">
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-world-corona-기본-프로젝트">III. World Corona (기본 프로젝트)</h1><h2 id="1-목표-1">1. 목표</h2>
+<p>이번 프로젝트는 <strong>코로나 현황을 리스트로&nbsp;출력하는</strong> 프로그램입니다.</p>
+<ul>
+<li>
+<p>코로나 데이터는&nbsp; <strong><a href="https://disease.sh/v3/covid-19/countries?yesterday=true&amp;sort=cases%C2%A0API">https://disease.sh/v3/covid-19/countries?yesterday=true&amp;sort=cases&nbsp;API</a></strong> &nbsp;사용하여 조회 ( <strong><a href="https://disease.sh">https://disease.sh</a> 참고)</strong></p>
+</li>
+<li>
+<p>화면 UI는 <strong>ListView &amp;</strong> &nbsp; <strong>Grid</strong> 로 구성</p>
+</li>
+<li>
+<p>MVVM 패턴 사용</p>
+</li>
+<li>
+<p>강의 편의상 예외처리 및 최적화는 배제</p>
+</li>
+</ul>
+<img src="/TizenSchool/assets/images/tutorials/197/corona_screenshot.png" style="border-style:solid; border-width:1px; height:563px; width:1000px">
+<p><strong>*. MVVM Design Pattern</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/197/MVVM.png" style="height:293px; width:648px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-world-corona-기본-프로젝트">III. World Corona (기본 프로젝트)</h1><h2 id="2-프로젝트-생성-1">2. 프로젝트 생성</h2>
+<p>1.&nbsp; <strong>Visual Studio</strong> &nbsp;메뉴에서&nbsp; <strong>File &gt; New &gt; Project</strong> &nbsp;선택</p>
+<img src="/TizenSchool/assets/images/tutorials/191/5_22.png" style="border-style:solid; border-width:1px">
+<ol start="2">
+<li>언어에서 <strong>C#</strong> , 플랫폼에서 <strong>Tizen</strong> 선택 후,&nbsp; <strong>Tizen XAML App (Xamarin.Forms)</strong> &nbsp;템플릿을 선택하고&nbsp;” <strong>Next</strong> ” 버튼을 누릅니다.</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/191/5_23.png" style="border-style:solid; border-width:1px">
+<ol start="3">
+<li><strong>프로젝트명</strong> &nbsp;입력 후 ” <strong>Create”</strong> &nbsp;버튼을 누릅니다. 예) CoronaVirus</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/197/c1.png" style="border-style:solid; border-width:1px; height:531px; width:800px">
+<ol start="4">
+<li>Profile에서&nbsp; <strong>Common</strong> &nbsp;을 선택한&nbsp;후&nbsp;” <strong>OK</strong> ” 버튼을 누릅니다.</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/197/c2.png" style="border-style:solid; border-width:1px; height:316px; width:660px">
+<ol start="5">
+<li>프로젝트 생성이 마무리 되면, <strong>Solution explorer</strong> 에 다음과 같이 표시됩니다.</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/197/c3.png" style="border-style:solid; border-width:1px; height:309px; width:259px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-world-corona-기본-프로젝트">III. World Corona (기본 프로젝트)</h1><h2 id="3-프로젝트-구조">3. 프로젝트 구조</h2>
+<p><strong>1. 폴더 생성</strong></p>
+<ul>
+<li>
+<p>프로그램에서 사용되는&nbsp;파일을 쉽게 구분하기 위해&nbsp;폴더를 생성합니다.</p>
+</li>
+<li>
+<p>Solution Explorer에서 ConoraVirus 프로젝트 위에서 마우스 우 클릭 후 Add &gt; New Folder를 선택합니다.</p>
+</li>
+<li>
+<p>MVVM 패턴에 따라 Models / Views / ModelViews 및 Services 폴더를 생성합니다.</p>
+</li>
+</ul>
+<img src="/TizenSchool/assets/images/tutorials/197/c4.png" style="border-style:solid; border-width:1px; height:434px; width:734px">
+<img src="/TizenSchool/assets/images/tutorials/197/service31.png" style="height:377px; width:298px">
+<p><strong>2. 파일 생성</strong></p>
+<ul>
+<li>파일을 생성할 폴더를 선택하고 마우스 우클릭 후 Add &gt; New Item 에서 파일을 생성할 수 있습니다.</li>
+</ul>
+<img src="/TizenSchool/assets/images/tutorials/197/service2.png" style="height:400px; width:728px">
+<ol>
+<li>
+<p><strong>Models</strong> 폴더 내 <strong>CoronaModel.cs</strong> 생성 (Class 타입)</p>
+</li>
+<li>
+<p><strong>ViewModels</strong> 폴더 내 <strong>ListPageViewModel.cs</strong> 생성 (Class 타입)</p>
+</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/197/c7.png" style="border-style:solid; border-width:1px; height:653px; width:941px">
+<ol start="4">
+<li><strong>Views</strong> 폴더 내 <strong>ListPage.xaml</strong> 생성 (Content Page 타입)</li>
+</ol>
+<ul>
+<li>화면 UI를 담당하는 파일&nbsp;일반 Class Type이 아닌 XAML을 사용하는 Content Page 사용</li>
+</ul>
+<img src="/TizenSchool/assets/images/tutorials/197/c8.png" style="height:653px; width:941px">
+<p><strong>3. 앱 처음 UI 화면 변경</strong></p>
+<ul>
+<li>
+<p>기본 템플릿 생성 시 MainPage.xaml 파일이 자동 생성되고, 이 파일이 앱의 첫화면으로 자동 지정되어 있습니다</p>
+</li>
+<li>
+<p>이 파일을 삭제하고 새로 만든 ListPage.xaml 파일을 첫화면으로 등록 합니다.</p>
+</li>
+<li>
+<p>MainPage.xaml 파일 선택 후 마우스 우 클릭 후 삭제</p>
+</li>
+<li>
+<p><strong>App.xaml.cs</strong> 을 열어서&nbsp; <strong>ListPage.xaml</strong> &nbsp;를 첫화면으로 등록</p>
+</li>
+</ul>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 476px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Collections</span><span style="color: #BBBBBB">.</span><span style="color: #000">Generic</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Linq</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Text</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #BBBBBB">.</span><span style="color: #000">Xaml</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">CoronaVirus</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">[</span><span style="color: #000">XamlCompilation</span><span style="color: #999">(</span><span style="color: #000">XamlCompilationOptions</span><span style="color: #999">.</span><span style="color: #000">Compile</span><span style="color: #999">)]</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">partial</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">App</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">Application</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">App</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">InitializeComponent</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">MainPage</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">CoronaVirus</span><span style="color: #999">.</span><span style="color: #000">Views</span><span style="color: #999">.</span><span style="color: #000">ListPage</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">...</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>4. 프로젝트 구조 확인</strong></p>
+<ul>
+<li>위 작업이 마무리 되면 아래와 같은 프로젝트 구조가 표시되어야 합니다.</li>
+</ul>
+<img src="/TizenSchool/assets/images/tutorials/197/service3.png" style="height:425px; width:300px">
+<p>*. 만약 “Content Page”를 찾을 수 없다면 Visual Studio Installer 실행하여 수정을 선택한 후에</p>
+<p>추가적으로 ” <strong>.NET을 사용한 모바일 개발</strong> “을 설치합니다.</p>
+<img src="/TizenSchool/assets/images/tutorials/197/vs_installer.png" style="height:487px; width:600px">
+<img src="/TizenSchool/assets/images/tutorials/197/vs_installer2.png" style="height:444px; width:800px">
+<img src="/TizenSchool/assets/images/tutorials/194/install11.PNG" style="height:558px; width:1000px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-world-corona-기본-프로젝트">III. World Corona (기본 프로젝트)</h1><h2 id="4-model-구현">4. Model 구현</h2>
+<p><strong>Model</strong> 은 MVVM 디자인 패턴에서 <strong>데이터 처리</strong> 를 담당하고 있습니다.</p>
+<p><strong>1. API 확인</strong></p>
+<ul>
+<li>
+<p>코로나 데이터를 받아올 API 주소는&nbsp; <strong><a href="https://disease.sh/v3/covid-19/countries?yesterday=true&amp;sort=cases">https://disease.sh/v3/covid-19/countries?yesterday=true&amp;sort=cases</a></strong> 입니다.</p>
+</li>
+<li>
+<p>브라우저에서 위 주소를 접속하여 JSON 파일이 제대로 출력되는지 확인합니다.</p>
+</li>
+</ul>
+<img src="/TizenSchool/assets/images/tutorials/197/c10.png" style="border-style:solid; border-width:1px; height:267px; width:738px">
+<p><strong>2. JSON 파일 구조 파악</strong></p>
+<ul>
+<li>위 JSON 파일의 구조를 수작업으로 만들어도&nbsp;좋지만, 자동으로 처리해주는 무료툴이 많이 있습니다.</li>
+</ul>
+<p>-&nbsp;<a href="https://app.quicktype.io/">quicktype.io</a>&nbsp;사이트에 접속 후 상단에 “OPEN QUICKTYPE” 을 클릭합니다.</p>
+<ul>
+<li>
+<p>좌측 창에 Name과 Source Type을 아래와 같이 지정 후, 하단에 위에 브라우저에서 출력된 JSON 파일을 붙여 넣기 합니다.</p>
+</li>
+<li>
+<p>우측 옵션창에서(옵션이 안 보이면 상단메뉴에서 옵션 클릭) 아래와 같이 언어와 Namespace를 지정합니다.</p>
+</li>
+</ul>
+<img src="/TizenSchool/assets/images/tutorials/197/c11.png" style="border-style:solid; border-width:1px; height:606px; width:1000px">
+<ol start="3">
+<li><strong>ConoraModel.cs</strong> 을 열어서 위에서 출력된 소스코드를 붙여 넣기합니다.</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/197/c12.png" style="border-style:solid; border-width:1px; height:594px; width:1000px">
+<p><strong>4. Newtonsoft.Json&nbsp;Package 설치</strong></p>
+<ul>
+<li>해당 코드는&nbsp; <strong>Newtonsoft.Json</strong> 외부&nbsp;라이브러리를 사용하고 있어&nbsp;위 스크린샷과 같이 에러가 발생합니다.</li>
+</ul>
+<p>-&nbsp; <strong>Newtonsoft.Json</strong> 를 설치하기 위해&nbsp;CoronaVirus 솔루션 위에서 마우스 우 클릭 후 ” <strong>Manage Nuget Packages for Solution</strong> “을 클릭합니다.</p>
+<img src="/TizenSchool/assets/images/tutorials/197/c13.png" style="height:310px; width:607px">
+<ul>
+<li>Browse 탭에서&nbsp; <strong>Newtonsoft</strong> 검색한 후&nbsp; <strong>Newtonsoft.Json</strong> 을 **** 선택합니다. 그리고 **CoronaVirus** 프로젝트 선택&nbsp;후 인스톨 버튼을 클릭하여 설치합니다.</li>
+</ul>
+<img src="/TizenSchool/assets/images/tutorials/197/c14.png" style="border-style:solid; border-width:1px; height:450px; width:965px">
+<p>여기까지 API가 제공해주는 JSON파일 기반&nbsp;Model 구현이 마무리 되었습니다.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-world-corona-기본-프로젝트">III. World Corona (기본 프로젝트)</h1><h2 id="5-viewmodel-구현">5. ViewModel 구현</h2>
+<p><strong>ViewModel</strong> 은 MVVM 디자인 패턴에서 <strong>View와 Model 간의 상호작용</strong> 을 **** 담당하고 있습니다.</p>
+<p><strong>ListPageViewModel.cs</strong> 파일을 열어서 아래와 같이 작성합니다.</p>
+<p><strong>1. INotifyPropertyChanged 상속</strong></p>
+<p>: VidewModel을 Binding 하고 있는 View에게 Data 갱신을 알려주기 위해서&nbsp;INotifyPropertyChanged 인터페이스 상속&nbsp;필요</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 196px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 252px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Collections</span><span style="color: #BBBBBB">.</span><span style="color: #000">Generic</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">ComponentModel</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Text</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">CoronaVirus</span><span style="color: #999">.</span><span style="color: #000">ViewModels</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">ListPageViewModel</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">INotifyPropertyChanged</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">event</span><span style="color: #BBBBBB"> </span><span style="color: #000">PropertyChangedEventHandler</span><span style="color: #BBBBBB"> </span><span style="color: #000">PropertyChanged</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>*. Data Binding :&nbsp;<a href="https://docs.microsoft.com/ko-kr/xamarin/xamarin-forms/app-fundamentals/data-binding/">https://docs.microsoft.com/ko-kr/xamarin/xamarin-forms/app-fundamentals/data-binding/</a></p>
+<p><strong>2. DataList 정의 (Getter / Setter)</strong></p>
+<ul>
+<li>
+<p>각국의 코로나 데이터가 저장된 List의 Getter와 Setter를 생성합니다.</p>
+</li>
+<li>
+<p>리스트가 업데이트 될 때&nbsp;View에도 값 변경 사실을 통보합니다. <strong>(</strong> <strong>PropertyChanged?.Invoke)</strong></p>
+</li>
+</ul>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 0px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 280px; top: 336px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">CoronaVirus</span><span style="color: #BBBBBB">.</span><span style="color: #000">Models</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Collections</span><span style="color: #BBBBBB">.</span><span style="color: #000">Generic</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">ComponentModel</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Text</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">CoronaVirus</span><span style="color: #999">.</span><span style="color: #000">ViewModels</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">ListPageViewModel</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">INotifyPropertyChanged</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">event</span><span style="color: #BBBBBB"> </span><span style="color: #000">PropertyChangedEventHandler</span><span style="color: #BBBBBB"> </span><span style="color: #000">PropertyChanged</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">CoronaModel</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">_dataList</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">CoronaModel</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">DataList</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">get</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #000">_dataList</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">set</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">_dataList</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">PropertyChanged</span><span style="color: #A67F59">?</span><span style="color: #999">.</span><span style="color: #DD4A68">Invoke</span><span style="color: #999">(</span><span style="color: #07A">this</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">PropertyChangedEventArgs</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">DataList</span><span style="color: #999">"</span><span style="color: #999">));</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>3. 코로나 데이터&nbsp;웹서버에서 수신</strong></p>
+<ul>
+<li>
+<p>앞에서 제작한 HttpService를 통하여 Web API에서 JSON 파일을 다운로드합니다.</p>
+</li>
+<li>
+<p>다운로드한 JSON 파일을 앞에서 제작한 CoronaModel을 통하여 List로 변환합니다.</p>
+</li>
+<li>
+<p>위 작업을 ListPageViewModel 생성자에서 호출하여 ViewModel 생성시 수행합니다.</p>
+</li>
+</ul>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 56px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 308px; top: 700px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">CoronaVirus</span><span style="color: #BBBBBB">.</span><span style="color: #000">Models</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Collections</span><span style="color: #BBBBBB">.</span><span style="color: #000">Generic</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">ComponentModel</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Text</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Threading</span><span style="color: #BBBBBB">.</span><span style="color: #000">Tasks</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Net</span><span style="color: #BBBBBB">.</span><span style="color: #000">Http</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">CoronaVirus</span><span style="color: #999">.</span><span style="color: #000">ViewModels</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">ListPageViewModel</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">INotifyPropertyChanged</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">event</span><span style="color: #BBBBBB"> </span><span style="color: #000">PropertyChangedEventHandler</span><span style="color: #BBBBBB"> </span><span style="color: #000">PropertyChanged</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">CoronaModel</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">_dataList</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">CoronaModel</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">DataList</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">get</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #000">_dataList</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">set</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">_dataList</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">PropertyChanged</span><span style="color: #A67F59">?</span><span style="color: #999">.</span><span style="color: #DD4A68">Invoke</span><span style="color: #999">(</span><span style="color: #07A">this</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">PropertyChangedEventArgs</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">DataList</span><span style="color: #999">"</span><span style="color: #999">));</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ListPageViewModel</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">_</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">GetCoronaData</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">async</span><span style="color: #BBBBBB"> </span><span style="color: #000">Task</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">GetCoronaData</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">json</span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">await</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">HttpClient</span><span style="color: #999">().</span><span style="color: #DD4A68">GetStringAsync</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">https://disease.sh/v3/covid-19/countries?yesterday=true&amp;sort=cases</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">data</span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">CoronaModel</span><span style="color: #999">.</span><span style="color: #DD4A68">FromJson</span><span style="color: #999">(</span><span style="color: #000">json</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">DataList</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">CoronaModel</span><span style="color: #999">&gt;(</span><span style="color: #000">data</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>*. 참고자료</p>
+<ul>
+<li>discard :&nbsp;<a href="https://docs.microsoft.com/ko-kr/dotnet/csharp/discards">https://docs.microsoft.com/ko-kr/dotnet/csharp/discards</a></li>
+</ul>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-world-corona-기본-프로젝트">III. World Corona (기본 프로젝트)</h1><h2 id="6-view-구현">6. View 구현</h2>
+<p><strong>View</strong> 는&nbsp;MVVM 디자인 패턴에서 <strong>사용자가 보는 화면 UI</strong> 를 담당하고 있습니다.</p>
+<p><strong>ListPage.xaml</strong> 파일을 열어서 아래와 같이 작성합니다.</p>
+<p><strong>1. “Welcome to Xamarin.Forms” Label 삭제</strong></p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #A67F59">&lt;?</span><span style="color: #000">xml</span><span style="color: #BBBBBB"> </span><span style="color: #000">version</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">1.0</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #000">encoding</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">utf-8</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">?&gt;</span></span>
+<span class="line"><span style="color: #A67F59">&lt;</span><span style="color: #000">ContentPage</span><span style="color: #BBBBBB"> </span><span style="color: #000">xmlns</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">http://xamarin.com/schemas/2014/forms</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #000">xmlns</span><span style="color: #A67F59">:</span><span style="color: #000">x</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">http://schemas.microsoft.com/winfx/2009/xaml</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #000">xmlns</span><span style="color: #A67F59">:</span><span style="color: #000">d</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">http://xamarin.com/schemas/2014/forms/design</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             xmlns</span><span style="color: #999">:</span><span style="color: #000">mc</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">http://schemas.openxmlformats.org/markup-compatibility/2006</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             mc</span><span style="color: #999">:</span><span style="color: #000">Ignorable</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">d</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             x</span><span style="color: #999">:</span><span style="color: #000">Class</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">CoronaVirus.Views.ListPage</span><span style="color: #999">"</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #A67F59">&lt;</span><span style="color: #000">ContentPage</span><span style="color: #999">.</span><span style="color: #000">Content</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #A67F59">&lt;/</span><span style="color: #000">ContentPage</span><span style="color: #999">.</span><span style="color: #000">Content</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #A67F59">&lt;/</span><span style="color: #000">ContentPage</span><span style="color: #A67F59">&gt;</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>2. ViewModel Binding</strong></p>
+<p>: 데이터를 받을 수 있도록 이전 페이지에서 작성한 ListPageViewModel를 BindingContext로 할당합니다.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 84px; top: 252px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #A67F59">&lt;?</span><span style="color: #000">xml</span><span style="color: #BBBBBB"> </span><span style="color: #000">version</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">1.0</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #000">encoding</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">utf-8</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">?&gt;</span></span>
+<span class="line"><span style="color: #A67F59">&lt;</span><span style="color: #000">ContentPage</span><span style="color: #BBBBBB"> </span><span style="color: #000">xmlns</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">http://xamarin.com/schemas/2014/forms</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #000">xmlns</span><span style="color: #A67F59">:</span><span style="color: #000">x</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">http://schemas.microsoft.com/winfx/2009/xaml</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #000">xmlns</span><span style="color: #A67F59">:</span><span style="color: #000">d</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">http://xamarin.com/schemas/2014/forms/design</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             xmlns</span><span style="color: #999">:</span><span style="color: #000">mc</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">http://schemas.openxmlformats.org/markup-compatibility/2006</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             xmlns</span><span style="color: #999">:</span><span style="color: #000">viewModel</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">clr-namespace:CoronaVirus.ViewModels</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             mc</span><span style="color: #999">:</span><span style="color: #000">Ignorable</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">d</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             x</span><span style="color: #999">:</span><span style="color: #000">Class</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">CoronaVirus.Views.ListPage</span><span style="color: #999">"</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #A67F59">&lt;</span><span style="color: #000">ContentPage</span><span style="color: #999">.</span><span style="color: #000">BindingContext</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #A67F59">&lt;</span><span style="color: #BBBBBB">viewModel</span><span style="color: #999">:</span><span style="color: #000">ListPageViewModel</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #A67F59">&lt;/</span><span style="color: #000">ContentPage</span><span style="color: #999">.</span><span style="color: #000">BindingContext</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #A67F59">&lt;</span><span style="color: #000">ContentPage</span><span style="color: #999">.</span><span style="color: #000">Content</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #A67F59">&lt;/</span><span style="color: #000">ContentPage</span><span style="color: #999">.</span><span style="color: #000">Content</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #A67F59">&lt;/</span><span style="color: #000">ContentPage</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>3. ListView 추가</strong></p>
+<ul>
+<li>
+<p>각 국가의 코로나 현황을 보여줄 ListView를 추가합니다.</p>
+</li>
+<li>
+<p>해당 List&nbsp;데이터는 위에서&nbsp;바인딩한&nbsp;ViewModel의 <strong>DataList</strong> 에서 가지고 오도록 지정합니다.</p>
+</li>
+</ul>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 252px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">...</span></span>
+<span class="line"><span style="color: #A67F59">&lt;</span><span style="color: #000">ContentPage</span><span style="color: #999">.</span><span style="color: #000">Content</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #A67F59">&lt;</span><span style="color: #000">ListView</span><span style="color: #BBBBBB"> </span><span style="color: #000">ItemsSource</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">{Binding DataList}</span><span style="color: #999">"</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #A67F59">&lt;</span><span style="color: #000">ListView</span><span style="color: #999">.</span><span style="color: #000">ItemTemplate</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #A67F59">&lt;</span><span style="color: #000">DataTemplate</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #A67F59">&lt;</span><span style="color: #000">ViewCell</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #A67F59">&lt;/</span><span style="color: #000">ViewCell</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #A67F59">&lt;/</span><span style="color: #000">DataTemplate</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #A67F59">&lt;/</span><span style="color: #000">ListView</span><span style="color: #999">.</span><span style="color: #000">ItemTemplate</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #A67F59">&lt;/</span><span style="color: #000">ListView</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #A67F59">&lt;/</span><span style="color: #000">ContentPage</span><span style="color: #999">.</span><span style="color: #000">Content</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">...</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>4. Cell 상세 구현</strong></p>
+<p><strong>- List 하나의&nbsp;Cell은 다음과 같습니다. (2 Rows X 4 Columns)</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/197/c19.png" style="border-style:solid; border-width:1px; height:87px; width:1000px">
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 1008px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">...</span></span>
+<span class="line"><span style="color: #999">&lt;</span><span style="color: #905">ViewCell</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">Frame</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">Grid</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Grid.RowDefinitions</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #999">&lt;</span><span style="color: #905">RowDefinition</span><span style="color: #BBBBBB"> </span><span style="color: #690">Height</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">*</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #999">&lt;</span><span style="color: #905">RowDefinition</span><span style="color: #BBBBBB"> </span><span style="color: #690">Height</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">*</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;/</span><span style="color: #905">Grid.RowDefinitions</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Grid.ColumnDefinitions</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #999">&lt;</span><span style="color: #905">ColumnDefinition</span><span style="color: #BBBBBB"> </span><span style="color: #690">Width</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">*</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #999">&lt;</span><span style="color: #905">ColumnDefinition</span><span style="color: #BBBBBB"> </span><span style="color: #690">Width</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">*</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #999">&lt;</span><span style="color: #905">ColumnDefinition</span><span style="color: #BBBBBB"> </span><span style="color: #690">Width</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">*</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #999">&lt;</span><span style="color: #905">ColumnDefinition</span><span style="color: #BBBBBB"> </span><span style="color: #690">Width</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">*</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;/</span><span style="color: #905">Grid.ColumnDefinitions</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Image</span><span style="color: #BBBBBB"> </span><span style="color: #690">Source</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding CountryInfo.Flag}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Grid.RowSpan</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Label</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding Country}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Grid.RowSpan</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">VerticalTextAlignment</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Center</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Label</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding Cases, StringFormat=\{0:0\,0\}}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Label</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding Deaths, StringFormat=\{0:0\,0\}}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">2</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Label</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding TodayCases, StringFormat='( +{0} )'}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">3</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Label</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding TodayDeaths, StringFormat='( +{0} )'}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Grid.Row</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #690">Grid.Column</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">3</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;/</span><span style="color: #905">Grid</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">Frame</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;/</span><span style="color: #905">ViewCell</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">...</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ul>
+<li>
+<p>Grid의 Height과 Width&nbsp;정의 시 <strong>*</strong> 로 지정하면 같은 크기로 할당됩니다.</p>
+</li>
+<li>
+<p><strong>StringFormat</strong> 을 사용하면 데이터를 원하는 포맷으로 출력이 가능합니다.</p>
+</li>
+</ul>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-world-corona-기본-프로젝트">III. World Corona (기본 프로젝트)</h1><h2 id="7-권한등록">7. 권한등록</h2>
+<p>프로그램에서 외부 인터넷에 접근하기 위해서는 Privilege를 선언해 주어야 합니다.</p>
+<ol>
+<li><strong>tizen-manifest.xml</strong> 파일 오픈 후 <strong>Privileges</strong> 탭에서 <strong>Add</strong> 버튼&nbsp;클릭</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/197/c15.png" style="border-style:solid; border-width:1px; height:463px; width:1000px">
+<ol start="2">
+<li><strong>internet</strong> 검색 후 목록에서 <strong><a href="http://tizen.org/privilege/internet">http://tizen.org/privilege/internet</a></strong> 선택하고 <strong>OK</strong> 버튼 클릭</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/197/I_42.png" style="border-style:solid; border-width:1px; height:572px; width:504px">
+<ol start="3">
+<li><strong>파일 저장</strong> (Ctrl + S or 상단 File 메뉴에서&nbsp;Save&nbsp;tizen-manifest.xml )</li>
+</ol>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-world-corona-기본-프로젝트">III. World Corona (기본 프로젝트)</h1><h2 id="8-실행">8. 실행</h2>
+<ol>
+<li>프로그램을 설치할 디바이스가 연결되어 있는지 확인합니다.</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/191/5_27.png" style="border-style:solid; border-width:1px">
+<p>*. 연결되어 있지 않으면&nbsp;<a href="https://samsung.github.io/TizenSchool/tutorial/194/contents/8">https://samsung.github.io/TizenSchool/tutorial/194/contents/8</a>&nbsp;가이드를 참고해서 연결합니다.</p>
+<ol start="2">
+<li><strong>Ctrl-F5</strong> 로 설치 및 실행합니다.</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/197/corona_screenshot.png" style="border-style:solid; border-width:1px; height:563px; width:1000px"></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/15</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/642c4c04779a63be966fa6579cbe2e444ddde584">642c4c04779a63be966fa6579cbe2e444ddde584</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+

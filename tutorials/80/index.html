@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/TizenSchool/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/TizenSchool/assets/images/favicon-32x32.png">
+    <title>How to create ListView with dynamic contents.</title>
+  <link rel="stylesheet" href="/TizenSchool/assets/aboutus.9016036b.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.013d619c.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="2r5SHS" component-url="/TizenSchool/Header.fde63186.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/TizenSchool/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      How to create ListView with dynamic contents.
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">This tutorial demonstrates how to work with ListView element and display dynamic data with it.</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/TizenSchool/assets/images/iot-active.png">
+        <img src="/TizenSchool/assets/images/wearable-dimmed.png">
+        <img src="/TizenSchool/assets/images/mobile-active.png">
+        <img src="/TizenSchool/assets/images/smart-tv-active.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2017/09/02</span>
+            Modified
+            <span class="font-bold">2020/02/04</span>
+    </div>
+  </div><astro-island uid="2bYxYL" component-url="/TizenSchool/TextContent.c7f4d9de.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,6],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[]\&quot;],\&quot;chapter\&quot;:[0,\&quot;\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Overview\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. Importing and building solution\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;I. INTRODUCTION\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Providing data for an element\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. Custom item template\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. Filtering data\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;4. Sorting data\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;II. LISTVIEW\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/6</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id="i-introduction">I. INTRODUCTION</h1><h2 id="1-overview">1. Overview</h2>
+<p>This tutorial explains how to work with ListView element with dynamic dataset bound to ItemSource.</p>
+<p>We will create application which will filter, sort and display data with ListView component.</p>
+<p>Following screen shows final application on the mobile emulator.</p>
+<p>(You can run this appliation on various devices.)</p>
+<img src="/TizenSchool/assets/images/tutorials/80/final-ss.png" style="border-style:solid; border-width:1px; height:533px; width:300px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="i-introduction">I. INTRODUCTION</h1><h2 id="2-importing-and-building-solution">2. Importing and building solution</h2>
+<p>In this step, we will import and build Visual Studio solution containing initial application code.</p>
+<p>Step 1: Download and unpack&nbsp;<a href="https://tizenschool.org/assets/images/tutorials/80/DynamicListView_init.zip"> <strong><em>DynamicListview.zip</em></strong> </a> file.</p>
+<p>Step 2: Click File &gt; Open &gt; Project/Solution…</p>
+<img src="/TizenSchool/assets/images/tutorials/80/open-dynamic-list-ab.png" style="height:487px; width:800px">
+<p>Step 3: Go to downloaded directory and select DynamicListView.sln file (Microsoft Visual Studio Solution), then click the “Open” button.</p>
+<img src="/TizenSchool/assets/images/tutorials/80/open-dynamic-list-ac.png" style="height:485px; width:800px">
+<p>The solution structure should appear in the Solution Explorer view:</p>
+<img src="/TizenSchool/assets/images/tutorials/80/soultion.png" style="height:483px; width:800px">
+<p>Step 4: Right click on the solution and select “Restore NuGet Packages” from the context menu. This will set up NuGet packages for all projects.</p>
+<img src="/TizenSchool/assets/images/tutorials/80/restore.png" style="height:483px; width:800px">
+<p>Step 5: From menu Build select “Rebuild Solution”.</p>
+<img src="/TizenSchool/assets/images/tutorials/80/rebuild.png" style="height:483px; width:800px">
+<p>Right now, the application can be run on the emulator or target device.</p>
+<p>We will start with base version of the application. The application displays blank screen.</p>
+<img src="/TizenSchool/assets/images/tutorials/80/initial.png" style="border-style:solid; border-width:1px; height:533px; width:300px">
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-listview">II. LISTVIEW</h1><h2 id="1-providing-data-for-an-element">1. Providing data for an element</h2>
+<p>We start with defining our dataset in ViewModel.</p>
+<p>Add a Persons&nbsp;property with backing field in&nbsp; <strong>ViewModels/ListViewDemoPageViewModel.cs</strong> :</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 280px; top: 112px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">DynamicListView</span><span style="color: #999">.</span><span style="color: #000">ViewModels</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">ListViewDemoPageViewModel</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">ViewModelBase</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #07A">string</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">_persons</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #07A">string</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">Persons</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">get</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">_persons</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">set</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #DD4A68">SetProperty</span><span style="color: #999">(</span><span style="color: #07A">ref</span><span style="color: #BBBBBB"> </span><span style="color: #000">_person</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ListViewDemoPageViewModel</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Now, in constructor we define contents of “Persons”.&nbsp;Please modify&nbsp; <strong>ViewModels/ListViewDemoPageViewModel.cs</strong> file:</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 308px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ListViewDemoPageViewModel</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">Persons</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #07A">string</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">"</span><span style="color: #690">Kenny Harris Franklyn</span><span style="color: #999">"</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">"</span><span style="color: #690">Mick Malcom Radclyffe</span><span style="color: #999">"</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">"</span><span style="color: #690">Nicky Benjamin Bloxam</span><span style="color: #999">"</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">"</span><span style="color: #690">Gerrard Fraser Martins</span><span style="color: #999">"</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">"</span><span style="color: #690">Lincoln Benny Willard</span><span style="color: #999">"</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">"</span><span style="color: #690">Dustin Johnny Alfredson</span><span style="color: #999">"</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">"</span><span style="color: #690">Marty Cullen Lyndon</span><span style="color: #999">"</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">"</span><span style="color: #690">Ern Ormond Hardwick</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">};</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>We start with basic data binding.</p>
+<p>Go to <strong>Views/ListViewDemoPageView.xaml</strong> &nbsp;file and set type of ViewModel in BindingContext property of&nbsp;our page.</p>
+<p>Then, we can set public property Items as a data source for ListView element</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 84px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 308px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #A67F59">&lt;</span><span style="color: #000">ContentPage</span><span style="color: #BBBBBB"> </span><span style="color: #000">xmlns</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">http://xamarin.com/schemas/2014/forms</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #000">xmlns</span><span style="color: #BBBBBB">:</span><span style="color: #000">x</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">http://schemas.microsoft.com/winfx/2009/xaml</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #000">xmlns</span><span style="color: #BBBBBB">:</span><span style="color: #000">viewModel</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">clr-namespace:DynamicListView.ViewModels</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #000">x</span><span style="color: #BBBBBB">:</span><span style="color: #000">Class</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">DynamicListView.Views.ListViewDemoPageView</span><span style="color: #999">"</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #A67F59">&lt;</span><span style="color: #000">ContentPage</span><span style="color: #999">.</span><span style="color: #000">BindingContext</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #A67F59">&lt;</span><span style="color: #000">viewModel</span><span style="color: #BBBBBB">:</span><span style="color: #000">ListViewDemoPageViewModel</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #A67F59">&lt;/</span><span style="color: #000">ContentPage</span><span style="color: #999">.</span><span style="color: #000">BindingContext</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #A67F59">&lt;</span><span style="color: #000">StackLayout</span><span style="color: #BBBBBB"> </span><span style="color: #000">BackgroundColor</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">White</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">               </span><span style="color: #000">Padding</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">25</span><span style="color: #999">"</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #A67F59">&lt;</span><span style="color: #000">ListView</span><span style="color: #BBBBBB"> </span><span style="color: #000">ItemsSource</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">{Binding Persons}</span><span style="color: #999">"</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #A67F59">&lt;/</span><span style="color: #000">ListView</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #A67F59">&lt;/</span><span style="color: #000">StackLayout</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #A67F59">&lt;/</span><span style="color: #000">ContentPage</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Save changes and start the application.</p>
+<img src="/TizenSchool/assets/images/tutorials/80/basic.png" style="border-style:solid; border-width:1px; height:533px; width:300px">
+<p>That’s it! Now, ListView is populated with data from “Persons” property.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-listview">II. LISTVIEW</h1><h2 id="2-custom-item-template">2. Custom item template</h2>
+<p>Let’s expand Persons dataset with additional fields: Age and Location. We will use a class called Person&nbsp;for this.</p>
+<p>In file <strong>ViewModels/ListViewDemoPageViewModel.cs</strong> add following code:</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 168px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">DynamicListView</span><span style="color: #999">.</span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">ViewModels</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">Person</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">int</span><span style="color: #BBBBBB"> </span><span style="color: #000">Age</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">Location</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">ListViewDemoPageViewModel</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">ViewModelBase</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><em>Please remember&nbsp;that XAML requires properties, so&nbsp; { get; set; } are needed.</em></p>
+<p>Next,&nbsp; let’s change Persons list’s elements type to type Person in <strong>ViewModels/ListViewDemoPageViewModel.cs:</strong></p>
+<p>_persons backing field:</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 252px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">DynamicListView</span><span style="color: #999">.</span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">ViewModels</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">Person</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">int</span><span style="color: #BBBBBB"> </span><span style="color: #000">Age</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">Location</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> List&lt;Person&gt; _persons</span><span style="color: #999">;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>and Persons property:</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">Person</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">_persons</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #A67F59">&lt;</span><span style="color: #000">Person</span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">Persons</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">get</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">_persons</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">set</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">SetProperty</span><span style="color: #999">(</span><span style="color: #07A">ref</span><span style="color: #BBBBBB"> </span><span style="color: #000">_persons</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ListViewDemoPageViewModel</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Replace Items definition with following list of Person&nbsp;instances. Please modify constructor in <strong>ViewModels/ListViewDemoPageViewModel.cs</strong> file:</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 308px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ListViewDemoPageViewModel</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">Persons</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">Person</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Person</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Kenny Harris Franklyn</span><span style="color: #999">"</span><span style="color: #BBBBBB">, </span><span style="color: #000">Age</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">34</span><span style="color: #BBBBBB">, </span><span style="color: #000">Location</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Narthwich</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Person</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Mick Malcom Radclyffe</span><span style="color: #999">"</span><span style="color: #BBBBBB">, </span><span style="color: #000">Age</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">24</span><span style="color: #BBBBBB">, </span><span style="color: #000">Location</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Penketh</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Person</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Nicky Benjamin Bloxam</span><span style="color: #999">"</span><span style="color: #BBBBBB">, </span><span style="color: #000">Age</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">31</span><span style="color: #BBBBBB">, </span><span style="color: #000">Location</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Aberdeen</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Person</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Gerrard Fraser Martins</span><span style="color: #999">"</span><span style="color: #BBBBBB">, </span><span style="color: #000">Age</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">34</span><span style="color: #BBBBBB">, </span><span style="color: #000">Location</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">London</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Person</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Lincoln Benny Willard</span><span style="color: #999">"</span><span style="color: #BBBBBB">, </span><span style="color: #000">Age</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">28</span><span style="color: #BBBBBB">, </span><span style="color: #000">Location</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Silverkeep </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Person</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Dustin Johnny Alfredson</span><span style="color: #999">"</span><span style="color: #BBBBBB">, </span><span style="color: #000">Age</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">29</span><span style="color: #BBBBBB">, </span><span style="color: #000">Location</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Perlshaw</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Person</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Marty Cullen Lyndon</span><span style="color: #999">"</span><span style="color: #BBBBBB">, </span><span style="color: #000">Age</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">30</span><span style="color: #BBBBBB">, </span><span style="color: #000">Location</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Everton</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Person</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Ern Ormond Hardwick</span><span style="color: #999">"</span><span style="color: #BBBBBB">, </span><span style="color: #000">Age</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">28</span><span style="color: #BBBBBB">, </span><span style="color: #000">Location</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Paentmarwy</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">};</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Now we can use this dataset in XAML. We have more details for each element now. It is good idea to show them in grid.</p>
+<p>Go to <strong>Views/ListViewDemoPageView.xaml</strong> &nbsp;file and Let’s create custom data template for ListView item:</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 364px; top: 28px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #A67F59">&lt;</span><span style="color: #000">ListView</span><span style="color: #BBBBBB"> </span><span style="color: #000">ItemsSource</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">{Binding Persons}</span><span style="color: #999">"</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #A67F59">&lt;</span><span style="color: #000">ListView</span><span style="color: #999">.</span><span style="color: #000">ItemTemplate</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #A67F59">&lt;</span><span style="color: #000">DataTemplate</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #A67F59">&lt;</span><span style="color: #000">ViewCell</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #A67F59">&lt;</span><span style="color: #000">Grid</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #A67F59">&lt;</span><span style="color: #000">Label</span><span style="color: #BBBBBB"> </span><span style="color: #000">Text</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">{Binding Name}</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #A67F59">&lt;</span><span style="color: #000">Label</span><span style="color: #BBBBBB"> </span><span style="color: #000">Text</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">{Binding Age}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                 </span><span style="color: #000">Grid</span><span style="color: #999">.</span><span style="color: #000">Column</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">1</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #A67F59">&lt;</span><span style="color: #000">Label</span><span style="color: #BBBBBB"> </span><span style="color: #000">Text</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">{Binding Location}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                 </span><span style="color: #000">Grid</span><span style="color: #999">.</span><span style="color: #000">Column</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">2</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #A67F59">&lt;/</span><span style="color: #000">Grid</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">      </span><span style="color: #A67F59">&lt;/</span><span style="color: #000">ViewCell</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #A67F59">&lt;/</span><span style="color: #000">DataTemplate</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #A67F59">&lt;/</span><span style="color: #000">ListView</span><span style="color: #999">.</span><span style="color: #000">ItemTemplate</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #A67F59">&lt;/</span><span style="color: #000">ListView</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Run the application.</p>
+<p>Application will display following screen:</p>
+<img src="/TizenSchool/assets/images/tutorials/80/custom-ss.png" style="border-style:solid; border-width:1px; height:533px; width:300px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-listview">II. LISTVIEW</h1><h2 id="3-filtering-data">3. Filtering data</h2>
+<p>Let’s implement basic filtering for our list.</p>
+<p>You will be able to enter text in SearchBox input and list immediately will filter items with only these matching entered query.</p>
+<p>Firstly, we need to backup our set of persons. Please add an _initialItems field to DataModel class in <strong>ViewModels/ListViewDemoPageViewModel.cs</strong></p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">ListViewDemoPageViewModel</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">ViewModelBase</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">readonly</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">Person</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">_initialItems</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #07A">string</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">_persons</span><span style="color: #999">;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Then, after assigning Items, copy Items to _initialItems field:</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 392px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ListViewDemoPageViewModel</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">Persons</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">Person</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Person</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Kenny Harris Franklyn</span><span style="color: #999">"</span><span style="color: #BBBBBB">, </span><span style="color: #000">Age</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">34</span><span style="color: #BBBBBB">, </span><span style="color: #000">Location</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Narthwich</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Person</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Mick Malcom Radclyffe</span><span style="color: #999">"</span><span style="color: #BBBBBB">, </span><span style="color: #000">Age</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">24</span><span style="color: #BBBBBB">, </span><span style="color: #000">Location</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Penketh</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Person</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Nicky Benjamin Bloxam</span><span style="color: #999">"</span><span style="color: #BBBBBB">, </span><span style="color: #000">Age</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">31</span><span style="color: #BBBBBB">, </span><span style="color: #000">Location</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Aberdeen</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Person</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Gerrard Fraser Martins</span><span style="color: #999">"</span><span style="color: #BBBBBB">, </span><span style="color: #000">Age</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">34</span><span style="color: #BBBBBB">, </span><span style="color: #000">Location</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">London</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Person</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Lincoln Benny Willard</span><span style="color: #999">"</span><span style="color: #BBBBBB">, </span><span style="color: #000">Age</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">28</span><span style="color: #BBBBBB">, </span><span style="color: #000">Location</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Silverkeep </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Person</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Dustin Johnny Alfredson</span><span style="color: #999">"</span><span style="color: #BBBBBB">, </span><span style="color: #000">Age</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">29</span><span style="color: #BBBBBB">, </span><span style="color: #000">Location</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Perlshaw</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Person</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Marty Cullen Lyndon</span><span style="color: #999">"</span><span style="color: #BBBBBB">, </span><span style="color: #000">Age</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">30</span><span style="color: #BBBBBB">, </span><span style="color: #000">Location</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Everton</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Person</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Ern Ormond Hardwick</span><span style="color: #999">"</span><span style="color: #BBBBBB">, </span><span style="color: #000">Age</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">28</span><span style="color: #BBBBBB">, </span><span style="color: #000">Location</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Paentmarwy</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_initialItems</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">Person</span><span style="color: #999">&gt;(</span><span style="color: #000">Persons</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>This will be our unchangable list for filtering values out.</p>
+<p>Next, we need a property with backing field to store user input, still in ViewModel file.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 28px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">Person</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">_persons</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">_searchText</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #A67F59">&lt;</span><span style="color: #000">Person</span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">Persons</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 224px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">_searchText</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">SearchText</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">get</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">_searchText</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">set</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #DD4A68">SetProperty</span><span style="color: #999">(</span><span style="color: #07A">ref</span><span style="color: #BBBBBB"> </span><span style="color: #000">_searchText</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #A67F59">&lt;</span><span style="color: #000">Person</span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">Persons</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Now, we have a property to store user’s&nbsp;input. We need now an input itself - Xamarin.Forms.SearchBar component with Text property bound to SearchText property we just created.</p>
+<p>Go to and modifty <strong>Views/ListViewDemoPageView.xaml</strong> file</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #A67F59">&lt;</span><span style="color: #000">StackLayout</span><span style="color: #BBBBBB"> </span><span style="color: #000">BackgroundColor</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">White</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">Padding</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">25</span><span style="color: #999">"</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #A67F59">&lt;</span><span style="color: #000">SearchBar</span><span style="color: #BBBBBB"> </span><span style="color: #000">Text</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">{Binding SearchText}</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #A67F59">&lt;</span><span style="color: #000">ListView</span><span style="color: #BBBBBB"> </span><span style="color: #000">ItemsSource</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">{Binding Persons}</span><span style="color: #999">"</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<img src="/TizenSchool/assets/images/tutorials/80/search-ss.png" style="border-style:solid; border-width:1px; height:533px; width:300px">
+<p>Now we need to create a method to filter stored data and assign output to Items property n <strong>ViewModels/ListViewDemoPageViewModel.cs</strong> :</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 532px; top: 84px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_initialItems</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">List</span><span style="color: #999">&lt;</span><span style="color: #000">Person</span><span style="color: #999">&gt;(</span><span style="color: #000">Persons</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">FilterItems</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">Person</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">tempList</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">Person</span><span style="color: #999">&gt;();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">SearchText</span><span style="color: #999">.</span><span style="color: #000">Length</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">==</span><span style="color: #BBBBBB"> </span><span style="color: #905">0</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">Persons</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">Person</span><span style="color: #999">&gt;(</span><span style="color: #000">_initialItems</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">else</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">_initialItems</span><span style="color: #999">.</span><span style="color: #DD4A68">Where</span><span style="color: #999">(</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">t</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">t</span><span style="color: #999">.</span><span style="color: #000">Name</span><span style="color: #999">.</span><span style="color: #DD4A68">ToLower</span><span style="color: #999">().</span><span style="color: #DD4A68">Contains</span><span style="color: #999">(</span><span style="color: #000">SearchText</span><span style="color: #999">.</span><span style="color: #DD4A68">ToLower</span><span style="color: #999">())</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">).</span><span style="color: #DD4A68">ToList</span><span style="color: #999">().</span><span style="color: #DD4A68">ForEach</span><span style="color: #999">(</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">t</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">tempList</span><span style="color: #999">.</span><span style="color: #DD4A68">Add</span><span style="color: #999">(</span><span style="color: #000">t</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">Persons</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">Person</span><span style="color: #999">&gt;(</span><span style="color: #000">tempList</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Last thing to do is to execute FilterItems method on every SearchBox text change.</p>
+<p>To do this, please add&nbsp;method call to SearchText setter:</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 224px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">_searchText</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">SearchText</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">get</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">_searchText</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">set</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #DD4A68">SetProperty</span><span style="color: #999">(</span><span style="color: #07A">ref</span><span style="color: #BBBBBB"> </span><span style="color: #000">_searchText</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #DD4A68">FilterItems</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Now, every change of SearchBox Text property will cause to call our filtering method and refreshing ListView component’s contents.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-listview">II. LISTVIEW</h1><h2 id="4-sorting-data">4. Sorting data</h2>
+<p>Let’s add sorting functionality to our application. This time we start with adding controls. Controls will be placed above ListView element. Please add following components to <strong>Views/ListViewDemoPageView.xaml</strong> file:</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 196px; top: 28px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #A67F59">&lt;</span><span style="color: #000">SearchBar</span><span style="color: #BBBBBB"> </span><span style="color: #000">Text</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">{Binding SearchText}</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">/&gt;</span></span>
+<span class="line"><span style="color: #A67F59">&lt;</span><span style="color: #000">Grid</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #A67F59">&lt;</span><span style="color: #000">Button</span><span style="color: #BBBBBB"> </span><span style="color: #000">Text</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">Sort by name</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #A67F59">&lt;</span><span style="color: #000">Button</span><span style="color: #BBBBBB"> </span><span style="color: #000">Text</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">Sort by age</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #000">Grid</span><span style="color: #999">.</span><span style="color: #000">Column</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">1</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #A67F59">&lt;</span><span style="color: #000">Button</span><span style="color: #BBBBBB"> </span><span style="color: #000">Text</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">Sort by location</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #000">Grid</span><span style="color: #999">.</span><span style="color: #000">Column</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">2</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">/&gt;</span></span>
+<span class="line"><span style="color: #A67F59">&lt;/</span><span style="color: #000">Grid</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #A67F59">&lt;</span><span style="color: #000">ListView</span><span style="color: #BBBBBB"> </span><span style="color: #000">ItemsSource</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">{Binding Persons}</span><span style="color: #999">"</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>To trigger an action on button click we need to define Command type property.&nbsp;Let’s define this command in <strong>ViewModels/ListViewDemoPageViewModel.cs</strong> :</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 112px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">        </span><span style="color: #DD4A68">SetProperty</span><span style="color: #999">(</span><span style="color: #07A">ref</span><span style="color: #BBBBBB"> </span><span style="color: #000">_persons</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">    }</span></span>
+<span class="line"><span style="color: #BBBBBB">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #BBBBBB"> </span><span style="color: #000">OnSortButtonClick</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #000">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ListViewDemoPageViewModel</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>When command is declared we can implement sorting function.&nbsp;It will receive name of the property which we will use to sorting by from CommandParameter.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 196px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">Persons</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">List</span><span style="color: #999">&lt;</span><span style="color: #000">Person</span><span style="color: #999">&gt;(</span><span style="color: #000">tempList</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">    }</span></span>
+<span class="line"><span style="color: #BBBBBB">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">SortPersons</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sortBy</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">Persons</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">Person</span><span style="color: #999">&gt;(</span><span style="color: #000">Persons</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">.</span><span style="color: #DD4A68">OrderBy</span><span style="color: #999">(</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">i</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">i</span><span style="color: #999">.</span><span style="color: #DD4A68">GetType</span><span style="color: #999">().</span><span style="color: #DD4A68">GetProperty</span><span style="color: #999">(</span><span style="color: #000">sortBy</span><span style="color: #BBBBBB"> </span><span style="color: #000">as</span><span style="color: #BBBBBB"> </span><span style="color: #000">string</span><span style="color: #999">).</span><span style="color: #DD4A68">GetValue</span><span style="color: #999">(</span><span style="color: #000">i</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">null</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">).</span><span style="color: #DD4A68">ToList</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>This method calls Sort method for our array of Persons.</p>
+<p>Lambda expression can be read&nbsp;as:</p>
+<p>Right side just returns value of property passed in sortBy parameter.</p>
+<p>Then, we need to have this method assigned as command’s action. Just create new command with SortPersons method as Command’s parameter.</p>
+<p>In ViewModel/ListViewDemoPageViewModel.cs file we need to add:</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 420px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ListViewDemoPageViewModel</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">Persons</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">Person</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Person</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Kenny Harris Franklyn</span><span style="color: #999">"</span><span style="color: #BBBBBB">, </span><span style="color: #000">Age</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">34</span><span style="color: #BBBBBB">, </span><span style="color: #000">Location</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Narthwich</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Person</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Mick Malcom Radclyffe</span><span style="color: #999">"</span><span style="color: #BBBBBB">, </span><span style="color: #000">Age</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">24</span><span style="color: #BBBBBB">, </span><span style="color: #000">Location</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Penketh</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Person</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Nicky Benjamin Bloxam</span><span style="color: #999">"</span><span style="color: #BBBBBB">, </span><span style="color: #000">Age</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">31</span><span style="color: #BBBBBB">, </span><span style="color: #000">Location</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Aberdeen</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Person</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Gerrard Fraser Martins</span><span style="color: #999">"</span><span style="color: #BBBBBB">, </span><span style="color: #000">Age</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">34</span><span style="color: #BBBBBB">, </span><span style="color: #000">Location</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">London</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Person</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Lincoln Benny Willard</span><span style="color: #999">"</span><span style="color: #BBBBBB">, </span><span style="color: #000">Age</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">28</span><span style="color: #BBBBBB">, </span><span style="color: #000">Location</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Silverkeep </span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Person</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Dustin Johnny Alfredson</span><span style="color: #999">"</span><span style="color: #BBBBBB">, </span><span style="color: #000">Age</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">29</span><span style="color: #BBBBBB">, </span><span style="color: #000">Location</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Perlshaw</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Person</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Marty Cullen Lyndon</span><span style="color: #999">"</span><span style="color: #BBBBBB">, </span><span style="color: #000">Age</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">30</span><span style="color: #BBBBBB">, </span><span style="color: #000">Location</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Everton</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span><span style="color: #BBBBBB">,</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Person</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">Name</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Ern Ormond Hardwick</span><span style="color: #999">"</span><span style="color: #BBBBBB">, </span><span style="color: #000">Age</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">28</span><span style="color: #BBBBBB">, </span><span style="color: #000">Location</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Paentmarwy</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">_initialItmes</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">Person</span><span style="color: #999">&gt;(</span><span style="color: #000">Persons</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">OnSortButtonClick</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #999">(</span><span style="color: #000">SortPersons</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Now, when all logic is implemented, last thing we have to do is to attach command&nbsp;to our&nbsp;buttons. We update buttons&nbsp;with Command and CommandParameter.</p>
+<p>Go to and change <strong>Views/ListViewDemoPageView.xaml</strong> file:</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 56px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 56px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 56px; top: 252px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #A67F59">&lt;</span><span style="color: #000">Grid</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #A67F59">&lt;</span><span style="color: #000">Button</span><span style="color: #BBBBBB"> </span><span style="color: #000">Text</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">Sort by name</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #000">Command</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">{Binding OnSortButtonClick}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #000">CommandParameter</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">Name</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #A67F59">&lt;</span><span style="color: #000">Button</span><span style="color: #BBBBBB"> </span><span style="color: #000">Text</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">Sort by age</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #000">Command</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">{Binding OnSortButtonClick}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #000">CommandParameter</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">Age</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #000">Grid</span><span style="color: #999">.</span><span style="color: #000">Column</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">1</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #A67F59">&lt;</span><span style="color: #000">Button</span><span style="color: #BBBBBB"> </span><span style="color: #000">Text</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">Sort by location</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #000">Command</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">{Binding OnSortButtonClick}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #000">CommandParameter</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">Location</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">          </span><span style="color: #000">Grid</span><span style="color: #999">.</span><span style="color: #000">Column</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">2</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">/&gt;</span></span>
+<span class="line"><span style="color: #A67F59">&lt;/</span><span style="color: #000">Grid</span><span style="color: #A67F59">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>That’s it! You should know now, how to use ListView with datasets.</p>
+<img src="/TizenSchool/assets/images/tutorials/80/M-4.0-x86-2020-02-14-150803.png" style="border-style:solid; border-width:1px; height:533px; width:300px"></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/6</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/642c4c04779a63be966fa6579cbe2e444ddde584">642c4c04779a63be966fa6579cbe2e444ddde584</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+

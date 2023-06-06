@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/TizenSchool/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/TizenSchool/assets/images/favicon-32x32.png">
+    <title>Tizen School</title>
+  <link rel="stylesheet" href="/TizenSchool/assets/aboutus.9016036b.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.013d619c.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.0e005638.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/index.a63efe7c.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="ZCCiVn" component-url="/TizenSchool/List.1baa9d7c.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{&quot;metadata&quot;:[1,&quot;[[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;To Do List App with Tizen Native C\&quot;],\&quot;description\&quot;:[0,\&quot;Implement a To Do List application which creates and deletes a to-do list using EFL on the wearable device written by native C language. It also covers how to apply the circle slider on it.\&quot;],\&quot;created\&quot;:[0,\&quot;2017/08/15\&quot;],\&quot;modified\&quot;:[0,\&quot;2018/10/09\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;native\&quot;],\&quot;level\&quot;:[0,3],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/10/Todolist_app.jpg\&quot;],\&quot;id\&quot;:[0,10]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Tizen Workshop for Seoul Hardware Hackathon\&quot;],\&quot;description\&quot;:[0,\&quot;2020&#39; Tizen Workshop for Seoul Hardware Hackathon\&quot;],\&quot;created\&quot;:[0,\&quot;2020/06/27\&quot;],\&quot;modified\&quot;:[0,\&quot;2021/06/26\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;iot\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;general\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/204/gampworkshop.png\&quot;],\&quot;id\&quot;:[0,100]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;How to navigate between pages\&quot;],\&quot;description\&quot;:[0,\&quot;The tutorial demonstrates how to implement navigation between pages in Xamarin.Forms application.\&quot;],\&quot;created\&quot;:[0,\&quot;2017/11/15\&quot;],\&quot;modified\&quot;:[0,\&quot;2020/04/14\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;mobile\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/100/thumbnail_3.png\&quot;],\&quot;id\&quot;:[0,101]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;How to Create \\\&quot;MetalDetector\\\&quot; App\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial shows obtaining and example usage of the magnetometer sensor data provided by the Tizen.Sensor API.\&quot;],\&quot;created\&quot;:[0,\&quot;2018/03/26\&quot;],\&quot;modified\&quot;:[0,\&quot;2018/10/06\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,2],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/104/MetalDetector.png\&quot;],\&quot;id\&quot;:[0,104]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;How to Create \\\&quot;Compass\\\&quot; App\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial demonstrates the process of compass application development with the use of Tizen.Sensor.API.\&quot;],\&quot;created\&quot;:[0,\&quot;2018/04/21\&quot;],\&quot;modified\&quot;:[0,\&quot;2020/04/19\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,2],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/105/compass_thumnail.png\&quot;],\&quot;id\&quot;:[0,105]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;How to Create \\\&quot;BadgeCounter\\\&quot; App\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial shows how to create BadgeCounter app using Xamarin Forms and Application API.\&quot;],\&quot;created\&quot;:[0,\&quot;2018/05/03\&quot;],\&quot;modified\&quot;:[0,\&quot;2020/04/18\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,2],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/106/BC_thumbnail.png\&quot;],\&quot;id\&quot;:[0,106]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;How to Create \\\&quot;SystemInfo\\\&quot; App\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial shows how easy it is to extend existing watch functions to display information provided by the Tizen.System.Battery API.\&quot;],\&quot;created\&quot;:[0,\&quot;2018/06/31\&quot;],\&quot;modified\&quot;:[0,\&quot;2020/04/19\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,3],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/107/SystemInfoThumbnail.png\&quot;],\&quot;id\&quot;:[0,107]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;How to create \\\&quot;Music Player\\\&quot; App\&quot;],\&quot;description\&quot;:[0,\&quot;The Music Player application demonstrates how to display and play music using Tizen Media Content and Player APIs.\&quot;],\&quot;created\&quot;:[0,\&quot;2018/07/14\&quot;],\&quot;modified\&quot;:[0,\&quot;2018/10/15\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;tv\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,3],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/108/ThumbnailMusicPlayerTV.png\&quot;],\&quot;id\&quot;:[0,108]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Utilize Rotary Bezel in RotaryTimer application\&quot;],\&quot;description\&quot;:[0,\&quot;In this tutorial you will learn how to use rotary bezel to control timer setting in RotaryTimer sample application. \&quot;],\&quot;created\&quot;:[0,\&quot;2018/06/16\&quot;],\&quot;modified\&quot;:[0,\&quot;2018/10/05\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,2],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/109/RT_thumbnail.png\&quot;],\&quot;id\&quot;:[0,109]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;How to import project to Visual Studio\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial demonstrates how to import a project into Visual Studio.\&quot;],\&quot;created\&quot;:[0,\&quot;2018/06/17\&quot;],\&quot;modified\&quot;:[0,\&quot;2018/10/06\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;mobile\\\&quot;],[0,\\\&quot;wearable\\\&quot;],[0,\\\&quot;tv\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/110/Import_project__thumbnail.png\&quot;],\&quot;id\&quot;:[0,110]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;How to create Basic Analog WatchFace\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial teaches how to create analog watch face using Xamarin Forms.\&quot;],\&quot;created\&quot;:[0,\&quot;2018/08/14\&quot;],\&quot;modified\&quot;:[0,\&quot;2019/06/18\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/0/thumbnail_watchFace.png\&quot;],\&quot;id\&quot;:[0,112]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;C# Wearable App Development (1/3)\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial describes how to set an environment to develop Tizen C# applications You can build and run a basic app on your Galaxy Watch with this tutorial.\&quot;],\&quot;created\&quot;:[0,\&quot;2018/06/20\&quot;],\&quot;modified\&quot;:[0,\&quot;2022/06/05\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/116/wearable_full_thumbnail1.png\&quot;],\&quot;id\&quot;:[0,116]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;C# Wearable App Development (2/3)\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial describes how to use various UI components such as widgets, popup windows, toasts, layouts, the index and circle page and the rotary selector by Tizen.Wearable.CircularUI.\&quot;],\&quot;created\&quot;:[0,\&quot;2018/06/19\&quot;],\&quot;modified\&quot;:[0,\&quot;2018/10/08\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/117/wearable_full_thumbnail2.png\&quot;],\&quot;id\&quot;:[0,117]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;C# Wearable App Development (3/3)\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial describes extra features such as how to get the information of applications by Package Manager and Application Manager, deal with WatchFace and save data using Preferences.\&quot;],\&quot;created\&quot;:[0,\&quot;2018/06/18\&quot;],\&quot;modified\&quot;:[0,\&quot;2018/10/12\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/118/wearable_full_thumbnail3.png\&quot;],\&quot;id\&quot;:[0,118]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Digital Weather Watch With Heart Rate Monitor\&quot;],\&quot;description\&quot;:[0,\&quot;We will make the T-store chart application using TAU &amp; open Web API in this tutorial. The first session is setting UI for this application, and the secon session is getting and displaying the data.\&quot;],\&quot;created\&quot;:[0,\&quot;2017/08/15\&quot;],\&quot;modified\&quot;:[0,\&quot;2018/10/06\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;web\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/12/preview-weather-full.jpg\&quot;],\&quot;id\&quot;:[0,12]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;How to Create \\\&quot;Text Reader\\\&quot; App\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial teaches how to create Text Reader app using Xamarin Forms and Text-to-Speech API.\&quot;],\&quot;created\&quot;:[0,\&quot;2017/09/12\&quot;],\&quot;modified\&quot;:[0,\&quot;2018/10/11\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;mobile\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,3],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/13/Text_Reader.jpg\&quot;],\&quot;id\&quot;:[0,13]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;[Kor] Getting started with Raspberry PI3\&quot;],\&quot;description\&quot;:[0,\&quot;본 강좌는 Raspberry PI 3 기반으로 Tizen IoT를 사용하고자 하는 개발자를 위한 입문 가이드입니다. 최신 Tizen 5.0을 기반으로 가장 쉽게 개발환경을 구축하는 방법을 가이드하고 있습니다.\&quot;],\&quot;created\&quot;:[0,\&quot;2019/04/21\&quot;],\&quot;modified\&quot;:[0,\&quot;2019/06/04\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;iot\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;general\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/131/Korean.png\&quot;],\&quot;id\&quot;:[0,131]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Racing Car\&quot;],\&quot;description\&quot;:[0,\&quot;How to make a car controlled by a tizen watch.\&quot;],\&quot;created\&quot;:[0,\&quot;2019/05/05\&quot;],\&quot;modified\&quot;:[0,\&quot;2019/07/02\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;iot\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;general\&quot;],\&quot;level\&quot;:[0,3],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/134/GearRece.png\&quot;],\&quot;id\&quot;:[0,134]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Racing Controller\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial is about programming a Tizen device to be able to steer Racing-Car.\&quot;],\&quot;created\&quot;:[0,\&quot;2019/05/05\&quot;],\&quot;modified\&quot;:[0,\&quot;2019/07/02\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;iot\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;native\&quot;],\&quot;level\&quot;:[0,2],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/135/2.png\&quot;],\&quot;id\&quot;:[0,135]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Getting started with Raspberry PI\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial is a guide for developers who want to use Tizen IoT based on Raspberry PI3. It shows the easiest way to set up your development environment.\&quot;],\&quot;created\&quot;:[0,\&quot;2019/05/13\&quot;],\&quot;modified\&quot;:[0,\&quot;2020/05/09\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;iot\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;general\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/137/English.png\&quot;],\&quot;id\&quot;:[0,137]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;How to Create \\\&quot;Heart Rate Monitor\\\&quot; App\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial teaches how to create Heart Rate Monitor app using Xamarin Forms and Sensor API.\&quot;],\&quot;created\&quot;:[0,\&quot;2017/09/12\&quot;],\&quot;modified\&quot;:[0,\&quot;2018/09/24\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;mobile\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,3],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/14/heart_monitor.jpg\&quot;],\&quot;id\&quot;:[0,14]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Racing Cloud\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial is about launching a server for creating race with a lot of cars and controllers.\&quot;],\&quot;created\&quot;:[0,\&quot;2019/05/19\&quot;],\&quot;modified\&quot;:[0,\&quot;2019/07/20\&quot;],\&quot;profile\&quot;:[1,\&quot;[]\&quot;],\&quot;type\&quot;:[0,\&quot;general\&quot;],\&quot;level\&quot;:[0,2],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/140/racing-cloud.png\&quot;],\&quot;id\&quot;:[0,140]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Tizen Racing\&quot;],\&quot;description\&quot;:[0,\&quot;This series of step-by-step tutorials is going to show you, how easy is building your own RC car with controller and racetrack.\&quot;],\&quot;created\&quot;:[0,\&quot;2019/05/19\&quot;],\&quot;modified\&quot;:[0,\&quot;2019/07/02\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;iot\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;general\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/141/1.png\&quot;],\&quot;id\&quot;:[0,141]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Tizen Ready to Race\&quot;],\&quot;description\&quot;:[0,\&quot;In this tutorial is shown how to design a simple racetrack for cars and count laps.\&quot;],\&quot;created\&quot;:[0,\&quot;2019/05/19\&quot;],\&quot;modified\&quot;:[0,\&quot;2019/07/02\&quot;],\&quot;profile\&quot;:[1,\&quot;[]\&quot;],\&quot;type\&quot;:[0,\&quot;general\&quot;],\&quot;level\&quot;:[0,2],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/142/ready-to-race-thumbnail.jpg\&quot;],\&quot;id\&quot;:[0,142]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Getting Started with Creating a .NET App\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial describes how to set an environment for developing Tizen .NET applications on Samsung&#39;s wearable device, Galaxy Watch.\&quot;],\&quot;created\&quot;:[0,\&quot;2019/06/03\&quot;],\&quot;modified\&quot;:[0,\&quot;2022/06/05\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/143/getting-started-net-app.png\&quot;],\&quot;id\&quot;:[0,143]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;How to create SmartLevel\&quot;],\&quot;description\&quot;:[0,\&quot;This is a tutorial for simple application that demonstrates usage of accelerometer sensor.\&quot;],\&quot;created\&quot;:[0,\&quot;2019/06/18\&quot;],\&quot;modified\&quot;:[0,\&quot;2022/06/05\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,2],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/145/tn-level.png\&quot;],\&quot;id\&quot;:[0,145]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;How to create Digital WatchFace\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial teaches how to create digital watch face using Xamarin Forms.\&quot;],\&quot;created\&quot;:[0,\&quot;2019/07/01\&quot;],\&quot;modified\&quot;:[0,\&quot;2022/06/05\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/147/how-to-digital-watchface.png\&quot;],\&quot;id\&quot;:[0,147]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;[Kor] Tizen &amp; Tizen IoT Introduction\&quot;],\&quot;description\&quot;:[0,\&quot;본 강좌는  서울 하드웨어 해커톤의 사전 워크샵 강의를 위하여 작성되었습니다. Tizen 및 Tizen IoT에 대해서 간략한 소개 자료입니다. - Written by 강석현(Shawn Kang)\&quot;],\&quot;created\&quot;:[0,\&quot;2019/07/07\&quot;],\&quot;modified\&quot;:[0,\&quot;2021/06/31\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;iot\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;general\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/150/20190808_194706.png\&quot;],\&quot;id\&quot;:[0,150]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;How to use a Lottie animation\&quot;],\&quot;description\&quot;:[0,\&quot;Tizen supports Lottie animation. You can play Lottie animation using Native APIs.\&quot;],\&quot;created\&quot;:[0,\&quot;2019/07/19\&quot;],\&quot;modified\&quot;:[0,\&quot;2019/07/20\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;mobile\\\&quot;],[0,\\\&quot;wearable\\\&quot;],[0,\\\&quot;tv\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;native\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/151/11.png\&quot;],\&quot;id\&quot;:[0,151]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/VideoTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;[Kor][IoT Hackathon] #1 Tizen  Development Environment\&quot;],\&quot;description\&quot;:[0,\&quot;본 강좌는 2019년 8월 17일 진행된 서울 하드웨어 해커톤 워크샵 강의 영상입니다. 해당 강좌는 https://samsung.github.io/TizenSchool/tutorial/149 에서 확인이 가능합니다.\&quot;],\&quot;created\&quot;:[0,\&quot;2019/07/22\&quot;],\&quot;modified\&quot;:[0,\&quot;2019/07/22\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;iot\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;native\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/155/gcamp.png\&quot;],\&quot;videoUrl\&quot;:[0,\&quot;https://www.youtube.com/embed/EQbOxQW0SJY\&quot;],\&quot;id\&quot;:[0,155]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/VideoTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;[Kor][IoT Hackathon] #2 Tizen Development Information\&quot;],\&quot;description\&quot;:[0,\&quot;본 강좌는 2019년 8월 17일 진행된 서울 하드웨어 해커톤 워크샵 강의 영상입니다.\&quot;],\&quot;created\&quot;:[0,\&quot;2019/07/22\&quot;],\&quot;modified\&quot;:[0,\&quot;2020/06/27\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;iot\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;native\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/156/2019gcamp.png\&quot;],\&quot;videoUrl\&quot;:[0,\&quot;https://www.youtube.com/embed/KSmP97p69cQ\&quot;],\&quot;id\&quot;:[0,156]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/VideoTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;[Kor][IoT Hackathon] #3 Tizen Main-Loop\&quot;],\&quot;description\&quot;:[0,\&quot;본 강좌는 2019년 8월 24일 진행된 서울 하드웨어 해커톤 워크샵 강의 영상입니다.\&quot;],\&quot;created\&quot;:[0,\&quot;2019/07/26\&quot;],\&quot;modified\&quot;:[0,\&quot;2020/06/27\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;iot\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;native\&quot;],\&quot;level\&quot;:[0,2],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/158/2019gcamp.png\&quot;],\&quot;videoUrl\&quot;:[0,\&quot;https://www.youtube.com/embed/clA0-ksJV14\&quot;],\&quot;id\&quot;:[0,158]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/VideoTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;[Kor][IoT Hackathon] #4 How to use  GPIO, I2C and SPI\&quot;],\&quot;description\&quot;:[0,\&quot;본 강좌는 2019년 8월 24일 진행된 서울 하드웨어 해커톤 워크샵 강의 영상입니다.\&quot;],\&quot;created\&quot;:[0,\&quot;2019/07/26\&quot;],\&quot;modified\&quot;:[0,\&quot;2020/06/27\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;iot\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;native\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/159/2019gcamp.png\&quot;],\&quot;videoUrl\&quot;:[0,\&quot;https://www.youtube.com/embed/2cdHCM3GMoc\&quot;],\&quot;id\&quot;:[0,159]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;How to create Pulsometer with Lottie animation\&quot;],\&quot;description\&quot;:[0,\&quot;Pulsometer tutorial guides you step-by-step to create application for a watch, which reads heart rate value from your wrist.\&quot;],\&quot;created\&quot;:[0,\&quot;2019/10/15\&quot;],\&quot;modified\&quot;:[0,\&quot;2022/06/05\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/166/HRM_thumbnail_W.png\&quot;],\&quot;id\&quot;:[0,166]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/VideoTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;[SDC 2019] What&#39;s new in Tizen 5.5?\&quot;],\&quot;description\&quot;:[0,\&quot;What&#39;s New in Tizen? 5.5 Platform Update and Developer Environment - Hobum Kwon, David Ortinau, and Diego Lizarazo Rivera\&quot;],\&quot;created\&quot;:[0,\&quot;2019/10/21\&quot;],\&quot;modified\&quot;:[0,\&quot;2019/10/21\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/0/sdc.PNG\&quot;],\&quot;videoUrl\&quot;:[0,\&quot;https://www.youtube.com/embed/fU5Yx8M0KOk\&quot;],\&quot;id\&quot;:[0,168]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/VideoTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Xamarin.Forms on Samsung Wearable and TV products\&quot;],\&quot;description\&quot;:[0,\&quot;The developers can learn how to start developing Xamarin Forms application running on the Samsung products and which products are supported. - Jay Cho\&quot;],\&quot;created\&quot;:[0,\&quot;2019/10/21\&quot;],\&quot;modified\&quot;:[0,\&quot;2019/10/21\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;],[0,\\\&quot;tv\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/0/xds.PNG\&quot;],\&quot;videoUrl\&quot;:[0,\&quot;https://www.youtube.com/embed/6sA0ybMfJYw\&quot;],\&quot;id\&quot;:[0,169]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;How to add a Tizen project to Xamarin template\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial describes how to add a Tizen project to Xamarin.Forms application for a cross-platform development - Written by Seoghyun Kang(Shawn)\&quot;],\&quot;created\&quot;:[0,\&quot;2020/01/17\&quot;],\&quot;modified\&quot;:[0,\&quot;2020/02/04\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;mobile\\\&quot;],[0,\\\&quot;wearable\\\&quot;],[0,\\\&quot;tv\\\&quot;],[0,\\\&quot;iot\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/173/4b@2x.png\&quot;],\&quot;id\&quot;:[0,173]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Simple Calculator for multi platforms and devices\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial describe how to create a simple calculator using a Grid layout based on Xamarin.Forms - Written by Seoghyun Kang(Shawn)\&quot;],\&quot;created\&quot;:[0,\&quot;2020/02/03\&quot;],\&quot;modified\&quot;:[0,\&quot;2020/03/13\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;mobile\\\&quot;],[0,\\\&quot;wearable\\\&quot;],[0,\\\&quot;tv\\\&quot;],[0,\\\&quot;iot\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/175/20200305_102151.png\&quot;],\&quot;id\&quot;:[0,175]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;How to create \\\&quot;SquatCounter\\\&quot; application\&quot;],\&quot;description\&quot;:[0,\&quot;Tutorial guides you how to use pressure sensor to count squats.\&quot;],\&quot;created\&quot;:[0,\&quot;2020/04/17\&quot;],\&quot;modified\&quot;:[0,\&quot;2020/04/27\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,2],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/180/Squat_counter_thumbnail@2x (1).png\&quot;],\&quot;id\&quot;:[0,180]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/VideoTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Xamarin Video Tutorials for Tizen Makers\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorials have been created by G.Camp MakerSpace  for Tizen Makers (https://gcamp.tistory.com). It consists of 41 youtube clips.\&quot;],\&quot;created\&quot;:[0,\&quot;2020/03/13\&quot;],\&quot;modified\&quot;:[0,\&quot;2020/03/13\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;mobile\\\&quot;],[0,\\\&quot;wearable\\\&quot;],[0,\\\&quot;tv\\\&quot;],[0,\\\&quot;iot\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/0/20200413_091949.png\&quot;],\&quot;videoUrl\&quot;:[0,\&quot;https://www.youtube.com/embed/videoseries?list=PLieE0qnqO2kTDQPYIiXKSLxpZQhpn3gup\&quot;],\&quot;id\&quot;:[0,181]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;How to use embedded image for multi platforms\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial describe how to use a embedded image for managing image resources easily.  - Written by Seoghyun Kang(Shawn)\&quot;],\&quot;created\&quot;:[0,\&quot;2020/03/16\&quot;],\&quot;modified\&quot;:[0,\&quot;2020/03/17\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;mobile\\\&quot;],[0,\\\&quot;wearable\\\&quot;],[0,\\\&quot;tv\\\&quot;],[0,\\\&quot;iot\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,2],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/183/thumbnail.png\&quot;],\&quot;id\&quot;:[0,183]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/VideoTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Tizen Tidbits for Tizen Beginners\&quot;],\&quot;description\&quot;:[0,\&quot;In this new video series we will cover many core concepts of Tizen development in short, focused videos. It consists of 8 youtube clips.\&quot;],\&quot;created\&quot;:[0,\&quot;2020/03/17\&quot;],\&quot;modified\&quot;:[0,\&quot;2020/03/17\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;mobile\\\&quot;],[0,\\\&quot;wearable\\\&quot;],[0,\\\&quot;tv\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;general\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/184/tizen.png\&quot;],\&quot;videoUrl\&quot;:[0,\&quot;https://www.youtube.com/embed/videoseries?list=PL7PfK8Mp1rLGDS8nQmfrwa0SthqlUTXFk\&quot;],\&quot;id\&quot;:[0,184]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;How to use SQLite in Android and Tizen\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial shows how to use SQLite database in Android and Tizen - Written by 강석현(Shawn)\&quot;],\&quot;created\&quot;:[0,\&quot;2020/04/13\&quot;],\&quot;modified\&quot;:[0,\&quot;2021/00/15\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;mobile\\\&quot;],[0,\\\&quot;tv\\\&quot;],[0,\\\&quot;iot\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,2],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/187/20200513_170327.png\&quot;],\&quot;id\&quot;:[0,187]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;How to create the Pedometer application.\&quot;],\&quot;description\&quot;:[0,\&quot;In this tutorial based on the pedometer application sample code you will learn how to use Pedometer sensor with Tizen.Sensor library.\&quot;],\&quot;created\&quot;:[0,\&quot;2020/04/26\&quot;],\&quot;modified\&quot;:[0,\&quot;2020/05/09\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,3],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/188/Pedometer_thumbnail.png\&quot;],\&quot;id\&quot;:[0,188]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Getting started with Raspberry PI 3&amp;4\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial is a guide for developers who want to use Tizen IoT based on Raspberry PI3/4. It shows the easiest way to set up your development environment. - Written by 강석현(Shawn Kang)\&quot;],\&quot;created\&quot;:[0,\&quot;2020/05/09\&quot;],\&quot;modified\&quot;:[0,\&quot;2020/10/05\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;iot\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;general\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/137/English.png\&quot;],\&quot;id\&quot;:[0,191]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Workout application guide\&quot;],\&quot;description\&quot;:[0,\&quot;This guide is designed for advanced developers who want to make their running application.\&quot;],\&quot;created\&quot;:[0,\&quot;2020/08/17\&quot;],\&quot;modified\&quot;:[0,\&quot;2020/08/17\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,3],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/199/Workout_thumbnail.png\&quot;],\&quot;id\&quot;:[0,199]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;How to develop Voice control manager application\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial introduces how to use Voice control manager FW and how to make voice control manager application using this FW.\&quot;],\&quot;created\&quot;:[0,\&quot;2020/06/24\&quot;],\&quot;modified\&quot;:[0,\&quot;2020/08/17\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;iot\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/203/203_thumbnail_3.png\&quot;],\&quot;id\&quot;:[0,203]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Example of Voice Control Manager Application\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial is an example of Voice Control Manager Application.\&quot;],\&quot;created\&quot;:[0,\&quot;2020/07/04\&quot;],\&quot;modified\&quot;:[0,\&quot;2020/08/17\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;iot\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/207/207_thumbnail.png\&quot;],\&quot;id\&quot;:[0,207]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/VideoTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Smart Faucet - 2019 Seoul H/W Hackathon Grand Prize\&quot;],\&quot;description\&quot;:[0,\&quot;2019 서울 하드웨어 해커톤 최우수상 과제로 선정된 스마트 수도꼭지 프로젝트 소개\&quot;],\&quot;created\&quot;:[0,\&quot;2020/07/13\&quot;],\&quot;modified\&quot;:[0,\&quot;2022/06/05\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;iot\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;native\&quot;],\&quot;level\&quot;:[0,2],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/0/smart_facuet.jpg\&quot;],\&quot;videoUrl\&quot;:[0,\&quot;https://www.youtube.com/embed/2zw5Mdw1Jb8\&quot;],\&quot;id\&quot;:[0,212]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/VideoTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;How to create \\\&quot;Pedometer\\\&quot; application\&quot;],\&quot;description\&quot;:[0,\&quot;The video version of &#39;How to create the Pedometer application (https://samsung.github.io/TizenSchool/188)&#39;\&quot;],\&quot;created\&quot;:[0,\&quot;2020/09/05\&quot;],\&quot;modified\&quot;:[0,\&quot;2020/09/16\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/0/Pedometer_video_thumbnail.png\&quot;],\&quot;videoUrl\&quot;:[0,\&quot;https://www.youtube.com/embed/mNZXnWlN54M\&quot;],\&quot;id\&quot;:[0,217]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/VideoTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;How to create \\\&quot;SquatCounter\\\&quot; application\&quot;],\&quot;description\&quot;:[0,\&quot;The video version of &#39;How to create SquatCounter application (https://samsung.github.io/TizenSchool/180)&#39;\&quot;],\&quot;created\&quot;:[0,\&quot;2020/09/05\&quot;],\&quot;modified\&quot;:[0,\&quot;2020/09/16\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/0/Squat_counter_video_thumbnail.png\&quot;],\&quot;videoUrl\&quot;:[0,\&quot;https://www.youtube.com/embed/WbC7dIc0S8U\&quot;],\&quot;id\&quot;:[0,218]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Seoul Hardware Hackathon 2021\&quot;],\&quot;description\&quot;:[0,\&quot;(2021 온라인 해커톤) 서울 하드웨어 해커톤 강의 자료입니다.\&quot;],\&quot;created\&quot;:[0,\&quot;2021/06/23\&quot;],\&quot;modified\&quot;:[0,\&quot;2022/06/05\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;iot\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;general\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/0/hack.png\&quot;],\&quot;id\&quot;:[0,240]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;How to create \\\&quot;AppHistory\\\&quot; App\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial teaches how to create AppHistory App using Tizen NUI and Application API\&quot;],\&quot;created\&quot;:[0,\&quot;2022/04/30\&quot;],\&quot;modified\&quot;:[0,\&quot;2022/06/05\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;iot\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,2],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/270/output-onlinepngtools.png\&quot;],\&quot;id\&quot;:[0,270]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/VideoTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Basic wearable app on Tizen Web\&quot;],\&quot;description\&quot;:[0,\&quot;Make a seamless transition when building apps for any Samsung Gear Wearable using the new Tizen Studio. \\nCreate a basic wearable application on Tizen Web that focuses on Web APIs.\&quot;],\&quot;created\&quot;:[0,\&quot;2017/08/11\&quot;],\&quot;modified\&quot;:[0,\&quot;2018/10/15\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;web\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/48/20170911_131147.png\&quot;],\&quot;videoUrl\&quot;:[0,\&quot;https://www.youtube.com/embed/e46FCDOoiIU?list=PL7PfK8Mp1rLGQ9cqTveiQzmQ-1MQJWMY1\&quot;],\&quot;id\&quot;:[0,48]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/VideoTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Basic mobile app on Tizen Web\&quot;],\&quot;description\&quot;:[0,\&quot;Tizen is flexible to be used on any platform. This video enables you to customize the mobile app. \\n\\nPage Navigation by manipulating the on-screen elements.\&quot;],\&quot;created\&quot;:[0,\&quot;2017/08/11\&quot;],\&quot;modified\&quot;:[0,\&quot;undefined\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;mobile\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;web\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/49/20170911_131626.png\&quot;],\&quot;videoUrl\&quot;:[0,\&quot;https://www.youtube.com/embed/nL0faUhfPmw?list=PL7PfK8Mp1rLGQ9cqTveiQzmQ-1MQJWMY1\&quot;],\&quot;id\&quot;:[0,49]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/VideoTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Compass web app Using DeviceOrientation\&quot;],\&quot;description\&quot;:[0,\&quot;Build interactive apps that follow the phone’s orientation and more using the DeviceOrientation Specification in your Tizen app.\\n\\nJoin us as we demonstrate this in the code and in a sample app inside the Tizen Web Simulator.\&quot;],\&quot;created\&quot;:[0,\&quot;2017/08/11\&quot;],\&quot;modified\&quot;:[0,\&quot;undefined\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;mobile\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;web\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/50/20170911_132224.jpg\&quot;],\&quot;videoUrl\&quot;:[0,\&quot;https://www.youtube.com/embed/6edEr_2h5EI?list=PL7PfK8Mp1rLGQ9cqTveiQzmQ-1MQJWMY1\&quot;],\&quot;id\&quot;:[0,50]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/VideoTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Tizen Native C App Fundamentals \&quot;],\&quot;description\&quot;:[0,\&quot;Familiarize yourself on what states a Tizen Native App goes through from launch to its termination before you start developing your own. We discuss the basic states as an app moves from one to another.\&quot;],\&quot;created\&quot;:[0,\&quot;2017/10/15\&quot;],\&quot;modified\&quot;:[0,\&quot;2018/10/09\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;mobile\\\&quot;],[0,\\\&quot;wearable\\\&quot;],[0,\\\&quot;tv\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;native\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/51/Native_Fundamentals.jpg\&quot;],\&quot;videoUrl\&quot;:[0,\&quot;https://www.youtube.com/embed/Oce-Si88qVE\&quot;],\&quot;id\&quot;:[0,51]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/VideoTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Gear S3 Web App Development Webinar\&quot;],\&quot;description\&quot;:[0,\&quot;Learn about Gear S3 capabilities and kick start development by creating a Heart Rate Monitor (HRM) Web application. \&quot;],\&quot;created\&quot;:[0,\&quot;2017/08/11\&quot;],\&quot;modified\&quot;:[0,\&quot;2022/06/05\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;web\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/52/20171006_130512.jpg\&quot;],\&quot;videoUrl\&quot;:[0,\&quot;https://www.youtube.com/embed/Uhmj0_Js-9s\&quot;],\&quot;id\&quot;:[0,52]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/VideoTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Wearable Widget App based on Native C\&quot;],\&quot;description\&quot;:[0,\&quot;Understand Widgets on the Tizen Native to work hand in hand with a Tizen Application. Learn that Widgets are different from a UI Application by their life cycles and functions.\&quot;],\&quot;created\&quot;:[0,\&quot;2017/08/12\&quot;],\&quot;modified\&quot;:[0,\&quot;undefined\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;native\&quot;],\&quot;level\&quot;:[0,2],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/54/20171003_135014.jpg\&quot;],\&quot;videoUrl\&quot;:[0,\&quot;https://www.youtube.com/embed/V8xjt_Wk3NE\&quot;],\&quot;id\&quot;:[0,54]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/VideoTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Basic mobile app on Tizen Native C\&quot;],\&quot;description\&quot;:[0,\&quot;Get to know a Tizen Native basic mobile application with the new Tizen Studio.\\n\\nBuild a project and use a mobile emulator to see how an app looks on a Tizen virtual machine.\&quot;],\&quot;created\&quot;:[0,\&quot;2017/10/13\&quot;],\&quot;modified\&quot;:[0,\&quot;2018/10/09\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;mobile\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;native\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/55/20171003_130849.jpg\&quot;],\&quot;videoUrl\&quot;:[0,\&quot;https://www.youtube.com/embed/34jcL8Bax-c\&quot;],\&quot;id\&quot;:[0,55]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/VideoTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Basic wearable app on Tizen Native C\&quot;],\&quot;description\&quot;:[0,\&quot;Tizen is an OS that can be applied to any platform.\\nCreate a native basic wearable application and customize that with the Tizen Studio. Test apps with the Wearable Emulator and learn how to deploy it.\&quot;],\&quot;created\&quot;:[0,\&quot;2017/10/14\&quot;],\&quot;modified\&quot;:[0,\&quot;2018/10/09\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;native\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/56/20171003_130646.jpg\&quot;],\&quot;videoUrl\&quot;:[0,\&quot;https://www.youtube.com/embed/Z9_JiO7dvjI\&quot;],\&quot;id\&quot;:[0,56]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/VideoTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Piano Native App with EDC\&quot;],\&quot;description\&quot;:[0,\&quot;Complex layouts when unified with the code for functionality can seem a bit twisted even for the simplest changes.\\n\\nWith a plain text file, called EDC, we split the entire app into two parts. One for design, and one for logic. We take on one of the sample apps on the Tizen SDK to explain just that along with gestures, multitouch, and sounds.\&quot;],\&quot;created\&quot;:[0,\&quot;2017/08/11\&quot;],\&quot;modified\&quot;:[0,\&quot;2018/10/09\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;mobile\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;native\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/58/20171003_125750.jpg\&quot;],\&quot;videoUrl\&quot;:[0,\&quot;https://www.youtube.com/embed/zRvaNxD7uBk\&quot;],\&quot;id\&quot;:[0,58]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/VideoTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Localizing Web App\&quot;],\&quot;description\&quot;:[0,\&quot;Let Tizen help you craft personal and local content delivered on a global scale. Localizing your Tizen apps help your users feel more connected to your app as if it were made just for them. \&quot;],\&quot;created\&quot;:[0,\&quot;2017/08/11\&quot;],\&quot;modified\&quot;:[0,\&quot;2018/10/12\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;mobile\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;web\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/59/20171003_141538.jpg\&quot;],\&quot;videoUrl\&quot;:[0,\&quot;https://www.youtube.com/embed/aSuuSfsO544\&quot;],\&quot;id\&quot;:[0,59]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/VideoTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Exercise Web App with the Alarm \&quot;],\&quot;description\&quot;:[0,\&quot;Meet the Exercise Planner, a simple Tizen app that showcases the Tizen Alarm API. We&#39;ll walk you through the parts and the code so you can get a glimpse of how Tizen codes work.\&quot;],\&quot;created\&quot;:[0,\&quot;2017/08/10\&quot;],\&quot;modified\&quot;:[0,\&quot;2018/10/06\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;mobile\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;web\&quot;],\&quot;level\&quot;:[0,2],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/60/20171003_141808.jpg\&quot;],\&quot;videoUrl\&quot;:[0,\&quot;https://www.youtube.com/embed/3d8Tb9hY2lM\&quot;],\&quot;id\&quot;:[0,60]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/VideoTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Tizen Store Seller Office\&quot;],\&quot;description\&quot;:[0,\&quot;You’ve created your own app, what’s next? Make it known to the world! Upload your app to the Tizen Store Seller Office. This opens the opportunity to have your app in every Tizen powered smartphone, starting with the Samsung Z1.\&quot;],\&quot;created\&quot;:[0,\&quot;2017/09/01\&quot;],\&quot;modified\&quot;:[0,\&quot;2018/10/10\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;mobile\\\&quot;],[0,\\\&quot;wearable\\\&quot;],[0,\\\&quot;tv\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;general\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/61/20171003_121906.jpg\&quot;],\&quot;videoUrl\&quot;:[0,\&quot;https://www.youtube.com/embed/cQW4WkzqfZg\&quot;],\&quot;id\&quot;:[0,61]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/VideoTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;[SDC 2016] Analog Watch Web App\&quot;],\&quot;description\&quot;:[0,\&quot;[O] stream.Code101 is designed specifically to anyone who would like to learn any of the Samsung Technologies.\&quot;],\&quot;created\&quot;:[0,\&quot;2017/08/12\&quot;],\&quot;modified\&quot;:[0,\&quot;2018/10/07\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;web\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/64/20171003_140127.jpg\&quot;],\&quot;videoUrl\&quot;:[0,\&quot;https://www.youtube.com/embed/O6ZJAzK9m0A\&quot;],\&quot;id\&quot;:[0,64]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/VideoTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Selling the Smart TV App\&quot;],\&quot;description\&quot;:[0,\&quot;The Samsung TV Apps Seller Office enables developers to certify, distribute, and manage Smart TV Applications.\&quot;],\&quot;created\&quot;:[0,\&quot;2017/08/12\&quot;],\&quot;modified\&quot;:[0,\&quot;2018/10/07\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;tv\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;general\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/65/20171003_123439.jpg\&quot;],\&quot;videoUrl\&quot;:[0,\&quot;https://www.youtube.com/embed/iavyJVXl0Mc\&quot;],\&quot;id\&quot;:[0,65]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/VideoTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Using the Remote Control on Tizen TV web app\&quot;],\&quot;description\&quot;:[0,\&quot;Create an application on a Samsung Smart TV and control it with the Remote Control. Download the Samsung Smart TV SDK and try it for yourself.\&quot;],\&quot;created\&quot;:[0,\&quot;2017/08/12\&quot;],\&quot;modified\&quot;:[0,\&quot;2018/10/07\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;tv\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;web\&quot;],\&quot;level\&quot;:[0,2],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/66/20171003_142025.jpg\&quot;],\&quot;videoUrl\&quot;:[0,\&quot;https://www.youtube.com/embed/xwD1wWUmYuM\&quot;],\&quot;id\&quot;:[0,66]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/VideoTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Viewing Shared Media on Tizen TV web app\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial includes steps on how to create a sample application for Tizen TV that uses the AVPlay APIs as well as the steps on how to register and recognize the input from a remote control.\&quot;],\&quot;created\&quot;:[0,\&quot;2017/08/12\&quot;],\&quot;modified\&quot;:[0,\&quot;2018/10/07\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;tv\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;web\&quot;],\&quot;level\&quot;:[0,2],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/67/20171006_130144.jpg\&quot;],\&quot;videoUrl\&quot;:[0,\&quot;https://www.youtube.com/embed/JE2jNo79uh4\&quot;],\&quot;id\&quot;:[0,67]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;[Gear Maze] Implement SPIDER item using Accelerator sensor\&quot;],\&quot;description\&quot;:[0,\&quot;This lecture is about how to get accelerator sensor data and implement SPIDER item of Gear Maze using the sensor data.\&quot;],\&quot;created\&quot;:[0,\&quot;2017/09/10\&quot;],\&quot;modified\&quot;:[0,\&quot;2018/10/02\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;web\&quot;],\&quot;level\&quot;:[0,2],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/68/preview_spider.jpg\&quot;],\&quot;id\&quot;:[0,68]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;[Gear Maze] Development Overview\&quot;],\&quot;description\&quot;:[0,\&quot;GearMaze is a maze game one can enjoy walking in the real world wearing a Samsung Gear.\&quot;],\&quot;created\&quot;:[0,\&quot;2017/09/12\&quot;],\&quot;modified\&quot;:[0,\&quot;2022/06/05\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;web\&quot;],\&quot;level\&quot;:[0,3],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/69/preview_gearmaze_overview.jpg\&quot;],\&quot;id\&quot;:[0,69]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/VideoTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Xamarin Forms TV App Development for Tizen \&quot;],\&quot;description\&quot;:[0,\&quot;This covers how developers can build Tizen TV applications using Visual Studio 2017 and how they can easily expand their existing Xamarin apps to support Tizen platform.\&quot;],\&quot;created\&quot;:[0,\&quot;2017/09/13\&quot;],\&quot;modified\&quot;:[0,\&quot;undefined\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;tv\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/71/20171003_115635.jpg\&quot;],\&quot;videoUrl\&quot;:[0,\&quot;https://www.youtube.com/embed/9SFBEFHDQlI\&quot;],\&quot;id\&quot;:[0,71]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Make TStore Ranking Chart Application using TAU\&quot;],\&quot;description\&quot;:[0,\&quot;Make TStore Ranking Chart Application using TAU\&quot;],\&quot;created\&quot;:[0,\&quot;2017/08/28\&quot;],\&quot;modified\&quot;:[0,\&quot;2018/09/28\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;web\&quot;],\&quot;level\&quot;:[0,2],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/74/Make_T_store.jpg\&quot;],\&quot;id\&quot;:[0,74]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;How to create ListView with dynamic contents.\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial demonstrates how to work with ListView element and display dynamic data with it.\&quot;],\&quot;created\&quot;:[0,\&quot;2017/09/02\&quot;],\&quot;modified\&quot;:[0,\&quot;2020/02/04\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;mobile\\\&quot;],[0,\\\&quot;tv\\\&quot;],[0,\\\&quot;iot\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/80/ListView-with-dynamic-contents.jpg\&quot;],\&quot;id\&quot;:[0,80]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;How to create basic data binding.\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial shows basic concepts of data bindings for Tizen C# Application.\&quot;],\&quot;created\&quot;:[0,\&quot;2017/09/09\&quot;],\&quot;modified\&quot;:[0,\&quot;2020/01/18\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;mobile\\\&quot;],[0,\\\&quot;tv\\\&quot;],[0,\\\&quot;iot\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/81/Data-binding-basic.jpg\&quot;],\&quot;id\&quot;:[0,81]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Tizen C# Application Lifecycle\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial shows basic lifecycle of Tizen C# Application.\&quot;],\&quot;created\&quot;:[0,\&quot;2017/09/09\&quot;],\&quot;modified\&quot;:[0,\&quot;2020/00/31\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;mobile\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,1],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/82/Hiw-Tizen-application-lifycecle-works.jpg\&quot;],\&quot;id\&quot;:[0,82]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;[Gear Maze] Implement BLACKHOLE item using Barometer sensor\&quot;],\&quot;description\&quot;:[0,\&quot;This lecture is about how to get barometer sensor data through Tizen Web API and implement BLACKHOLE item of Gear Maze.\&quot;],\&quot;created\&quot;:[0,\&quot;2017/09/11\&quot;],\&quot;modified\&quot;:[0,\&quot;2019/03/23\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;web\&quot;],\&quot;level\&quot;:[0,2],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/83/preview_blackhole.jpg\&quot;],\&quot;id\&quot;:[0,83]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;Camera Remote Control App with SAP\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial teaches how to make a Gear S2 Camera Remote Control App which controls the camera of an Android mobile device.\&quot;],\&quot;created\&quot;:[0,\&quot;2017/08/20\&quot;],\&quot;modified\&quot;:[0,\&quot;2020/06/13\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;wearable\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;web\&quot;],\&quot;level\&quot;:[0,2],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/9/20171006_131752.jpg\&quot;],\&quot;id\&quot;:[0,9]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;[Korean] Cross Platform TV Application Development (2/2)\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial describes the process of developing a CrossPlatform Application that works with both Tizen and Android using Xamarin.Forms.\\nIt is the second of two tutorials, and it implements the function to play video of VideoPlayer.\&quot;],\&quot;created\&quot;:[0,\&quot;2017/10/04\&quot;],\&quot;modified\&quot;:[0,\&quot;undefined\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;tv\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,2],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/97/video2.png\&quot;],\&quot;id\&quot;:[0,97]}],[0,{\&quot;layout\&quot;:[0,\&quot;../../layouts/tutorial/TextTutorial.astro\&quot;],\&quot;title\&quot;:[0,\&quot;How to Create \\\&quot;AppInfo\\\&quot; App\&quot;],\&quot;description\&quot;:[0,\&quot;This tutorial teaches how to create AppInfo app using Xamarin Forms and Applications API.\&quot;],\&quot;created\&quot;:[0,\&quot;2017/10/23\&quot;],\&quot;modified\&quot;:[0,\&quot;2018/10/07\&quot;],\&quot;profile\&quot;:[1,\&quot;[[0,\\\&quot;tv\\\&quot;]]\&quot;],\&quot;type\&quot;:[0,\&quot;dotnet\&quot;],\&quot;level\&quot;:[0,3],\&quot;state\&quot;:[0,\&quot;open\&quot;],\&quot;thumbnail\&quot;:[0,\&quot;/TizenSchool/assets/images/tutorials/99/appinfo.png\&quot;],\&quot;id\&quot;:[0,99]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;List&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/TizenSchool/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div>
+<div class="max-w-6xl mx-auto"><div class="flex p-1 border-t border-default"><div class="grow flex"><div class="w-[160px] flex flex-col gap-2"><div class="title font-extrabold">Profile</div>
+      </div>
+    <div class="w-[160px] flex flex-col gap-2"><div class="title font-extrabold">Level</div>
+      </div>
+    <div class="w-[160px] flex flex-col gap-2"><div class="title font-extrabold">Type</div>
+      </div>
+    <div class="w-[160px] flex flex-col gap-2"><div class="title font-extrabold">Language</div>
+      </div>
+    <div class="w-[160px] flex flex-col gap-2"><div class="title font-extrabold">Technology</div>
+      </div></div>
+  <div><button class="p-2 rounded-lg text-white font-bold w-48 bg-[#4cccc8]">SHOW FILTERS (80)</button></div></div>
+  <ul class="border-t border-default min-h-[700px]">
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">native</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">To Do List App with Tizen Native C</div>
+    <div class="description grow svelte-18mwsqs">Implement a To Do List application which creates and deletes a to-do list using EFL on the wearable device written by native C language. It also covers how to apply the circle slider on it.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Advanced
+        <div class="indicator self-end level-3 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/10/Todolist_app.jpg"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">general</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Tizen Workshop for Seoul Hardware Hackathon</div>
+    <div class="description grow svelte-18mwsqs">2020' Tizen Workshop for Seoul Hardware Hackathon</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        
+        
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-iot"></div></div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/204/gampworkshop.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">How to navigate between pages</div>
+    <div class="description grow svelte-18mwsqs">The tutorial demonstrates how to implement navigation between pages in Xamarin.Forms application.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2"><div class="w-icon-profile h-icon-profile bg-icon-profile-mobile"></div>
+        
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/100/thumbnail_3.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">How to Create "MetalDetector" App</div>
+    <div class="description grow svelte-18mwsqs">This tutorial shows obtaining and example usage of the magnetometer sensor data provided by the Tizen.Sensor API.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Intermediate
+        <div class="indicator self-end level-2 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/104/MetalDetector.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">How to Create "Compass" App</div>
+    <div class="description grow svelte-18mwsqs">This tutorial demonstrates the process of compass application development with the use of Tizen.Sensor.API.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Intermediate
+        <div class="indicator self-end level-2 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/105/compass_thumnail.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">How to Create "BadgeCounter" App</div>
+    <div class="description grow svelte-18mwsqs">This tutorial shows how to create BadgeCounter app using Xamarin Forms and Application API.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Intermediate
+        <div class="indicator self-end level-2 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/106/BC_thumbnail.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">How to Create "SystemInfo" App</div>
+    <div class="description grow svelte-18mwsqs">This tutorial shows how easy it is to extend existing watch functions to display information provided by the Tizen.System.Battery API.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Advanced
+        <div class="indicator self-end level-3 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/107/SystemInfoThumbnail.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">How to create "Music Player" App</div>
+    <div class="description grow svelte-18mwsqs">The Music Player application demonstrates how to display and play music using Tizen Media Content and Player APIs.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        
+        <div class="w-[42px] h-icon-profile bg-icon-profile-tv"></div>
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Advanced
+        <div class="indicator self-end level-3 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/108/ThumbnailMusicPlayerTV.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Utilize Rotary Bezel in RotaryTimer application</div>
+    <div class="description grow svelte-18mwsqs">In this tutorial you will learn how to use rotary bezel to control timer setting in RotaryTimer sample application. </div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Intermediate
+        <div class="indicator self-end level-2 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/109/RT_thumbnail.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">How to import project to Visual Studio</div>
+    <div class="description grow svelte-18mwsqs">This tutorial demonstrates how to import a project into Visual Studio.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2"><div class="w-icon-profile h-icon-profile bg-icon-profile-mobile"></div>
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        <div class="w-[42px] h-icon-profile bg-icon-profile-tv"></div>
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/110/Import_project__thumbnail.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">How to create Basic Analog WatchFace</div>
+    <div class="description grow svelte-18mwsqs">This tutorial teaches how to create analog watch face using Xamarin Forms.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/0/thumbnail_watchFace.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">C# Wearable App Development (1/3)</div>
+    <div class="description grow svelte-18mwsqs">This tutorial describes how to set an environment to develop Tizen C# applications You can build and run a basic app on your Galaxy Watch with this tutorial.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/116/wearable_full_thumbnail1.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">C# Wearable App Development (2/3)</div>
+    <div class="description grow svelte-18mwsqs">This tutorial describes how to use various UI components such as widgets, popup windows, toasts, layouts, the index and circle page and the rotary selector by Tizen.Wearable.CircularUI.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/117/wearable_full_thumbnail2.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">C# Wearable App Development (3/3)</div>
+    <div class="description grow svelte-18mwsqs">This tutorial describes extra features such as how to get the information of applications by Package Manager and Application Manager, deal with WatchFace and save data using Preferences.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/118/wearable_full_thumbnail3.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">web</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Digital Weather Watch With Heart Rate Monitor</div>
+    <div class="description grow svelte-18mwsqs">We will make the T-store chart application using TAU &amp; open Web API in this tutorial. The first session is setting UI for this application, and the secon session is getting and displaying the data.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/12/preview-weather-full.jpg"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">How to Create "Text Reader" App</div>
+    <div class="description grow svelte-18mwsqs">This tutorial teaches how to create Text Reader app using Xamarin Forms and Text-to-Speech API.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2"><div class="w-icon-profile h-icon-profile bg-icon-profile-mobile"></div>
+        
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Advanced
+        <div class="indicator self-end level-3 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/13/Text_Reader.jpg"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">general</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">[Kor] Getting started with Raspberry PI3</div>
+    <div class="description grow svelte-18mwsqs">본 강좌는 Raspberry PI 3 기반으로 Tizen IoT를 사용하고자 하는 개발자를 위한 입문 가이드입니다. 최신 Tizen 5.0을 기반으로 가장 쉽게 개발환경을 구축하는 방법을 가이드하고 있습니다.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        
+        
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-iot"></div></div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/131/Korean.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">general</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Racing Car</div>
+    <div class="description grow svelte-18mwsqs">How to make a car controlled by a tizen watch.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        
+        
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-iot"></div></div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Advanced
+        <div class="indicator self-end level-3 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/134/GearRece.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">native</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Racing Controller</div>
+    <div class="description grow svelte-18mwsqs">This tutorial is about programming a Tizen device to be able to steer Racing-Car.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        
+        
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-iot"></div></div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Intermediate
+        <div class="indicator self-end level-2 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/135/2.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">general</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Getting started with Raspberry PI</div>
+    <div class="description grow svelte-18mwsqs">This tutorial is a guide for developers who want to use Tizen IoT based on Raspberry PI3. It shows the easiest way to set up your development environment.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        
+        
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-iot"></div></div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/137/English.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">How to Create "Heart Rate Monitor" App</div>
+    <div class="description grow svelte-18mwsqs">This tutorial teaches how to create Heart Rate Monitor app using Xamarin Forms and Sensor API.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2"><div class="w-icon-profile h-icon-profile bg-icon-profile-mobile"></div>
+        
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Advanced
+        <div class="indicator self-end level-3 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/14/heart_monitor.jpg"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">general</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Racing Cloud</div>
+    <div class="description grow svelte-18mwsqs">This tutorial is about launching a server for creating race with a lot of cars and controllers.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Intermediate
+        <div class="indicator self-end level-2 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/140/racing-cloud.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">general</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Tizen Racing</div>
+    <div class="description grow svelte-18mwsqs">This series of step-by-step tutorials is going to show you, how easy is building your own RC car with controller and racetrack.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        
+        
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-iot"></div></div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/141/1.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">general</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Tizen Ready to Race</div>
+    <div class="description grow svelte-18mwsqs">In this tutorial is shown how to design a simple racetrack for cars and count laps.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Intermediate
+        <div class="indicator self-end level-2 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/142/ready-to-race-thumbnail.jpg"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Getting Started with Creating a .NET App</div>
+    <div class="description grow svelte-18mwsqs">This tutorial describes how to set an environment for developing Tizen .NET applications on Samsung's wearable device, Galaxy Watch.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/143/getting-started-net-app.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">How to create SmartLevel</div>
+    <div class="description grow svelte-18mwsqs">This is a tutorial for simple application that demonstrates usage of accelerometer sensor.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Intermediate
+        <div class="indicator self-end level-2 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/145/tn-level.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">How to create Digital WatchFace</div>
+    <div class="description grow svelte-18mwsqs">This tutorial teaches how to create digital watch face using Xamarin Forms.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/147/how-to-digital-watchface.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">general</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">[Kor] Tizen &amp; Tizen IoT Introduction</div>
+    <div class="description grow svelte-18mwsqs">본 강좌는  서울 하드웨어 해커톤의 사전 워크샵 강의를 위하여 작성되었습니다. Tizen 및 Tizen IoT에 대해서 간략한 소개 자료입니다. - Written by 강석현(Shawn Kang)</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        
+        
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-iot"></div></div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/150/20190808_194706.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">native</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">How to use a Lottie animation</div>
+    <div class="description grow svelte-18mwsqs">Tizen supports Lottie animation. You can play Lottie animation using Native APIs.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2"><div class="w-icon-profile h-icon-profile bg-icon-profile-mobile"></div>
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        <div class="w-[42px] h-icon-profile bg-icon-profile-tv"></div>
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/151/11.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">native</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">[Kor][IoT Hackathon] #1 Tizen  Development Environment</div>
+    <div class="description grow svelte-18mwsqs">본 강좌는 2019년 8월 17일 진행된 서울 하드웨어 해커톤 워크샵 강의 영상입니다. 해당 강좌는 https://samsung.github.io/TizenSchool/tutorial/149 에서 확인이 가능합니다.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        
+        
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-iot"></div></div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/155/gcamp.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">native</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">[Kor][IoT Hackathon] #2 Tizen Development Information</div>
+    <div class="description grow svelte-18mwsqs">본 강좌는 2019년 8월 17일 진행된 서울 하드웨어 해커톤 워크샵 강의 영상입니다.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        
+        
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-iot"></div></div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/156/2019gcamp.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">native</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">[Kor][IoT Hackathon] #3 Tizen Main-Loop</div>
+    <div class="description grow svelte-18mwsqs">본 강좌는 2019년 8월 24일 진행된 서울 하드웨어 해커톤 워크샵 강의 영상입니다.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        
+        
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-iot"></div></div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Intermediate
+        <div class="indicator self-end level-2 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/158/2019gcamp.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">native</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">[Kor][IoT Hackathon] #4 How to use  GPIO, I2C and SPI</div>
+    <div class="description grow svelte-18mwsqs">본 강좌는 2019년 8월 24일 진행된 서울 하드웨어 해커톤 워크샵 강의 영상입니다.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        
+        
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-iot"></div></div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/159/2019gcamp.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">How to create Pulsometer with Lottie animation</div>
+    <div class="description grow svelte-18mwsqs">Pulsometer tutorial guides you step-by-step to create application for a watch, which reads heart rate value from your wrist.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/166/HRM_thumbnail_W.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">[SDC 2019] What's new in Tizen 5.5?</div>
+    <div class="description grow svelte-18mwsqs">What's New in Tizen? 5.5 Platform Update and Developer Environment - Hobum Kwon, David Ortinau, and Diego Lizarazo Rivera</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/0/sdc.PNG"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Xamarin.Forms on Samsung Wearable and TV products</div>
+    <div class="description grow svelte-18mwsqs">The developers can learn how to start developing Xamarin Forms application running on the Samsung products and which products are supported. - Jay Cho</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        <div class="w-[42px] h-icon-profile bg-icon-profile-tv"></div>
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/0/xds.PNG"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">How to add a Tizen project to Xamarin template</div>
+    <div class="description grow svelte-18mwsqs">This tutorial describes how to add a Tizen project to Xamarin.Forms application for a cross-platform development - Written by Seoghyun Kang(Shawn)</div>
+    <div class="footer flex"><div class="profile grow flex gap-2"><div class="w-icon-profile h-icon-profile bg-icon-profile-mobile"></div>
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        <div class="w-[42px] h-icon-profile bg-icon-profile-tv"></div>
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-iot"></div></div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/173/4b@2x.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Simple Calculator for multi platforms and devices</div>
+    <div class="description grow svelte-18mwsqs">This tutorial describe how to create a simple calculator using a Grid layout based on Xamarin.Forms - Written by Seoghyun Kang(Shawn)</div>
+    <div class="footer flex"><div class="profile grow flex gap-2"><div class="w-icon-profile h-icon-profile bg-icon-profile-mobile"></div>
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        <div class="w-[42px] h-icon-profile bg-icon-profile-tv"></div>
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-iot"></div></div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/175/20200305_102151.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">How to create "SquatCounter" application</div>
+    <div class="description grow svelte-18mwsqs">Tutorial guides you how to use pressure sensor to count squats.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Intermediate
+        <div class="indicator self-end level-2 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/180/Squat_counter_thumbnail@2x (1).png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Xamarin Video Tutorials for Tizen Makers</div>
+    <div class="description grow svelte-18mwsqs">This tutorials have been created by G.Camp MakerSpace  for Tizen Makers (https://gcamp.tistory.com). It consists of 41 youtube clips.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2"><div class="w-icon-profile h-icon-profile bg-icon-profile-mobile"></div>
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        <div class="w-[42px] h-icon-profile bg-icon-profile-tv"></div>
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-iot"></div></div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/0/20200413_091949.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">How to use embedded image for multi platforms</div>
+    <div class="description grow svelte-18mwsqs">This tutorial describe how to use a embedded image for managing image resources easily.  - Written by Seoghyun Kang(Shawn)</div>
+    <div class="footer flex"><div class="profile grow flex gap-2"><div class="w-icon-profile h-icon-profile bg-icon-profile-mobile"></div>
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        <div class="w-[42px] h-icon-profile bg-icon-profile-tv"></div>
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-iot"></div></div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Intermediate
+        <div class="indicator self-end level-2 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/183/thumbnail.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">general</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Tizen Tidbits for Tizen Beginners</div>
+    <div class="description grow svelte-18mwsqs">In this new video series we will cover many core concepts of Tizen development in short, focused videos. It consists of 8 youtube clips.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2"><div class="w-icon-profile h-icon-profile bg-icon-profile-mobile"></div>
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        <div class="w-[42px] h-icon-profile bg-icon-profile-tv"></div>
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/184/tizen.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">How to use SQLite in Android and Tizen</div>
+    <div class="description grow svelte-18mwsqs">This tutorial shows how to use SQLite database in Android and Tizen - Written by 강석현(Shawn)</div>
+    <div class="footer flex"><div class="profile grow flex gap-2"><div class="w-icon-profile h-icon-profile bg-icon-profile-mobile"></div>
+        
+        <div class="w-[42px] h-icon-profile bg-icon-profile-tv"></div>
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-iot"></div></div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Intermediate
+        <div class="indicator self-end level-2 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/187/20200513_170327.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">How to create the Pedometer application.</div>
+    <div class="description grow svelte-18mwsqs">In this tutorial based on the pedometer application sample code you will learn how to use Pedometer sensor with Tizen.Sensor library.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Advanced
+        <div class="indicator self-end level-3 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/188/Pedometer_thumbnail.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">general</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Getting started with Raspberry PI 3&amp;4</div>
+    <div class="description grow svelte-18mwsqs">This tutorial is a guide for developers who want to use Tizen IoT based on Raspberry PI3/4. It shows the easiest way to set up your development environment. - Written by 강석현(Shawn Kang)</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        
+        
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-iot"></div></div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/137/English.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Workout application guide</div>
+    <div class="description grow svelte-18mwsqs">This guide is designed for advanced developers who want to make their running application.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Advanced
+        <div class="indicator self-end level-3 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/199/Workout_thumbnail.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">How to develop Voice control manager application</div>
+    <div class="description grow svelte-18mwsqs">This tutorial introduces how to use Voice control manager FW and how to make voice control manager application using this FW.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        
+        
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-iot"></div></div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/203/203_thumbnail_3.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Example of Voice Control Manager Application</div>
+    <div class="description grow svelte-18mwsqs">This tutorial is an example of Voice Control Manager Application.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        
+        
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-iot"></div></div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/207/207_thumbnail.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">native</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Smart Faucet - 2019 Seoul H/W Hackathon Grand Prize</div>
+    <div class="description grow svelte-18mwsqs">2019 서울 하드웨어 해커톤 최우수상 과제로 선정된 스마트 수도꼭지 프로젝트 소개</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        
+        
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-iot"></div></div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Intermediate
+        <div class="indicator self-end level-2 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/0/smart_facuet.jpg"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">How to create "Pedometer" application</div>
+    <div class="description grow svelte-18mwsqs">The video version of 'How to create the Pedometer application (https://samsung.github.io/TizenSchool/188)'</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/0/Pedometer_video_thumbnail.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">How to create "SquatCounter" application</div>
+    <div class="description grow svelte-18mwsqs">The video version of 'How to create SquatCounter application (https://samsung.github.io/TizenSchool/180)'</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/0/Squat_counter_video_thumbnail.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">general</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Seoul Hardware Hackathon 2021</div>
+    <div class="description grow svelte-18mwsqs">(2021 온라인 해커톤) 서울 하드웨어 해커톤 강의 자료입니다.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        
+        
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-iot"></div></div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/0/hack.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">How to create "AppHistory" App</div>
+    <div class="description grow svelte-18mwsqs">This tutorial teaches how to create AppHistory App using Tizen NUI and Application API</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        
+        
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-iot"></div></div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Intermediate
+        <div class="indicator self-end level-2 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/270/output-onlinepngtools.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">web</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Basic wearable app on Tizen Web</div>
+    <div class="description grow svelte-18mwsqs">Make a seamless transition when building apps for any Samsung Gear Wearable using the new Tizen Studio. 
+Create a basic wearable application on Tizen Web that focuses on Web APIs.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/48/20170911_131147.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">web</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Basic mobile app on Tizen Web</div>
+    <div class="description grow svelte-18mwsqs">Tizen is flexible to be used on any platform. This video enables you to customize the mobile app. 
+
+Page Navigation by manipulating the on-screen elements.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2"><div class="w-icon-profile h-icon-profile bg-icon-profile-mobile"></div>
+        
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/49/20170911_131626.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">web</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Compass web app Using DeviceOrientation</div>
+    <div class="description grow svelte-18mwsqs">Build interactive apps that follow the phone’s orientation and more using the DeviceOrientation Specification in your Tizen app.
+
+Join us as we demonstrate this in the code and in a sample app inside the Tizen Web Simulator.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2"><div class="w-icon-profile h-icon-profile bg-icon-profile-mobile"></div>
+        
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/50/20170911_132224.jpg"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">native</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Tizen Native C App Fundamentals </div>
+    <div class="description grow svelte-18mwsqs">Familiarize yourself on what states a Tizen Native App goes through from launch to its termination before you start developing your own. We discuss the basic states as an app moves from one to another.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2"><div class="w-icon-profile h-icon-profile bg-icon-profile-mobile"></div>
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        <div class="w-[42px] h-icon-profile bg-icon-profile-tv"></div>
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/51/Native_Fundamentals.jpg"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">web</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Gear S3 Web App Development Webinar</div>
+    <div class="description grow svelte-18mwsqs">Learn about Gear S3 capabilities and kick start development by creating a Heart Rate Monitor (HRM) Web application. </div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/52/20171006_130512.jpg"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">native</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Wearable Widget App based on Native C</div>
+    <div class="description grow svelte-18mwsqs">Understand Widgets on the Tizen Native to work hand in hand with a Tizen Application. Learn that Widgets are different from a UI Application by their life cycles and functions.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Intermediate
+        <div class="indicator self-end level-2 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/54/20171003_135014.jpg"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">native</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Basic mobile app on Tizen Native C</div>
+    <div class="description grow svelte-18mwsqs">Get to know a Tizen Native basic mobile application with the new Tizen Studio.
+
+Build a project and use a mobile emulator to see how an app looks on a Tizen virtual machine.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2"><div class="w-icon-profile h-icon-profile bg-icon-profile-mobile"></div>
+        
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/55/20171003_130849.jpg"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">native</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Basic wearable app on Tizen Native C</div>
+    <div class="description grow svelte-18mwsqs">Tizen is an OS that can be applied to any platform.
+Create a native basic wearable application and customize that with the Tizen Studio. Test apps with the Wearable Emulator and learn how to deploy it.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/56/20171003_130646.jpg"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">native</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Piano Native App with EDC</div>
+    <div class="description grow svelte-18mwsqs">Complex layouts when unified with the code for functionality can seem a bit twisted even for the simplest changes.
+
+With a plain text file, called EDC, we split the entire app into two parts. One for design, and one for logic. We take on one of the sample apps on the Tizen SDK to explain just that along with gestures, multitouch, and sounds.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2"><div class="w-icon-profile h-icon-profile bg-icon-profile-mobile"></div>
+        
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/58/20171003_125750.jpg"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">web</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Localizing Web App</div>
+    <div class="description grow svelte-18mwsqs">Let Tizen help you craft personal and local content delivered on a global scale. Localizing your Tizen apps help your users feel more connected to your app as if it were made just for them. </div>
+    <div class="footer flex"><div class="profile grow flex gap-2"><div class="w-icon-profile h-icon-profile bg-icon-profile-mobile"></div>
+        
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/59/20171003_141538.jpg"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">web</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Exercise Web App with the Alarm </div>
+    <div class="description grow svelte-18mwsqs">Meet the Exercise Planner, a simple Tizen app that showcases the Tizen Alarm API. We'll walk you through the parts and the code so you can get a glimpse of how Tizen codes work.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2"><div class="w-icon-profile h-icon-profile bg-icon-profile-mobile"></div>
+        
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Intermediate
+        <div class="indicator self-end level-2 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/60/20171003_141808.jpg"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">general</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Tizen Store Seller Office</div>
+    <div class="description grow svelte-18mwsqs">You’ve created your own app, what’s next? Make it known to the world! Upload your app to the Tizen Store Seller Office. This opens the opportunity to have your app in every Tizen powered smartphone, starting with the Samsung Z1.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2"><div class="w-icon-profile h-icon-profile bg-icon-profile-mobile"></div>
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        <div class="w-[42px] h-icon-profile bg-icon-profile-tv"></div>
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/61/20171003_121906.jpg"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">web</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">[SDC 2016] Analog Watch Web App</div>
+    <div class="description grow svelte-18mwsqs">[O] stream.Code101 is designed specifically to anyone who would like to learn any of the Samsung Technologies.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/64/20171003_140127.jpg"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">general</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Selling the Smart TV App</div>
+    <div class="description grow svelte-18mwsqs">The Samsung TV Apps Seller Office enables developers to certify, distribute, and manage Smart TV Applications.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        
+        <div class="w-[42px] h-icon-profile bg-icon-profile-tv"></div>
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/65/20171003_123439.jpg"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">web</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Using the Remote Control on Tizen TV web app</div>
+    <div class="description grow svelte-18mwsqs">Create an application on a Samsung Smart TV and control it with the Remote Control. Download the Samsung Smart TV SDK and try it for yourself.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        
+        <div class="w-[42px] h-icon-profile bg-icon-profile-tv"></div>
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Intermediate
+        <div class="indicator self-end level-2 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/66/20171003_142025.jpg"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">web</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Viewing Shared Media on Tizen TV web app</div>
+    <div class="description grow svelte-18mwsqs">This tutorial includes steps on how to create a sample application for Tizen TV that uses the AVPlay APIs as well as the steps on how to register and recognize the input from a remote control.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        
+        <div class="w-[42px] h-icon-profile bg-icon-profile-tv"></div>
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Intermediate
+        <div class="indicator self-end level-2 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/67/20171006_130144.jpg"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">web</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">[Gear Maze] Implement SPIDER item using Accelerator sensor</div>
+    <div class="description grow svelte-18mwsqs">This lecture is about how to get accelerator sensor data and implement SPIDER item of Gear Maze using the sensor data.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Intermediate
+        <div class="indicator self-end level-2 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/68/preview_spider.jpg"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">web</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">[Gear Maze] Development Overview</div>
+    <div class="description grow svelte-18mwsqs">GearMaze is a maze game one can enjoy walking in the real world wearing a Samsung Gear.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Advanced
+        <div class="indicator self-end level-3 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/69/preview_gearmaze_overview.jpg"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Xamarin Forms TV App Development for Tizen </div>
+    <div class="description grow svelte-18mwsqs">This covers how developers can build Tizen TV applications using Visual Studio 2017 and how they can easily expand their existing Xamarin apps to support Tizen platform.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        
+        <div class="w-[42px] h-icon-profile bg-icon-profile-tv"></div>
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/71/20171003_115635.jpg"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">web</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Make TStore Ranking Chart Application using TAU</div>
+    <div class="description grow svelte-18mwsqs">Make TStore Ranking Chart Application using TAU</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Intermediate
+        <div class="indicator self-end level-2 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/74/Make_T_store.jpg"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">How to create ListView with dynamic contents.</div>
+    <div class="description grow svelte-18mwsqs">This tutorial demonstrates how to work with ListView element and display dynamic data with it.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2"><div class="w-icon-profile h-icon-profile bg-icon-profile-mobile"></div>
+        
+        <div class="w-[42px] h-icon-profile bg-icon-profile-tv"></div>
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-iot"></div></div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/80/ListView-with-dynamic-contents.jpg"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">How to create basic data binding.</div>
+    <div class="description grow svelte-18mwsqs">This tutorial shows basic concepts of data bindings for Tizen C# Application.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2"><div class="w-icon-profile h-icon-profile bg-icon-profile-mobile"></div>
+        
+        <div class="w-[42px] h-icon-profile bg-icon-profile-tv"></div>
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-iot"></div></div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/81/Data-binding-basic.jpg"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Tizen C# Application Lifecycle</div>
+    <div class="description grow svelte-18mwsqs">This tutorial shows basic lifecycle of Tizen C# Application.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2"><div class="w-icon-profile h-icon-profile bg-icon-profile-mobile"></div>
+        
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Beginner
+        <div class="indicator self-end level-1 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/82/Hiw-Tizen-application-lifycecle-works.jpg"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">web</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">[Gear Maze] Implement BLACKHOLE item using Barometer sensor</div>
+    <div class="description grow svelte-18mwsqs">This lecture is about how to get barometer sensor data through Tizen Web API and implement BLACKHOLE item of Gear Maze.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Intermediate
+        <div class="indicator self-end level-2 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/83/preview_blackhole.jpg"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">web</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">Camera Remote Control App with SAP</div>
+    <div class="description grow svelte-18mwsqs">This tutorial teaches how to make a Gear S2 Camera Remote Control App which controls the camera of an Android mobile device.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        <div class="w-icon-profile h-icon-profile bg-icon-profile-wearable"></div>
+        
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Intermediate
+        <div class="indicator self-end level-2 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/9/20171006_131752.jpg"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">[Korean] Cross Platform TV Application Development (2/2)</div>
+    <div class="description grow svelte-18mwsqs">This tutorial describes the process of developing a CrossPlatform Application that works with both Tizen and Android using Xamarin.Forms.
+It is the second of two tutorials, and it implements the function to play video of VideoPlayer.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        
+        <div class="w-[42px] h-icon-profile bg-icon-profile-tv"></div>
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Intermediate
+        <div class="indicator self-end level-2 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/97/video2.png"></div>
+</div>
+<div class="group flex py-4 gap-4 text-default border-b border-default cursor-pointer"><div class="details grow flex flex-col"><div class="type font-semibold mb-2 svelte-18mwsqs">Tutorial | <span class="capitalize">dotnet</span></div>
+    <div class="group-hover:text-amber-400 title mt-2 mb-4 font-extrabold svelte-18mwsqs">How to Create "AppInfo" App</div>
+    <div class="description grow svelte-18mwsqs">This tutorial teaches how to create AppInfo app using Xamarin Forms and Applications API.</div>
+    <div class="footer flex"><div class="profile grow flex gap-2">
+        
+        <div class="w-[42px] h-icon-profile bg-icon-profile-tv"></div>
+        </div>
+      <div class="level flex gap-2 items-end svelte-18mwsqs">Advanced
+        <div class="indicator self-end level-3 svelte-18mwsqs"></div></div></div></div>
+  <div class="thumbnail overflow-hidden rounded-lg shrink-0 svelte-18mwsqs"><img class="w-full h-full object-cover transition-[transform] hover:scale-[1.15] duration-[400ms]" alt="" src="/TizenSchool/assets/images/tutorials/99/appinfo.png"></div>
+</div></ul></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/642c4c04779a63be966fa6579cbe2e444ddde584">642c4c04779a63be966fa6579cbe2e444ddde584</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>

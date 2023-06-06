@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/TizenSchool/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/TizenSchool/assets/images/favicon-32x32.png">
+    <title>[Kor] Tizen platform 프로젝트 빌드 환경 설정하기</title>
+  <link rel="stylesheet" href="/TizenSchool/assets/aboutus.9016036b.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.013d619c.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="2r5SHS" component-url="/TizenSchool/Header.fde63186.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/TizenSchool/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      [Kor] Tizen platform 프로젝트 빌드 환경 설정하기
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">Tizen platform 과 관련된 개발을 하기 위해서는 Tizen 의 빌드툴인 gbs 명령어 사용이 필수적입니다. 이 강좌에서는 gbs 명령어를 설치 및 환경설정을 배울 수 있습니다.  - writen by 손기성(kisung Son)</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/TizenSchool/assets/images/iot-active.png">
+        <img src="/TizenSchool/assets/images/wearable-dimmed.png">
+        <img src="/TizenSchool/assets/images/mobile-dimmed.png">
+        <img src="/TizenSchool/assets/images/smart-tv-dimmed.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2021/03/12</span>
+            Modified
+            <span class="font-bold">2021/07/04</span>
+    </div>
+  </div><astro-island uid="2uqM43" component-url="/TizenSchool/TextContent.c7f4d9de.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,5],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. 개요\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. gbs 명령어 설치\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. 환경 설정(1) : “.gbs.conf” 파일 만들기\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;4. 환경 설정(2) ” “.gbs.conf” 파일 수정하기\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;5. gbs 명령어 사용\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/5</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="1-개요">1. 개요</h2>
+<p><strong>1.1. Tizen Platform 이란?</strong></p>
+<ol>
+<li>
+<p>Tizen Open Source&nbsp;이해</p>
+</li>
+<li>
+<p>Open Source 프로젝트 관련 기초&nbsp;지식</p>
+</li>
+</ol>
+<p><strong>1.2. Tizen Open Source 관련 시스템</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/229/800px-tizen-work-flow.png" style="height:512px; width:800px">
+<ol>
+<li>
+<p>Local&nbsp;Git</p>
+</li>
+<li>
+<p>Gerrit : <a href="https://review.tizen.org">https://review.tizen.org</a></p>
+</li>
+</ol>
+<p>※ 참고 사항</p>
+<ul>
+<li>Gerrit 시스템은 SCM(Source Code Management) 시스템 중에 하나이며,&nbsp;SCM은 소스코드를 관리할 수 있는&nbsp;시스템을 말합니다.</li>
+</ul>
+<p>-&nbsp;대표적인 SCM 에는&nbsp;Github 와 Gerrit 이 있으며, Github 를 사용하는 대표적인 시스템은&nbsp;<a href="https://github.com">https://github.com</a>,</p>
+<p>Gerrit 을 사용하는 대표적인 시스템은 Linux Kernel 의 소소코드를 관리하는 <a href="https://git.kernel.org/">https://git.kernel.org</a>&nbsp;가 있습니다.</p>
+<ul>
+<li>일반적으로 Github 시스템은 중소형&nbsp;프로젝트에, Gerrit 시스템은 대형 프로젝트에 좀 더 편리하다고 알려져 있습니다.</li>
+</ul>
+<ol start="3">
+<li>
+<p>Git :&nbsp;<a href="https://review.tizen.org">https://review.tizen.org</a><a href="https://review.tizen.org/git">/git</a></p>
+</li>
+<li>
+<p>Staging Git 사이트&nbsp;:&nbsp;<a href="https://git.tizen.org">https://git.tizen.org</a></p>
+</li>
+<li>
+<p>OBS (Open Build Service) :&nbsp;<a href="https://build.tizen.org">https://build.tizen.org</a></p>
+</li>
+<li>
+<p>Release :&nbsp;<a href="http://download.tizen.org">http://download.tizen.org</a></p>
+</li>
+</ol>
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="2-gbs-명령어-설치">2. gbs 명령어 설치</h2>
+<p><strong>2-1 Tizen Repository 개요</strong></p>
+<p>Tizen Open Source 를 빌드하기 위해서는 Tizen 개발툴이 필요하며, Tizen 개발툴을 설치하기 위해서는 먼저 Tizen 개발툴이 있는 Repository&nbsp;등록을 해야합니다.</p>
+<p>이 강좌에서는 Ubuntu 20.04 를 사용할 것이며, “Tizen 개발툴 Repository” 를 Ubuntu에 등록해야 합니다.</p>
+<p><strong>2-2. Tizen 개발툴 Repository 확인</strong></p>
+<ol>
+<li>Ubuntu 20.04 용 Tizen 개발툴 Repository :&nbsp;<a href="http://download.tizen.org/tools/latest-release/Ubuntu_20.04/">http://download.tizen.org/tools/latest-release/Ubuntu_20.04/</a></li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/229/Screenshot from 2021-04-15 17-09-54.png" style="height:634px; width:1090px">
+<p><strong>2-3. Tizen 개발툴 Repository 를 Ubuntu 에 등록하기</strong></p>
+<ol>
+<li>에디터로 “sources.list” 파일&nbsp;수정</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/229/Screenshot from 2021-04-15 17-24-33.png" style="height:533px; width:948px">
+<ol start="2">
+<li>Repository 업데이트</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/229/Screenshot from 2021-04-15 17-25-23.png" style="height:317px; width:948px">
+<p><strong>2-4. gbs 명령어 설치하기</strong></p>
+<ol>
+<li>gbs 명령어&nbsp;설치 : $ sudo apt-get installl gbs</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/229/Screenshot from 2021-04-15 18-09-27.png" style="undefined">
+<ol start="2">
+<li>gbs 명령어 설치 확인 : $ gbs</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/229/Screenshot from 2021-04-15 18-10-48.png" style="height:659px; width:930px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="3-환경-설정1--gbsconf-파일-만들기">3. 환경 설정(1) : “.gbs.conf” 파일 만들기</h2>
+<p><strong>3.1 gbs 에 대한 이해</strong></p>
+<p>gbs(Git Build System)는 Tizen Platform 프로젝트의 소스코드를&nbsp;빌드(build) 할 때 사용하는 명령어 입니다.</p>
+<p>gbs 로 빌드한 결과 파일(확장자 rpm 파일)들은 ”~/GBS-ROOT/local/repos/” 디렉토리 아래에 저장이 됩니다.</p>
+<p>gbs 로 빌드 할 때, 소스코드만으로는 빌드가 되지 않으며, “Tizen Repository”에 있는&nbsp;빌드에 필요한 패키지들을 자동으로 다운받아서 빌드를 하게 됩니다.</p>
+<p>따라서, gbs 빌드를 하기 위해서는 “Tizen Repository”를 지정해 주어야 하며, 그 정보는 “.gbs.conf” 파일에 저장되어 있어야 합니다.</p>
+<img src="/TizenSchool/assets/images/tutorials/229/gbs_conf.png" style="height:417px; width:739px">
+<ol>
+<li>
+<p>“gbs build” 명령어 입력</p>
+</li>
+<li>
+<p>소스코드 분석</p>
+</li>
+<li>
+<p>Tizen Repository 주소 가져오기</p>
+</li>
+<li>
+<p>빌드에 필요한 파일 다운받기</p>
+</li>
+<li>
+<p>빌드된 파일을 PC 에 저장</p>
+</li>
+</ol>
+<p><strong>3.2. “.gbs.conf” 파일 만들기</strong></p>
+<ol>
+<li>Tizen 개발 가이드 사이트에서 “.gbs.conf” 파일 샘플 내용 복사</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/229/Screenshot from 2021-04-15 20-12-16.png" style="height:732px; width:1047px">
+<img src="/TizenSchool/assets/images/tutorials/229/Screenshot from 2021-04-15 20-12-49.png" style="height:732px; width:1052px">
+<ol start="2">
+<li>“.gbs.conf” 파일 만들기</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/229/Screenshot from 2021-04-15 20-30-51.png" style="height:660px; width:1066px">
+<p>※ Tizen 사이트에 제시된 “.gbs.conf” 파일 예제는 “Tizen 5.0” 까지의 버전용으로 빌드할 수 있는 내용입니다.</p>
+<p>따라서, 2021년 4월 기준 최신(Tizen 6.0 또는 6.5) 버전용으로 빌드할 수 있는 내용으로 수정이 필요합니다.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="4-환경-설정2--gbsconf-파일-수정하기">4. 환경 설정(2) ” “.gbs.conf” 파일 수정하기</h2>
+<p><strong>4.1. “.gbs.conf” 파일 구조 이해</strong></p>
+<p>“.gbs.conf” 파일은 크게 3개의 Section (Default, Profile, Reposityory)&nbsp;으로 구성되어 있습니다.</p>
+<p>그리고, 3번째 “Repository Section”은 “Base repository” 와 “Profile&nbsp;Repository”로 나뉘어집니다.</p>
+<img src="/TizenSchool/assets/images/tutorials/229/Screenshot from 2021-04-17 13-34-30.png" style="height:895px; width:1066px">
+<ol>
+<li>Default Section</li>
+</ol>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">[general]</span></span>
+<span class="line"><span style="color: #BBBBBB">profile </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> profile.unified_standard</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ol start="2">
+<li>Profile Section</li>
+</ol>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #A67F59">#########################################################</span></span>
+<span class="line"><span style="color: #A67F59">##################</span><span style="color: #BBBBBB"> Profile Section </span><span style="color: #A67F59">##################</span></span>
+<span class="line"><span style="color: #A67F59">#########################################################</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #A67F59">#############</span><span style="color: #BBBBBB"> unified </span><span style="color: #A67F59">#############</span></span>
+<span class="line"><span style="color: #BBBBBB">[profile.unified_standard]</span></span>
+<span class="line"><span style="color: #BBBBBB">repos </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> repo.base_standard</span><span style="color: #999">,</span><span style="color: #BBBBBB">repo.base_standard_debug</span><span style="color: #999">,</span><span style="color: #BBBBBB">repo.unified_standard</span><span style="color: #999">,</span><span style="color: #BBBBBB">repo.unified_standard_debug</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">[profile.unified_emulator]</span></span>
+<span class="line"><span style="color: #BBBBBB">repos </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> repo.base_standard</span><span style="color: #999">,</span><span style="color: #BBBBBB">repo.base_standard_debug</span><span style="color: #999">,</span><span style="color: #BBBBBB">repo.unified_emulator</span><span style="color: #999">,</span><span style="color: #BBBBBB">repo.unified_emulator_debug</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #A67F59">#############</span><span style="color: #BBBBBB"> </span><span style="color: #905">6</span><span style="color: #BBBBBB">.</span><span style="color: #905">0</span><span style="color: #BBBBBB">-unified </span><span style="color: #A67F59">#############</span></span>
+<span class="line"><span style="color: #BBBBBB">[profile.</span><span style="color: #905">6</span><span style="color: #BBBBBB">.</span><span style="color: #905">0</span><span style="color: #BBBBBB">-unified_standard]</span></span>
+<span class="line"><span style="color: #BBBBBB">repos </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> repo.</span><span style="color: #905">6</span><span style="color: #BBBBBB">.</span><span style="color: #905">0</span><span style="color: #BBBBBB">-base_standard</span><span style="color: #999">,</span><span style="color: #BBBBBB">repo.</span><span style="color: #905">6</span><span style="color: #BBBBBB">.</span><span style="color: #905">0</span><span style="color: #BBBBBB">-base_standard_debug</span><span style="color: #999">,</span><span style="color: #BBBBBB">repo.</span><span style="color: #905">6</span><span style="color: #BBBBBB">.</span><span style="color: #905">0</span><span style="color: #BBBBBB">-unified_standard</span><span style="color: #999">,</span><span style="color: #BBBBBB">repo.</span><span style="color: #905">6</span><span style="color: #BBBBBB">.</span><span style="color: #905">0</span><span style="color: #BBBBBB">-unified_standard_debug</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">[profile.unified_emulator]</span></span>
+<span class="line"><span style="color: #BBBBBB">repos </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> repo.</span><span style="color: #905">6</span><span style="color: #BBBBBB">.</span><span style="color: #905">0</span><span style="color: #BBBBBB">-base_standard</span><span style="color: #999">,</span><span style="color: #BBBBBB">repo.</span><span style="color: #905">6</span><span style="color: #BBBBBB">.</span><span style="color: #905">0</span><span style="color: #BBBBBB">-base_standard_debug</span><span style="color: #999">,</span><span style="color: #BBBBBB">repo.</span><span style="color: #905">6</span><span style="color: #BBBBBB">.</span><span style="color: #905">0</span><span style="color: #BBBBBB">-unified_emulator</span><span style="color: #999">,</span><span style="color: #BBBBBB">repo.</span><span style="color: #905">6</span><span style="color: #BBBBBB">.</span><span style="color: #905">0</span><span style="color: #BBBBBB">-unified_emulator_debug</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<ol start="3">
+<li>Repository Section</li>
+</ol>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #A67F59">#########################################################</span></span>
+<span class="line"><span style="color: #A67F59">##################</span><span style="color: #BBBBBB"> Repo Section</span><span style="color: #A67F59">##################</span></span>
+<span class="line"><span style="color: #A67F59">#########################################################</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #A67F59">#############</span><span style="color: #BBBBBB"> base </span><span style="color: #A67F59">#############</span></span>
+<span class="line"><span style="color: #BBBBBB">[repo.base_standard]</span></span>
+<span class="line"><span style="color: #BBBBBB">url </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">http://download.tizen.org/snapshots/tizen/base/latest/repos/standard/packages/</span></span>
+<span class="line"><span style="color: #BBBBBB">[repo.base_standard_debug]</span></span>
+<span class="line"><span style="color: #BBBBBB">url </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">http://download.tizen.org/snapshots/tizen/base/latest/repos/standard/debug/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #A67F59">#############</span><span style="color: #BBBBBB"> </span><span style="color: #905">6</span><span style="color: #BBBBBB">.0_base </span><span style="color: #A67F59">#############</span></span>
+<span class="line"><span style="color: #BBBBBB">[repo.</span><span style="color: #905">6</span><span style="color: #BBBBBB">.0_base_standard]</span></span>
+<span class="line"><span style="color: #BBBBBB">url </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">http://download.tizen.org/releases/milestone/tizen/base/tizen-base_20201008.1/repos/standard/packages/</span></span>
+<span class="line"><span style="color: #BBBBBB">[repo.</span><span style="color: #905">6</span><span style="color: #BBBBBB">.0_base_standard_debug]</span></span>
+<span class="line"><span style="color: #BBBBBB">url </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">http://download.tizen.org/releases/milestone/tizen/base/tizen-base_20201008.1/repos/standard/debug/</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color: #A67F59">#############</span><span style="color: #BBBBBB"> unified </span><span style="color: #A67F59">#############</span></span>
+<span class="line"><span style="color: #BBBBBB">[repo.unified_standard]</span></span>
+<span class="line"><span style="color: #BBBBBB">url </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">http://download.tizen.org/snapshots/tizen/unified/latest/repos/standard/packages/</span></span>
+<span class="line"><span style="color: #BBBBBB">[repo.unified_standard_debug]</span></span>
+<span class="line"><span style="color: #BBBBBB">url </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">http://download.tizen.org/snapshots/tizen/unified/latest/repos/standard/debug/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">[repo.unified_emulator]</span></span>
+<span class="line"><span style="color: #BBBBBB">url </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">http://download.tizen.org/snapshots/tizen/unified/latest/repos/emulator/packages/</span></span>
+<span class="line"><span style="color: #BBBBBB">[repo.unified_emulator_debug]</span></span>
+<span class="line"><span style="color: #BBBBBB">url </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">http://download.tizen.org/snapshots/tizen/unified/latest/repos/emulator/debug/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #A67F59">#############</span><span style="color: #BBBBBB"> </span><span style="color: #905">6</span><span style="color: #BBBBBB">.</span><span style="color: #905">0</span><span style="color: #BBBBBB">-unified </span><span style="color: #A67F59">#############</span></span>
+<span class="line"><span style="color: #BBBBBB">[repo.</span><span style="color: #905">6</span><span style="color: #BBBBBB">.0_unified_standard]</span></span>
+<span class="line"><span style="color: #BBBBBB">url </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">http://download.tizen.org/releases/milestone/tizen/unified/tizen-unified_20201020.1/repos/standard/packages/</span></span>
+<span class="line"><span style="color: #BBBBBB">[repo.</span><span style="color: #905">6</span><span style="color: #BBBBBB">.0_unified_standard_debug]</span></span>
+<span class="line"><span style="color: #BBBBBB">url </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">http://download.tizen.org/releases/milestone/tizen/unified/tizen-unified_20201020.1/repos/standard/debug/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">[repo.</span><span style="color: #905">6</span><span style="color: #BBBBBB">.0_unified_emulator]</span></span>
+<span class="line"><span style="color: #BBBBBB">url </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">http://download.tizen.org/releases/milestone/tizen/unified/tizen-unified_20201020.1/repos/emulator/packages/</span></span>
+<span class="line"><span style="color: #BBBBBB">[repo.</span><span style="color: #905">6</span><span style="color: #BBBBBB">.0_unified_emulator_debug]</span></span>
+<span class="line"><span style="color: #BBBBBB">url </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">http://download.tizen.org/releases/milestone/tizen/unified/tizen-unified_20201020.1/repos/emulator/debug/</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>[ Tizen 6.0 공식 Release 용 빌드를 위한 “base/unified” 위치&nbsp;]</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/229/Screenshot from 2021-04-17 19-20-27.png" style="height:561px; width:665px">
+<p><strong>[ Tizen 6.5 Beta 버전용 빌드를 위한 “base/unified”&nbsp;위치]</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/229/Screenshot from 2021-04-17 19-21-49.png" style="height:561px; width:665px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="5-gbs-명령어-사용">5. gbs 명령어 사용</h2>
+<p><strong>5.1 “.gbs.conf” 파일 저장</strong></p>
+<ol>
+<li>“.gbs.conf” 파일 저장 디렉토리</li>
+</ol>
+<p>① 각 프로젝트 디렉토리(”~/project/abc/”) : 여러&nbsp;프로젝트를 개발하고 있을 때, 각 프로젝트 마다 다른 “gbs 빌드” 환경을 사용하고자 할&nbsp;경우</p>
+<p>② home&nbsp;디렉토리(”~/”&nbsp;or “/home/<user id="">/”) : 본인의 모든 프로젝트에 동일한 “build 환경”을 사용하고자 할 경우</user></p>
+<p>③ root 디렉토리(“/etc/”) : 모든 사용자(ubuntu 모든 계정)가 동일 한 “build 환경”을 사용하고자 할 경우</p>
+<p><strong>5.1 gbs 빌드 명령어 입력</strong></p>
+<ol>
+<li>
+<p>gbs 명령어 구조 : gbs build -A <architecture name=""> -P <profile name=""> <build options=""></build></profile></architecture></p>
+</li>
+<li>
+<p>gbs 빌드 명령어 사용 예</p>
+</li>
+<li>
+<p>빌드 에러 해결 : mount&nbsp;error</p>
+</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/229/Screenshot from 2021-05-20 16-41-54.png" style="height:317px; width:1101px">
+<ol start="3">
+<li>빌드된&nbsp;파일 확인</li>
+</ol>
+<img src="/TizenSchool/assets/images/tutorials/229/Screenshot from 2021-05-20 16-50-40.png" style="height:299px; width:678px">
+<img src="/TizenSchool/assets/images/tutorials/229/Screenshot from 2021-05-20 16-55-48.png" style="height:317px; width:1074px"></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/5</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/642c4c04779a63be966fa6579cbe2e444ddde584">642c4c04779a63be966fa6579cbe2e444ddde584</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+

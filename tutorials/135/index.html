@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/TizenSchool/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/TizenSchool/assets/images/favicon-32x32.png">
+    <title>Racing Controller</title>
+  <link rel="stylesheet" href="/TizenSchool/assets/aboutus.9016036b.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.013d619c.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="2r5SHS" component-url="/TizenSchool/Header.fde63186.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/TizenSchool/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      Racing Controller
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">This tutorial is about programming a Tizen device to be able to steer Racing-Car.</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/TizenSchool/assets/images/iot-active.png">
+        <img src="/TizenSchool/assets/images/wearable-dimmed.png">
+        <img src="/TizenSchool/assets/images/mobile-dimmed.png">
+        <img src="/TizenSchool/assets/images/smart-tv-dimmed.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2019/05/05</span>
+            Modified
+            <span class="font-bold">2019/07/02</span>
+    </div>
+  </div><astro-island uid="1YYY8d" component-url="/TizenSchool/TextContent.c7f4d9de.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,6],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Prerequisites\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Importing and building app\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Controller’s UI\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Managing data from sensors\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Config file\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;Communication between car and controller\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/6</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="prerequisites">Prerequisites</h2>
+<p>HW Component</p>
+<p>Software OSs, apps and tools</p>
+<p>This part is about an application for controller. Application is going to acquire speed and direction from arm position.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="importing-and-building-app">Importing and building app</h2>
+<p>You can import source-code of controller to Tizen Studio doing following steps:</p>
+<img src="/TizenSchool/assets/images/tutorials/135/TSImport.png" style="height:693px; width:1195px">
+<p>After that, you can build the app with clicking with right button on project and selecting “Run As” and “Tizen Native Application”.</p>
+<p><strong>Ensure that your device is selected in combo box (its name is going to be different from TW1)</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/135/TSImport-1.png" style="height:693px; width:1195px">
+<p>If you are fine with default settings or don’t want to investigate the code, follow the next part of tutorial&nbsp;<a href="https://craftroom.tizen.org/racing-cloud">here</a>.</p>
+<p>What is important is that you can change your way of steering. There are three pre-built configurations of steering:</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="controllers-ui">Controller’s UI</h2>
+<p><strong>Views</strong></p>
+<p>View are written with EFL and they’re quite simple and self-exlpanatory. If you want to add a new view, simply add it to enum and factory, write new header and source file for it.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">//</span><span style="color: #708090"> view_factory.h</span></span>
+<span class="line"><span style="color: #07A">typedef</span><span style="color: #000"> </span><span style="color: #07A">enum</span><span style="color: #000"> _e_view_id </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">	VIEW_CONNECT_TO_CAR</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">	VIEW_CAR_SELECTION</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">	VIEW_CONNECTION_SUCCESSED</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">	VIEW_NAME_INPUT</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">	VIEW_HELP</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">	VIEW_RACING</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">	VIEW_RESET</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">	VIEW_NETWORK_FAILURE</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #000">  	VIEW_NEW_VIEW</span><span style="color: #999">,</span><span style="color: #708090"> </span><span style="color: #999">//</span><span style="color: #708090"> Add new view in enum</span></span>
+<span class="line"><span style="color: #999">}</span><span style="color: #000"> view_id</span><span style="color: #999">;</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">//</span><span style="color: #708090"> view_factory.c</span></span>
+<span class="line"><span style="color: #07A">switch</span><span style="color: #000"> </span><span style="color: #999">(</span><span style="color: #000">id</span><span style="color: #999">)</span><span style="color: #000"> </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">case</span><span style="color: #000"> VIEW_CONNECT_TO_CAR</span><span style="color: #999">:</span></span>
+<span class="line"><span style="color: #000">			view </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">view_connect_to_car_init</span><span style="color: #999">(</span><span style="color: #000">parent</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">			</span><span style="color: #07A">break</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">		.</span></span>
+<span class="line"><span style="color: #000"> 		.</span></span>
+<span class="line"><span style="color: #000"> 		.</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">case</span><span style="color: #000"> VIEW_NETWORK_FAILURE</span><span style="color: #999">:</span></span>
+<span class="line"><span style="color: #000">			view </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">view_network_failure_init</span><span style="color: #999">(</span><span style="color: #000">parent</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">			</span><span style="color: #07A">break</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">  		</span><span style="color: #07A">case</span><span style="color: #000"> VIEW_NEW_VIEW</span><span style="color: #999">:</span><span style="color: #708090"> </span><span style="color: #999">//</span><span style="color: #708090">Add new case in factory</span></span>
+<span class="line"><span style="color: #000">    		view </span><span style="color: #A67F59">=</span><span style="color: #000"> </span><span style="color: #DD4A68">view_new_view</span><span style="color: #999">(</span><span style="color: #000">parent</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #000">    		</span><span style="color: #07A">break</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #000">		</span><span style="color: #07A">default</span><span style="color: #999">:</span></span>
+<span class="line"><span style="color: #000">			</span><span style="color: #07A">break</span><span style="color: #999">;</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>If you need more detailed explanation for UI functionality or don’t know EFL, you can check it&nbsp;<a href="https://www.enlightenment.org/docs/start">here</a>.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="managing-data-from-sensors">Managing data from sensors</h2>
+<p>To deduce demanded speed and direction, we use three sensors:</p>
+<p>You can find out more about them&nbsp;<a href="https://developer.tizen.org/development/guides/native-application/location-and-sensors/device-sensors">here</a>.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="config-file">Config file</h2>
+<p>Config files can be found in /home/owner/apps_rw/org.tizen.gear-racing-controller/shared/trusted/</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id=""></h1><h2 id="communication-between-car-and-controller">Communication between car and controller</h2>
+<p>Protocol of communication between controller is based on messages:</p>
+<p>Only COMMAND and CONFIG_USER_NAME carries the information that should be externally processed - the rest serve making and establishing the connection.</p>
+<p>If you’d like to add new functionality to your car, you have two ways for that:</p>
+<p>In connection managers there are some defines, that can be changed.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">//</span><span style="color: #708090">gear-racing-controller</span></span>
+<span class="line"><span style="color: #999">//</span><span style="color: #708090">car_connection_manager.c</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000"> </span><span style="color: #DD4A68">KEEP_ALIVE_ATTEMPTS</span><span style="color: #000"> </span><span style="color: #905">5</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000"> </span><span style="color: #DD4A68">HELLO_START_ATTEMPTS</span><span style="color: #000"> </span><span style="color: #905">5</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000"> </span><span style="color: #DD4A68">KEEP_ALIVE_INTERVAL</span><span style="color: #000"> </span><span style="color: #905">1000</span><span style="color: #708090"> </span><span style="color: #999">//</span><span style="color: #708090">In ms</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000"> </span><span style="color: #DD4A68">HELLO_INTERVAL</span><span style="color: #000"> </span><span style="color: #905">1000</span><span style="color: #708090"> </span><span style="color: #999">//</span><span style="color: #708090">In ms</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">//</span><span style="color: #708090">controller_connection_manager.c</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000"> </span><span style="color: #DD4A68">KEEP_ALIVE_CHECK_ATTEMPTS</span><span style="color: #000"> </span><span style="color: #905">5</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000"> </span><span style="color: #DD4A68">HELLO_ACCEPT_ATTEMPTS</span><span style="color: #000"> </span><span style="color: #905">5</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000"> </span><span style="color: #DD4A68">HELLO_ACCEPT_INTERVAL</span><span style="color: #000"> </span><span style="color: #905">1000</span><span style="color: #708090"> </span><span style="color: #999">//</span><span style="color: #708090">In ms</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000"> </span><span style="color: #DD4A68">KEEP_ALIVE_CHECK_INTERVAL</span><span style="color: #000"> </span><span style="color: #905">1000</span><span style="color: #708090"> </span><span style="color: #999">//</span><span style="color: #708090">In ms</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>You can change them to change bevaiour of communication. Suppose you want to send KEEP_ALIVE message 8 times per second, and disconnect after third failed check. Additionally, you want to shorten waiting time for CONNECT message to 500ms and send it only two times. Your defines gonna look like the following.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">//</span><span style="color: #708090">gear-racing-controller</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000"> </span><span style="color: #DD4A68">KEEP_ALIVE_ATTEMPTS</span><span style="color: #000"> </span><span style="color: #905">2</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000"> </span><span style="color: #DD4A68">HELLO_START_ATTEMPTS</span><span style="color: #000"> </span><span style="color: #905">3</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000"> </span><span style="color: #DD4A68">KEEP_ALIVE_INTERVAL</span><span style="color: #000"> </span><span style="color: #905">125</span><span style="color: #708090"> </span><span style="color: #999">//</span><span style="color: #708090">In ms</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000"> </span><span style="color: #DD4A68">HELLO_INTERVAL</span><span style="color: #000"> </span><span style="color: #905">500</span><span style="color: #708090"> </span><span style="color: #999">//</span><span style="color: #708090">In ms</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">//</span><span style="color: #708090">gear-racing-car</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000"> </span><span style="color: #DD4A68">KEEP_ALIVE_CHECK_ATTEMPTS</span><span style="color: #000"> </span><span style="color: #905">2</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000"> </span><span style="color: #DD4A68">HELLO_ACCEPT_ATTEMPTS</span><span style="color: #000"> </span><span style="color: #905">3</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000"> </span><span style="color: #DD4A68">HELLO_ACCEPT_INTERVAL</span><span style="color: #000"> </span><span style="color: #905">500</span><span style="color: #708090"> </span><span style="color: #999">//</span><span style="color: #708090">In ms</span></span>
+<span class="line"><span style="color: #999">#</span><span style="color: #07A">define</span><span style="color: #000"> </span><span style="color: #DD4A68">KEEP_ALIVE_CHECK_INTERVAL</span><span style="color: #000"> </span><span style="color: #905">125</span><span style="color: #708090"> </span><span style="color: #999">//</span><span style="color: #708090">In ms</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>However, be careful, because due to network latency, too low values will make you unable to establish or keep connection.</p></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/6</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/642c4c04779a63be966fa6579cbe2e444ddde584">642c4c04779a63be966fa6579cbe2e444ddde584</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+

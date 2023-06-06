@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/TizenSchool/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/TizenSchool/assets/images/favicon-32x32.png">
+    <title>How to use SQLite in Android and Tizen</title>
+  <link rel="stylesheet" href="/TizenSchool/assets/aboutus.9016036b.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.013d619c.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="2r5SHS" component-url="/TizenSchool/Header.fde63186.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/TizenSchool/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      How to use SQLite in Android and Tizen
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">This tutorial shows how to use SQLite database in Android and Tizen - Written by 강석현(Shawn)</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/TizenSchool/assets/images/iot-active.png">
+        <img src="/TizenSchool/assets/images/wearable-dimmed.png">
+        <img src="/TizenSchool/assets/images/mobile-active.png">
+        <img src="/TizenSchool/assets/images/smart-tv-active.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2020/04/13</span>
+            Modified
+            <span class="font-bold">2021/00/15</span>
+    </div>
+  </div><astro-island uid="1HG3Ji" component-url="/TizenSchool/TextContent.c7f4d9de.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,12],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[]\&quot;],\&quot;chapter\&quot;:[0,\&quot;\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Goal\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. Setting up enviroment\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. Create a project\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;4. Create a basic structure\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;5. Install Nuget Packages\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;I. Introduction\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Model\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. Database - Connection\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. Database - CRUD\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;4. Base ViewModel\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;5. ViewModel\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;6. View\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;II. Development\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;*. Scroll Moving\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;III. Addition\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/12</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id="i-introduction">I. Introduction</h1><h2 id="1-goal">1. Goal</h2>
+<p>In this tutorial, we will learn how to create a <strong><em>To-Do List</em></strong> &nbsp; application using <strong>SQLite</strong> database&nbsp;in both Android and Tizen.</p>
+<p>The tutorial consists of 3&nbsp;chapters:</p>
+<p>Before you start the tutorial, you should be familiar with basics of C# and&nbsp;Xamarin.Forms.</p>
+<img src="/TizenSchool/assets/images/tutorials/187/screenshot.png" style="undefined">
+<p>*. Full Code :&nbsp;<a href="https://tizenschool.org/assets/images/tutorials/187/SQLiteSample.zip">[Down]</a></p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="i-introduction">I. Introduction</h1><h2 id="2-setting-up-enviroment">2. Setting up enviroment</h2>
+<p>To build and run the Tizen application the following environment is required:</p>
+<p>If you need more information, please visit the following tutorial. (&nbsp;<a href="https://samsung.github.io/TizenSchool/tutorial/143/">https://samsung.github.io/TizenSchool/tutorial/143/</a>&nbsp;)</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="i-introduction">I. Introduction</h1><h2 id="3-create-a-project">3. Create a project</h2>
+<p>First of all, let’s create a project.</p>
+<p><strong>Step 1. Create a Android Project</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/180/JXGkW3SZ2R.png" style="undefined">
+<p>If the IDE is already opened, you can create new project as follows&nbsp; <strong><em>File &gt; New &gt; Project</em></strong> .</p>
+<img src="/TizenSchool/assets/images/tutorials/187/1.png" style="height:680px; width:1024px">
+<img src="/TizenSchool/assets/images/tutorials/187/2.png" style="height:680px; width:1024px">
+<img src="/TizenSchool/assets/images/tutorials/187/3.png" style="height:403px; width:741px">
+<p><strong>Step 2. Create a</strong> <strong><em>Tizen Project</em></strong> .</p>
+<img src="/TizenSchool/assets/images/tutorials/187/4.png" style="height:680px; width:1024px">
+<img src="/TizenSchool/assets/images/tutorials/187/5.png" style="height:316px; width:660px">
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 308px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">ToDoList</span><span style="color: #999">.</span><span style="color: #000">Tizen</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">Program</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">global</span><span style="color: #999">::</span><span style="color: #000">Xamarin</span><span style="color: #999">.</span><span style="color: #000">Forms</span><span style="color: #999">.</span><span style="color: #000">Platform</span><span style="color: #999">.</span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">FormsApplication</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">protected</span><span style="color: #BBBBBB"> </span><span style="color: #07A">override</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnCreate</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">base</span><span style="color: #999">.</span><span style="color: #DD4A68">OnCreate</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">LoadApplication</span><span style="color: #999">(</span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">ToDoList</span><span style="color: #999">.</span><span style="color: #000">App</span><span style="color: #999">());</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">static</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Main</span><span style="color: #999">(</span><span style="color: #07A">string</span><span style="color: #999">[]</span><span style="color: #BBBBBB"> </span><span style="color: #000">args</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">app</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Program</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">Forms</span><span style="color: #999">.</span><span style="color: #DD4A68">Init</span><span style="color: #999">(</span><span style="color: #000">app</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">app</span><span style="color: #999">.</span><span style="color: #DD4A68">Run</span><span style="color: #999">(</span><span style="color: #000">args</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>If you want to know more information about creating a Tizen project, please visit the following tutorial.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="i-introduction">I. Introduction</h1><h2 id="4-create-a-basic-structure">4. Create a basic structure</h2>
+<p>Now we will prepare a project structure&nbsp;for future parts of the tutorial.</p>
+<p><strong>Step 1. Remove File</strong></p>
+<p><strong>Step 2.&nbsp;Create folder structure.</strong></p>
+<p><strong>Step 3.&nbsp;Create folder files.</strong></p>
+<img src="/TizenSchool/assets/images/tutorials/187/structure.png" style="height:419px; width:313px">
+<p><strong>Step 4.&nbsp;Change a MainPage in App.xaml.cs</strong></p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 56px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 336px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">ToDoList</span><span style="color: #BBBBBB">.</span><span style="color: #000">Views</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">ToDoList</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">partial</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">App</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">Application</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">App</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">InitializeComponent</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">MainPage</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">ListPage</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="i-introduction">I. Introduction</h1><h2 id="5-install-nuget-packages">5. Install Nuget Packages</h2>
+<p>We should install the Nuget packages for using SQLite.</p>
+<p><strong>Step 1.</strong> Right click on Solution ’ <strong>ToDoList</strong> ’ and select ’ <strong>Manage Nuget Packages for Solution’</strong></p>
+<p><strong>Step 2.</strong> Nuget Package for <strong>Android</strong></p>
+<ul>
+<li>We should install the <strong>sqlite-net-pcl</strong> to <strong>ToDoList</strong> (Common project).</li>
+</ul>
+<img src="/TizenSchool/assets/images/tutorials/187/search.png" style="height:174px; width:568px">
+<p><strong>Step 3.</strong> Nuget Package for <strong>Tizen</strong></p>
+<ul>
+<li>
+<p>We should install the <strong>sqlite-net-base</strong> to <strong>ToDoList</strong> (Common project).</p>
+</li>
+<li>
+<p>We should install the <strong>SQLitePCLRaw.provider.sqlite3</strong> to <strong>ToDoList.Tizen</strong> (Tizen project).</p>
+</li>
+</ul>
+<p><strong>[Warning]</strong> &nbsp;This should be installed to Tizen project instead of common project.</p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-development">II. Development</h1><h2 id="1-model">1. Model</h2>
+<p>We will create our application based on <strong>MVVM</strong> design pattern.</p>
+<p>First of all, open the&nbsp; <strong><em>Models/TodoItem.cs</em></strong> file.</p>
+<p>Then let’s create the&nbsp;information of table in our database.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">SQLite</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">ToDoList</span><span style="color: #999">.</span><span style="color: #000">Models</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">[</span><span style="color: #000">Table</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">TodoItems</span><span style="color: #999">"</span><span style="color: #999">)]</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">TodoItem</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">[</span><span style="color: #000">PrimaryKey</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">AutoIncrement</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">Column</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">TodoItemId</span><span style="color: #999">"</span><span style="color: #999">)]</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">int</span><span style="color: #BBBBBB"> </span><span style="color: #000">Id</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">DateTime</span><span style="color: #BBBBBB"> </span><span style="color: #000">TimeTodo</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">Title</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-development">II. Development</h1><h2 id="2-database---connection">2. Database - Connection</h2>
+<p>Because the SQLite connection method is different between Android and Tizen, we should implement it each platform.</p>
+<p>So..&nbsp; After we create a interface in the common project, the connection codes are implemented&nbsp;in each platform.</p>
+<p><strong>Step 1. Create a interface in Common&nbsp;Project</strong></p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">SQLite</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">ToDoList</span><span style="color: #999">.</span><span style="color: #000">Services</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">interface</span><span style="color: #BBBBBB"> </span><span style="color: #000">ISQLite</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">SQLiteAsyncConnection</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">GetConnection</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>Step 2. Implement a connection in Android&nbsp;Project</strong></p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">SQLite</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">ToDoList</span><span style="color: #BBBBBB">.</span><span style="color: #000">Droid</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">ToDoList</span><span style="color: #BBBBBB">.</span><span style="color: #000">Services</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">IO</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">[</span><span style="color: #07A">assembly</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">Dependency</span><span style="color: #999">(</span><span style="color: #07A">typeof</span><span style="color: #999">(</span><span style="color: #000">MySQLite</span><span style="color: #999">))]</span></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">ToDoList</span><span style="color: #999">.</span><span style="color: #000">Droid</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">MySQLite</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">ISQLite</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">SQLiteAsyncConnection</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">GetConnection</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">document</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">.</span><span style="color: #000">Environment</span><span style="color: #999">.</span><span style="color: #DD4A68">GetFolderPath</span><span style="color: #999">(</span><span style="color: #000">System</span><span style="color: #999">.</span><span style="color: #000">Environment</span><span style="color: #999">.</span><span style="color: #000">SpecialFolder</span><span style="color: #999">.</span><span style="color: #000">ApplicationData</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">path</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Path</span><span style="color: #999">.</span><span style="color: #DD4A68">Combine</span><span style="color: #999">(</span><span style="color: #000">document</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">MySQLite.db</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">SQLiteAsyncConnection</span><span style="color: #999">(</span><span style="color: #000">path</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>Step 3. Implement a connection in Tizen Project</strong></p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">IO</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">ToDoList</span><span style="color: #BBBBBB">.</span><span style="color: #000">Services</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">ToDoList</span><span style="color: #BBBBBB">.</span><span style="color: #000">Tizen</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">SQLite</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">SQLitePCL</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">[</span><span style="color: #07A">assembly</span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">Dependency</span><span style="color: #999">(</span><span style="color: #07A">typeof</span><span style="color: #999">(</span><span style="color: #000">MySQLite</span><span style="color: #999">))]</span></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">ToDoList</span><span style="color: #999">.</span><span style="color: #000">Tizen</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">MySQLite</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">ISQLite</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">SQLiteAsyncConnection</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">GetConnection</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">document</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">global</span><span style="color: #BBBBBB">::</span><span style="color: #000">Tizen</span><span style="color: #999">.</span><span style="color: #000">Applications</span><span style="color: #999">.</span><span style="color: #000">Application</span><span style="color: #999">.</span><span style="color: #000">Current</span><span style="color: #999">.</span><span style="color: #000">DirectoryInfo</span><span style="color: #999">.</span><span style="color: #000">Data</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">path</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Path</span><span style="color: #999">.</span><span style="color: #DD4A68">Combine</span><span style="color: #999">(</span><span style="color: #000">document</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">MySQLite.db</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">raw</span><span style="color: #999">.</span><span style="color: #DD4A68">SetProvider</span><span style="color: #999">(</span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">SQLite3Provider_sqlite3</span><span style="color: #999">());</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">raw</span><span style="color: #999">.</span><span style="color: #DD4A68">FreezeProvider</span><span style="color: #999">(</span><span style="color: #905">true</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">SQLiteAsyncConnection</span><span style="color: #999">(</span><span style="color: #000">path</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-development">II. Development</h1><h2 id="3-database---crud">3. Database - CRUD</h2>
+<p>Let’s start with the implementation of the DataBase Service based on singleton design pattern.</p>
+<p>This service manages&nbsp;the data in&nbsp;database. (Create, Read, Update, Remove)</p>
+<p><strong>Step 1.</strong> Open&nbsp; <strong><em>Services/SQLiteService.cs</em></strong> file</p>
+<p><strong>Step 2.</strong> Let’s modify our&nbsp;class based on principles&nbsp;of the&nbsp; <strong><em>singleton</em></strong> &nbsp;design pattern.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">ToDoList</span><span style="color: #BBBBBB">.</span><span style="color: #000">Models</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">SQLite</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Threading</span><span style="color: #BBBBBB">.</span><span style="color: #000">Tasks</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Collections</span><span style="color: #BBBBBB">.</span><span style="color: #000">Generic</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">ToDoList</span><span style="color: #999">.</span><span style="color: #000">Services</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">SQLiteService</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">static</span><span style="color: #BBBBBB"> </span><span style="color: #000">SQLiteService</span><span style="color: #BBBBBB"> </span><span style="color: #000">instance</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">static</span><span style="color: #BBBBBB"> </span><span style="color: #000">SQLiteService</span><span style="color: #BBBBBB"> </span><span style="color: #000">Instance</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">get</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">instance</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">??</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">instance</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">SQLiteService</span><span style="color: #999">());</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>Step 2.</strong> Let’s implement&nbsp;a <strong>SQLite connection</strong> in the constructor.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 196px; top: 308px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">ToDoList</span><span style="color: #999">.</span><span style="color: #000">Services</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">SQLiteService</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">static</span><span style="color: #BBBBBB"> </span><span style="color: #000">SQLiteService</span><span style="color: #BBBBBB"> </span><span style="color: #000">instance</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">static</span><span style="color: #BBBBBB"> </span><span style="color: #000">SQLiteService</span><span style="color: #BBBBBB"> </span><span style="color: #000">Instance</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">get</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">instance</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">??</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">instance</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">SQLiteService</span><span style="color: #999">());</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">static</span><span style="color: #BBBBBB"> </span><span style="color: #000">SQLiteAsyncConnection</span><span style="color: #BBBBBB"> </span><span style="color: #000">conn</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">SQLiteService</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">conn</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DependencyService</span><span style="color: #999">.</span><span style="color: #DD4A68">Get</span><span style="color: #999">&lt;</span><span style="color: #000">ISQLite</span><span style="color: #999">&gt;().</span><span style="color: #DD4A68">GetConnection</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">conn</span><span style="color: #999">.</span><span style="color: #DD4A68">CreateTableAsync</span><span style="color: #999">&lt;</span><span style="color: #000">TodoItem</span><span style="color: #999">&gt;().</span><span style="color: #DD4A68">Wait</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>Step 3.</strong> Let’s implement&nbsp;a SQLite <strong>Create, Modify, Delete, Get</strong> &nbsp;in the constructor. ****</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 560px; top: 224px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">SQLiteService</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">conn</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DependencyService</span><span style="color: #999">.</span><span style="color: #DD4A68">Get</span><span style="color: #999">&lt;</span><span style="color: #000">ISQLite</span><span style="color: #999">&gt;().</span><span style="color: #DD4A68">GetConnection</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">conn</span><span style="color: #999">.</span><span style="color: #DD4A68">CreateTableAsync</span><span style="color: #999">&lt;</span><span style="color: #000">TodoItem</span><span style="color: #999">&gt;().</span><span style="color: #DD4A68">Wait</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">Task</span><span style="color: #999">&lt;</span><span style="color: #07A">int</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Create</span><span style="color: #999">(</span><span style="color: #000">TodoItem</span><span style="color: #BBBBBB"> </span><span style="color: #000">todo</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #000">conn</span><span style="color: #999">.</span><span style="color: #DD4A68">InsertAsync</span><span style="color: #999">(</span><span style="color: #000">todo</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">Task</span><span style="color: #999">&lt;</span><span style="color: #07A">int</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Modify</span><span style="color: #999">(</span><span style="color: #000">TodoItem</span><span style="color: #BBBBBB"> </span><span style="color: #000">item</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">item</span><span style="color: #999">.</span><span style="color: #000">TimeTodo</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DateTime</span><span style="color: #999">.</span><span style="color: #000">Now</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #000">conn</span><span style="color: #999">.</span><span style="color: #DD4A68">UpdateAsync</span><span style="color: #999">(</span><span style="color: #000">item</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">Task</span><span style="color: #999">&lt;</span><span style="color: #07A">int</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Delete</span><span style="color: #999">(</span><span style="color: #000">TodoItem</span><span style="color: #BBBBBB"> </span><span style="color: #000">item</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #000">conn</span><span style="color: #999">.</span><span style="color: #DD4A68">DeleteAsync</span><span style="color: #999">(</span><span style="color: #000">item</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">Task</span><span style="color: #999">&lt;</span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">TodoItem</span><span style="color: #999">&gt;&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">GetListAsync</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #000">conn</span><span style="color: #999">.</span><span style="color: #DD4A68">Table</span><span style="color: #999">&lt;</span><span style="color: #000">TodoItem</span><span style="color: #999">&gt;().</span><span style="color: #DD4A68">ToListAsync</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    }</span></span>
+<span class="line"><span style="color: #BBBBBB">}</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-development">II. Development</h1><h2 id="4-base-viewmodel">4. Base ViewModel</h2>
+<p>In order to show all the data to the user we need to add a view model, which acts as a connection between the model and the view.</p>
+<p>And&nbsp;it is responsible for the presentation logic.</p>
+<p>*<strong>_ Add following code to&nbsp; _</strong>ViewModels/ViewModelBase.cs*** for data binding. (MVVM)</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">ComponentModel</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Runtime</span><span style="color: #BBBBBB">.</span><span style="color: #000">CompilerServices</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">ToDoList</span><span style="color: #999">.</span><span style="color: #000">ViewModels</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">ViewModelBase</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">INotifyPropertyChanged</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">event</span><span style="color: #BBBBBB"> </span><span style="color: #000">PropertyChangedEventHandler</span><span style="color: #BBBBBB"> </span><span style="color: #000">PropertyChanged</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">protected</span><span style="color: #BBBBBB"> </span><span style="color: #07A">bool</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">SetProperty</span><span style="color: #999">&lt;</span><span style="color: #000">T</span><span style="color: #999">&gt;(</span><span style="color: #07A">ref</span><span style="color: #BBBBBB"> </span><span style="color: #000">T</span><span style="color: #BBBBBB"> </span><span style="color: #000">storage</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">T</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">[</span><span style="color: #000">CallerMemberName</span><span style="color: #999">]</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">propertyName</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">null</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #DD4A68">Equals</span><span style="color: #999">(</span><span style="color: #000">storage</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">))</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #905">false</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">storage</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">OnPropertyChanged</span><span style="color: #999">(</span><span style="color: #000">propertyName</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #07A">return</span><span style="color: #BBBBBB"> </span><span style="color: #905">true</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">protected</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnPropertyChanged</span><span style="color: #999">([</span><span style="color: #000">CallerMemberName</span><span style="color: #999">]</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">propertyName</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #905">null</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">PropertyChanged</span><span style="color: #A67F59">?</span><span style="color: #999">.</span><span style="color: #DD4A68">Invoke</span><span style="color: #999">(</span><span style="color: #07A">this</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">PropertyChangedEventArgs</span><span style="color: #999">(</span><span style="color: #000">propertyName</span><span style="color: #999">));</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-development">II. Development</h1><h2 id="5-viewmodel">5. ViewModel</h2>
+<p>Now we can create our&nbsp;viewmodel.</p>
+<p><strong>Step 1.</strong> After your open <strong>ViewModels/</strong> <strong><em>ListPageViewModel.cs,</em></strong> &nbsp;let’s inherit from the ViewModelBase class.</p>
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Collections</span><span style="color: #BBBBBB">.</span><span style="color: #000">Generic</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">ToDoList</span><span style="color: #999">.</span><span style="color: #000">ViewModels</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">ListPageViewModel</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">ViewModelBase</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>Step 2. Let’s add the Property and Command</strong></p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 0px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 28px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 112px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: NaNpx; top: NaNpx" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">ToDoList</span><span style="color: #BBBBBB">.</span><span style="color: #000">Models</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">ToDoList</span><span style="color: #BBBBBB">.</span><span style="color: #000">Services</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Collections</span><span style="color: #BBBBBB">.</span><span style="color: #000">Generic</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Threading</span><span style="color: #BBBBBB">.</span><span style="color: #000">Tasks</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">ToDoList</span><span style="color: #999">.</span><span style="color: #000">ViewModels</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">ListPageViewModel</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">ViewModelBase</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">TodoItem</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">todoList</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">List</span><span style="color: #999">&lt;</span><span style="color: #000">TodoItem</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">TodoList</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #07A">get</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">todoList</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #07A">set</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">SetProperty</span><span style="color: #999">(</span><span style="color: #07A">ref</span><span style="color: #BBBBBB"> </span><span style="color: #000">todoList</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">inputTodo</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">InputTodo</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #07A">get</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">inputTodo</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #07A">set</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">SetProperty</span><span style="color: #999">(</span><span style="color: #07A">ref</span><span style="color: #BBBBBB"> </span><span style="color: #000">inputTodo</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #BBBBBB"> </span><span style="color: #000">CreateCommand</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #999">&lt;</span><span style="color: #07A">object</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">ModifyCommand</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #999">&lt;</span><span style="color: #07A">object</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">DeleteCommand</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>Step 3. Get the ToDo data from SQLite Service</strong></p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 196px; top: 112px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #BBBBBB"> </span><span style="color: #000">CreateCommand</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #000">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #A67F59">&lt;</span><span style="color: #000">object</span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">ModifyCommand</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #000">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #A67F59">&lt;</span><span style="color: #000">object</span><span style="color: #A67F59">&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">DeleteCommand</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #000">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ListPageViewModel</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #000">Task</span><span style="color: #999">.</span><span style="color: #DD4A68">Run</span><span style="color: #999">(</span><span style="color: #07A">async</span><span style="color: #BBBBBB"> </span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">				</span><span style="color: #000">TodoList</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">await</span><span style="color: #BBBBBB"> </span><span style="color: #000">SQLiteService</span><span style="color: #999">.</span><span style="color: #000">Instance</span><span style="color: #999">.</span><span style="color: #DD4A68">GetListAsync</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #999">});</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>Step 4. Implement Commands</strong></p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 784px; top: 196px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ListPageViewModel</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #000">Task</span><span style="color: #999">.</span><span style="color: #DD4A68">Run</span><span style="color: #999">(</span><span style="color: #07A">async</span><span style="color: #BBBBBB"> </span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">				</span><span style="color: #000">TodoList</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">await</span><span style="color: #BBBBBB"> </span><span style="color: #000">SQLiteService</span><span style="color: #999">.</span><span style="color: #000">Instance</span><span style="color: #999">.</span><span style="color: #DD4A68">GetListAsync</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #999">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #000">CreateCommand</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #999">(</span><span style="color: #07A">async</span><span style="color: #BBBBBB"> </span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">				</span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">todo</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">TodoItem</span></span>
+<span class="line"><span style="color: #BBBBBB">				</span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">					</span><span style="color: #000">TimeTodo</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DateTime</span><span style="color: #999">.</span><span style="color: #000">Now</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">					</span><span style="color: #000">Title</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">InputTodo</span></span>
+<span class="line"><span style="color: #BBBBBB">				</span><span style="color: #999">};</span></span>
+<span class="line"><span style="color: #BBBBBB">				</span><span style="color: #07A">await</span><span style="color: #BBBBBB"> </span><span style="color: #000">SQLiteService</span><span style="color: #999">.</span><span style="color: #000">Instance</span><span style="color: #999">.</span><span style="color: #DD4A68">Create</span><span style="color: #999">(</span><span style="color: #000">todo</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">				</span><span style="color: #000">InputTodo</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">""</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">				</span><span style="color: #000">TodoList</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">await</span><span style="color: #BBBBBB"> </span><span style="color: #000">SQLiteService</span><span style="color: #999">.</span><span style="color: #000">Instance</span><span style="color: #999">.</span><span style="color: #DD4A68">GetListAsync</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #999">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #000">ModifyCommand</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #999">&lt;</span><span style="color: #07A">object</span><span style="color: #999">&gt;(</span><span style="color: #07A">async</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">obj</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">				</span><span style="color: #07A">await</span><span style="color: #BBBBBB"> </span><span style="color: #000">SQLiteService</span><span style="color: #999">.</span><span style="color: #000">Instance</span><span style="color: #999">.</span><span style="color: #DD4A68">Modify</span><span style="color: #999">((</span><span style="color: #000">TodoItem</span><span style="color: #999">)</span><span style="color: #000">obj</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">				</span><span style="color: #07A">await</span><span style="color: #BBBBBB"> </span><span style="color: #000">Application</span><span style="color: #999">.</span><span style="color: #000">Current</span><span style="color: #999">.</span><span style="color: #000">MainPage</span><span style="color: #999">.</span><span style="color: #DD4A68">DisplayAlert</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Update</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">It has been updated.</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">OK</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">				</span><span style="color: #000">TodoList</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">await</span><span style="color: #BBBBBB"> </span><span style="color: #000">SQLiteService</span><span style="color: #999">.</span><span style="color: #000">Instance</span><span style="color: #999">.</span><span style="color: #DD4A68">GetListAsync</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #999">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #000">DeleteCommand</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">Command</span><span style="color: #999">&lt;</span><span style="color: #07A">object</span><span style="color: #999">&gt;(</span><span style="color: #07A">async</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">obj</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">				</span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">result</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">await</span><span style="color: #BBBBBB"> </span><span style="color: #000">Application</span><span style="color: #999">.</span><span style="color: #000">Current</span><span style="color: #999">.</span><span style="color: #000">MainPage</span><span style="color: #999">.</span><span style="color: #DD4A68">DisplayAlert</span><span style="color: #999">(</span><span style="color: #999">"</span><span style="color: #690">Delete</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Do you want to remove it?</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">Yes</span><span style="color: #999">"</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #999">"</span><span style="color: #690">No</span><span style="color: #999">"</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">				</span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">result</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">==</span><span style="color: #BBBBBB"> </span><span style="color: #905">true</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">				</span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">					</span><span style="color: #07A">await</span><span style="color: #BBBBBB"> </span><span style="color: #000">SQLiteService</span><span style="color: #999">.</span><span style="color: #000">Instance</span><span style="color: #999">.</span><span style="color: #DD4A68">Delete</span><span style="color: #999">((</span><span style="color: #000">TodoItem</span><span style="color: #999">)</span><span style="color: #000">obj</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">					</span><span style="color: #000">TodoList</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">await</span><span style="color: #BBBBBB"> </span><span style="color: #000">SQLiteService</span><span style="color: #999">.</span><span style="color: #000">Instance</span><span style="color: #999">.</span><span style="color: #DD4A68">GetListAsync</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">				</span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">			</span><span style="color: #999">});</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-development">II. Development</h1><h2 id="6-view">6. View</h2>
+<p>Now..&nbsp;Let’s create a User Interface.</p>
+<p><strong>Step 1.</strong> First of all, please&nbsp;open <strong><em>View/ListPage.xaml</em></strong></p>
+<p><strong>Step 2.</strong> For MVVM, please implement a <strong>BindingContext</strong></p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 168px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 84px; top: 252px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;?</span><span style="color: #905">xml</span><span style="color: #690"> version</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1.0</span><span style="color: #999">"</span><span style="color: #690"> encoding</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">utf-8</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">?&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;</span><span style="color: #905">ContentPage</span><span style="color: #BBBBBB"> </span><span style="color: #690">xmlns</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://xamarin.com/schemas/2014/forms</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">x</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://schemas.microsoft.com/winfx/2009/xaml</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">d</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://xamarin.com/schemas/2014/forms/design</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">mc</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://schemas.openxmlformats.org/markup-compatibility/2006</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">mc</span><span style="color: #999">:</span><span style="color: #690">Ignorable</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">d</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">viewmodel</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">clr-namespace:ToDoList.ViewModels</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Class</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">ToDoList.Views.ListPage</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">ContentPage.BindingContext</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">viewmodel</span><span style="color: #999">:</span><span style="color: #905">ListPageViewModel</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">ContentPage.BindingContext</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">ContentPage.Content</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">StackLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Label</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Welcome to Xamarin.Forms!</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">VerticalOptions</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">CenterAndExpand</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #690">HorizontalOptions</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">CenterAndExpand</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;/</span><span style="color: #905">StackLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">ContentPage.Content</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;/</span><span style="color: #905">ContentPage</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>Step 3.</strong> Add a label for&nbsp; <strong>displaying a page title</strong></p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 252px; top: 28px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">ContentPage.Content</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">StackLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Label</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">To-Do List</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">BackgroundColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Black</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">TextColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">White</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">FontSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">20</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">FontAttributes</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Bold</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">Padding</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">15</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">HorizontalTextAlignment</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Center</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;/</span><span style="color: #905">StackLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">ContentPage.Content</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>Step 4.</strong> Add a listview for&nbsp; <strong>displaying a todo list</strong></p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 840px; top: 280px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;</span><span style="color: #905">ContentPage.Content</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">StackLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">Label</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">To-Do List</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">BackgroundColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Black</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">TextColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">White</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">FontSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">20</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">FontAttributes</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Bold</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">Padding</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">15</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                   </span><span style="color: #690">HorizontalTextAlignment</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Center</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">StackLayout</span><span style="color: #BBBBBB"> </span><span style="color: #690">VerticalOptions</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">StartAndExpand</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                         </span><span style="color: #690">Padding</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">5</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #999">&lt;</span><span style="color: #905">ListView</span><span style="color: #BBBBBB"> </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Name</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">TodoList</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                          </span><span style="color: #690">HasUnevenRows</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">True</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                          </span><span style="color: #690">ItemsSource</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding TodoList}</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #999">&lt;</span><span style="color: #905">ListView.ItemTemplate</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                        </span><span style="color: #999">&lt;</span><span style="color: #905">DataTemplate</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                            </span><span style="color: #999">&lt;</span><span style="color: #905">ViewCell</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                                </span><span style="color: #999">&lt;</span><span style="color: #905">StackLayout</span><span style="color: #BBBBBB"> </span><span style="color: #690">Margin</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0, 10, 0, 0</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                                    </span><span style="color: #999">&lt;</span><span style="color: #905">StackLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                                        </span><span style="color: #999">&lt;</span><span style="color: #905">Label</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding TimeTodo}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                                               </span><span style="color: #690">FontSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">10</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                                    </span><span style="color: #999">&lt;/</span><span style="color: #905">StackLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">                                    </span><span style="color: #999">&lt;</span><span style="color: #905">StackLayout</span><span style="color: #BBBBBB"> </span><span style="color: #690">Orientation</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Horizontal</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                                        </span><span style="color: #999">&lt;</span><span style="color: #905">Entry</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding Title}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                                               </span><span style="color: #690">HorizontalOptions</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">FillAndExpand</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                                        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">MOD</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                                                </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding Path=BindingContext.ModifyCommand, Source={x:Reference TodoList}}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                                                </span><span style="color: #690">CommandParameter</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding .}</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                                        </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">DEL</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                                                </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding Path=BindingContext.DeleteCommand, Source={x:Reference TodoList}}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                                                </span><span style="color: #690">CommandParameter</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding .}</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                                    </span><span style="color: #999">&lt;/</span><span style="color: #905">StackLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                                </span><span style="color: #999">&lt;/</span><span style="color: #905">StackLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                            </span><span style="color: #999">&lt;/</span><span style="color: #905">ViewCell</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                        </span><span style="color: #999">&lt;/</span><span style="color: #905">DataTemplate</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #999">&lt;/</span><span style="color: #905">ListView.ItemTemplate</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #999">&lt;/</span><span style="color: #905">ListView</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;/</span><span style="color: #905">StackLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;/</span><span style="color: #905">StackLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">ContentPage.Content</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>Step 5.</strong> Add a entry and button for <strong>creating a new todo</strong></p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 336px; top: 112px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #999">&lt;/</span><span style="color: #905">ListView.ItemTemplate</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #999">&lt;/</span><span style="color: #905">ListView</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;/</span><span style="color: #905">StackLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">StackLayout</span><span style="color: #BBBBBB"> </span><span style="color: #690">BackgroundColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Ivory</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #999">&lt;</span><span style="color: #905">Label</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">New To-Do</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                       </span><span style="color: #690">FontSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">20</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                       </span><span style="color: #690">FontAttributes</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Bold</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                       </span><span style="color: #690">Padding</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">10</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #999">&lt;</span><span style="color: #905">StackLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #999">&lt;</span><span style="color: #905">Entry</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding InputTodo}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                           </span><span style="color: #690">Placeholder</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Input a new To-Do.</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                    </span><span style="color: #999">&lt;</span><span style="color: #905">Button</span><span style="color: #BBBBBB"> </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Create</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">                            </span><span style="color: #690">Command</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding CreateCommand}</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #999">&lt;/</span><span style="color: #905">StackLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;/</span><span style="color: #905">StackLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;/</span><span style="color: #905">StackLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">ContentPage.Content</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>We have finished our app. Now after build and run app we can create, read, update, delete a todo item from SQLite database.</p>
+<img src="/TizenSchool/assets/images/tutorials/187/screenshot.png" style="undefined">
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-addition">III. Addition</h1><h2 id="-scroll-moving">*. Scroll Moving</h2>
+<p>There is some minor issue.</p>
+<p>If there are many items in the&nbsp;listview, a new item is not displayed when you add it.</p>
+<p>You should move scroll for checking a new item.</p>
+<p>Let’s create a feature to move a scroll automatically when new item is added.</p>
+<p><strong>Step 1.</strong> Let’s add a action in <strong>ViewModels/ <em>ListPageViewModel.cs</em></strong></p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 112px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">ToDoList</span><span style="color: #999">.</span><span style="color: #000">ViewModels</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">ListPageViewModel</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">ViewModelBase</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">Action</span><span style="color: #BBBBBB"> </span><span style="color: #000">OnScrollDown</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #07A">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #07A">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>Step 2.</strong> OnScrollDown&nbsp;will be invoked when new item is added.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 280px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #000">CreateCommand</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">Command</span><span style="color: #999">(</span><span style="color: #07A">async</span><span style="color: #BBBBBB"> </span><span style="color: #999">()</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">todo</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">TodoItem</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #000">TimeTodo</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">DateTime</span><span style="color: #999">.</span><span style="color: #000">Now</span><span style="color: #999">,</span></span>
+<span class="line"><span style="color: #BBBBBB">		</span><span style="color: #000">Title</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">InputTodo</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #999">};</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #07A">await</span><span style="color: #BBBBBB"> </span><span style="color: #000">SQLiteService</span><span style="color: #999">.</span><span style="color: #000">Instance</span><span style="color: #999">.</span><span style="color: #DD4A68">Create</span><span style="color: #999">(</span><span style="color: #000">todo</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #000">InputTodo</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">""</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #000">TodoList</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #07A">await</span><span style="color: #BBBBBB"> </span><span style="color: #000">SQLiteService</span><span style="color: #999">.</span><span style="color: #000">Instance</span><span style="color: #999">.</span><span style="color: #DD4A68">GetListAsync</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">	</span><span style="color: #000">OnScrollDown</span><span style="color: #A67F59">?</span><span style="color: #999">.</span><span style="color: #DD4A68">Invoke</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #999">});</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p><strong>Step 3.</strong> Let’s implement a action in *<strong>* *</strong>View/ListPage.xaml.cs***</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 140px; top: 504px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Collections</span><span style="color: #BBBBBB">.</span><span style="color: #000">Generic</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Linq</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Text</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Threading</span><span style="color: #BBBBBB">.</span><span style="color: #000">Tasks</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">ToDoList</span><span style="color: #BBBBBB">.</span><span style="color: #000">ViewModels</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Xamarin</span><span style="color: #BBBBBB">.</span><span style="color: #000">Forms</span><span style="color: #BBBBBB">.</span><span style="color: #000">Xaml</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">ToDoList</span><span style="color: #999">.</span><span style="color: #000">Views</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">[</span><span style="color: #000">XamlCompilation</span><span style="color: #999">(</span><span style="color: #000">XamlCompilationOptions</span><span style="color: #999">.</span><span style="color: #000">Compile</span><span style="color: #999">)]</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #07A">partial</span><span style="color: #BBBBBB"> </span><span style="color: #07A">class</span><span style="color: #BBBBBB"> </span><span style="color: #000">ListPage</span><span style="color: #BBBBBB"> </span><span style="color: #999">:</span><span style="color: #BBBBBB"> </span><span style="color: #000">ContentPage</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ListPage</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">InitializeComponent</span><span style="color: #999">();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">(</span><span style="color: #BBBBBB">(</span><span style="color: #000">ListPageViewModel</span><span style="color: #999">)</span><span style="color: #BBBBBB">this.BindingContext).OnScrollDown = </span><span style="color: #999">(</span><span style="color: #BBBBBB">(</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">lastItem</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">TodoList</span><span style="color: #999">.</span><span style="color: #000">ItemsSource</span><span style="color: #999">.</span><span style="color: #DD4A68">OfType</span><span style="color: #999">&lt;</span><span style="color: #07A">object</span><span style="color: #999">&gt;().</span><span style="color: #DD4A68">Last</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">                </span><span style="color: #000">TodoList</span><span style="color: #999">.</span><span style="color: #DD4A68">ScrollTo</span><span style="color: #999">(</span><span style="color: #000">lastItem</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">ScrollToPosition</span><span style="color: #999">.</span><span style="color: #000">Start</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #905">true</span><span style="color: #999">);</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">}</span><span style="color: #BBBBBB">)</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Now you can see the scroll moving when a new item is added.</p></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/12</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/642c4c04779a63be966fa6579cbe2e444ddde584">642c4c04779a63be966fa6579cbe2e444ddde584</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+

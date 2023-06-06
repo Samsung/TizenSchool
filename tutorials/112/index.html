@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="generator" content="Astro v1.6.15">
+    <link rel="icon" type="image/png" sizes="16x16" href="/TizenSchool/assets/images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/TizenSchool/assets/images/favicon-32x32.png">
+    <title>How to create Basic Analog WatchFace</title>
+  <link rel="stylesheet" href="/TizenSchool/assets/aboutus.9016036b.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.013d619c.css" />
+<link rel="stylesheet" href="/TizenSchool/assets/10.0e005638.css" /></head>
+  <body>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()},window.dispatchEvent(new Event("astro:load"));var l;{const c={0:t=>t,1:t=>JSON.parse(t,o),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,o)),5:t=>new Set(JSON.parse(t,o)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},o=(t,s)=>{if(t===""||!Array.isArray(s))return s;const[e,n]=s;return e in c?c[e](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(l=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement&&this.parentElement.closest("astro-island[ssr]"))return;const s=this.querySelectorAll("astro-slot"),e={},n=this.querySelectorAll("template[data-astro-template]");for(const r of n){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("data-astro-template")||"default"]=r.innerHTML,r.remove())}for(const r of s){const i=r.closest(this.tagName);!i||!i.isSameNode(this)||(e[r.getAttribute("name")||"default"]=r.innerHTML)}const a=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),o):{};this.hydrator(this)(this.Component,a,e,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((s,e)=>{e.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate);let s=this.getAttribute("before-hydration-url");s&&await import(s),this.start()}start(){const s=JSON.parse(this.getAttribute("opts")),e=this.getAttribute("client");if(Astro[e]===void 0){window.addEventListener(`astro:${e}`,()=>this.start(),{once:!0});return}Astro[e](async()=>{const n=this.getAttribute("renderer-url"),[a,{default:r}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),i=this.getAttribute("component-export")||"default";if(!i.includes("."))this.Component=a[i];else{this.Component=a;for(const d of i.split("."))this.Component=this.Component[d]}return this.hydrator=r,this.hydrate},s,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},l.observedAttributes=["props"],l))}</script><astro-island uid="2r5SHS" component-url="/TizenSchool/Header.fde63186.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;Header&quot;,&quot;value&quot;:true}" await-children=""><div class="flex max-w-6xl mx-auto h-[80px] items-center justify-between"><a class="block bg-[url('/TizenSchool/assets/images/logo.png')] w-[212px] h-[52px]" href="/"></a>
+  
+
+<div class="flex w-[380px]"><input class="border-b text-lg border-[#436c9b] outline-none grow" value="">
+  <div class="w-4 ml-3 bg-search bg-no-repeat bg-center hover:bg-search-hover cursor-pointer"></div></div>
+  <a class="self-start text-[15px] pt-1 hover:font-semibold" href="/aboutus/">About us</a></div></astro-island><div class="text-default max-w-6xl mx-auto border-t border-default mt-4">
+    <div class="text-3xl font-extrabold text-amber-400 leading-[30px] pt-[30px]">
+      How to create Basic Analog WatchFace
+    </div>
+    <div class="flex gap-4 items-end">
+      <div class="grow text-lg basis-0">This tutorial teaches how to create analog watch face using Xamarin Forms.</div><div class="flex w-[216px] gap-[10px]">
+        <img src="/TizenSchool/assets/images/iot-dimmed.png">
+        <img src="/TizenSchool/assets/images/wearable-active.png">
+        <img src="/TizenSchool/assets/images/mobile-dimmed.png">
+        <img src="/TizenSchool/assets/images/smart-tv-dimmed.png">
+      </div>
+    </div>
+    <div class="mt-7 text-[0.93rem]">
+      Created <span class="font-bold mr-8">2018/08/14</span>
+            Modified
+            <span class="font-bold">2019/06/18</span>
+    </div>
+  </div><astro-island uid="2n7IVs" component-url="/TizenSchool/TextContent.c7f4d9de.js" component-export="default" renderer-url="/TizenSchool/client.788af3ea.js" props="{&quot;pageCount&quot;:[0,12],&quot;toc&quot;:[1,&quot;[[0,{\&quot;page\&quot;:[1,\&quot;[]\&quot;],\&quot;chapter\&quot;:[0,\&quot;\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Overview\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. Setting up the environment\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;I. Introduction\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Preparing the area\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. Adding the assets\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. Creating the view\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;4. Creating the view model\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;5. Creating bindings to the view model\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;6. Setting an application as the watch face\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;II. Application development - basic version\&quot;]}],[0,{\&quot;page\&quot;:[1,\&quot;[[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;1. Adding the assets\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;2. Updating the view\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;3. Updating the view model\\\&quot;]}],[0,{\\\&quot;title\\\&quot;:[0,\\\&quot;4. Creating bindings to the view model\\\&quot;]}]]\&quot;],\&quot;chapter\&quot;:[0,\&quot;III. Application development - extended version\&quot;]}]]&quot;]}" ssr="" client="load" opts="{&quot;name&quot;:&quot;TextContent&quot;,&quot;value&quot;:true}" await-children="">
+
+<div class="flex justify-center h-12 shadow-[0_2px_10px_#cfcfcf] bg-stone-100 my-[40px]"><div class="flex flex-grow justify-center relative items-center max-w-6xl"><button class="w-[184px] h-[34px absolute left-0 rounded-sm font-extrabold text-[17px] leading-[34px] after:content-[''] after:h-[10px] after:w-[10px] after:inline-block after:bg-no-repeat after:bg-center after:ml-3 bg-primary text-white after:rotate-90 S after:bg-arrow hover:bg-[#2aa29e]">Table of Content
+</button>
+
+
+
+
+    
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/12</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></div>
+<div class="max-w-6xl min-h-[400px] mx-auto text-tutorial"><astro-slot><div class="text-lg tutorial-container"><div class="chapter" style="display: none;"><div></div><h1 id="i-introduction">I. Introduction</h1><h2 id="1-overview">1. Overview</h2>
+<p>The Galaxy Watch is a perfect example of an intuitive user interface while utilizing the circular bezel, making it feel natural for the wearer. That experience is enhanced even further with its optimized power management and ecosystem.</p>
+<p>With this tutorial, you can learn how simple it&nbsp;is to expand on Galaxy Watch’s existing watch faces by creating a new one, tailored to your needs.</p>
+<p>The first part of the tutorial should not take more than 15 minutes.</p>
+<p>It ends with complete and ready to use&nbsp;watch application&nbsp;which is able to display the current time.</p>
+<img src="/TizenSchool/assets/images/tutorials/112/Dynamic_UI__1_updated.png" style="undefined">
+<p>The second part shows how to display battery related properties on the watch face and should not take more than 10 additional minutes.</p>
+<img src="/TizenSchool/assets/images/tutorials/112/Dynamic_UI__2_updated.png" style="undefined">
+<p>Presented solution is based on data provided by the Tizen Battery API.</p>
+<p>The code of this tutorial is under <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a> license.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="i-introduction">I. Introduction</h1><h2 id="2-setting-up-the-environment">2. Setting up the environment</h2>
+<p>To build the Tizen application for the wearable, the environment should be downloaded and installed.</p>
+<p>To test the application, following devices are required:</p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-application-development---basic-version">II. Application development - basic version</h1><h2 id="1-preparing-the-area">1. Preparing the area</h2>
+<p>Open&nbsp; <strong>Visual Studio IDE</strong> &nbsp;to create a new&nbsp; <strong>Tizen Wearable App</strong> .</p>
+<img src="/TizenSchool/assets/images/tutorials/112/File_New_Project_Selection.png" style="height:146px; margin-left:50px; margin-right:50px; width:633px">
+<img src="/TizenSchool/assets/images/tutorials/112/New_Project_Window_Selection_6_updated2.png" style="width:1000px">
+<img src="/TizenSchool/assets/images/tutorials/112/Visual_Studio_With_New_Project_Solution_Explorer_updated.png" style="height:614px; width:328px">
+<hr>
+<p>※.&nbsp;If you are using the <strong>Visual Studio 2019</strong> and find the following error, please open the WatchFace.csproj in “C:\project\WatchFace\WatchFace” and add the following code.</p>
+<img src="/TizenSchool/assets/images/tutorials/112/vs2019_error.png" style="height:75px; width:1000px">
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 56px; top: 140px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;</span><span style="color: #905">Project</span><span style="color: #BBBBBB"> </span><span style="color: #690">Sdk</span><span style="color: #A67F59">=</span><span style="color: #999">"</span><span style="color: #690">Microsoft.NET.Sdk</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">&lt;</span><span style="color: #905">PropertyGroup</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">OutputType</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB">Exe</span><span style="color: #999">&lt;/</span><span style="color: #905">OutputType</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">TargetFramework</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB">tizen40</span><span style="color: #999">&lt;/</span><span style="color: #905">TargetFramework</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">TargetFrameworkIdentifier</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB">Tizen</span><span style="color: #999">&lt;/</span><span style="color: #905">TargetFrameworkIdentifier</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">TargetFrameworkVersion</span><span style="color: #999">&gt;</span><span style="color: #BBBBBB">v4.0</span><span style="color: #999">&lt;/</span><span style="color: #905">TargetFrameworkVersion</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">  </span><span style="color: #999">&lt;/</span><span style="color: #905">PropertyGroup</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-application-development---basic-version">II. Application development - basic version</h1><h2 id="2-adding-the-assets">2. Adding the assets</h2>
+<p>Step 1:&nbsp;Download and unpack the&nbsp;<a href="https://tizenschool.org/assets/images/tutorials/112/watch_face_asset_basic.zip">basic assets</a>&nbsp;for the basic version of the&nbsp;application.</p>
+<p>The basic assets pack consists of two folders …</p>
+<img src="/TizenSchool/assets/images/tutorials/112/Basic_Assets_Zip.png" style="border-style:solid; border-width:1px; margin-left:50px; margin-right:50px">
+<p>… which contain&nbsp;following set of images:</p>
+<img src="/TizenSchool/assets/images/tutorials/112/face_updated.png" style="undefined">
+<img src="/TizenSchool/assets/images/tutorials/112/hour_sh.png" style="height:112px; margin-left:50px; margin-right:50px; width:12px">
+<img src="/TizenSchool/assets/images/tutorials/112/minute_sh.png" style="height:136px; margin-left:50px; margin-right:50px; width:12px">
+<img src="/TizenSchool/assets/images/tutorials/112/second_sh.png" style="height:160px; margin-left:50px; margin-right:50px; width:12px">
+<img src="/TizenSchool/assets/images/tutorials/112/nut.png" style="height:17px; margin-left:50px; margin-right:50px; width:17px">
+<img src="/TizenSchool/assets/images/tutorials/112/WatchFaceSDC.png" style="height:117px; margin-left:50px; margin-right:50px; width:117px">
+<p>Step 2: Select and copy the unpacked folders and paste them directly to the WatchFace project.</p>
+<img src="/TizenSchool/assets/images/tutorials/112/Assets_Paste_Selected_updated.png" style="height:596px; width:294px">
+<p>Step 3: Confirm following pop-ups to replace the content of the <strong>res</strong> and <strong>shared</strong> folders of the project.</p>
+<img src="/TizenSchool/assets/images/tutorials/112/Replace_Res.png" style="height:182px; margin-left:50px; margin-right:50px; width:503px">
+<img src="/TizenSchool/assets/images/tutorials/112/Replace_Shared.png" style="height:182px; margin-left:50px; margin-right:50px; width:503px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-application-development---basic-version">II. Application development - basic version</h1><h2 id="3-creating-the-view">3. Creating the view</h2>
+<p>Step 1:&nbsp;Go to&nbsp; <strong><em>Solution Explorer</em></strong> &nbsp;window and open the <strong><em>TextWatchApplication.xaml</em></strong> file.</p>
+<p>Step 2: <strong>Remove</strong> the StackLayout element, which has been prepared&nbsp;by default, and <strong>add</strong> an empty AbsoluteLayout element.</p>
+<p>All other view elements will be placed in the AbsoluteLayout&nbsp;element to be positioned absolutely.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 84px; top: 168px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;?</span><span style="color: #905">xml</span><span style="color: #690"> version</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">1.0</span><span style="color: #999">"</span><span style="color: #690"> encoding</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">utf-8</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">?&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;</span><span style="color: #905">Application</span><span style="color: #BBBBBB"> </span><span style="color: #690">xmlns</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://xamarin.com/schemas/2014/forms</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">xmlns</span><span style="color: #999">:</span><span style="color: #690">x</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">http://schemas.microsoft.com/winfx/2009/xaml</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">             </span><span style="color: #669900B3">x</span><span style="color: #999">:</span><span style="color: #690">Class</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">WatchFace.TextWatchApplication</span><span style="color: #999">"</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">Application.MainPage</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;</span><span style="color: #905">ContentPage</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;</span><span style="color: #905">AbsoluteLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #999">&lt;/</span><span style="color: #905">AbsoluteLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">&lt;/</span><span style="color: #905">ContentPage</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;/</span><span style="color: #905">Application.MainPage</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;/</span><span style="color: #905">Application</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 3: Add&nbsp;image elements responsible for displaying a watch face, all the watch hands, as well as a nut that connects all hands of the watch.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 448px; top: 28px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;</span><span style="color: #905">AbsoluteLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">Image</span><span style="color: #BBBBBB"> </span><span style="color: #690">AbsoluteLayout.LayoutFlags</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">All</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">           </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0, 0, 1, 1</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">           </span><span style="color: #690">Source</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">face.png</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">Image</span><span style="color: #BBBBBB"> </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">177, 90, 6, 180</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">           </span><span style="color: #690">Source</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">hour_hand.png</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">Image</span><span style="color: #BBBBBB"> </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">178, 65, 4, 230</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">           </span><span style="color: #690">Source</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">minute_hand.png</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">Image</span><span style="color: #BBBBBB"> </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">179, 40, 2, 280</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">           </span><span style="color: #690">Source</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">second_hand.png</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">Image</span><span style="color: #BBBBBB"> </span><span style="color: #690">AbsoluteLayout.LayoutFlags</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">PositionProportional</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">           </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">.5, .5, 17, 17</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">           </span><span style="color: #690">Source</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">nut.png</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;/</span><span style="color: #905">AbsoluteLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Right now&nbsp;the application can be run on the target device.</p>
+<p>To do this, follow the steps below:</p>
+<img src="/TizenSchool/assets/images/tutorials/112/Static_UI_updated.png" style="undefined">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-application-development---basic-version">II. Application development - basic version</h1><h2 id="4-creating-the-view-model">4. Creating the view model</h2>
+<p>Step 1:&nbsp;Go to&nbsp; <strong><em>Solution Explorer</em></strong> &nbsp;window and open the&nbsp; <strong><em>ClockViewModel.cs</em></strong> &nbsp;file.</p>
+<p>Step 2: Define three properties responsible for storing information about rotation value of each watch hand.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 112px; top: 28px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #000">DateTime</span><span style="color: #BBBBBB"> </span><span style="color: #000">_time</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">double</span><span style="color: #BBBBBB"> </span><span style="color: #000">HourHandRotation</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #000">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">double</span><span style="color: #BBBBBB"> </span><span style="color: #000">MinuteHandRotation</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #000">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">double</span><span style="color: #BBBBBB"> </span><span style="color: #000">SecondHandRotation</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #000">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">DateTime</span><span style="color: #BBBBBB"> </span><span style="color: #000">Time</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">get</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">_time</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">set</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">_time</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">==</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #07A">return</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">_time</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #DD4A68">OnPropertyChanged</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 3: Calculate new rotation value for each watch hand, whenever the Time property setter is executed.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 168px; top: 196px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">DateTime</span><span style="color: #BBBBBB"> </span><span style="color: #000">Time</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">get</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">_time</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">set</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">_time</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">==</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #07A">return</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">_time</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">hourHandRotation</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">_time</span><span style="color: #999">.</span><span style="color: #000">Hour</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #07A">double</span><span style="color: #999">)</span><span style="color: #000">_time</span><span style="color: #999">.</span><span style="color: #000">Minute</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">/</span><span style="color: #BBBBBB"> </span><span style="color: #905">60</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">*</span><span style="color: #BBBBBB"> </span><span style="color: #905">30</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">minuteHandRotation</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">_time</span><span style="color: #999">.</span><span style="color: #000">Minute</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #07A">double</span><span style="color: #999">)</span><span style="color: #000">_time</span><span style="color: #999">.</span><span style="color: #000">Second</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">/</span><span style="color: #BBBBBB"> </span><span style="color: #905">60</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">*</span><span style="color: #BBBBBB"> </span><span style="color: #905">6</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">secondHandRotation</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">_time</span><span style="color: #999">.</span><span style="color: #000">Second</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">*</span><span style="color: #BBBBBB"> </span><span style="color: #905">6</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #DD4A68">OnPropertyChanged</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 4: Update created properties and notify the application about changes.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 140px; top: 252px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 140px; top: 448px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 140px; top: 644px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">DateTime</span><span style="color: #BBBBBB"> </span><span style="color: #000">Time</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">get</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=&gt;</span><span style="color: #BBBBBB"> </span><span style="color: #000">_time</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">set</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">_time</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">==</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #07A">return</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #000">_time</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">value</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">hourHandRotation</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">_time</span><span style="color: #999">.</span><span style="color: #000">Hour</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #07A">double</span><span style="color: #999">)</span><span style="color: #000">_time</span><span style="color: #999">.</span><span style="color: #000">Minute</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">/</span><span style="color: #BBBBBB"> </span><span style="color: #905">60</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">*</span><span style="color: #BBBBBB"> </span><span style="color: #905">30</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">hourHandRotation</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">!=</span><span style="color: #BBBBBB"> </span><span style="color: #000">HourHandRotation</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">HourHandRotation</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">hourHandRotation</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">OnPropertyChanged</span><span style="color: #999">(</span><span style="color: #07A">nameof</span><span style="color: #999">(</span><span style="color: #000">HourHandRotation</span><span style="color: #999">));</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">minuteHandRotation</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">_time</span><span style="color: #999">.</span><span style="color: #000">Minute</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #07A">double</span><span style="color: #999">)</span><span style="color: #000">_time</span><span style="color: #999">.</span><span style="color: #000">Second</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">/</span><span style="color: #BBBBBB"> </span><span style="color: #905">60</span><span style="color: #999">)</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">*</span><span style="color: #BBBBBB"> </span><span style="color: #905">6</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">minuteHandRotation</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">!=</span><span style="color: #BBBBBB"> </span><span style="color: #000">MinuteHandRotation</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">MinuteHandRotation</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">minuteHandRotation</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">OnPropertyChanged</span><span style="color: #999">(</span><span style="color: #07A">nameof</span><span style="color: #999">(</span><span style="color: #000">MinuteHandRotation</span><span style="color: #999">));</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">var</span><span style="color: #BBBBBB"> </span><span style="color: #000">secondHandRotation</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">_time</span><span style="color: #999">.</span><span style="color: #000">Second</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">*</span><span style="color: #BBBBBB"> </span><span style="color: #905">6</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #07A">if</span><span style="color: #BBBBBB"> </span><span style="color: #999">(</span><span style="color: #000">secondHandRotation</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">!=</span><span style="color: #BBBBBB"> </span><span style="color: #000">SecondHandRotation</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #000">SecondHandRotation</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">secondHandRotation</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">            </span><span style="color: #DD4A68">OnPropertyChanged</span><span style="color: #999">(</span><span style="color: #07A">nameof</span><span style="color: #999">(</span><span style="color: #000">SecondHandRotation</span><span style="color: #999">));</span></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">        </span><span style="color: #DD4A68">OnPropertyChanged</span><span style="color: #999">();</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>So we already have all important&nbsp;rotation data&nbsp;which values are updated&nbsp;when it is necessary.</p>
+<p>All that is left is to bind them to the user interface.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-application-development---basic-version">II. Application development - basic version</h1><h2 id="5-creating-bindings-to-the-view-model">5. Creating bindings to the view model</h2>
+<p>Step 1:&nbsp;Go to&nbsp; <strong><em>Solution Explorer</em></strong> &nbsp;window and open the <strong><em>TextWatchApplication.xaml</em></strong> file.</p>
+<p>Step 2: Create bindings to previously created view model properties.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 196px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 308px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 420px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;</span><span style="color: #905">AbsoluteLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">Image</span><span style="color: #BBBBBB"> </span><span style="color: #690">AbsoluteLayout.LayoutFlags</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">All</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">           </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0, 0, 1, 1</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">           </span><span style="color: #690">Source</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">face.png</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">Image</span><span style="color: #BBBBBB"> </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">177, 90, 6, 180</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">           </span><span style="color: #690">Source</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">hour_hand.png</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">           </span><span style="color: #690">Rotation</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding HourHandRotation}</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">Image</span><span style="color: #BBBBBB"> </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">178, 65, 4, 230</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">           </span><span style="color: #690">Source</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">minute_hand.png</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">           </span><span style="color: #690">Rotation</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding MinuteHandRotation}</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">Image</span><span style="color: #BBBBBB"> </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">179, 40, 2, 280</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">           </span><span style="color: #690">Source</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">second_hand.png</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">           </span><span style="color: #690">Rotation</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding SecondHandRotation}</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #999">&lt;</span><span style="color: #905">Image</span><span style="color: #BBBBBB"> </span><span style="color: #690">AbsoluteLayout.LayoutFlags</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">PositionProportional</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">           </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">.5, .5, 17, 17</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">           </span><span style="color: #690">Source</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">nut.png</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"><span style="color: #999">&lt;/</span><span style="color: #905">AbsoluteLayout</span><span style="color: #999">&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Great !</p>
+<p>We have just completed the implementation of the basic functionality of the watch.</p>
+<p>Right now&nbsp;the application can be run on the target device or emulator.</p>
+<p>But if you use the target device, launched application does not show&nbsp;the current time and the watch hands do not move.</p>
+<img src="/TizenSchool/assets/images/tutorials/112/Static_UI_updated.png" style="height:544px; width:400px">
+<p>This is not a mistake.</p>
+<p>In order to allow the application to work, you should set it as a watch face.</p>
+<p>Go to the next page to find out how to do it.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="ii-application-development---basic-version">II. Application development - basic version</h1><h2 id="6-setting-an-application-as-the-watch-face">6. Setting an application as the watch face</h2>
+<p>Step 1: Press the <strong>Back</strong> button (Upper button on the right side)&nbsp;to close the WatchFace application if it is launched.</p>
+<p>Step 2: If necessary, use the <strong>Home</strong> button (Bottom button on the right side) to switch the device screen to the default watch face.</p>
+<img src="/TizenSchool/assets/images/tutorials/112/Default_Face.png" style="margin-left:50px; margin-right:50px">
+<p>Step 3: Tap and hold the device screen, and then rotate the <strong>Bezel</strong> to find your watch face on the list of&nbsp;available watch faces.</p>
+<img src="/TizenSchool/assets/images/tutorials/112/Change_Face_1.png" style="height:544px; margin-left:50px; margin-right:50px; width:400px">
+&nbsp;&nbsp;&nbsp;
+<img src="/TizenSchool/assets/images/tutorials/112/Change_Face_2.png" style="height:544px; width:400px">
+<p>Step 4:&nbsp;Tap a desired watch face. The watch face you selected should be&nbsp;applied on the device screen.</p>
+<img src="/TizenSchool/assets/images/tutorials/112/New_Face_1_updated.png" style="undefined">
+<p>The application sets as the watch face and shows the correct time.</p>
+<p>Enjoy using your new watch face.</p>
+<p>The next steps of this tutorial are optional.</p>
+<p>But if you want to know how to display the battery information on the watch face, follow the rest&nbsp;steps.</p>
+
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-application-development---extended-version">III. Application development - extended version</h1><h2 id="1-adding-the-assets">1. Adding the assets</h2>
+<p>Step 1:&nbsp;Download and unpack the&nbsp;<a href="https://tizenschool.org/assets/images/tutorials/112/watch_face_assets_additional.zip">additional assets</a>&nbsp;for the extended&nbsp;version of the&nbsp;application.</p>
+<p>The additional assets pack consists of one&nbsp;folder&nbsp;…</p>
+<img src="/TizenSchool/assets/images/tutorials/112/Extended_Assets_Zip.png" style="border-style:solid; border-width:1px; height:22px; margin-left:50px; margin-right:50px; width:60px">
+<p>… which contains one additional image:</p>
+<img src="/TizenSchool/assets/images/tutorials/112/charging.png" style="height:21px; width:15px">
+<img src="/TizenSchool/assets/images/tutorials/112/charging_sh.png" style="height:22px; margin-left:50px; margin-right:50px; width:16px">
+<p>Step 2: Select and copy the unpacked folder&nbsp;and paste it directly to the WatchFace project.</p>
+<img src="/TizenSchool/assets/images/tutorials/112/Assets_Paste_Selected_updated.png" style="height:596px; width:294px">
+<p>Step 3: Confirm following popup&nbsp;to replace the content of the&nbsp; <strong>res</strong> &nbsp;folder&nbsp;of the project.</p>
+<img src="/TizenSchool/assets/images/tutorials/112/Replace_Res.png" style="height:182px; margin-left:50px; margin-right:50px; width:503px">
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-application-development---extended-version">III. Application development - extended version</h1><h2 id="2-updating-the-view">2. Updating the view</h2>
+<p>Step 1:&nbsp;Go to&nbsp; <strong><em>Solution Explorer</em></strong> &nbsp;window and open the&nbsp; <strong><em>TextWatchApplication.xaml</em></strong> &nbsp;file.</p>
+<p>Step 2: Add an image element responsible for displaying a charging indicator and a label element responsible for displaying a percentage value of the battery level.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 336px; top: 84px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;</span><span style="color: #905">Image</span><span style="color: #BBBBBB"> </span><span style="color: #690">AbsoluteLayout.LayoutFlags</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">All</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0, 0, 1, 1</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">Source</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">face.png</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">&lt;</span><span style="color: #905">Image</span><span style="color: #BBBBBB"> </span><span style="color: #690">AbsoluteLayout.LayoutFlags</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">XProportional</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">.5, 269, 15, 21</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">Source</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">charging.png</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">&lt;</span><span style="color: #905">Label</span><span style="color: #BBBBBB"> </span><span style="color: #690">AbsoluteLayout.LayoutFlags</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">XProportional</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">.5, 300, 100, 19</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">0</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">FontFamily</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">BreezeSans</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">FontSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">8.4</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">HorizontalTextAlignment</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Center</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">TextColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">White</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">&lt;</span><span style="color: #905">Image</span><span style="color: #BBBBBB"> </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">177, 90, 6, 180</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">Source</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">hour_hand.png</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">Rotation</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding HourHandRotation}</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Right now&nbsp;the application runs&nbsp;on the target device and sets as the device watch face.</p>
+<img src="/TizenSchool/assets/images/tutorials/112/Dynamic_UI__2_updated.png" style="undefined">
+<p>The application UI is now extended by two additional elements.</p>
+<p>But still we have something to do. The charger indicator is displayed permanently, regardless of the charging state.&nbsp;Moreover, the battery level value does not display proper value.&nbsp;Solving these problems will be the goal of the further part&nbsp;of the tutorial.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-application-development---extended-version">III. Application development - extended version</h1><h2 id="3-updating-the-view-model">3. Updating the view model</h2>
+<p>Step 1:&nbsp;Go to&nbsp; <strong><em>Solution Explorer</em></strong> &nbsp;window and open the&nbsp; <strong><em>ClockViewModel.cs</em></strong> &nbsp;file.</p>
+<p>Step 2: Define two&nbsp;properties responsible for storing information about battery percentage value and charging state.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 56px; top: 84px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">double</span><span style="color: #BBBBBB"> </span><span style="color: #000">HourHandRotation</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #000">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">double</span><span style="color: #BBBBBB"> </span><span style="color: #000">MinuteHandRotation</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #000">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">double</span><span style="color: #BBBBBB"> </span><span style="color: #000">SecondHandRotation</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #000">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">int</span><span style="color: #BBBBBB"> </span><span style="color: #000">BatteryPercentage</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #000">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">bool</span><span style="color: #BBBBBB"> </span><span style="color: #000">IsCharging</span><span style="color: #BBBBBB"> </span><span style="color: #999">{</span><span style="color: #BBBBBB"> </span><span style="color: #000">get</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #000">private</span><span style="color: #BBBBBB"> </span><span style="color: #000">set</span><span style="color: #999">;</span><span style="color: #BBBBBB"> </span><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">DateTime</span><span style="color: #BBBBBB"> </span><span style="color: #000">Time</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 3: Create a class constructor and set initial values to created properties.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 168px; top: 28px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #000">event</span><span style="color: #BBBBBB"> </span><span style="color: #000">PropertyChangedEventHandler</span><span style="color: #BBBBBB"> </span><span style="color: #000">PropertyChanged</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ClockViewModel</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">BatteryPercentage</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Battery</span><span style="color: #999">.</span><span style="color: #000">Percent</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">IsCharging</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Battery</span><span style="color: #999">.</span><span style="color: #000">IsCharging</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">protected</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnPropertyChanged</span><span style="color: #999">([</span><span style="color: #000">CallerMemberName</span><span style="color: #999">]</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">propertyName</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">""</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">PropertyChanged</span><span style="color: #A67F59">?</span><span style="color: #999">.</span><span style="color: #DD4A68">Invoke</span><span style="color: #999">(</span><span style="color: #07A">this</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">PropertyChangedEventArgs</span><span style="color: #999">(</span><span style="color: #000">propertyName</span><span style="color: #999">));</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 4: Add an&nbsp; <strong><em>using</em></strong> statement for Tizen.System to get access to the Tizen Battery API.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 168px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">ComponentModel</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Runtime</span><span style="color: #BBBBBB">.</span><span style="color: #000">CompilerServices</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Collections</span><span style="color: #BBBBBB">.</span><span style="color: #000">Generic</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Linq</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">System</span><span style="color: #BBBBBB">.</span><span style="color: #000">Text</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #07A">using</span><span style="color: #BBBBBB"> </span><span style="color: #000">Tizen</span><span style="color: #BBBBBB">.</span><span style="color: #000">System</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">namespace</span><span style="color: #BBBBBB"> </span><span style="color: #000">WatchFace</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 5: Extend the class constructor by defining handlers of&nbsp; <strong><em>PercentChanged</em></strong> and&nbsp; <strong><em>ChargingStateChanged</em></strong> &nbsp;events.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 84px; top: 112px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ClockViewModel</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">BatteryPercentage</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Battery</span><span style="color: #999">.</span><span style="color: #000">Percent</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">IsCharging</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Battery</span><span style="color: #999">.</span><span style="color: #000">IsCharging</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">Battery</span><span style="color: #999">.</span><span style="color: #000">PercentChanged</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">OnBatteryPercentChanged</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">Battery</span><span style="color: #999">.</span><span style="color: #000">ChargingStateChanged</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">OnBatteryChargingStateChanged</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Step 6: Implement defined event handlers.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 336px; top: 224px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #07A">public</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">ClockViewModel</span><span style="color: #999">()</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">BatteryPercentage</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Battery</span><span style="color: #999">.</span><span style="color: #000">Percent</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">IsCharging</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">Battery</span><span style="color: #999">.</span><span style="color: #000">IsCharging</span><span style="color: #999">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">Battery</span><span style="color: #999">.</span><span style="color: #000">PercentChanged</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">OnBatteryPercentChanged</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">Battery</span><span style="color: #999">.</span><span style="color: #000">ChargingStateChanged</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">+=</span><span style="color: #BBBBBB"> </span><span style="color: #000">OnBatteryChargingStateChanged</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnBatteryPercentChanged</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">BatteryPercentChangedEventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">BatteryPercentage</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">Percent</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #DD4A68">OnPropertyChanged</span><span style="color: #999">(</span><span style="color: #07A">nameof</span><span style="color: #999">(</span><span style="color: #000">BatteryPercentage</span><span style="color: #999">));</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">private</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnBatteryChargingStateChanged</span><span style="color: #999">(</span><span style="color: #07A">object</span><span style="color: #BBBBBB"> </span><span style="color: #000">sender</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #000">BatteryChargingStateChangedEventArgs</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">IsCharging</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #000">e</span><span style="color: #999">.</span><span style="color: #000">IsCharging</span><span style="color: #999">;</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #DD4A68">OnPropertyChanged</span><span style="color: #999">(</span><span style="color: #07A">nameof</span><span style="color: #999">(</span><span style="color: #000">IsCharging</span><span style="color: #999">));</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #07A">protected</span><span style="color: #BBBBBB"> </span><span style="color: #07A">void</span><span style="color: #BBBBBB"> </span><span style="color: #DD4A68">OnPropertyChanged</span><span style="color: #999">([</span><span style="color: #000">CallerMemberName</span><span style="color: #999">]</span><span style="color: #BBBBBB"> </span><span style="color: #07A">string</span><span style="color: #BBBBBB"> </span><span style="color: #000">propertyName</span><span style="color: #BBBBBB"> </span><span style="color: #A67F59">=</span><span style="color: #BBBBBB"> </span><span style="color: #999">""</span><span style="color: #999">)</span></span>
+<span class="line"><span style="color: #999">{</span></span>
+<span class="line"><span style="color: #BBBBBB">    </span><span style="color: #000">PropertyChanged</span><span style="color: #A67F59">?</span><span style="color: #999">.</span><span style="color: #DD4A68">Invoke</span><span style="color: #999">(</span><span style="color: #07A">this</span><span style="color: #999">,</span><span style="color: #BBBBBB"> </span><span style="color: #07A">new</span><span style="color: #BBBBBB"> </span><span style="color: #000">PropertyChangedEventArgs</span><span style="color: #999">(</span><span style="color: #000">propertyName</span><span style="color: #999">));</span></span>
+<span class="line"><span style="color: #999">}</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>So we already have all data needed to&nbsp;display battery properties on the watch face.</p>
+<p>All that is left is to bind them to the user interface.</p>
+</div><div class="chapter" style="display: none;"><div></div><h1 id="iii-application-development---extended-version">III. Application development - extended version</h1><h2 id="4-creating-bindings-to-the-view-model">4. Creating bindings to the view model</h2>
+<p>Step 1:&nbsp;Go to&nbsp; <strong><em>Solution Explorer</em></strong> &nbsp;window and open the&nbsp; <strong><em>TextWatchApplication.xaml</em></strong> &nbsp;file.</p>
+<p>Step 2: Create bindings to previously created view model properties.</p>
+
+<body><div class="mt-2 mb-5">
+              <div class="h-12 code-block-bar">
+                <div class="copy-btn"></div>
+              </div>
+              <div class="relative">
+                
+                        <div style="height: 28px; top: 84px" class="absolute inset-x-0 code-highlight"></div>
+                        <div style="height: 28px; top: 196px" class="absolute inset-x-0 code-highlight"></div>
+                <pre is:raw="" class="astro-code" style="background-color: #f5f2f0; overflow-x: auto;"><code><span class="line"><span style="color: #999">&lt;</span><span style="color: #905">Image</span><span style="color: #BBBBBB"> </span><span style="color: #690">AbsoluteLayout.LayoutFlags</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">XProportional</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">.5, 269, 15, 21</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">Source</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">charging.png</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">IsVisible</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding IsCharging}</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #999">&lt;</span><span style="color: #905">Label</span><span style="color: #BBBBBB"> </span><span style="color: #690">AbsoluteLayout.LayoutFlags</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">XProportional</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">AbsoluteLayout.LayoutBounds</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">.5, 300, 100, 19</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">Text</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">{Binding BatteryPercentage, StringFormat='{0}%'}</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">FontFamily</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">BreezeSans</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">FontSize</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">8.4</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">HorizontalTextAlignment</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">Center</span><span style="color: #999">"</span></span>
+<span class="line"><span style="color: #BBBBBB">       </span><span style="color: #690">TextColor</span><span style="color: #BBBBBB">=</span><span style="color: #999">"</span><span style="color: #07A">White</span><span style="color: #999">"</span><span style="color: #BBBBBB"> </span><span style="color: #999">/&gt;</span></span>
+<span class="line"></span></code></pre>
+              <div>
+            </div></div></div></body>
+<p>Great !</p>
+<p>We have just completed the implementation of the extended&nbsp;functionality of the watch.</p>
+<p>Right now&nbsp;the application can be run on the target device and set as the device watch face.</p>
+<p>As you can see, the charging indicator is displayed only when the device is plugged in to the charger.</p>
+<p>Additionally,&nbsp;the current value of the battery level is displayed on the screen.</p>
+<img src="/TizenSchool/assets/images/tutorials/112/Dynamic_UI__2_updated.png" style="height:544px; width:400px">
+<p>Thank you.</p></div></div></astro-slot></div>
+<div class="flex justify-center items-center h-12">
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    border border-[#dfdfdf] bg-arrow-page-grey
+  "></div>
+<span class="font-extrabold w-28 text-center text-xl text-tutorial">1/12</span>
+
+<div class="
+    h-[30px] w-[30px] rounded-full bg-arrow 
+    bg-[position:12px_7px] 
+    bg-[size:8px] 
+    bg-no-repeat
+    rotate-180
+    last:rotate-0
+    bg-primary bg-arrow hover:bg-[#2aa29e] cursor-pointer
+  "></div></div></astro-island>
+    <div class="h-24 bg-gray-100">
+      <div class="flex items-center h-full w-[1180px] mx-auto pl-2 text-lg border-t-4 border-primary">
+        ©2023
+        <span class="font-bold">Tizen School <a class="text-sm font-light underline text-blue-600 pl-1" href="https://github.com/Samsung/TizenSchool/commit/642c4c04779a63be966fa6579cbe2e444ddde584">642c4c04779a63be966fa6579cbe2e444ddde584</a>
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
+
